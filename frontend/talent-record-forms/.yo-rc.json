@@ -1,0 +1,8 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "version": "1.4.1",
+    "libraryName": "talent-record-forms",
+    "libraryId": "08417d0c-0483-40e5-8a51-e7949fabbae5",
+    "environment": "spo"
+  }
+}

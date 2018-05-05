@@ -1,0 +1,18 @@
+{
+  "$schema": "https://dev.office.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "talent-record-forms-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/talentRecordForms/TalentRecordFormsWebPart.js",
+          "manifest": "./src/webparts/talentRecordForms/TalentRecordFormsWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "TalentRecordFormsWebPartStrings": "lib/webparts/talentRecordForms/loc/{locale}.js"
+  }
+}
