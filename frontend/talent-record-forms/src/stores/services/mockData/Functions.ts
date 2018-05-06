@@ -6,7 +6,12 @@ const functions = [
   {value:"Legal & Compliance",
     label:"Legal & Compliance"},
   {value:"MarComms",
-    label:"MarComms"}
+    label: "MarComms"
+  },
+  {
+    value: "MarComms1",
+    label: "MarComms1"
+  }
 ]
 
 export default functions;

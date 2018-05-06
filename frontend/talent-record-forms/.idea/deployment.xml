@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="Kier_Talent_DB_Commits" uploadOnCheckin="88f0aff8-a8a0-4259-ba81-a355b983f083">
+    <serverData>
+      <paths name="Kier_Talent_DB_Commits">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myUploadOnCheckinName" value="Kier_Talent_DB_Commits" />
+  </component>
+</project>

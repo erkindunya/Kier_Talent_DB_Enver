@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
-import { Version } from '@microsoft/sp-core-library';
+import {Version} from '@microsoft/sp-core-library';
 import {
   BaseClientSideWebPart,
   IPropertyPaneConfiguration,
@@ -9,9 +9,11 @@ import {
 
 import * as strings from 'TalentRecordFormsWebPartStrings';
 import WrappedForm from './components/TalentRecordForms';
-import { ITalentRecordFormsProps } from './components/ITalentRecordFormsProps';
+import {ITalentRecordFormsProps} from './components/ITalentRecordFormsProps';
 import {Form} from "antd";
 import 'antd/dist/antd.css';
+import {Provider} from "mobx-react";
+import {AppStore} from "../../stores/AppStore";
 
 export interface ITalentRecordFormsWebPartProps {
   description: string;
@@ -22,14 +24,8 @@ export default class TalentRecordFormsWebPart extends BaseClientSideWebPart<ITal
   public render(): void {
 
     const element = React.createElement(WrappedForm);
-    /*const element: React.ReactElement<ITalentRecordFormsProps > = React.createElement(
-      TalentRecordForms,
-      {
-        description: this.properties.description
-      }
-    );*/
-
-    ReactDom.render(element, this.domElement);
+    const appStore = AppStore.create({});
+    ReactDom.render(<Provider store={appStore}><WrappedForm/></Provider>, this.domElement);
   }
 
   protected get dataVersion(): Version {

@@ -15,6 +15,7 @@ import PotentialRatingSlider from "./PotentialRatingSlider";
 import UserRemoteSelect from "./UserSelector";
 import MovementStatusSelector from "./MovementStatusSelector";
 import DevelopmentRequirementCascader from "./DevelopmentRequirementCascader";
+import {inject, observer} from "mobx-react";
 
 const FormItem = Form.Item;
 const {Header, Content, Footer, Sider} = Layout;
@@ -23,7 +24,9 @@ function hasErrors(fieldsError) {
   return Object.keys(fieldsError).some(field => fieldsError[field]);
 }
 
-class TalentRecordForms extends React.Component<ITalentRecordFormsProps & FormComponentProps, any> {
+@inject("store")
+@observer
+class TalentRecordForms extends React.Component<any, any> {
 
   constructor() {
     super();
@@ -34,6 +37,11 @@ class TalentRecordForms extends React.Component<ITalentRecordFormsProps & FormCo
 
   handleSubmit = (e) => {
     console.log("Form Submitted")
+  }
+
+
+  componentDidMount() {
+    console.log(this.props.store.BusinessFunctions.functions.length);
   }
 
   render() {
@@ -48,25 +56,34 @@ class TalentRecordForms extends React.Component<ITalentRecordFormsProps & FormCo
       wrapperCol: { span: 7 },
     } : null;*/
     const formItemLayout = {
-     /* labelCol: {
-        xs: {span: 40},
-        sm: {span: 8},
-      },
-      wrapperCol: {
-        xs: {span: 40},
-        sm: {span: 16},
-      },*/
+      /* labelCol: {
+         xs: {span: 40},
+         sm: {span: 8},
+       },
+       wrapperCol: {
+         xs: {span: 40},
+         sm: {span: 16},
+       },*/
     };
     const Option = Select.Option;
 
     return (
       <div>
-        <Row><Col span={24} style={{height:'112px', backgroundColor:"#078181"}}>
-          <div style={{margin: '38px 54px 56px 32px', fontSize:'16px',fontWeight:200, letterSpacing:'1px', lineHeight:'18px', backgroundColor:"#078181", color:'white'}}>CREATE A <b>TALENT RECORD</b></div>
+        <Row><Col span={24} style={{height: '112px', backgroundColor: "#078181"}}>
+          <div style={{
+            margin: '38px 54px 56px 32px',
+            fontSize: '16px',
+            fontWeight: 200,
+            letterSpacing: '1px',
+            lineHeight: '18px',
+            backgroundColor: "#078181",
+            color: 'white'
+          }}>CREATE A <b>TALENT RECORD</b></div>
         </Col></Row>
         <Row><Col span={24}>
-          <Form layout="vertical" onSubmit={this.handleSubmit} style={{border: '2px solid black', padding : '0px 5px 5px 5px'}}>
-            <Divider>Employee Information</Divider>
+          <Form layout="vertical" onSubmit={this.handleSubmit}
+                style={{border: '2px solid black', padding: '0px 5px 5px 5px'}}>
+            <Divider orientation='left'>Employee Information</Divider>
             <Row gutter={20}>
               <Col span={16}>
                 <FormItem label="Business Unit" {...formItemLayout}>
@@ -82,7 +99,7 @@ class TalentRecordForms extends React.Component<ITalentRecordFormsProps & FormCo
                   {getFieldDecorator('function', {
                     rules: [{required: true, message: 'Please select a function!'}],
                   })(
-                    <FunctionSelector/>
+                    <FunctionSelector items={this.props.store.BusinessFunctions.functions}/>
                   )}
                 </FormItem>
               </Col>
@@ -144,9 +161,6 @@ class TalentRecordForms extends React.Component<ITalentRecordFormsProps & FormCo
             </Row>
 
 
-
-
-
             <Divider>Performance & Potential Ratings</Divider>
             <Row><Col><FormItem label="Too New To Rate?" {...formItemLayout}>
               {getFieldDecorator('newToRate', {
@@ -172,8 +186,6 @@ class TalentRecordForms extends React.Component<ITalentRecordFormsProps & FormCo
               </FormItem></Col></Row>
 
 
-
-
             <Divider>Movement</Divider>
             <FormItem label="Movement Status" {...formItemLayout}>
               {getFieldDecorator('movementStatus', {
@@ -189,17 +201,17 @@ class TalentRecordForms extends React.Component<ITalentRecordFormsProps & FormCo
                 {getFieldDecorator('flightRisk', {
                   rules: [{required: true, message: 'Please select flight risk!'}],
                 })(
-                  <RiskSelector/>
+                  <RiskSelector items={this.props.store.Risks.risksLookup}/>
                 )}
               </FormItem></Col>
-              <Col span={12}><FormItem label="Business Risk" {...formItemLayout}>
+              <Col span={12}>{/*<FormItem label="Business Risk" {...formItemLayout}>
                 {getFieldDecorator('businessRisk', {
                   rules: [{required: true, message: 'Please select business risk!'}],
                 })(
                   <RiskSelector/>
                 )}
 
-              </FormItem></Col>
+              </FormItem>*/}</Col>
             </Row>
 
             <Divider>Development Requirements</Divider>
@@ -225,7 +237,7 @@ class TalentRecordForms extends React.Component<ITalentRecordFormsProps & FormCo
                   {getFieldDecorator('devNotes', {
                     rules: [{required: true, message: 'Please select a business unit!'}],
                   })(
-                    <Input.TextArea rows={5} />
+                    <Input.TextArea rows={5}/>
                   )}
                 </FormItem>
               </Col>

@@ -1,7 +1,10 @@
 import * as React from 'react';
 import {Radio} from 'antd';
+import {observe} from "mobx";
+import {observer} from "mobx-react";
 
-export default class RiskSelector extends React.Component {
+@observer
+export default class RiskSelector extends React.Component<any, any> {
 
   handleChange = (e) => {
     console.log(e.target.value);
@@ -12,9 +15,9 @@ export default class RiskSelector extends React.Component {
     const RadioGroup = Radio.Group;
     return (
       <RadioGroup onChange={this.handleChange}>
-        <RadioButton value="High">High</RadioButton>
-        <RadioButton value="Medium">Medium</RadioButton>
-        <RadioButton value="Low">Low</RadioButton>
+        {
+          this.props.items.map(r => <RadioButton value={r.value}>{r.label}</RadioButton>)
+        }
       </RadioGroup>
     )
   }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="88f0aff8-a8a0-4259-ba81-a355b983f083" name="Kier_Talent_DB_Commits" url="http://localhost">
+        <fileTransfer port="0" mountedRoot="C:\Kier_Talent_DB_Commits" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>

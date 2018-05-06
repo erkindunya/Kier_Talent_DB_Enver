@@ -1,6 +1,6 @@
 import { Cascader } from 'antd';
 import * as React from 'react';
-import businessUnits from './mockData/BusinessUnits';
+import businessUnits from '../../../stores/services/mockData/BusinessUnits';
 
 export default class BusinessUnitsCascader extends React.Component{
 

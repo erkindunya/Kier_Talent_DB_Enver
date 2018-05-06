@@ -1,8 +1,11 @@
 import * as React from 'react';
 import {Select} from 'antd';
-import functions from './mockData/Functions';
+import functions from '../../../stores/services/mockData/Functions';
+import {observer} from "mobx-react";
 
-export default class FunctionSelector extends React.Component{
+
+@observer
+export default class FunctionSelector extends React.Component<any, any> {
 
 
   handleChange = (value)=>{
@@ -14,7 +17,7 @@ export default class FunctionSelector extends React.Component{
     return (
       <Select onChange={this.handleChange}>
         {
-          functions.map(f => <Option value={f.value}>{f.label}</Option>)
+          this.props.items.map(f => <Option value={f.value}>{f.label}</Option>)
         }
       </Select>
     )

@@ -1,6 +1,6 @@
 import { Cascader } from 'antd';
 import * as React from 'react';
-import requirements from './mockData/DevelopmentRequirements';
+import requirements from '../../../stores/services/mockData/DevelopmentRequirements';
 
 export default class DevelopmentRequirementCascader extends React.Component{
 
