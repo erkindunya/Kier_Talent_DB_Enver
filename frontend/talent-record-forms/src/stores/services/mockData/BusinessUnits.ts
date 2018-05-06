@@ -1,4 +1,4 @@
-const businessUnits = [
+const BusinessUnits = [
   {
     //Division
     value: "C&IS",
@@ -167,4 +167,4 @@ const businessUnits = [
 ];
 
 
-export default businessUnits;
+export default BusinessUnits;

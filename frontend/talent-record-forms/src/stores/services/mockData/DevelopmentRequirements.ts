@@ -1,4 +1,4 @@
-const requirements = [
+const Requirements = [
   {
     value : "Leadership Development",
     label : "Leadership Development",
@@ -91,4 +91,4 @@ const requirements = [
   }
 ];
 
-export default  requirements;
+export default Requirements;

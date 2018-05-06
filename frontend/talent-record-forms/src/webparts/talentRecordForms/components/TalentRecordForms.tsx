@@ -51,6 +51,7 @@ class TalentRecordForms extends React.Component<any, any> {
     const userNameError = isFieldTouched('userName') && getFieldError('userName');
     const passwordError = isFieldTouched('password') && getFieldError('password');
     const {formLayout} = this.state;
+    const Option = Select.Option;
     /*const formItemLayout = formLayout === 'horizontal' ? {
       labelCol: { span: 4 },
       wrapperCol: { span: 7 },
@@ -65,10 +66,9 @@ class TalentRecordForms extends React.Component<any, any> {
          sm: {span: 16},
        },*/
     };
-    const Option = Select.Option;
-
     return (
       <div>
+
         <Row><Col span={24} style={{height: '112px', backgroundColor: "#078181"}}>
           <div style={{
             margin: '38px 54px 56px 32px',
@@ -90,7 +90,7 @@ class TalentRecordForms extends React.Component<any, any> {
                   {getFieldDecorator('businessUnit', {
                     rules: [{required: true, message: 'Please select a business unit!'}],
                   })(
-                    <BusinessUnitsCascader/>
+                    <BusinessUnitsCascader items={this.props.store.BusinessUnits.businessUnits}/>
                   )}
                 </FormItem>
               </Col>
@@ -204,14 +204,14 @@ class TalentRecordForms extends React.Component<any, any> {
                   <RiskSelector items={this.props.store.Risks.risksLookup}/>
                 )}
               </FormItem></Col>
-              <Col span={12}>{/*<FormItem label="Business Risk" {...formItemLayout}>
+              <Col span={12}>{<FormItem label="Business Risk" {...formItemLayout}>
                 {getFieldDecorator('businessRisk', {
                   rules: [{required: true, message: 'Please select business risk!'}],
                 })(
-                  <RiskSelector/>
+                  <RiskSelector items={this.props.store.Risks.risksLookup}/>
                 )}
 
-              </FormItem>*/}</Col>
+              </FormItem>}</Col>
             </Row>
 
             <Divider>Development Requirements</Divider>
@@ -220,14 +220,16 @@ class TalentRecordForms extends React.Component<any, any> {
                 {getFieldDecorator('devReq1', {
                   rules: [{required: true, message: 'Please select a business unit!'}],
                 })(
-                  <DevelopmentRequirementCascader/>
+                  <DevelopmentRequirementCascader
+                    items={this.props.store.DevelopmentRequirements.developmentRequirements}/>
                 )}
               </FormItem></Col>
               <Col span={12}> <FormItem label="Development Requirements 2nd" {...formItemLayout}>
                 {getFieldDecorator('devReq2', {
                   rules: [{required: true, message: 'Please select a business unit!'}],
                 })(
-                  <DevelopmentRequirementCascader/>
+                  <DevelopmentRequirementCascader
+                    items={this.props.store.DevelopmentRequirements.developmentRequirements}/>
                 )}
               </FormItem></Col>
             </Row>
@@ -249,6 +251,8 @@ class TalentRecordForms extends React.Component<any, any> {
 
 
     );
+
+
   }
 }
 
