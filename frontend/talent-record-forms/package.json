@@ -33,6 +33,7 @@
     "lodash": "^4.17.10",
     "mobx": "^4.2.0",
     "mobx-react": "^5.1.2",
-    "mobx-state-tree": "^2.0.4"
+    "mobx-state-tree": "^2.0.4",
+    "sp-rest-proxy": "^2.5.10"
   }
 }
