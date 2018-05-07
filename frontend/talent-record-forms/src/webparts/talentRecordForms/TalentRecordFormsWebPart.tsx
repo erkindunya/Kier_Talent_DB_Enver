@@ -8,8 +8,8 @@ import {
 } from '@microsoft/sp-webpart-base';
 
 import * as strings from 'TalentRecordFormsWebPartStrings';
-import WrappedForm from './components/TalentRecordEditor';
-import {ITalentRecordEditorProps} from './components/ITalentRecordEditorProps';
+import WrappedForm from './components/TalentRecordEditor/TalentRecordEditor';
+import {ITalentRecordEditorProps} from './components/TalentRecordEditor/ITalentRecordEditorProps';
 import {Form} from "antd";
 import 'antd/dist/antd.css';
 import {Provider} from "mobx-react";

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {Select} from 'antd';
-import functions from '../../../../stores/services/mockData/Functions';
 import {observer} from "mobx-react";
 
 

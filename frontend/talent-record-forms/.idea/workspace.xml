@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="911ba6af-c74c-44e6-94cb-d15df8b37c13" name="Default" comment="">
+    <list default="true" id="911ba6af-c74c-44e6-94cb-d15df8b37c13" name="Default" comment="Intermin commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/TalentRecordFormsWebPart.manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/webparts/talentRecordForms/TalentRecordFormsWebPart.manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/TalentRecordFormsWebPart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/webparts/talentRecordForms/TalentRecordFormsWebPart.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/ITalentRecordEditorProps.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/ITalentRecordEditorProps.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/controls/BusinessUnitsCascader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/BusinessUnitsCascader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/controls/DevelopmentRequirementCascader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/DevelopmentRequirementCascader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/controls/FunctionSelector.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/FunctionSelector.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/controls/MovementStatusSelector.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/MovementStatusSelector.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/controls/NewHireSwitch.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/NewHireSwitch.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/controls/PerformanceRatingSlider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/PerformanceRatingSlider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/controls/PotentialRatingSlider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/PotentialRatingSlider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/controls/RiskSelector.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/RiskSelector.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/controls/UserSelector.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/UserSelector.tsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,8 +29,8 @@
   <component name="ChangesViewManager" show_ignored="true" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="TalentRecordEditor.tsx" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor.tsx">
+      <file leaf-file-name="TalentRecordEditor.tsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.tsx">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="36">
               <caret line="2" column="52" selection-start-line="2" selection-start-column="52" selection-end-line="2" selection-end-column="52" />
@@ -27,24 +38,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TalentRecordFormsWebPart.manifest.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/TalentRecordFormsWebPart.manifest.json">
+      <file leaf-file-name="ITalentRecordFormsProps.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/ITalentRecordFormsProps.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="TalentRecordEditor.module.scss.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.module.scss.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="TalentRecordEditor.module.scss" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.module.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret lean-forward="true" />
+            <state relative-caret-position="-536">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TalentRecordEditor.module.scss.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor.module.scss.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
+      <file leaf-file-name="antd.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node_modules/antd/dist/antd.css">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -67,12 +82,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/webparts/talentRecordForms/components/NewHireSwitch.tsx" />
-        <option value="$PROJECT_DIR$/src/webparts/talentRecordForms/components/PerformanceRatingSlider.tsx" />
-        <option value="$PROJECT_DIR$/src/webparts/talentRecordForms/components/PotentialRatingSlider.tsx" />
-        <option value="$PROJECT_DIR$/src/webparts/talentRecordForms/components/MovementStatusSelector.tsx" />
-        <option value="$PROJECT_DIR$/src/webparts/talentRecordForms/components/mockData/DevelopmentRequirements.ts" />
-        <option value="$PROJECT_DIR$/src/webparts/talentRecordForms/components/UserSelector.tsx" />
         <option value="$PROJECT_DIR$/src/stores/referenceDataStore.ts" />
         <option value="$PROJECT_DIR$/src/stores/referenceDataModel.ts" />
         <option value="$PROJECT_DIR$/src/stores/functionsStore.ts" />
@@ -118,6 +127,12 @@
         <option value="$PROJECT_DIR$/src/webparts/talentRecordForms/components/controls/BusinessUnitsCascader.tsx" />
         <option value="$PROJECT_DIR$/src/webparts/talentRecordForms/components/controls/FunctionSelector.tsx" />
         <option value="$PROJECT_DIR$/src/webparts/talentRecordForms/TalentRecordFormsWebPart.manifest.json" />
+        <option value="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.tsx" />
+        <option value="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/FunctionSelector.tsx" />
+        <option value="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/BusinessUnitsCascader.tsx" />
+        <option value="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/DevelopmentRequirementCascader.tsx" />
+        <option value="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/RiskSelector.tsx" />
+        <option value="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.module.scss" />
       </list>
     </option>
   </component>
@@ -220,6 +235,11 @@
             <path>
               <item name="Root" type="cbb8eebc:String" user="Root" />
               <item name="talent-record-forms" type="cbb8eebc:String" user="talent-record-forms" />
+              <item name=".idea" type="cbb8eebc:String" user=".idea" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="talent-record-forms" type="cbb8eebc:String" user="talent-record-forms" />
               <item name="src" type="cbb8eebc:String" user="src" />
             </path>
             <path>
@@ -248,6 +268,15 @@
               <item name="webparts" type="cbb8eebc:String" user="webparts" />
               <item name="talentRecordForms" type="cbb8eebc:String" user="talentRecordForms" />
               <item name="components" type="cbb8eebc:String" user="components" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="talent-record-forms" type="cbb8eebc:String" user="talent-record-forms" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="webparts" type="cbb8eebc:String" user="webparts" />
+              <item name="talentRecordForms" type="cbb8eebc:String" user="talentRecordForms" />
+              <item name="components" type="cbb8eebc:String" user="components" />
+              <item name="TalentRecordEditor" type="cbb8eebc:String" user="TalentRecordEditor" />
             </path>
           </expand>
           <select />
@@ -319,11 +348,6 @@
               <item name="talentRecordForms" type="462c0819:PsiDirectoryNode" />
               <item name="loc" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="talent-record-forms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="talent-record-forms" type="462c0819:PsiDirectoryNode" />
-              <item name="temp" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -349,6 +373,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Dev\Kier\Kier_Talent_DB\frontend\talent-record-forms\src\webparts\talentRecordForms\components\TalentRecordEditor" />
       <recent name="C:\Dev\Kier\Kier_Talent_DB\frontend\talent-record-forms\src\webparts\talentRecordForms\components\controls" />
       <recent name="C:\Dev\Kier\Kier_Talent_DB\frontend\talent-record-forms\src\stores\Common" />
       <recent name="C:\Dev\Kier\Kier_Talent_DB\frontend\talent-record-forms\src\stores\LookupDataStores" />
@@ -438,11 +463,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gulp.js.build" />
         <item itemvalue="Gulp.js.serve" />
-        <item itemvalue="Gulp.js.bundle" />
-        <item itemvalue="Gulp.js.clean" />
         <item itemvalue="Gulp.js.default" />
+        <item itemvalue="Gulp.js.clean" />
+        <item itemvalue="Gulp.js.build" />
+        <item itemvalue="Gulp.js.bundle" />
       </list>
     </recent_temporary>
   </component>
@@ -464,7 +489,7 @@
       <workItem from="1525518070294" duration="255000" />
       <workItem from="1525541368320" duration="13895000" />
       <workItem from="1525596248691" duration="17206000" />
-      <workItem from="1525675327826" duration="5202000" />
+      <workItem from="1525675327826" duration="6615000" />
     </task>
     <task id="LOCAL-00001" summary="- Resolving issues in the TypeScript compiler configurations.&#10;- Added the plumping of Risks and Business Functions lookup data.&#10;- Lookup data plumping code currently reads from mock data.i.e. not connected to SharePoint.">
       <created>1525606067803</created>
@@ -501,11 +526,18 @@
       <option name="project" value="LOCAL" />
       <updated>1525680290202</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Intermin commit">
+      <created>1525680610326</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1525680610326</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76155000" />
+    <option name="totallyTimeSpent" value="77568000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -520,15 +552,15 @@
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32943678" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50027305" side_tool="true" visible="true" weight="0.32837406" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50027305" side_tool="true" weight="0.4070138" />
       <window_info anchor="bottom" id="File Transfer" order="8" weight="0.32943678" />
       <window_info active="true" anchor="bottom" id="Version Control" order="7" sideWeight="0.49972692" visible="true" weight="0.32837406" />
-      <window_info anchor="bottom" auto_hide="true" id="Run" order="2" sideWeight="0.49972692" weight="0.4070138" />
+      <window_info anchor="bottom" auto_hide="true" id="Run" order="2" sideWeight="0.49972692" weight="0.48884165" />
       <window_info id="npm" order="2" sideWeight="0.46118012" side_tool="true" weight="0.18124342" />
       <window_info anchor="bottom" auto_hide="true" id="Terminal" order="7" weight="0.38469714" />
-      <window_info id="Gulp" order="2" sideWeight="0.46594983" side_tool="true" weight="0.26160568" />
+      <window_info id="Gulp" order="2" sideWeight="0.46677214" side_tool="true" visible="true" weight="0.26160568" />
       <window_info anchor="bottom" id="TypeScript" order="7" sideWeight="0.49972692" weight="0.36981934" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.53405017" visible="true" weight="0.26160568" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.53322786" visible="true" weight="0.26160568" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32943678" />
       <window_info id="Structure" order="1" sideWeight="0.46543002" side_tool="true" weight="0.26160568" />
@@ -599,10 +631,6 @@
         <option value="$PROJECT_DIR$/src/stores/LookupDataStore.js" />
         <option value="$PROJECT_DIR$/src/stores/services/DevelopmentRequirementsLookupDataService.js" />
         <option value="$PROJECT_DIR$/src/stores/services/DevelopmentRequirementsLookupDataService.js.map" />
-        <option value="$PROJECT_DIR$/lib/stores/services/mockData/Talents.js.map" />
-        <option value="$PROJECT_DIR$/lib/stores/services/mockData/Talents.js" />
-        <option value="$PROJECT_DIR$/src/webparts/talentRecordForms/components/ITalentRecordEditorProps.js" />
-        <option value="$PROJECT_DIR$/src/webparts/talentRecordForms/components/ITalentRecordEditorProps.js.map" />
       </list>
     </option>
   </component>
@@ -642,7 +670,8 @@
     <MESSAGE value="Refactoring the Lookup Data plumping" />
     <MESSAGE value="Renamed webpart to TalentRecordEditor" />
     <MESSAGE value="Refactored WebParts UI folder structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored WebParts UI folder structure" />
+    <MESSAGE value="Intermin commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Intermin commit" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -652,63 +681,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/stores/LookupDataStores/DevelopmentRequirementsDataStore.js.map">
-      <provider editor-type-id="sourcemapFileViewerProvider" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/stores/LookupDataStores/BusinessUnitsLookupDataStore.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/stores/LookupDataStores/BusinessFunctionsStore.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/stores/LookupDataStores/RiskLookupDataStore.js.map">
-      <provider editor-type-id="sourcemapFileViewerProvider" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/stores/LookupDataStores/RiskLookupDataStore.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/stores/LookupDataStore.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="27" column="35" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/stores/LookupDataStores/BusinessFunctionsStore.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-          <folding>
-            <element signature="e#0#71#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/stores/LookupDataStores/BusinessUnitsLookupDataStore.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
-          <folding>
-            <element signature="e#0#71#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/stores/LookupDataStores/DevelopmentRequirementsDataStore.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
-          <folding>
-            <element signature="e#0#71#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/stores/Common/LookupDataModel.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
@@ -794,148 +766,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/TalentRecordFormsWebPart.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="27" column="59" selection-start-line="27" selection-start-column="59" selection-end-line="27" selection-end-column="59" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.editorconfig">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor.module.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/ITalentRecordEditorProps.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/controls/BusinessUnitsCascader.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="46" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/controls/DevelopmentRequirementCascader.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/controls/BusinessUnitsCascader.js.map">
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/BusinessUnitsCascader.js.map">
       <provider editor-type-id="sourcemapFileViewerProvider" />
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/controls/BusinessUnitsCascader.js">
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/BusinessUnitsCascader.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/controls/DevelopmentRequirementCascader.js.map">
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/DevelopmentRequirementCascader.js.map">
       <provider editor-type-id="sourcemapFileViewerProvider" />
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/controls/DevelopmentRequirementCascader.js">
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/DevelopmentRequirementCascader.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/controls/FunctionSelector.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/controls/FunctionSelector.js.map">
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/FunctionSelector.js.map">
       <provider editor-type-id="sourcemapFileViewerProvider" />
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/controls/FunctionSelector.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/controls/MovementStatusSelector.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/controls/NewHireSwitch.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/controls/PerformanceRatingSlider.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="24" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/controls/PotentialRatingSlider.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="3" column="42" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/controls/RiskSelector.tsx">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/controls/PotentialRatingSlider.js.map">
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/PotentialRatingSlider.js.map">
       <provider editor-type-id="sourcemapFileViewerProvider" />
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/controls/PerformanceRatingSlider.js">
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/PerformanceRatingSlider.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/controls/NewHireSwitch.js.map">
-      <provider editor-type-id="sourcemapFileViewerProvider" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/controls/RiskSelector.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/controls/RiskSelector.js.map">
-      <provider editor-type-id="sourcemapFileViewerProvider" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/controls/UserSelector.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/controls/UserSelector.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/controls/UserSelector.js.map">
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/NewHireSwitch.js.map">
       <provider editor-type-id="sourcemapFileViewerProvider" />
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -946,7 +802,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor.module.scss.ts">
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/RiskSelector.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/UserSelector.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/NewHireSwitch.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/FunctionSelector.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/RiskSelector.js.map">
+      <provider editor-type-id="sourcemapFileViewerProvider" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/UserSelector.js.map">
+      <provider editor-type-id="sourcemapFileViewerProvider" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.module.scss.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <folding>
@@ -955,10 +831,140 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor.tsx">
+    <entry file="file://$PROJECT_DIR$/.editorconfig">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.module.scss.js.map">
+      <provider editor-type-id="sourcemapFileViewerProvider" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/ITalentRecordEditorProps.js.map">
+      <provider editor-type-id="sourcemapFileViewerProvider" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/ITalentRecordEditorProps.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/ITalentRecordEditorProps.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.js.map">
+      <provider editor-type-id="sourcemapFileViewerProvider" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/TalentRecordFormsWebPart.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="23" column="25" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/BusinessUnitsCascader.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="31" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/DevelopmentRequirementCascader.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="31" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/FunctionSelector.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="28" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/MovementStatusSelector.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/NewHireSwitch.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/PotentialRatingSlider.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="42" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/RiskSelector.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="27" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/UserSelector.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/PerformanceRatingSlider.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/ITalentRecordFormsProps.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.module.scss.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
           <caret line="2" column="52" selection-start-line="2" selection-start-column="52" selection-end-line="2" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/antd/dist/antd.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.module.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-536">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>

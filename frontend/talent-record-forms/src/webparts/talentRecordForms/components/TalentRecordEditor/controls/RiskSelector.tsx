@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {Radio} from 'antd';
-import {observe} from "mobx";
 import {observer} from "mobx-react";
 
 @observer

@@ -1,6 +1,5 @@
 import { Cascader } from 'antd';
 import * as React from 'react';
-import requirements from '../../../../stores/services/mockData/DevelopmentRequirements';
 import {observer} from "mobx-react";
 
 @observer
