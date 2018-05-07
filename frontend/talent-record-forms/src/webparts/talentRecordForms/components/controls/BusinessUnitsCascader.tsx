@@ -1,6 +1,6 @@
 import { Cascader } from 'antd';
 import * as React from 'react';
-import BusinessUnits from '../../../stores/services/mockData/BusinessUnits';
+import BusinessUnits from '../../../../stores/services/mockData/BusinessUnits';
 import {observer} from "mobx-react";
 
 @observer
