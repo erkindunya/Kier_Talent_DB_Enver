@@ -1,13 +1,16 @@
 //Todo : find a way to externalize the configuration and make it varies with the Environment
 import {ILookupDataProvider} from "./ILookupDataProvider";
 import {Environment, EnvironmentType} from "@microsoft/sp-core-library";
-import {BusinessFunctionsService, MockBusinessFunctionsService} from "./BusinessFunctionsService";
-import {MockRisksService} from "./RisksService";
-import {BusinessUnitsLookupDataService, MockBusinessUnitsLookupDataService} from "./BusinessUnitsLookupDataService";
+import {BusinessFunctionsService, MockBusinessFunctionsService} from "../services/BusinessFunctionsService";
+import {MockRisksService} from "../services/RisksService";
+import {
+  BusinessUnitsLookupDataService,
+  MockBusinessUnitsLookupDataService
+} from "../services/BusinessUnitsLookupDataService";
 import {
   DevelopmentRequirementsLookupDataService,
   MockDevelopmentRequirementsLookupDataService
-} from "./DevelopmentRequirementsLookupDataService";
+} from "../services/DevelopmentRequirementsLookupDataService";
 
 export class DataProviderFactory {
   public static GetBusinessFunctionsDataProvider(): ILookupDataProvider {

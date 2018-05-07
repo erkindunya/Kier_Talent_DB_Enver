@@ -1,4 +1,4 @@
-import {ILookupDataProvider} from "./ILookupDataProvider";
+import {ILookupDataProvider} from "../Common/ILookupDataProvider";
 import {Risks} from './mockData/Risks';
 
 export class RisksService implements ILookupDataProvider {

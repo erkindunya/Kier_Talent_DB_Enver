@@ -1,5 +1,5 @@
 import functions from './mockData/Functions';
-import {ILookupDataProvider} from "./ILookupDataProvider";
+import {ILookupDataProvider} from "../Common/ILookupDataProvider";
 
 export class BusinessFunctionsService implements ILookupDataProvider {
   public async GetAll() {

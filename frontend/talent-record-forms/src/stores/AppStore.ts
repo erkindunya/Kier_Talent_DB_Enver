@@ -1,16 +1,13 @@
 import {types, IModelType} from 'mobx-state-tree'
-import {BusinessFunctionsStore} from "./BusinessFunctionsStore";
+import {BusinessFunctionsStore} from "./LookupDataStores/BusinessFunctionsStore";
 import {get} from "mobx";
-import {RiskLookupDataStore} from "./RiskLookupDataStore";
-import {BusinessUnitsLookupDataStore} from "./BusinessUnitsLookupDataStore";
-import {DevelopmentRequirementsLookupDataStore} from "./DevelopmentRequirementsDataStore";
+import {RiskLookupDataStore} from "./LookupDataStores/RiskLookupDataStore";
+import {BusinessUnitsLookupDataStore} from "./LookupDataStores/BusinessUnitsLookupDataStore";
+import {DevelopmentRequirementsLookupDataStore} from "./LookupDataStores/DevelopmentRequirementsDataStore";
+import {LookupDataStore} from "./LookupDataStore";
 
 export const AppStore = types.model(
   {
-    BusinessFunctions: types.optional(BusinessFunctionsStore, {functions: []}),
-    Risks: types.optional(RiskLookupDataStore, {risksLookup: []}),
-    BusinessUnits: types.optional(BusinessUnitsLookupDataStore, {businessUnits: []}),
-    DevelopmentRequirements: types.optional(DevelopmentRequirementsLookupDataStore, {developmentRequirements: []})
+    LookupDataStore: types.optional(LookupDataStore, {})
   }
-)
-  .named("ApplicationDataStore");
+).named("ApplicationDataStore");

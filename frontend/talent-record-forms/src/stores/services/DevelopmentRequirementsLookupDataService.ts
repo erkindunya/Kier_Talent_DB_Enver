@@ -1,4 +1,4 @@
-import {ILookupDataProvider} from "./ILookupDataProvider";
+import {ILookupDataProvider} from "../Common/ILookupDataProvider";
 import Requirements from './mockData/DevelopmentRequirements';
 
 export class DevelopmentRequirementsLookupDataService implements ILookupDataProvider {

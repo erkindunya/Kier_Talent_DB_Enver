@@ -41,7 +41,7 @@ class TalentRecordForms extends React.Component<any, any> {
 
 
   componentDidMount() {
-    console.log(this.props.store.BusinessFunctions.functions.length);
+    //console.log(this.props.store.BusinessFunctions.items.length);
   }
 
   render() {
@@ -90,7 +90,7 @@ class TalentRecordForms extends React.Component<any, any> {
                   {getFieldDecorator('businessUnit', {
                     rules: [{required: true, message: 'Please select a business unit!'}],
                   })(
-                    <BusinessUnitsCascader items={this.props.store.BusinessUnits.businessUnits}/>
+                    <BusinessUnitsCascader items={this.props.store.LookupDataStore.BusinessUnitsLookupData}/>
                   )}
                 </FormItem>
               </Col>
@@ -99,7 +99,7 @@ class TalentRecordForms extends React.Component<any, any> {
                   {getFieldDecorator('function', {
                     rules: [{required: true, message: 'Please select a function!'}],
                   })(
-                    <FunctionSelector items={this.props.store.BusinessFunctions.functions}/>
+                    <FunctionSelector items={this.props.store.LookupDataStore.BusinessFunctionsLookupData}/>
                   )}
                 </FormItem>
               </Col>
@@ -201,14 +201,14 @@ class TalentRecordForms extends React.Component<any, any> {
                 {getFieldDecorator('flightRisk', {
                   rules: [{required: true, message: 'Please select flight risk!'}],
                 })(
-                  <RiskSelector items={this.props.store.Risks.risksLookup}/>
+                  <RiskSelector items={this.props.store.LookupDataStore.RisksLookupData}/>
                 )}
               </FormItem></Col>
               <Col span={12}>{<FormItem label="Business Risk" {...formItemLayout}>
                 {getFieldDecorator('businessRisk', {
                   rules: [{required: true, message: 'Please select business risk!'}],
                 })(
-                  <RiskSelector items={this.props.store.Risks.risksLookup}/>
+                  <RiskSelector items={this.props.store.LookupDataStore.RisksLookupData}/>
                 )}
 
               </FormItem>}</Col>
@@ -221,7 +221,7 @@ class TalentRecordForms extends React.Component<any, any> {
                   rules: [{required: true, message: 'Please select a business unit!'}],
                 })(
                   <DevelopmentRequirementCascader
-                    items={this.props.store.DevelopmentRequirements.developmentRequirements}/>
+                    items={this.props.store.LookupDataStore.DevelopmentRequirementsLookupData}/>
                 )}
               </FormItem></Col>
               <Col span={12}> <FormItem label="Development Requirements 2nd" {...formItemLayout}>
@@ -229,7 +229,7 @@ class TalentRecordForms extends React.Component<any, any> {
                   rules: [{required: true, message: 'Please select a business unit!'}],
                 })(
                   <DevelopmentRequirementCascader
-                    items={this.props.store.DevelopmentRequirements.developmentRequirements}/>
+                    items={this.props.store.LookupDataStore.DevelopmentRequirementsLookupData}/>
                 )}
               </FormItem></Col>
             </Row>
