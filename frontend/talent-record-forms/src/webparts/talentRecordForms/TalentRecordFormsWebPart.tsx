@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import {Version} from '@microsoft/sp-core-library';
+
 import {
   BaseClientSideWebPart,
   IPropertyPaneConfiguration,
@@ -22,9 +23,14 @@ export interface ITalentRecordFormsWebPartProps {
 export default class TalentRecordFormsWebPart extends BaseClientSideWebPart<ITalentRecordFormsWebPartProps> {
 
   public render(): void {
-
-    const element = React.createElement(WrappedForm);
     const appStore = AppStore.create({});
+
+    let url = new URL(window.location.href);
+    if (url.searchParams.has("talentId")) {
+      console.log("Talent Id " + url.searchParams.get("talentId"));
+      appStore.TalentDataStore.GetTalentById(parseInt(url.searchParams.get("talentId")));
+    }
+
     ReactDom.render(<Provider store={appStore}><WrappedForm/></Provider>, this.domElement);
   }
 

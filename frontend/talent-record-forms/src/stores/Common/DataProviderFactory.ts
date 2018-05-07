@@ -11,6 +11,7 @@ import {
   DevelopmentRequirementsLookupDataService,
   MockDevelopmentRequirementsLookupDataService
 } from "../services/DevelopmentRequirementsLookupDataService";
+import {MockTalentService} from "../services/TalentRecordsService";
 
 export class DataProviderFactory {
   public static GetBusinessFunctionsDataProvider(): ILookupDataProvider {
@@ -36,5 +37,9 @@ export class DataProviderFactory {
     if (Environment.type == EnvironmentType.Local)
       return new MockDevelopmentRequirementsLookupDataService();
     return new DevelopmentRequirementsLookupDataService();
+  }
+
+  public static GetTalentsDataProvider() {
+    return new MockTalentService();
   }
 }
