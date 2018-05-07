@@ -16,7 +16,9 @@
   "preconfiguredEntries": [{
     "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Other
     "group": { "default": "Other" },
-    "title": { "default": "Talent Record Forms" },
+    "title": {
+      "default": "Talent DB - User Dashboard"
+    },
     "description": { "default": "Talent Record Forms description" },
     "officeFabricIconFontName": "Page",
     "properties": {
