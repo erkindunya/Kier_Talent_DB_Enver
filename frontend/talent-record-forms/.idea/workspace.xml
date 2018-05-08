@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="911ba6af-c74c-44e6-94cb-d15df8b37c13" name="Default" comment="More refactoring for the WebPart UI folder structure.">
-      <change afterPath="$PROJECT_DIR$/src/stores/TalentsStore.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/stores/services/TalentRecordsService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/stores/services/mockData/Talents.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stores/AppStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/AppStore.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stores/Common/DataProviderFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/Common/DataProviderFactory.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/TalentRecordFormsWebPart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/webparts/talentRecordForms/TalentRecordFormsWebPart.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/FunctionSelector.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/FunctionSelector.tsx" afterDir="false" />
-    </list>
+    <list default="true" id="911ba6af-c74c-44e6-94cb-d15df8b37c13" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -29,8 +20,8 @@
           <file leaf-file-name="TalentRecordEditor.tsx" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.tsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="192">
-                  <caret line="101" selection-start-line="101" selection-end-line="101" />
+                <state relative-caret-position="336">
+                  <caret line="54" column="4" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="4" />
                   <folding>
                     <element signature="e#0#31#0" expanded="true" />
                   </folding>
@@ -50,8 +41,8 @@
           <file leaf-file-name="TalentRecordFormsWebPart.tsx" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/TalentRecordFormsWebPart.tsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="540">
-                  <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+                <state relative-caret-position="324">
+                  <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
                   <folding>
                     <element signature="e#0#31#0" expanded="true" />
                   </folding>
@@ -67,7 +58,7 @@
             <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/FunctionSelector.tsx">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="379">
-                  <caret line="29" column="187" selection-start-line="29" selection-start-column="187" selection-end-line="29" selection-end-column="187" />
+                  <caret line="32" column="11" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
                   <folding>
                     <element signature="e#0#31#0" expanded="true" />
                   </folding>
@@ -463,7 +454,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="xpath.settings" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.web.browsers" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
@@ -491,6 +482,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Gulp.js.serve">
+    <configuration name="serve JavaScript" type="JavascriptDebugType" factoryName="JavaScript Debug" uri="https://localhost:4321/temp/workbench.html" />
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-interpreter>project</node-interpreter>
       <node-options />
@@ -539,7 +531,7 @@
       <arguments />
       <envs />
     </configuration>
-    <configuration name="serve" type="js.build_tools.gulp" factoryName="Gulp.js" temporary="true">
+    <configuration name="serve" type="js.build_tools.gulp" factoryName="Gulp.js" editBeforeRun="true" temporary="true">
       <node-interpreter>project</node-interpreter>
       <node-options />
       <gulpfile>$PROJECT_DIR$/gulpfile.js</gulpfile>
@@ -548,6 +540,9 @@
       </tasks>
       <arguments />
       <envs />
+      <method>
+        <option name="LaunchBrowser.Before.Run" url="https://localhost:4321/temp/workbench.html" withDebugger="true" />
+      </method>
     </configuration>
     <list>
       <item itemvalue="Gulp.js.serve" />
@@ -555,11 +550,12 @@
       <item itemvalue="Gulp.js.build" />
       <item itemvalue="Gulp.js.default" />
       <item itemvalue="Gulp.js.package-solution" />
+      <item itemvalue="JavaScript Debug.serve JavaScript" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gulp.js.package-solution" />
         <item itemvalue="Gulp.js.serve" />
+        <item itemvalue="Gulp.js.package-solution" />
         <item itemvalue="Gulp.js.build" />
         <item itemvalue="Gulp.js.default" />
         <item itemvalue="Gulp.js.clean" />
@@ -584,7 +580,7 @@
       <workItem from="1525518070294" duration="255000" />
       <workItem from="1525541368320" duration="13895000" />
       <workItem from="1525596248691" duration="17206000" />
-      <workItem from="1525675327826" duration="25078000" />
+      <workItem from="1525675327826" duration="26889000" />
     </task>
     <task id="LOCAL-00001" summary="- Resolving issues in the TypeScript compiler configurations.&#10;- Added the plumping of Risks and Business Functions lookup data.&#10;- Lookup data plumping code currently reads from mock data.i.e. not connected to SharePoint.">
       <created>1525606067803</created>
@@ -635,11 +631,18 @@
       <option name="project" value="LOCAL" />
       <updated>1525682032341</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Half way through finishing the Talent Data plumping.&#10;Web part tests the QueryString for Talent to be edited.&#10;Next, we need to finish connect TalentDataStore to the form, start loading real data, do the people picker.">
+      <created>1525721434949</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1525721434949</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96031000" />
+    <option name="totallyTimeSpent" value="97842000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -667,7 +670,7 @@
       <window_info anchor="bottom" id="Find" order="1" weight="0.32943678" />
       <window_info id="Structure" order="1" sideWeight="0.46543002" side_tool="true" weight="0.26160568" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3995749" />
       <window_info anchor="bottom" id="Thumbnails" order="7" weight="0.32943678" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -776,13 +779,34 @@
     <MESSAGE value="Refactored WebParts UI folder structure" />
     <MESSAGE value="Intermin commit" />
     <MESSAGE value="More refactoring for the WebPart UI folder structure." />
-    <option name="LAST_COMMIT_MESSAGE" value="More refactoring for the WebPart UI folder structure." />
+    <MESSAGE value="Half way through finishing the Talent Data plumping.&#10;Web part tests the QueryString for Talent to be edited.&#10;Next, we need to finish connect TalentDataStore to the form, start loading real data, do the people picker." />
+    <option name="LAST_COMMIT_MESSAGE" value="Half way through finishing the Talent Data plumping.&#10;Web part tests the QueryString for Talent to be edited.&#10;Next, we need to finish connect TalentDataStore to the form, start loading real data, do the people picker." />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/webparts/talentRecordForms/TalentRecordFormsWebPart.tsx</url>
+          <line>27</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/FunctionSelector.tsx</url>
+          <line>10</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.tsx</url>
+          <line>48</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="13" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -1080,6 +1104,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/FunctionSelector.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="32" column="11" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/stores/TalentsStore.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -1089,8 +1123,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/TalentRecordFormsWebPart.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+        <state relative-caret-position="324">
+          <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
@@ -1099,18 +1133,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="101" selection-start-line="101" selection-end-line="101" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/FunctionSelector.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="29" column="187" selection-start-line="29" selection-start-column="187" selection-end-line="29" selection-end-column="187" />
+        <state relative-caret-position="336">
+          <caret line="54" column="4" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="4" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
