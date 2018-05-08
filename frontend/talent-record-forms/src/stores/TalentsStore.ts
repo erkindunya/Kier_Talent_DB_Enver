@@ -2,7 +2,7 @@ import {applySnapshot, flow, getParent, types} from "mobx-state-tree";
 import {DataProviderFactory} from "./Common/DataProviderFactory";
 
 export const Talent = types.model({
-  id: types.number,
+  id: types.maybe(types.number),
   employeeId: types.optional(types.string, ""),
   name: types.optional(types.string, ""),
   manager: types.optional(types.string, ""),
@@ -51,16 +51,20 @@ const TalentsStore = types.model({
       }
 
     })
-
     const GetTalentById = flow(function* GetTalentById(id: number) {
 
       let talent;
       try {
         const response = yield _dataProvider.GetTalentById(id);
         if (response) {
+
+          //Todo : ugly piece of code that needs to be refactored.
           console.log("Talents : " + JSON.stringify(response, null, 4));
           talent = Talent.create(response);
-          applySnapshot(getParent(self, 1).Talent, talent);
+          if (getParent(self, 1).Talent)
+            applySnapshot(getParent(self, 1).Talent, talent);
+          else
+            getParent(self, 1).SetTalent(talent);
           console.log("Talent Record : " + JSON.stringify(talent, null, 4));
         }
       }

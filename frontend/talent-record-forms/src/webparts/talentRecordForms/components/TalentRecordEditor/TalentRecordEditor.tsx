@@ -6,16 +6,18 @@ import {DefaultButton, IButtonProps} from 'office-ui-fabric-react/lib/Button';
 import {Form, Icon, Input, Button, Layout, Divider, Select, Row, Col, Cascader} from 'antd';
 import {FormProps} from "antd/lib/form/Form";
 import {FormComponentProps} from 'antd/lib/form/Form';
-import BusinessUnitsCascader from './controls/BusinessUnitsCascader';
-import FunctionSelector from './controls/FunctionSelector';
+import CascadeSelector from './controls/CascadeSelector';
+import Selector from './controls/Selector';
 import RiskSelector from './controls/RiskSelector';
 import NewHireSwitch from "./controls/NewHireSwitch";
 import PerformanceRatingSlider from "./controls/PerformanceRatingSlider";
 import PotentialRatingSlider from "./controls/PotentialRatingSlider";
 import UserRemoteSelect from "./controls/UserSelector";
 import MovementStatusSelector from "./controls/MovementStatusSelector";
-import DevelopmentRequirementCascader from "./controls/DevelopmentRequirementCascader";
+
+;
 import {inject, observer} from "mobx-react";
+import {Talent} from "../../../../stores/TalentsStore";
 
 const FormItem = Form.Item;
 const {Header, Content, Footer, Sider} = Layout;
@@ -40,9 +42,31 @@ class TalentRecordEditor extends React.Component<any, any> {
   }
 
 
-  componentDidMount() {
-    //console.log(this.props.store.BusinessFunctions.items.length);
+  BuildBusinessUnitInitialValue = (talent) => {
+    const {divison, unit, stream, location} = talent;
+    return [divison, unit, stream, location]
   }
+
+  //Todo : refactor Development Requirement builder
+  BuildDevelopmentRequirement01Value = (talent) => {
+    const {requirements_01_category, requirements_01_subcategory} = talent;
+    return [requirements_01_category, requirements_01_subcategory];
+  }
+
+  BuildDevelopmentRequirement02Value = (talent) => {
+    const {requirements_02_category, requirements_02_subcategory} = talent;
+    return [requirements_02_category, requirements_02_subcategory];
+  }
+
+  BuildGradeValue = (talent) => {
+    return (talent) ? talent.grade : "";
+  }
+
+  BuildFunctionValue = (talent) => {
+
+    return (talent) ? talent.function : "";
+  }
+
 
   render() {
 
@@ -73,23 +97,28 @@ class TalentRecordEditor extends React.Component<any, any> {
             <Row gutter={20}>
               <Col span={16}>
                 <FormItem label="Business Unit" {...formItemLayout}>
-                  {getFieldDecorator('businessUnit', {
-                    initialValue: ["DP&BS", "Enviromental", "Environmental" +
-                    " Central", "Environmental Central - Cheshire West & Chester"],
-                    rules: [{required: true, message: 'Please select a business unit!'}],
-                  })(
-                    <Cascader options={this.props.store.LookupDataStore.BusinessUnitsLookupData}
-                              placeholder="Please select business units"/>
-                  )}
+                  <CascadeSelector
+                    items={this.props.store.LookupDataStore.BusinessUnitsLookupData}
+                    form={this.props.form}
+                    item={this.props.store.Talent}
+                    converter={this.BuildBusinessUnitInitialValue}
+                    placeholder="Please select a business unit"
+                    validationMessage='Please select a business unit!'
+                    controlId="businessUnits"
+                  />
                 </FormItem>
               </Col>
               <Col span={8}>
                 <FormItem label="Function" {...formItemLayout}>
-                  <FunctionSelector
+                  <Selector
                     items={this.props.store.LookupDataStore.BusinessFunctionsLookupData}
                     form={this.props.form}
-                    item = {this.props.store.Talent}
-                                      />
+                    item={this.props.store.Talent}
+                    placeholder='Please select a business function'
+                    controlId="businessFunctions"
+                    validationMessage='Please select a function!'
+                    converter={this.BuildFunctionValue}
+                  />
                 </FormItem>
               </Col>
             </Row>
@@ -128,22 +157,20 @@ class TalentRecordEditor extends React.Component<any, any> {
                 )}
               </FormItem></Col>
               <Col span={8}> <FormItem label="Grade" {...formItemLayout}>
-                {getFieldDecorator('grade', {
-                  initialValue: this.props.store.Talent.grade,
-                  rules: [{required: true, message: 'grade?'}],
-                })(
-                  <Select showSearch placeholder="Select a grade" value={this.props.store.Talent.grade}>
-                    <Option value="L1">L1</Option>
-                    <Option value="L2">L2</Option>
-                    <Option value="M1">M1</Option>
-                    <Option value="M2">M2</Option>
-                    <Option value="M3">M3</Option>
-                  </Select>
-                )}
+                <Selector
+                  items={this.props.store.LookupDataStore.GradeLookupData}
+                  form={this.props.form}
+                  item={this.props.store.Talent}
+                  placeholder='Please select a grade'
+                  controlId="grade"
+                  validationMessage='Please select a grade!'
+                  converter={this.BuildGradeValue}
+                />
+
               </FormItem></Col>
               <Col span={8}> <FormItem label="Position" {...formItemLayout}>
                 {getFieldDecorator('position', {
-                  initialValue: this.props.store.Talent.grade,
+                  /*initialValue: this.props.store.Talent.grade,*/
                   rules: [{required: true, message: 'position?'}],
                 })(
                   <Input placeholder="Position"/>
@@ -151,7 +178,6 @@ class TalentRecordEditor extends React.Component<any, any> {
               </FormItem></Col>
             </Row>
 
-            {this.props.store.Talent.grade}
             <Divider>Performance & Potential Ratings</Divider>
             <Row><Col><FormItem label="Too New To Rate?" {...formItemLayout}>
               {getFieldDecorator('newToRate', {
@@ -208,20 +234,27 @@ class TalentRecordEditor extends React.Component<any, any> {
             <Divider>Development Requirements</Divider>
             <Row gutter={20}>
               <Col span={12}> <FormItem label="Development Requirements 1st" {...formItemLayout}>
-                {getFieldDecorator('devReq1', {
-                  rules: [{required: true, message: 'Please select a business unit!'}],
-                })(
-                  <DevelopmentRequirementCascader
-                    items={this.props.store.LookupDataStore.DevelopmentRequirementsLookupData}/>
-                )}
+
+                <CascadeSelector
+                  items={this.props.store.LookupDataStore.DevelopmentRequirementsLookupData}
+                  form={this.props.form}
+                  item={this.props.store.Talent}
+                  converter={this.BuildDevelopmentRequirement01Value}
+                  placeholder="Please select a development requirement"
+                  validationMessage='Please select a developement requirement!'
+                  controlId="developmentRequirement_01"
+                />
               </FormItem></Col>
               <Col span={12}> <FormItem label="Development Requirements 2nd" {...formItemLayout}>
-                {getFieldDecorator('devReq2', {
-                  rules: [{required: true, message: 'Please select a business unit!'}],
-                })(
-                  <DevelopmentRequirementCascader
-                    items={this.props.store.LookupDataStore.DevelopmentRequirementsLookupData}/>
-                )}
+                <CascadeSelector
+                  items={this.props.store.LookupDataStore.DevelopmentRequirementsLookupData}
+                  form={this.props.form}
+                  item={this.props.store.Talent}
+                  converter={this.BuildDevelopmentRequirement02Value}
+                  placeholder="Please select a development requirement"
+                  validationMessage='Please select a developement requirement!'
+                  controlId="developmentRequirement_02"
+                />
               </FormItem></Col>
             </Row>
             <Row>

@@ -32,6 +32,16 @@ export const LookupDataStore = types.model(
         get DevelopmentRequirementsLookupData() {
           return self.DevelopmentRequirementsDataStore.items;
         }
+        ,
+        get GradeLookupData() {
+          return [{value: "L2", label: "L2"}, {value: "L1", label: "L1"}, {value: "M3", label: "M3"}, {
+            value: "M2",
+            label: "M2"
+          }, {value: "M1", label: "M1"}, {value: "C4", label: "C4"}, {value: "C3", label: "C3"}, {
+            value: "C2",
+            label: "C2"
+          }, {value: "C1", label: "C1"}];
+        }
       }
     }
   )
