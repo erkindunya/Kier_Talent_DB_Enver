@@ -12,7 +12,7 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var antd_1 = require("antd");
-var PotentialRatingSlider = /** @class */ (function (_super) {
+var SliderSelector = /** @class */ (function (_super) {
     __extends(PotentialRatingSlider, _super);
     function PotentialRatingSlider() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
@@ -33,5 +33,5 @@ var PotentialRatingSlider = /** @class */ (function (_super) {
     };
     return PotentialRatingSlider;
 }(React.Component));
-exports.default = PotentialRatingSlider;
+exports.default = SliderSelector;
 //# sourceMappingURL=PotentialRatingSlider.js.map

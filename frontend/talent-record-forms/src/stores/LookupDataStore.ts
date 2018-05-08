@@ -42,6 +42,21 @@ export const LookupDataStore = types.model(
             label: "C2"
           }, {value: "C1", label: "C1"}];
         }
+        ,
+        get PerformanceRatingLookupData() {
+          /*return [{value: '1', label: '1'},
+            {value: '2', label: '2'},
+            {value: '3', label: '3'},
+            {value: '4', label: '4'},
+            {value: '5', label: '5'}]*/
+
+          return {0: '1', 25: '2', 50: '3', 75: '4', 100: '5'};
+        }
+        ,
+
+        get PotentialRatingLookupData() {
+          return {0: 'A', 50: 'B', 100: 'C'};
+        }
       }
     }
   )

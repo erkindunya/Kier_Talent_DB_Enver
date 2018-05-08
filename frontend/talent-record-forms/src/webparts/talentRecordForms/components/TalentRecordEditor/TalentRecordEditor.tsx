@@ -10,8 +10,8 @@ import CascadeSelector from './controls/CascadeSelector';
 import Selector from './controls/Selector';
 import RiskSelector from './controls/RiskSelector';
 import NewHireSwitch from "./controls/NewHireSwitch";
-import PerformanceRatingSlider from "./controls/PerformanceRatingSlider";
-import PotentialRatingSlider from "./controls/PotentialRatingSlider";
+import PerformanceRatingSlider from "./controls/SliderSelector";
+import SliderSelector from "./controls/SliderSelector";
 import UserRemoteSelect from "./controls/UserSelector";
 import MovementStatusSelector from "./controls/MovementStatusSelector";
 
@@ -65,6 +65,41 @@ class TalentRecordEditor extends React.Component<any, any> {
   BuildFunctionValue = (talent) => {
 
     return (talent) ? talent.function : "";
+  }
+
+  BuildPerformanceRatingValue = (talent) => {
+    return (talent) ? parseInt(talent.performance) : 0;
+  }
+
+  BuildPotentialRating = (talent) => {
+    return (talent) ? parseInt(talent.potential) : 0;
+  }
+
+
+  formatPerformanceTip = (value) => {
+    //Todo : refactor to make it more intelligent
+    if (value == 0)
+      return 1;
+    if (value == 25)
+      return 2;
+    if (value == 50)
+      return 3;
+    if (value == 75)
+      return 4;
+    if (value == 100)
+      return 5;
+    return value;
+  }
+
+  formatPotentialTip = (value) => {
+    //Todo : refactor to make it more intelligent
+    if (value == 0)
+      return 'A';
+    if (value == 50)
+      return 'B';
+    if (value == 100)
+      return 'C';
+    return value;
   }
 
 
@@ -188,18 +223,26 @@ class TalentRecordEditor extends React.Component<any, any> {
             </FormItem></Col></Row>
 
             <Row gutter={50}><Col span={11}><FormItem label="Performance Rating" {...formItemLayout}>
-              {getFieldDecorator('performanceRating', {
-                rules: [{required: true, message: 'Performance Rating ?'}],
-              })(
-                <PerformanceRatingSlider/>
-              )}
+
+              <SliderSelector
+                items={this.props.store.LookupDataStore.PerformanceRatingLookupData}
+                form={this.props.form}
+                item={this.props.store.Talent}
+                controlId="performance"
+                validationMessage="Please select a rating for the performance"
+                converter={this.BuildPotentialRating}
+                formatter={this.formatPerformanceTip}
+              />
             </FormItem></Col>
               <Col span={2}></Col><Col span={11}> <FormItem label="Potential Rating" {...formItemLayout}>
-                {getFieldDecorator('potentialRating', {
-                  rules: [{required: true, message: 'Potential Rating ?'}],
-                })(
-                  <PotentialRatingSlider/>
-                )}
+                <SliderSelector
+                  items={this.props.store.LookupDataStore.PotentialRatingLookupData}
+                  form={this.props.form}
+                  item={this.props.store.Talent}
+                  controlId="potential"
+                  validationMessage="Please select a rating for the potential"
+                  converter={this.BuildPotentialRating}
+                  formatter={this.formatPotentialTip}/>
               </FormItem></Col></Row>
 
 
@@ -221,6 +264,7 @@ class TalentRecordEditor extends React.Component<any, any> {
                   <RiskSelector items={this.props.store.LookupDataStore.RisksLookupData}/>
                 )}
               </FormItem></Col>
+
               <Col span={12}>{<FormItem label="Business Risk" {...formItemLayout}>
                 {getFieldDecorator('businessRisk', {
                   rules: [{required: true, message: 'Please select business risk!'}],
@@ -245,6 +289,7 @@ class TalentRecordEditor extends React.Component<any, any> {
                   controlId="developmentRequirement_01"
                 />
               </FormItem></Col>
+
               <Col span={12}> <FormItem label="Development Requirements 2nd" {...formItemLayout}>
                 <CascadeSelector
                   items={this.props.store.LookupDataStore.DevelopmentRequirementsLookupData}
@@ -256,6 +301,8 @@ class TalentRecordEditor extends React.Component<any, any> {
                   controlId="developmentRequirement_02"
                 />
               </FormItem></Col>
+
+
             </Row>
             <Row>
               <Col span={24}>
