@@ -56,6 +56,23 @@ export const LookupDataStore = types.model(
 
         get PotentialRatingLookupData() {
           return {0: 'A', 50: 'B', 100: 'C'};
+        },
+
+        get MovementLookupData() {
+          return [
+            {value: 'Now', label: 'Now'},
+            {value: 'Soon', label: 'Soon'},
+            {value: 'Low', label: 'Low'},
+            {value: 'Lateral', label: 'Lateral'}
+          ];
+        }
+        ,
+        get RiskLookupData() {
+          return [
+            {value: 'High', label: 'High'},
+            {value: 'Medium', label: 'Medium'},
+            {value: 'Low', label: 'Low'},
+          ]
         }
       }
     }

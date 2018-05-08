@@ -1,19 +1,15 @@
 import * as React from 'react';
-import styles from './TalentRecordEditor.module.scss';
 import {ITalentRecordEditorProps} from './ITalentRecordEditorProps';
 import {escape} from '@microsoft/sp-lodash-subset';
-import {DefaultButton, IButtonProps} from 'office-ui-fabric-react/lib/Button';
-import {Form, Icon, Input, Button, Layout, Divider, Select, Row, Col, Cascader} from 'antd';
+import {Form, Icon, Input, Button, Layout, Divider, Select, Row, Col, Cascader, Tooltip} from 'antd';
 import {FormProps} from "antd/lib/form/Form";
 import {FormComponentProps} from 'antd/lib/form/Form';
 import CascadeSelector from './controls/CascadeSelector';
 import Selector from './controls/Selector';
-import RiskSelector from './controls/RiskSelector';
 import NewHireSwitch from "./controls/NewHireSwitch";
-import PerformanceRatingSlider from "./controls/SliderSelector";
 import SliderSelector from "./controls/SliderSelector";
 import UserRemoteSelect from "./controls/UserSelector";
-import MovementStatusSelector from "./controls/MovementStatusSelector";
+import OptionsSelector from "./controls/OptionsSelector";
 
 ;
 import {inject, observer} from "mobx-react";
@@ -67,6 +63,11 @@ class TalentRecordEditor extends React.Component<any, any> {
     return (talent) ? talent.function : "";
   }
 
+  BuildMovementValue = (talent) => {
+
+    return (talent) ? talent.movement : "";
+  }
+
   BuildPerformanceRatingValue = (talent) => {
     return (talent) ? parseInt(talent.performance) : 0;
   }
@@ -74,6 +75,15 @@ class TalentRecordEditor extends React.Component<any, any> {
   BuildPotentialRating = (talent) => {
     return (talent) ? parseInt(talent.potential) : 0;
   }
+
+  BuildBusinessRiskValue = (talent) => {
+    return (talent) ? talent.businessRisk : "";
+  }
+
+  BuildFlightRiskValue = (talent) => {
+    return (talent) ? talent.flightRisk : "";
+  }
+
 
 
   formatPerformanceTip = (value) => {
@@ -131,7 +141,12 @@ class TalentRecordEditor extends React.Component<any, any> {
             <Divider orientation='left'>Employee Information</Divider>
             <Row gutter={20}>
               <Col span={16}>
-                <FormItem label="Business Unit" {...formItemLayout}>
+                <FormItem label={<span>
+              Business Unit&nbsp;
+                  <Tooltip title="You have to select the Division->Unit->Stream->Location?">
+                <Icon type="question-circle-o"/>
+              </Tooltip>
+            </span>} {...formItemLayout}>
                   <CascadeSelector
                     items={this.props.store.LookupDataStore.BusinessUnitsLookupData}
                     form={this.props.form}
@@ -175,6 +190,7 @@ class TalentRecordEditor extends React.Component<any, any> {
               </FormItem></Col>
               <Col span={8}><FormItem label="Employee" {...formItemLayout}>
                 {getFieldDecorator('employee', {
+                  initialValue: "Khalil, Mohamed",
                   rules: [{required: true, message: 'employee name?'}],
                 })(
                   <UserRemoteSelect/>
@@ -205,7 +221,7 @@ class TalentRecordEditor extends React.Component<any, any> {
               </FormItem></Col>
               <Col span={8}> <FormItem label="Position" {...formItemLayout}>
                 {getFieldDecorator('position', {
-                  /*initialValue: this.props.store.Talent.grade,*/
+                  initialValue: "IT Developer",
                   rules: [{required: true, message: 'position?'}],
                 })(
                   <Input placeholder="Position"/>
@@ -248,30 +264,40 @@ class TalentRecordEditor extends React.Component<any, any> {
 
             <Divider>Movement</Divider>
             <FormItem label="Movement Status" {...formItemLayout}>
-              {getFieldDecorator('movementStatus', {
-                rules: [{required: true, message: 'movement Status?'}],
-              })(
-                <MovementStatusSelector/>
-              )}
+              <OptionsSelector
+                items={this.props.store.LookupDataStore.MovementLookupData}
+                form={this.props.form}
+                item={this.props.store.Talent}
+                controlId="movement"
+                validationMessage="Please select a movement status"
+                converter={this.BuildMovementValue}
+              />
             </FormItem>
 
             <Divider>Risk</Divider>
             <Row gutter={20}>
               <Col span={12}><FormItem label="Flight Risk" {...formItemLayout}>
-                {getFieldDecorator('flightRisk', {
-                  rules: [{required: true, message: 'Please select flight risk!'}],
-                })(
-                  <RiskSelector items={this.props.store.LookupDataStore.RisksLookupData}/>
-                )}
+                <OptionsSelector
+                  items={this.props.store.LookupDataStore.RiskLookupData}
+                  form={this.props.form}
+                  item={this.props.store.Talent}
+                  controlId="flightRisk"
+                  validationMessage="Please select flight risk!"
+                  converter={this.BuildBusinessRiskValue}
+                />
+
               </FormItem></Col>
 
               <Col span={12}>{<FormItem label="Business Risk" {...formItemLayout}>
-                {getFieldDecorator('businessRisk', {
-                  rules: [{required: true, message: 'Please select business risk!'}],
-                })(
-                  <RiskSelector items={this.props.store.LookupDataStore.RisksLookupData}/>
-                )}
 
+                <OptionsSelector
+                  items={this.props.store.LookupDataStore.RiskLookupData}
+                  form={this.props.form}
+                  item={this.props.store.Talent}
+                  controlId="businessRisk"
+                  validationMessage="Please select business risk!"
+                  converter={this.BuildFlightRiskValue}
+                />
               </FormItem>}</Col>
             </Row>
 
@@ -308,11 +334,28 @@ class TalentRecordEditor extends React.Component<any, any> {
               <Col span={24}>
                 <FormItem label="Notes" {...formItemLayout}>
                   {getFieldDecorator('devNotes', {
-                    rules: [{required: true, message: 'Please select a business unit!'}],
+                    rules: [{required: true, message: 'Please fill in some comments'}],
                   })(
                     <Input.TextArea rows={5}/>
                   )}
                 </FormItem>
+              </Col>
+            </Row>
+            <Row>
+              <Col span={24}>
+
+
+                <Row>
+                  <Col span={24} style={{textAlign: 'right'}}>
+                    <Button type="primary" htmlType="submit">Search</Button>
+                    <Button style={{marginLeft: 8}} htmlType="reset">
+                      Clear
+                    </Button>
+                    <Button style={{marginLeft: 8}} htmlType="button">
+                      Cancel
+                    </Button>
+                  </Col>
+                </Row>
               </Col>
             </Row>
 
