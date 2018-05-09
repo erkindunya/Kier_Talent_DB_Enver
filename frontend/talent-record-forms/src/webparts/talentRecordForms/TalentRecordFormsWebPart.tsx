@@ -12,7 +12,7 @@ import * as strings from 'TalentRecordFormsWebPartStrings';
 import WrappedForm from './components/TalentRecordEditor/TalentRecordEditor';
 import {ITalentRecordEditorProps} from './components/TalentRecordEditor/ITalentRecordEditorProps';
 import {Form} from "antd";
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.less';
 import {Provider} from "mobx-react";
 import {AppStore} from "../../stores/AppStore";
 
