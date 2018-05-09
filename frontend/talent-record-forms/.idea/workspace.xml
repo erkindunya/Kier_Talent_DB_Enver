@@ -3,18 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="911ba6af-c74c-44e6-94cb-d15df8b37c13" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stores/LookupDataStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/LookupDataStore.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/DevelopmentRequirementCascader.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/DevelopmentRequirementCascader.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/DevelopmentRequirementCascader.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/MovementStatusSelector.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/MovementStatusSelector.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/MovementStatusSelector.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/OptionsSelector.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/RiskSelector.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/RiskSelector.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/RiskSelector.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/SliderSelector.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/SliderSelector.tsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -29,11 +19,47 @@
   <component name="ChangesViewManager" show_ignored="true" />
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="Selector.tsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/Selector.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="540">
+              <caret line="30" column="18" selection-start-line="30" selection-start-column="6" selection-end-line="30" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="TalentRecordEditor.tsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="31" selection-start-column="31" selection-end-column="31" />
+            <state relative-caret-position="106">
+              <caret line="359" column="18" selection-start-line="359" selection-start-column="18" selection-end-line="359" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SliderSelector.tsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/SliderSelector.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="504">
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Talents.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/stores/services/mockData/Talents.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1422">
+              <caret line="73" column="27" selection-start-line="73" selection-start-column="27" selection-end-line="73" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -119,10 +145,10 @@
         <option value="$PROJECT_DIR$/src/webparts/talentRecordForms/TalentRecordFormsWebPart.tsx" />
         <option value="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/FunctionSelector.tsx" />
         <option value="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/PerformanceRatingSlider.tsx" />
-        <option value="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/SliderSelector.tsx" />
         <option value="$PROJECT_DIR$/src/stores/Common/DataProviderFactory.ts" />
         <option value="$PROJECT_DIR$/src/stores/LookupDataStore.ts" />
         <option value="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/OptionsSelector.tsx" />
+        <option value="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/SliderSelector.tsx" />
         <option value="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.tsx" />
       </list>
     </option>
@@ -189,11 +215,11 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
-    <option name="x" value="1034" />
-    <option name="y" value="-777" />
-    <option name="width" value="1366" />
-    <option name="height" value="728" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="784" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -218,6 +244,21 @@
               <item name="talent-record-forms" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="stores" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="talent-record-forms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="talent-record-forms" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="stores" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="talent-record-forms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="talent-record-forms" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="stores" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+              <item name="mockData" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="talent-record-forms" type="b2602c69:ProjectViewProjectNode" />
@@ -528,7 +569,7 @@
       <workItem from="1525541368320" duration="13895000" />
       <workItem from="1525596248691" duration="17206000" />
       <workItem from="1525675327826" duration="26889000" />
-      <workItem from="1525782438612" duration="9220000" />
+      <workItem from="1525782438612" duration="11650000" />
     </task>
     <task id="LOCAL-00001" summary="- Resolving issues in the TypeScript compiler configurations.&#10;- Added the plumping of Risks and Business Functions lookup data.&#10;- Lookup data plumping code currently reads from mock data.i.e. not connected to SharePoint.">
       <created>1525606067803</created>
@@ -593,11 +634,18 @@
       <option name="project" value="LOCAL" />
       <updated>1525788594776</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Refactored Risk Selectors , Movement Selectors, and Notes. Data Binding is not yet fully done. The focus got sidetracked to show progress to Brian">
+      <created>1525792765970</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1525792765970</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107837000" />
+    <option name="totallyTimeSpent" value="110267000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -609,24 +657,23 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="757" y="-1080" width="1920" height="1080" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32943678" />
       <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.50027305" side_tool="true" weight="0.4070138" />
       <window_info anchor="bottom" id="File Transfer" order="13" weight="0.32882413" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49972692" weight="0.5074331" />
-      <window_info anchor="bottom" auto_hide="true" id="Run" order="2" sideWeight="0.49972692" weight="0.29335976" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="7" sideWeight="0.49972692" visible="true" weight="0.3115824" />
+      <window_info anchor="bottom" auto_hide="true" id="Run" order="2" sideWeight="0.49972692" weight="0.4333844" />
       <window_info id="npm" order="4" sideWeight="0.3607532" side_tool="true" weight="0.19704953" />
       <window_info anchor="bottom" auto_hide="true" id="Terminal" order="10" weight="0.38469714" />
       <window_info id="Gulp" order="2" sideWeight="0.3598131" side_tool="true" weight="0.23393045" />
       <window_info anchor="bottom" id="TypeScript" order="9" sideWeight="0.49972692" weight="0.36981934" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.63924676" visible="true" weight="0.19704953" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.63924676" visible="true" weight="0.27827382" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.3518335" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3518335" />
       <window_info id="Structure" order="1" sideWeight="0.46543002" side_tool="true" weight="0.26160568" />
       <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.25078043" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.24959217" />
       <window_info anchor="bottom" id="Thumbnails" order="11" weight="0.32943678" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -737,7 +784,8 @@
     <MESSAGE value="More refactoring for the WebPart UI folder structure." />
     <MESSAGE value="Half way through finishing the Talent Data plumping.&#10;Web part tests the QueryString for Talent to be edited.&#10;Next, we need to finish connect TalentDataStore to the form, start loading real data, do the people picker." />
     <MESSAGE value="Refactored more of the TalentRecordsEditor into smaller components ( SliderSelector, CascadeSelector, Selector). This is pre-Brians meeting" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored more of the TalentRecordsEditor into smaller components ( SliderSelector, CascadeSelector, Selector). This is pre-Brians meeting" />
+    <MESSAGE value="Refactored Risk Selectors , Movement Selectors, and Notes. Data Binding is not yet fully done. The focus got sidetracked to show progress to Brian" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored Risk Selectors , Movement Selectors, and Notes. Data Binding is not yet fully done. The focus got sidetracked to show progress to Brian" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -939,16 +987,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/SliderSelector.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/CascadeSelector.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1035,23 +1073,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/stores/services/mockData/Talents.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="78" column="36" selection-start-line="78" selection-start-column="36" selection-end-line="78" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/Selector.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="666">
-          <caret line="37" column="19" selection-start-line="28" selection-start-column="3" selection-end-line="37" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/UserSelector.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
@@ -1076,13 +1097,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/OptionsSelector.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/stores/services/mockData/DevelopmentRequirements.ts">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1093,10 +1107,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/OptionsSelector.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stores/services/mockData/Talents.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1422">
+          <caret line="73" column="27" selection-start-line="73" selection-start-column="27" selection-end-line="73" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/Selector.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="30" column="18" selection-start-line="30" selection-start-column="6" selection-end-line="30" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/SliderSelector.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="31" selection-start-column="31" selection-end-column="31" />
+        <state relative-caret-position="106">
+          <caret line="359" column="18" selection-start-line="359" selection-start-column="18" selection-end-line="359" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

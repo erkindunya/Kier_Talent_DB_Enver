@@ -7,7 +7,7 @@ export default class SliderSelector extends React.Component<any, any> {
 
   BuildSelector = () => {
     return(
-      <Slider marks={this.props.items} defaultValue={0} tipFormatter={this.props.formatter} step={null}/>
+      <Slider marks={this.props.items} value={50} tipFormatter={this.props.formatter} step={null}/>
     )
   }
 

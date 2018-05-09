@@ -69,11 +69,11 @@ class TalentRecordEditor extends React.Component<any, any> {
   }
 
   BuildPerformanceRatingValue = (talent) => {
-    return (talent) ? parseInt(talent.performance) : 0;
+    return (talent) ? parseInt(talent.performance) : 2;
   }
 
   BuildPotentialRating = (talent) => {
-    return (talent) ? parseInt(talent.potential) : 0;
+    return (talent) ? parseInt(talent.potential) : 50;
   }
 
   BuildBusinessRiskValue = (talent) => {
@@ -229,7 +229,7 @@ class TalentRecordEditor extends React.Component<any, any> {
               </FormItem></Col>
             </Row>
 
-            <Divider>Performance & Potential Ratings</Divider>
+            <Divider orientation='left'>Performance & Potential Ratings</Divider>
             <Row><Col><FormItem label="Too New To Rate?" {...formItemLayout}>
               {getFieldDecorator('newToRate', {
                 rules: [{required: true, message: 'Too new to rate ?'}],
@@ -262,7 +262,7 @@ class TalentRecordEditor extends React.Component<any, any> {
               </FormItem></Col></Row>
 
 
-            <Divider>Movement</Divider>
+            <Divider orientation='left'>Movement</Divider>
             <FormItem label="Movement Status" {...formItemLayout}>
               <OptionsSelector
                 items={this.props.store.LookupDataStore.MovementLookupData}
@@ -301,7 +301,7 @@ class TalentRecordEditor extends React.Component<any, any> {
               </FormItem>}</Col>
             </Row>
 
-            <Divider>Development Requirements</Divider>
+            <Divider orientation='left'>Development Requirements</Divider>
             <Row gutter={20}>
               <Col span={12}> <FormItem label="Development Requirements 1st" {...formItemLayout}>
 
