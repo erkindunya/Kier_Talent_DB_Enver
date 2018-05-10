@@ -31,7 +31,7 @@ export default class TalentRecordFormsWebPart extends BaseClientSideWebPart<ITal
       appStore.TalentDataStore.GetTalentById(parseInt(url.searchParams.get("talentId")));
     }
 
-    ReactDom.render(<Provider store={appStore}><WrappedForm/></Provider>, this.domElement);
+    ReactDom.render(<Provider store={appStore} context={this.context}><WrappedForm/></Provider>, this.domElement);
   }
 
   protected get dataVersion(): Version {

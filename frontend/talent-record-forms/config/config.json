@@ -9,10 +9,19 @@
           "manifest": "./src/webparts/talentRecordForms/TalentRecordFormsWebPart.manifest.json"
         }
       ]
+    },
+    "talent-record-time-line-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/talentRecordTimeLine/TalentRecordTimeLineWebPart.js",
+          "manifest": "./src/webparts/talentRecordTimeLine/TalentRecordTimeLineWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
   "localizedResources": {
-    "TalentRecordFormsWebPartStrings": "lib/webparts/talentRecordForms/loc/{locale}.js"
+    "TalentRecordFormsWebPartStrings": "lib/webparts/talentRecordForms/loc/{locale}.js",
+    "TalentRecordTimeLineWebPartStrings": "lib/webparts/talentRecordTimeLine/loc/{locale}.js"
   }
 }

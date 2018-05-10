@@ -10,6 +10,7 @@ import NewHireSwitch from "./controls/NewHireSwitch";
 import SliderSelector from "./controls/SliderSelector";
 import UserRemoteSelect from "./controls/UserSelector";
 import OptionsSelector from "./controls/OptionsSelector";
+import {IDigestCache, DigestCache} from '@microsoft/sp-http';
 
 ;
 import {inject, observer} from "mobx-react";
@@ -22,7 +23,7 @@ function hasErrors(fieldsError) {
   return Object.keys(fieldsError).some(field => fieldsError[field]);
 }
 
-@inject("store")
+@inject("store", "context")
 @observer
 class TalentRecordEditor extends React.Component<any, any> {
 
