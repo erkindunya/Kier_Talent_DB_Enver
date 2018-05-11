@@ -30,6 +30,9 @@ export default class TalentRecordFormsWebPart extends BaseClientSideWebPart<ITal
       console.log("Talent Id " + url.searchParams.get("talentId"));
       appStore.TalentDataStore.GetTalentById(parseInt(url.searchParams.get("talentId")));
     }
+    else {
+      //appStore.TalentDataStore.Talent = Talent.create({});
+    }
 
     ReactDom.render(<Provider store={appStore} context={this.context}><WrappedForm/></Provider>, this.domElement);
   }

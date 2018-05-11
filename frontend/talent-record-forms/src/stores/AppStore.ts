@@ -6,11 +6,13 @@ import {BusinessUnitsLookupDataStore} from "./LookupDataStores/BusinessUnitsLook
 import {DevelopmentRequirementsLookupDataStore} from "./LookupDataStores/DevelopmentRequirementsDataStore";
 import {LookupDataStore} from "./LookupDataStore";
 import TalentsStore, {Talent} from "./TalentsStore";
+import ViewStore from "./ViewStore";
 
 export const AppStore = types.model(
   {
     LookupDataStore: types.optional(LookupDataStore, {}),
     TalentDataStore: types.optional(TalentsStore, {}),
+    ViewStore: types.optional(ViewStore, {}),
     Talent: types.maybe(Talent)
   }
 ).named("ApplicationDataStore")
@@ -19,5 +21,13 @@ export const AppStore = types.model(
     const SetTalent = (item) => {
       self.Talent = item;
     }
-    return {SetTalent}
+
+    const LoadTalentRecord = (id: number) => {
+      self.TalentDataStore.GetTalentById(id)
+    }
+
+    return {
+      SetTalent,
+      LoadTalentRecord
+    }
   });

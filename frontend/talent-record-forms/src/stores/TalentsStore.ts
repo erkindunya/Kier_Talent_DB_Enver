@@ -1,6 +1,7 @@
 import {applySnapshot, flow, getParent, types} from "mobx-state-tree";
 import {DataProviderFactory} from "./Common/DataProviderFactory";
 
+
 export const Talent = types.model({
   id: types.maybe(types.number),
   employeeId: types.optional(types.string, ""),
@@ -10,7 +11,7 @@ export const Talent = types.model({
   divison: types.optional(types.string, ""),
   unit: types.optional(types.string, ""),
   stream: types.optional(types.string, ""),
-  function: types.optional(types.string, ""),
+  function: types.maybe(types.string),
   location: types.optional(types.string, ""),
   grade: types.optional(types.string, ""),
   businessRisk: types.optional(types.string, ""),
@@ -24,7 +25,67 @@ export const Talent = types.model({
   requirements_02_subcategory: types.optional(types.string, ""),
   notes: types.optional(types.string, "")
 })
-  .named("TalentRecord");
+  .named("TalentRecord")
+  .actions(self => {
+    const changeEmployeeId = (id: string) => {
+      self.employeeId = id;
+    }
+
+    const SetValueIfDifferent = (oldValue: string, newValue: string) => {
+      if (oldValue != newValue)
+        oldValue = newValue;
+    }
+
+    //Todo : think about the Person data . Do we need to include userId, Email and displayName
+    const changeBusinessUnit = (businessUnit: string[]) => {
+      const [division, stream, unit, location] = businessUnit;
+
+      SetValueIfDifferent(self.divison, division);
+      SetValueIfDifferent(self.stream, stream);
+      SetValueIfDifferent(self.unit, unit);
+      SetValueIfDifferent(self.location, location);
+    }
+
+    const changeFunction = (newFunction: string) => {
+      SetValueIfDifferent(self.function, newFunction)
+    }
+
+    const changeGrade = (newGrade: string) => {
+      SetValueIfDifferent(self.grade, newGrade);
+    }
+
+    const changeBusinessRisk = (newBusinessRisk: string) => {
+      SetValueIfDifferent(self.businessRisk, newBusinessRisk);
+    }
+
+    const changeFlightRisk = (newFlightRisk: string) => {
+      SetValueIfDifferent(self.flightRisk, newFlightRisk);
+    }
+
+
+    return {
+      changeBusinessUnit,
+      changeFunction,
+      changeGrade,
+      changeBusinessRisk,
+      changeFlightRisk
+    }
+  })
+  .views(self => {
+
+    const BuildBusinessUnitInitialValue = () => {
+      console.log("BuildBusinessUnitInitialValue: called")
+      const {divison, unit, stream, location} = self;
+      const result = [divison, unit, stream, location]
+      console.log(result)
+      return result;
+    }
+
+    return {
+      BuildBusinessUnitInitialValue
+    }
+  });
+
 
 const TalentsStore = types.model({
   items: types.optional(types.array(Talent), []),
@@ -61,10 +122,11 @@ const TalentsStore = types.model({
           //Todo : ugly piece of code that needs to be refactored.
           console.log("Talents : " + JSON.stringify(response, null, 4));
           talent = Talent.create(response);
-          if (getParent(self, 1).Talent)
+          //Todo: move this code for the AppStore\ViewStore
+          /* if (getParent(self, 1).Talent)
             applySnapshot(getParent(self, 1).Talent, talent);
           else
-            getParent(self, 1).SetTalent(talent);
+            getParent(self, 1).SetTalent(talent);*/
           console.log("Talent Record : " + JSON.stringify(talent, null, 4));
         }
       }
@@ -84,8 +146,6 @@ const TalentsStore = types.model({
   const afterCreate = () => {
     console.log("Loading relevant Talent Records")
     self.LoadAllTalents().then(_ => console.log("Number of Loaded Talent Records :" + self.items.length));
-
-
   }
 
   return {

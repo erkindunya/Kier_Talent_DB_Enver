@@ -86,7 +86,6 @@ class TalentRecordEditor extends React.Component<any, any> {
   }
 
 
-
   formatPerformanceTip = (value) => {
     //Todo : refactor to make it more intelligent
     if (value == 0)
@@ -111,6 +110,45 @@ class TalentRecordEditor extends React.Component<any, any> {
     if (value == 100)
       return 'C';
     return value;
+  }
+
+  OnBuinsessUnitChange = (newBusinessUnit: string []) => {
+
+    console.log(`Business Unit changed ${newBusinessUnit}`);
+  }
+
+  OnFunctionChange = (newFunction: string) => {
+
+  }
+
+  OnAreaHeadChange = (newHeadArea: string) => {
+
+  }
+  OnEmployeeChange = (newEmployeeName: string) => {
+
+  }
+  OnEmployeeIDChange = (newEmployeeId: string) => {
+
+  }
+
+  OnGradeChange = (newGrade: string) => {
+
+  }
+
+  OnPositionChange = (newPosition: string) => {
+
+  }
+
+  OnMovementChange = (newMovement: string) => {
+
+  }
+
+  OnFlightRiskChange = (newFlightRisk: string) => {
+
+  }
+
+  OnBusinessRiskChange = (newBusinessRisk: string) => {
+
   }
 
 
@@ -150,12 +188,11 @@ class TalentRecordEditor extends React.Component<any, any> {
             </span>} {...formItemLayout}>
                   <CascadeSelector
                     items={this.props.store.LookupDataStore.BusinessUnitsLookupData}
-                    form={this.props.form}
-                    item={this.props.store.Talent}
-                    converter={this.BuildBusinessUnitInitialValue}
+                    value={this.props.store.Talent.BuildBusinessUnitInitialValue}
                     placeholder="Please select a business unit"
                     validationMessage='Please select a business unit!'
                     controlId="businessUnits"
+                    changed={this.OnBuinsessUnitChange}
                   />
                 </FormItem>
               </Col>
@@ -306,7 +343,7 @@ class TalentRecordEditor extends React.Component<any, any> {
             <Row gutter={20}>
               <Col span={12}> <FormItem label="Development Requirements 1st" {...formItemLayout}>
 
-                <CascadeSelector
+                {/*<CascadeSelector
                   items={this.props.store.LookupDataStore.DevelopmentRequirementsLookupData}
                   form={this.props.form}
                   item={this.props.store.Talent}
@@ -314,11 +351,11 @@ class TalentRecordEditor extends React.Component<any, any> {
                   placeholder="Please select a development requirement"
                   validationMessage='Please select a developement requirement!'
                   controlId="developmentRequirement_01"
-                />
+                />*/}
               </FormItem></Col>
 
               <Col span={12}> <FormItem label="Development Requirements 2nd" {...formItemLayout}>
-                <CascadeSelector
+                {/*<CascadeSelector
                   items={this.props.store.LookupDataStore.DevelopmentRequirementsLookupData}
                   form={this.props.form}
                   item={this.props.store.Talent}
@@ -326,7 +363,7 @@ class TalentRecordEditor extends React.Component<any, any> {
                   placeholder="Please select a development requirement"
                   validationMessage='Please select a developement requirement!'
                   controlId="developmentRequirement_02"
-                />
+                />*/}
               </FormItem></Col>
 
 
