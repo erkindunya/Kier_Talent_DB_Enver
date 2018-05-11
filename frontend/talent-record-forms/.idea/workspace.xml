@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="02d30b5e-196e-47e5-a7a0-ab373c93da9b" name="AntD LESS Styles" comment="AntD LESS Styles">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/serve.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/serve.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/TalentRecordFormsWebPart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/webparts/talentRecordForms/TalentRecordFormsWebPart.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/UserSelector.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/UserSelector.tsx" afterDir="false" />
-    </list>
     <list id="911ba6af-c74c-44e6-94cb-d15df8b37c13" name="Default" comment="" />
+    <list default="true" id="02d30b5e-196e-47e5-a7a0-ab373c93da9b" name="AntD LESS Styles" comment="Completed the People Picker autocomplete behaviour">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -31,11 +24,8 @@
           <file leaf-file-name="TalentRecordEditor.tsx" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.tsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="196">
+                <state relative-caret-position="162">
                   <caret line="9" column="55" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
-                  <folding>
-                    <element signature="e#685#729#0" expanded="true" />
-                  </folding>
                 </state>
               </provider>
             </entry>
@@ -43,7 +33,7 @@
           <file leaf-file-name="TalentRecordFormsWebPart.tsx" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/TalentRecordFormsWebPart.tsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="504">
+                <state relative-caret-position="18">
                   <caret line="33" column="68" selection-start-line="33" selection-start-column="68" selection-end-line="33" selection-end-column="68" />
                   <folding>
                     <element signature="e#0#31#0" expanded="true" />
@@ -55,15 +45,12 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="TalentRecordEditor.tsx" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.tsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="432">
+                <state relative-caret-position="216">
                   <caret line="25" selection-start-line="25" selection-end-line="26" selection-end-column="9" />
-                  <folding>
-                    <element signature="e#0#31#0" expanded="true" />
-                  </folding>
                 </state>
               </provider>
             </entry>
@@ -71,11 +58,10 @@
           <file leaf-file-name="UserSelector.tsx" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/UserSelector.tsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="284">
+                <state relative-caret-position="18">
                   <caret line="49" column="7" selection-start-line="49" selection-start-column="7" selection-end-line="49" selection-end-column="7" />
                   <folding>
                     <element signature="e#0#40#0" expanded="true" />
-                    <element signature="e#104#135#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -84,7 +70,7 @@
           <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/package.json">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="590">
+                <state relative-caret-position="648">
                   <caret line="36" column="14" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
                 </state>
               </provider>
@@ -127,9 +113,6 @@
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="dummy://restClient/response10.txt" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -251,10 +234,9 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1448" />
-    <option name="y" value="235" />
-    <option name="width" value="1364" />
-    <option name="height" value="726" />
+    <option name="x" value="16" />
+    <option name="width" value="1382" />
+    <option name="height" value="784" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -472,7 +454,8 @@
       <workItem from="1525675327826" duration="26889000" />
       <workItem from="1525782438612" duration="11650000" />
       <workItem from="1525949405318" duration="2213000" />
-      <workItem from="1525960476331" duration="9797000" />
+      <workItem from="1525960476331" duration="10040000" />
+      <workItem from="1526024986600" duration="597000" />
     </task>
     <task id="LOCAL-00001" summary="- Resolving issues in the TypeScript compiler configurations.&#10;- Added the plumping of Risks and Business Functions lookup data.&#10;- Lookup data plumping code currently reads from mock data.i.e. not connected to SharePoint.">
       <created>1525606067803</created>
@@ -552,12 +535,19 @@
       <option name="project" value="LOCAL" />
       <updated>1525880043087</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Completed the People Picker autocomplete behaviour">
+      <created>1525971577599</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1525971577600</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <option name="trackContextForNewChangelist" value="true" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="133271000" />
+    <option name="totallyTimeSpent" value="134111000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -569,56 +559,56 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1928" y="-8" width="1936" height="1096" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32864866" />
-      <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.50027305" side_tool="true" weight="0.4070138" />
-      <window_info anchor="bottom" id="REST Client" weight="0.71675676" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49972692" weight="0.2" />
-      <window_info anchor="bottom" auto_hide="true" id="Run" order="2" sideWeight="0.49972692" weight="0.43243244" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3284974" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="14" sideWeight="0.50027305" side_tool="true" visible="true" weight="0.26918918" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49972692" weight="0.4476684" />
+      <window_info anchor="bottom" auto_hide="true" id="Run" order="2" sideWeight="0.49972692" weight="0.33115825" />
       <window_info id="npm" order="4" sideWeight="0.3607532" side_tool="true" weight="0.19704953" />
       <window_info anchor="bottom" auto_hide="true" id="Terminal" order="10" weight="0.36787564" />
-      <window_info id="Gulp" order="2" sideWeight="0.36165804" side_tool="true" visible="true" weight="0.1938883" />
+      <window_info id="Gulp" order="2" sideWeight="0.3653846" side_tool="true" visible="true" weight="0.1938883" />
       <window_info anchor="bottom" id="TypeScript" order="9" sideWeight="0.49972692" weight="0.36972973" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.63834196" visible="true" weight="0.1938883" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.63461536" visible="true" weight="0.1938883" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3518335" />
       <window_info id="Structure" order="1" sideWeight="0.46543002" side_tool="true" weight="0.26160568" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.24959217" />
       <window_info anchor="bottom" id="Thumbnails" order="11" weight="0.32943678" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="REST Client" order="15" weight="0.71675676" />
       <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="File Transfer" order="13" weight="0.32882413" />
+      <window_info anchor="bottom" id="File Transfer" order="13" weight="0.3284974" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3518335" />
     </layout>
     <layout-to-restore>
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49972692" weight="0.5078044" />
       <window_info id="Gulp" order="2" sideWeight="0.3598131" side_tool="true" weight="0.23393045" />
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6401869" visible="true" weight="0.23393045" />
       <window_info id="npm" order="3" sideWeight="0.46118012" side_tool="true" weight="0.18124342" />
       <window_info anchor="bottom" auto_hide="true" id="Run" order="2" sideWeight="0.49972692" weight="0.29344434" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Thumbnails" order="7" weight="0.32943678" />
       <window_info id="Structure" order="1" sideWeight="0.46543002" side_tool="true" weight="0.26160568" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32943678" />
       <window_info anchor="bottom" id="TypeScript" order="10" sideWeight="0.49972692" weight="0.36981934" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32845187" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.25078043" />
       <window_info anchor="bottom" auto_hide="true" id="Terminal" order="11" weight="0.38469714" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50027305" side_tool="true" weight="0.4070138" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49972692" weight="0.5078044" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="File Transfer" order="14" weight="0.32882413" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32845187" />
       <window_info anchor="bottom" id="Messages" order="13" />
       <window_info id="Favorites" order="4" side_tool="true" />
     </layout-to-restore>
@@ -693,7 +683,8 @@
     <MESSAGE value="Half way through finishing the Talent Data plumping.&#10;Web part tests the QueryString for Talent to be edited.&#10;Next, we need to finish connect TalentDataStore to the form, start loading real data, do the people picker." />
     <MESSAGE value="Refactored more of the TalentRecordsEditor into smaller components ( SliderSelector, CascadeSelector, Selector). This is pre-Brians meeting" />
     <MESSAGE value="Refactored Risk Selectors , Movement Selectors, and Notes. Data Binding is not yet fully done. The focus got sidetracked to show progress to Brian" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored Risk Selectors , Movement Selectors, and Notes. Data Binding is not yet fully done. The focus got sidetracked to show progress to Brian" />
+    <MESSAGE value="Completed the People Picker autocomplete behaviour" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed the People Picker autocomplete behaviour" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -712,6 +703,23 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="36" column="14" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/UserSelector.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="882">
+          <caret line="49" column="7" selection-start-line="49" selection-start-column="7" selection-end-line="49" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/antd/es/style/themes/default.less">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="321">
@@ -976,19 +984,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/rest-api_2.http">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/rest-api_1.http">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordTimeLine/components/TalentRecordTimeLine.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="20" column="49" selection-start-line="20" selection-start-column="49" selection-end-line="20" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1011,7 +1010,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/TalentRecordFormsWebPart.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
+        <state relative-caret-position="18">
           <caret line="33" column="68" selection-start-line="33" selection-start-column="68" selection-end-line="33" selection-end-column="68" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
@@ -1021,28 +1020,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
+        <state relative-caret-position="216">
           <caret line="25" selection-start-line="25" selection-end-line="26" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="590">
+        <state relative-caret-position="648">
           <caret line="36" column="14" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/UserSelector.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
+        <state relative-caret-position="18">
           <caret line="49" column="7" selection-start-line="49" selection-start-column="7" selection-end-line="49" selection-end-column="7" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
-            <element signature="e#104#135#0" expanded="true" />
           </folding>
         </state>
       </provider>
