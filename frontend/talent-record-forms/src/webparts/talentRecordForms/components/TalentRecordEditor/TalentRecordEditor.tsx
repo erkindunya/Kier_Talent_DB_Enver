@@ -39,52 +39,6 @@ class TalentRecordEditor extends React.Component<any, any> {
   }
 
 
-  BuildBusinessUnitInitialValue = (talent) => {
-    const {divison, unit, stream, location} = talent;
-    return [divison, unit, stream, location]
-  }
-
-  //Todo : refactor Development Requirement builder
-  BuildDevelopmentRequirement01Value = (talent) => {
-    const {requirements_01_category, requirements_01_subcategory} = talent;
-    return [requirements_01_category, requirements_01_subcategory];
-  }
-
-  BuildDevelopmentRequirement02Value = (talent) => {
-    const {requirements_02_category, requirements_02_subcategory} = talent;
-    return [requirements_02_category, requirements_02_subcategory];
-  }
-
-  BuildGradeValue = (talent) => {
-    return (talent) ? talent.grade : "";
-  }
-
-  BuildFunctionValue = (talent) => {
-
-    return (talent) ? talent.function : "";
-  }
-
-  BuildMovementValue = (talent) => {
-
-    return (talent) ? talent.movement : "";
-  }
-
-  BuildPerformanceRatingValue = (talent) => {
-    return (talent) ? parseInt(talent.performance) : 2;
-  }
-
-  BuildPotentialRating = (talent) => {
-    return (talent) ? parseInt(talent.potential) : 50;
-  }
-
-  BuildBusinessRiskValue = (talent) => {
-    return (talent) ? talent.businessRisk : "";
-  }
-
-  BuildFlightRiskValue = (talent) => {
-    return (talent) ? talent.flightRisk : "";
-  }
-
 
   formatPerformanceTip = (value) => {
     //Todo : refactor to make it more intelligent
@@ -113,7 +67,7 @@ class TalentRecordEditor extends React.Component<any, any> {
   }
 
   OnBuinsessUnitChange = (newBusinessUnit: string []) => {
-
+    this.props.store.Talent.changeBusinessUnit(newBusinessUnit);
     console.log(`Business Unit changed ${newBusinessUnit}`);
   }
 
@@ -150,13 +104,24 @@ class TalentRecordEditor extends React.Component<any, any> {
   OnBusinessRiskChange = (newBusinessRisk: string) => {
 
   }
+  OnPotentialRatingChange = (newPotentialRating: string) => {
 
+  }
+  OnPerformanceRatingChange = (newPerformanceRating: string) => {
+
+  }
+  OnDevelopmentRequirement01Change = (newRequirement: string[]) => {
+
+  }
+  OnDevelopmentRequirement02Change = (newRequirement: string[]) => {
+
+  }
 
   render() {
 
     const {getFieldDecorator, getFieldsError, getFieldError, isFieldTouched} = this.props.form;
 
-    const userNameError = isFieldTouched('userName') && getFieldError('userName');
+    const businessUnitsError = isFieldTouched('businessUnits') && getFieldError('businessUnits');
     const passwordError = isFieldTouched('password') && getFieldError('password');
     const {formLayout} = this.state;
     const Option = Select.Option;
@@ -188,7 +153,8 @@ class TalentRecordEditor extends React.Component<any, any> {
             </span>} {...formItemLayout}>
                   <CascadeSelector
                     items={this.props.store.LookupDataStore.BusinessUnitsLookupData}
-                    value={this.props.store.Talent.BuildBusinessUnitInitialValue}
+                    value={this.props.store.Talent.BusinessUnits}
+                    form={this.props.form}
                     placeholder="Please select a business unit"
                     validationMessage='Please select a business unit!'
                     controlId="businessUnits"
@@ -201,11 +167,11 @@ class TalentRecordEditor extends React.Component<any, any> {
                   <Selector
                     items={this.props.store.LookupDataStore.BusinessFunctionsLookupData}
                     form={this.props.form}
-                    item={this.props.store.Talent}
+                    value={this.props.store.Talent.Function}
                     placeholder='Please select a business function'
                     controlId="businessFunctions"
                     validationMessage='Please select a function!'
-                    converter={this.BuildFunctionValue}
+                    changed={this.OnFunctionChange}
                   />
                 </FormItem>
               </Col>
@@ -242,18 +208,18 @@ class TalentRecordEditor extends React.Component<any, any> {
                 {getFieldDecorator('employeeId', {
                   rules: [{required: true, message: 'Employee ID?'}],
                 })(
-                  <Input placeholder="Employee ID"/>
+                  <Input size="small" placeholder="Employee ID"/>
                 )}
               </FormItem></Col>
               <Col span={8}> <FormItem label="Grade" {...formItemLayout}>
                 <Selector
                   items={this.props.store.LookupDataStore.GradeLookupData}
                   form={this.props.form}
-                  item={this.props.store.Talent}
+                  value={this.props.store.Talent.Grade}
                   placeholder='Please select a grade'
                   controlId="grade"
                   validationMessage='Please select a grade!'
-                  converter={this.BuildGradeValue}
+                  changed={this.OnGradeChange}
                 />
 
               </FormItem></Col>
@@ -262,40 +228,40 @@ class TalentRecordEditor extends React.Component<any, any> {
                   initialValue: "IT Developer",
                   rules: [{required: true, message: 'position?'}],
                 })(
-                  <Input placeholder="Position"/>
+                  <Input size="small" placeholder="Position"/>
                 )}
               </FormItem></Col>
             </Row>
 
             <Divider orientation='left'>Performance & Potential Ratings</Divider>
-            <Row><Col><FormItem label="Too New To Rate?" {...formItemLayout}>
+            <Row gutter={20}><Col span={4}><FormItem label="New To Rate?" {...formItemLayout}>
               {getFieldDecorator('newToRate', {
                 rules: [{required: true, message: 'Too new to rate ?'}],
               })(
                 <NewHireSwitch/>
               )}
-            </FormItem></Col></Row>
+            </FormItem></Col>
 
-            <Row gutter={50}><Col span={11}><FormItem label="Performance Rating" {...formItemLayout}>
+              <Col span={10}><FormItem label="Performance Rating" {...formItemLayout}>
 
               <SliderSelector
                 items={this.props.store.LookupDataStore.PerformanceRatingLookupData}
                 form={this.props.form}
-                item={this.props.store.Talent}
+                value={this.props.store.Talent.PerformanceRating}
                 controlId="performance"
                 validationMessage="Please select a rating for the performance"
-                converter={this.BuildPotentialRating}
+                changed={this.OnPerformanceRatingChange}
                 formatter={this.formatPerformanceTip}
               />
             </FormItem></Col>
-              <Col span={2}></Col><Col span={11}> <FormItem label="Potential Rating" {...formItemLayout}>
+              <Col span={10}> <FormItem label="Potential Rating" {...formItemLayout}>
                 <SliderSelector
                   items={this.props.store.LookupDataStore.PotentialRatingLookupData}
                   form={this.props.form}
-                  item={this.props.store.Talent}
+                  value={this.props.store.Talent.PotentialRating}
                   controlId="potential"
                   validationMessage="Please select a rating for the potential"
-                  converter={this.BuildPotentialRating}
+                  changed={this.OnPotentialRatingChange}
                   formatter={this.formatPotentialTip}/>
               </FormItem></Col></Row>
 
@@ -305,10 +271,10 @@ class TalentRecordEditor extends React.Component<any, any> {
               <OptionsSelector
                 items={this.props.store.LookupDataStore.MovementLookupData}
                 form={this.props.form}
-                item={this.props.store.Talent}
+                value={this.props.store.Talent.Movement}
                 controlId="movement"
                 validationMessage="Please select a movement status"
-                converter={this.BuildMovementValue}
+                changed={this.OnMovementChange}
               />
             </FormItem>
 
@@ -318,10 +284,10 @@ class TalentRecordEditor extends React.Component<any, any> {
                 <OptionsSelector
                   items={this.props.store.LookupDataStore.RiskLookupData}
                   form={this.props.form}
-                  item={this.props.store.Talent}
+                  value={this.props.store.Talent.FlightRisk}
                   controlId="flightRisk"
                   validationMessage="Please select flight risk!"
-                  converter={this.BuildBusinessRiskValue}
+                  changed={this.OnFlightRiskChange}
                 />
 
               </FormItem></Col>
@@ -331,39 +297,40 @@ class TalentRecordEditor extends React.Component<any, any> {
                 <OptionsSelector
                   items={this.props.store.LookupDataStore.RiskLookupData}
                   form={this.props.form}
-                  item={this.props.store.Talent}
+                  value={this.props.store.Talent.BusinessRisk}
                   controlId="businessRisk"
                   validationMessage="Please select business risk!"
-                  converter={this.BuildFlightRiskValue}
+                  changed={this.OnBusinessRiskChange}
                 />
               </FormItem>}</Col>
             </Row>
+
 
             <Divider orientation='left'>Development Requirements</Divider>
             <Row gutter={20}>
               <Col span={12}> <FormItem label="Development Requirements 1st" {...formItemLayout}>
 
-                {/*<CascadeSelector
+                <CascadeSelector
                   items={this.props.store.LookupDataStore.DevelopmentRequirementsLookupData}
                   form={this.props.form}
-                  item={this.props.store.Talent}
-                  converter={this.BuildDevelopmentRequirement01Value}
+                  value={this.props.store.Talent.DevelopmentRequirement01}
                   placeholder="Please select a development requirement"
                   validationMessage='Please select a developement requirement!'
                   controlId="developmentRequirement_01"
-                />*/}
+                  changed={this.OnDevelopmentRequirement01Change}
+                />
               </FormItem></Col>
 
               <Col span={12}> <FormItem label="Development Requirements 2nd" {...formItemLayout}>
-                {/*<CascadeSelector
+                <CascadeSelector
                   items={this.props.store.LookupDataStore.DevelopmentRequirementsLookupData}
                   form={this.props.form}
-                  item={this.props.store.Talent}
-                  converter={this.BuildDevelopmentRequirement02Value}
+                  value={this.props.store.Talent.DevelopmentRequirement02}
                   placeholder="Please select a development requirement"
                   validationMessage='Please select a developement requirement!'
                   controlId="developmentRequirement_02"
-                />*/}
+                  changed={this.OnDevelopmentRequirement01Change}
+                />
               </FormItem></Col>
 
 
@@ -385,7 +352,7 @@ class TalentRecordEditor extends React.Component<any, any> {
 
                 <Row>
                   <Col span={24} style={{textAlign: 'right'}}>
-                    <Button type="primary" htmlType="submit">Search</Button>
+                    <Button type="primary" htmlType="submit" disabled={hasErrors(getFieldsError())}>Submit</Button>
                     <Button style={{marginLeft: 8}} htmlType="reset">
                       Clear
                     </Button>

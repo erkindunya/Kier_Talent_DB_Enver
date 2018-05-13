@@ -7,15 +7,15 @@ export default class SliderSelector extends React.Component<any, any> {
 
   BuildSelector = () => {
     return(
-      <Slider marks={this.props.items} value={50} tipFormatter={this.props.formatter} step={null}/>
+      <Slider marks={this.props.items} tipFormatter={this.props.formatter} step={null}/>
     )
   }
 
 
   render() {
 
-    let initialValue = (this.props.item) ? this.props.converter(this.props.item) : 0;
-    const options = (this.props.item) ? {
+    let initialValue = (this.props.value) ? this.props.value : 0;
+    const options = (this.props.value) ? {
       initialValue: initialValue,
       rules: [{required: true, message: this.props.validationMessage}]
     } : {

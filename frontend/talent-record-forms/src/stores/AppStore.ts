@@ -13,7 +13,7 @@ export const AppStore = types.model(
     LookupDataStore: types.optional(LookupDataStore, {}),
     TalentDataStore: types.optional(TalentsStore, {}),
     ViewStore: types.optional(ViewStore, {}),
-    Talent: types.maybe(Talent)
+    Talent: types.optional(Talent, {})
   }
 ).named("ApplicationDataStore")
   .actions(self => {

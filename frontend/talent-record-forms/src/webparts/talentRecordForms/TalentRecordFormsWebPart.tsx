@@ -15,6 +15,7 @@ import {Form} from "antd";
 import 'antd/dist/antd.less';
 import {Provider} from "mobx-react";
 import {AppStore} from "../../stores/AppStore";
+import {onPatch, onSnapshot} from "mobx-state-tree";
 
 export interface ITalentRecordFormsWebPartProps {
   description: string;
@@ -24,7 +25,10 @@ export default class TalentRecordFormsWebPart extends BaseClientSideWebPart<ITal
 
   public render(): void {
     const appStore = AppStore.create({});
-
+    onPatch(appStore.Talent,
+      patch => {
+        console.log(patch)
+      });
     let url = new URL(window.location.href);
     if (url.searchParams.has("talentId")) {
       console.log("Talent Id " + url.searchParams.get("talentId"));

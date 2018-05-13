@@ -10,7 +10,7 @@ export default class NewHireSwitch extends React.Component {
 
   render() {
     return (
-      <Switch defaultChecked={false} onChange={this.handleChange}/>
+      <Switch size="small" defaultChecked={false} onChange={this.handleChange}/>
     )
   }
 }

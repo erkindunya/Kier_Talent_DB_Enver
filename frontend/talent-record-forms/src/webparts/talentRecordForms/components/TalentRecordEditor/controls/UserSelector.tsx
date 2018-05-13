@@ -61,6 +61,7 @@ export default class UserRemoteSelect extends React.Component<any, any> {
     const {fetching, data, value} = this.state;
     return (
       <Select
+        size="small"
         mode="multiple"
         labelInValue
         value={value}

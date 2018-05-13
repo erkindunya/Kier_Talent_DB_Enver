@@ -2,7 +2,7 @@ import {Cascader} from 'antd';
 import * as React from 'react';
 import {inject, observer} from "mobx-react";
 
-@inject("store", "form")
+@inject("store")
 @observer
 export default class CascadeSelector extends React.Component<any, any> {
 
@@ -10,7 +10,8 @@ export default class CascadeSelector extends React.Component<any, any> {
     return (
       <Cascader options={this.props.items}
                 placeholder={this.props.placeholder}
-                onChange={this.OnChange}/>
+                onChange={this.OnChange}
+                size="small"/>
     )
   }
 

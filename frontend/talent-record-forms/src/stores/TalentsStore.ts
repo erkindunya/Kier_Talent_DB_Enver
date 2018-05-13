@@ -40,10 +40,11 @@ export const Talent = types.model({
     const changeBusinessUnit = (businessUnit: string[]) => {
       const [division, stream, unit, location] = businessUnit;
 
-      SetValueIfDifferent(self.divison, division);
-      SetValueIfDifferent(self.stream, stream);
-      SetValueIfDifferent(self.unit, unit);
-      SetValueIfDifferent(self.location, location);
+
+      self.divison = division;
+      self.stream = stream;
+      self.unit = unit;
+      self.location = location;
     }
 
     const changeFunction = (newFunction: string) => {
@@ -71,20 +72,45 @@ export const Talent = types.model({
       changeFlightRisk
     }
   })
-  .views(self => {
+  .views(self => ({
 
-    const BuildBusinessUnitInitialValue = () => {
-      console.log("BuildBusinessUnitInitialValue: called")
+    get BusinessUnits() {
+      console.log("BusinessUnits: called");
       const {divison, unit, stream, location} = self;
-      const result = [divison, unit, stream, location]
+      const result = [divison, unit, stream, location];
       console.log(result)
       return result;
+    },
+    get DevelopmentRequirement01() {
+      const {requirements_01_category, requirements_01_subcategory} = self;
+      return [requirements_01_category, requirements_01_subcategory];
+    },
+    get DevelopmentRequirement02() {
+      const {requirements_02_category, requirements_02_subcategory} = self;
+      return [requirements_02_category, requirements_02_subcategory];
+    },
+    get Function() {
+      return (self.function) ? self.function : "";
+    },
+    get Grade() {
+      return (self.grade) ? self.grade : "";
+    },
+    get Movement() {
+      return (self.movement) ? self.movement : "";
+    },
+    get PerformanceRating() {
+      return (self.performance) ? parseInt(self.performance) : 2;
+    },
+    get PotentialRating() {
+      return (self.potential) ? parseInt(self.potential) : 50;
+    },
+    get BusinessRisk() {
+      return (self.businessRisk) ? self.businessRisk : "";
+    },
+    get FlightRisk() {
+      return (self.flightRisk) ? self.flightRisk : "";
     }
-
-    return {
-      BuildBusinessUnitInitialValue
-    }
-  });
+  }));
 
 
 const TalentsStore = types.model({
@@ -122,6 +148,7 @@ const TalentsStore = types.model({
           //Todo : ugly piece of code that needs to be refactored.
           console.log("Talents : " + JSON.stringify(response, null, 4));
           talent = Talent.create(response);
+          applySnapshot(getParent(self, 1).Talent, talent);
           //Todo: move this code for the AppStore\ViewStore
           /* if (getParent(self, 1).Talent)
             applySnapshot(getParent(self, 1).Talent, talent);
