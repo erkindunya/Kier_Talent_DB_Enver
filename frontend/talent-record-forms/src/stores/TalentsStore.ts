@@ -11,7 +11,7 @@ export const Talent = types.model({
   Division: types.optional(types.string, ""),
   Unit: types.optional(types.string, ""),
   Stream: types.optional(types.string, ""),
-  Function: types.maybe(types.string),
+  Function: types.optional(types.string, ""),
   Location: types.optional(types.string, ""),
   Grade: types.optional(types.string, ""),
   BusinessRisk: types.optional(types.string, ""),
@@ -48,7 +48,8 @@ export const Talent = types.model({
     }
 
     const changeFunction = (newFunction: string) => {
-      SetValueIfDifferent(self.Function, newFunction)
+      self.Function = newFunction;
+      //SetValueIfDifferent(self.BusinessFunction, newFunction)
     }
 
     const changeGrade = (newGrade: string) => {
@@ -88,27 +89,6 @@ export const Talent = types.model({
     get DevelopmentRequirement02() {
       const {Requirements_02_category, Requirements_02_subcategory} = self;
       return [Requirements_02_category, Requirements_02_subcategory];
-    },
-    get Function() {
-      return (self.Function) ? self.Function : "";
-    },
-    get Grade() {
-      return (self.Grade) ? self.Grade : "";
-    },
-    get Movement() {
-      return (self.Movement) ? self.Movement : "";
-    },
-    get PerformanceRating() {
-      return (self.Performance) ? parseInt(self.Performance) : 2;
-    },
-    get PotentialRating() {
-      return (self.Potential) ? parseInt(self.Potential) : 50;
-    },
-    get BusinessRisk() {
-      return (self.BusinessRisk) ? self.BusinessRisk : "";
-    },
-    get FlightRisk() {
-      return (self.FlightRisk) ? self.FlightRisk : "";
     }
   }));
 

@@ -5,7 +5,7 @@
    */
   "version": "0.2.0",
   "configurations": [{
-      "name": "Local workbench",
+    "Name": "Local workbench",
       "type": "chrome",
       "request": "launch",
       "url": "https://localhost:4321/temp/workbench.html",
@@ -21,7 +21,7 @@
       ]
     },
     {
-      "name": "Hosted workbench",
+      "Name": "Hosted workbench",
       "type": "chrome",
       "request": "launch",
       "url": "https://enter-your-SharePoint-site/_layouts/workbench.aspx",

@@ -26,8 +26,8 @@ export default class Selector extends React.Component<any, any> {
 
   render() {
 
-    const initialValue = (this.props.item) ? this.props.converter(this.props.item) : []
-    const options = (this.props.item) ? {
+    const initialValue = (this.props.value) ? this.props.value : []
+    const options = (this.props.value) ? {
       initialValue: initialValue,
       rules: [{required: true, message: this.props.validationMessage}]
     } : {

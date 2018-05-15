@@ -247,7 +247,7 @@ class TalentRecordEditor extends React.Component<any, any> {
               <SliderSelector
                 items={this.props.store.LookupDataStore.PerformanceRatingLookupData}
                 form={this.props.form}
-                value={this.props.store.Talent.PerformanceRating}
+                value={this.props.store.Talent.Performance}
                 controlId="performance"
                 validationMessage="Please select a rating for the performance"
                 changed={this.OnPerformanceRatingChange}
@@ -258,7 +258,7 @@ class TalentRecordEditor extends React.Component<any, any> {
                 <SliderSelector
                   items={this.props.store.LookupDataStore.PotentialRatingLookupData}
                   form={this.props.form}
-                  value={this.props.store.Talent.PotentialRating}
+                  value={this.props.store.Talent.Potential}
                   controlId="potential"
                   validationMessage="Please select a rating for the potential"
                   changed={this.OnPotentialRatingChange}
