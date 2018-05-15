@@ -1,6 +1,6 @@
 {
   "$schema": "https://dev.office.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
-  "id": "2463de96-e4b0-426c-ac7f-77eda07bd2d6",
+  "Id": "2463de96-e4b0-426c-ac7f-77eda07bd2d6",
   "alias": "TalentRecordFormsWebPart",
   "componentType": "WebPart",
 

@@ -179,7 +179,7 @@ class TalentRecordEditor extends React.Component<any, any> {
 
             <Row gutter={20}>
               <Col span={8}> <FormItem label="Head of Area" {...formItemLayout}>
-                {getFieldDecorator('areaHead', {
+                {getFieldDecorator('AreaHead', {
                   rules: [{required: true, message: 'Head of Area?'}],
                 })(
                   <UserRemoteSelect/>
@@ -205,7 +205,7 @@ class TalentRecordEditor extends React.Component<any, any> {
 
             <Row gutter={20}>
               <Col span={8}><FormItem label="Employee ID" {...formItemLayout}>
-                {getFieldDecorator('employeeId', {
+                {getFieldDecorator('EmployeeId', {
                   rules: [{required: true, message: 'Employee ID?'}],
                 })(
                   <Input size="small" placeholder="Employee ID"/>

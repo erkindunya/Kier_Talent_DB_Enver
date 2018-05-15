@@ -3,32 +3,32 @@ import {DataProviderFactory} from "./Common/DataProviderFactory";
 
 
 export const Talent = types.model({
-  id: types.maybe(types.number),
-  employeeId: types.optional(types.string, ""),
-  name: types.optional(types.string, ""),
-  manager: types.optional(types.string, ""),
-  areaHead: types.optional(types.string, ""),
-  divison: types.optional(types.string, ""),
-  unit: types.optional(types.string, ""),
-  stream: types.optional(types.string, ""),
-  function: types.maybe(types.string),
-  location: types.optional(types.string, ""),
-  grade: types.optional(types.string, ""),
-  businessRisk: types.optional(types.string, ""),
-  flightRisk: types.optional(types.string, ""),
-  performance: types.optional(types.string, ""),
-  potential: types.optional(types.string, ""),
-  movement: types.optional(types.string, ""),
-  requirements_01_category: types.optional(types.string, ""),
-  requirements_01_subcategory: types.optional(types.string, ""),
-  requirements_02_category: types.optional(types.string, ""),
-  requirements_02_subcategory: types.optional(types.string, ""),
-  notes: types.optional(types.string, "")
+  Id: types.maybe(types.number),
+  EmployeeId: types.optional(types.string, ""),
+  Name: types.optional(types.string, ""),
+  Manager: types.optional(types.string, ""),
+  AreaHead: types.optional(types.string, ""),
+  Division: types.optional(types.string, ""),
+  Unit: types.optional(types.string, ""),
+  Stream: types.optional(types.string, ""),
+  Function: types.maybe(types.string),
+  Location: types.optional(types.string, ""),
+  Grade: types.optional(types.string, ""),
+  BusinessRisk: types.optional(types.string, ""),
+  FlightRisk: types.optional(types.string, ""),
+  Performance: types.optional(types.string, ""),
+  Potential: types.optional(types.string, ""),
+  Movement: types.optional(types.string, ""),
+  Requirements_01_category: types.optional(types.string, ""),
+  Requirements_01_subcategory: types.optional(types.string, ""),
+  Requirements_02_category: types.optional(types.string, ""),
+  Requirements_02_subcategory: types.optional(types.string, ""),
+  Notes: types.optional(types.string, "")
 })
   .named("TalentRecord")
   .actions(self => {
     const changeEmployeeId = (id: string) => {
-      self.employeeId = id;
+      self.EmployeeId = id;
     }
 
     const SetValueIfDifferent = (oldValue: string, newValue: string) => {
@@ -41,26 +41,26 @@ export const Talent = types.model({
       const [division, stream, unit, location] = businessUnit;
 
 
-      self.divison = division;
-      self.stream = stream;
-      self.unit = unit;
-      self.location = location;
+      self.Division = division;
+      self.Stream = stream;
+      self.Unit = unit;
+      self.Location = location;
     }
 
     const changeFunction = (newFunction: string) => {
-      SetValueIfDifferent(self.function, newFunction)
+      SetValueIfDifferent(self.Function, newFunction)
     }
 
     const changeGrade = (newGrade: string) => {
-      SetValueIfDifferent(self.grade, newGrade);
+      SetValueIfDifferent(self.Grade, newGrade);
     }
 
     const changeBusinessRisk = (newBusinessRisk: string) => {
-      SetValueIfDifferent(self.businessRisk, newBusinessRisk);
+      SetValueIfDifferent(self.BusinessRisk, newBusinessRisk);
     }
 
     const changeFlightRisk = (newFlightRisk: string) => {
-      SetValueIfDifferent(self.flightRisk, newFlightRisk);
+      SetValueIfDifferent(self.FlightRisk, newFlightRisk);
     }
 
 
@@ -76,39 +76,39 @@ export const Talent = types.model({
 
     get BusinessUnits() {
       console.log("BusinessUnits: called");
-      const {divison, unit, stream, location} = self;
-      const result = [divison, unit, stream, location];
+      const {Division, Unit, Stream, Location} = self;
+      const result = [Division, Unit, Stream, Location];
       console.log(result)
       return result;
     },
     get DevelopmentRequirement01() {
-      const {requirements_01_category, requirements_01_subcategory} = self;
-      return [requirements_01_category, requirements_01_subcategory];
+      const {Requirements_01_category, Requirements_01_subcategory} = self;
+      return [Requirements_01_category, Requirements_01_subcategory];
     },
     get DevelopmentRequirement02() {
-      const {requirements_02_category, requirements_02_subcategory} = self;
-      return [requirements_02_category, requirements_02_subcategory];
+      const {Requirements_02_category, Requirements_02_subcategory} = self;
+      return [Requirements_02_category, Requirements_02_subcategory];
     },
     get Function() {
-      return (self.function) ? self.function : "";
+      return (self.Function) ? self.Function : "";
     },
     get Grade() {
-      return (self.grade) ? self.grade : "";
+      return (self.Grade) ? self.Grade : "";
     },
     get Movement() {
-      return (self.movement) ? self.movement : "";
+      return (self.Movement) ? self.Movement : "";
     },
     get PerformanceRating() {
-      return (self.performance) ? parseInt(self.performance) : 2;
+      return (self.Performance) ? parseInt(self.Performance) : 2;
     },
     get PotentialRating() {
-      return (self.potential) ? parseInt(self.potential) : 50;
+      return (self.Potential) ? parseInt(self.Potential) : 50;
     },
     get BusinessRisk() {
-      return (self.businessRisk) ? self.businessRisk : "";
+      return (self.BusinessRisk) ? self.BusinessRisk : "";
     },
     get FlightRisk() {
-      return (self.flightRisk) ? self.flightRisk : "";
+      return (self.FlightRisk) ? self.FlightRisk : "";
     }
   }));
 
