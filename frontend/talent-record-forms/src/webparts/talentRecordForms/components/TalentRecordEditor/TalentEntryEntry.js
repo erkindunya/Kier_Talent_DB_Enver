@@ -11,20 +11,15 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
-var antd_1 = require("antd");
-var NewHireSwitch = /** @class */ (function (_super) {
-    __extends(NewHireSwitch, _super);
-    function NewHireSwitch() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.handleChange = function () {
-            console.log("Changed");
-        };
-        return _this;
+var TalentRecordEntry = /** @class */ (function (_super) {
+    __extends(TalentRecordEntry, _super);
+    function TalentRecordEntry() {
+        return _super !== null && _super.apply(this, arguments) || this;
     }
-    NewHireSwitch.prototype.render = function () {
-        return (React.createElement(antd_1.Switch, { size: "small", defaultChecked: false, onChange: this.handleChange }));
+    TalentRecordEntry.prototype.render = function () {
+        return (React.createElement("div", null, "Talen Record Entry"));
     };
-    return NewHireSwitch;
+    return TalentRecordEntry;
 }(React.Component));
-exports.default = NewHireSwitch;
-//# sourceMappingURL=NewHireSwitch.js.map
+exports.default = TalentRecordEntry;
+//# sourceMappingURL=TalentEntryEntry.js.map

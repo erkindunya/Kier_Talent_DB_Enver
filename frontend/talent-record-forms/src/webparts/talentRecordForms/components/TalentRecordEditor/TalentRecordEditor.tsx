@@ -117,6 +117,11 @@ class TalentRecordEditor extends React.Component<any, any> {
 
   }
 
+  onSubmit=()=>{
+    console.log("Submitting");
+    this.props.store.TalentDataStore.SaveTalentRecord();
+}
+
   render() {
 
     const {getFieldDecorator, getFieldsError, getFieldError, isFieldTouched} = this.props.form;
@@ -352,7 +357,7 @@ class TalentRecordEditor extends React.Component<any, any> {
 
                 <Row>
                   <Col span={24} style={{textAlign: 'right'}}>
-                    <Button type="primary" htmlType="submit" disabled={hasErrors(getFieldsError())}>Submit</Button>
+                    <Button type="primary" htmlType="button" disabled={hasErrors(getFieldsError())} onClick={this.onSubmit}>Submit</Button>
                     <Button style={{marginLeft: 8}} htmlType="reset">
                       Clear
                     </Button>

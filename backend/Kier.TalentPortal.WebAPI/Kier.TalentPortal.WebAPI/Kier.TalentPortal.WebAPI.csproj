@@ -256,6 +256,7 @@
     </Content>
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\KierTalentPortalWebApi1505 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\KierTalentPortalWebAPI20180516031250 - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

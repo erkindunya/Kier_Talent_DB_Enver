@@ -1,44 +1,46 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
+﻿using System.Configuration;
+using System.Linq;
 using System.Web.Http;
 using Kier.TalentPortal.WebAPI.Models;
 using Microsoft.SharePoint.Client;
 using OfficeDevPnP.Core;
-using Swashbuckle.Swagger.Annotations;
 
 namespace Kier.TalentPortal.WebAPI.Controllers
 {
     public class TalentsController : ApiController
     {
-        public IHttpActionResult Get(int id)
+        [HttpGet]
+        public IHttpActionResult GetTalent(int id)
         {
-            AuthenticationManager authMgr = new AuthenticationManager();
-            using (ClientContext ctx = authMgr.GetAppOnlyAuthenticatedContext(
+            Talent talent = default(Talent);
+            var authMgr = new AuthenticationManager();
+            using (var ctx = authMgr.GetAppOnlyAuthenticatedContext(
                 ConfigurationManager.AppSettings["siteUrl"],
                 ConfigurationManager.AppSettings["clientId"],
                 ConfigurationManager.AppSettings["clientSecret"]))
             {
                 var list = ctx.Web.Lists.GetByTitle(ConfigurationManager.AppSettings["listName"]);
-                //var item = list.AddItem(new ListItemCreationInformation());
-                //item["Title"] = DateTime.Now.ToLongTimeString();
-                //item.Update();
-                var listItem = list.GetItemById(1);
-                
-                ctx.Load(listItem);
+                var query = new CamlQuery();
+                query.ViewXml = Constants.Get_Talent_Record_By_EmployeeId_Query;
+                var result = list.GetItems(query);
+                ctx.Load(result);
                 ctx.ExecuteQuery();
-                var x = listItem["Title"];
+                if (result.ToList().Count >= 2)
+                {
+                   talent = Talent.FromSPListItem(result[0]);
+                   talent.PreviousYear = Talent.FromSPListItem(result[1]);
+                }
             }
-                var talent = new Talent();
+
             return Ok(talent);
         }
 
         [HttpPost]
-        public IHttpActionResult NewTalentRecord([FromBody]Talent talent)
+        public IHttpActionResult NewTalentRecord([FromBody] Talent talent)
         {
             var x = talent;
-            AuthenticationManager authMgr = new AuthenticationManager();
-            using (ClientContext ctx = authMgr.GetAppOnlyAuthenticatedContext(
+            var authMgr = new AuthenticationManager();
+            using (var ctx = authMgr.GetAppOnlyAuthenticatedContext(
                 ConfigurationManager.AppSettings["siteUrl"],
                 ConfigurationManager.AppSettings["clientId"],
                 ConfigurationManager.AppSettings["clientSecret"]))
@@ -46,21 +48,7 @@ namespace Kier.TalentPortal.WebAPI.Controllers
                 var list = ctx.Web.Lists.GetByTitle(ConfigurationManager.AppSettings["listName"]);
                 ListItemCreationInformation itemCreateInfo = new ListItemCreationInformation();
                 ListItem newItem = list.AddItem(itemCreateInfo);
-                newItem[Constants.Talent_Record_Division] = talent.Division;
-                newItem[Constants.Talent_Record_Business_Stream] = talent.Stream;
-                newItem[Constants.Talent_Record_Business_Unit] = talent.Unit;
-                newItem[Constants.Talent_Record_Area_Head] = talent.AreaHead;
-                newItem[Constants.Talent_Record_Business_Risk] = talent.BusinessRisk;
-                newItem[Constants.Talent_Record_Development_Notes] = talent.Notes;
-                newItem[Constants.Talent_Record_Employee_Id] = talent.EmployeeId;
-                newItem[Constants.Talent_Record_Flight_Risk] = talent.FlightRisk;
-                newItem[Constants.Talent_Record_Function] = talent.Function;
-                newItem[Constants.Talent_Record_Grade] = talent.Grade;
-                newItem[Constants.Talent_Record_Location] = talent.Location;
-                newItem[Constants.Talent_Record_Movement] = talent.Movement;
-                newItem[Constants.Talent_Record_Performance] = talent.Performance;
-                newItem[Constants.Talent_Record_Potential] = talent.Potential;
-
+                newItem = Talent.ToSPListItem(talent, newItem);
                 newItem.Update();
                 ctx.ExecuteQuery();
             }
@@ -69,42 +57,24 @@ namespace Kier.TalentPortal.WebAPI.Controllers
         }
 
         [HttpPut]
-        public IHttpActionResult UpdateTalentRecord([FromBody]Talent talent)
+        public IHttpActionResult UpdateTalentRecord([FromBody] Talent talent)
         {
-         
-            AuthenticationManager authMgr = new AuthenticationManager();
-            using (ClientContext ctx = authMgr.GetAppOnlyAuthenticatedContext(
+            var authMgr = new AuthenticationManager();
+            using (var ctx = authMgr.GetAppOnlyAuthenticatedContext(
                 ConfigurationManager.AppSettings["siteUrl"],
                 ConfigurationManager.AppSettings["clientId"],
                 ConfigurationManager.AppSettings["clientSecret"]))
             {
-                
                 var list = ctx.Web.Lists.GetByTitle(ConfigurationManager.AppSettings["listName"]);
-                ListItemCreationInformation itemCreateInfo = new ListItemCreationInformation();
-                ListItem newItem = list.AddItem(itemCreateInfo);
-                newItem[Constants.Talent_Record_Division] = talent.Division;
-                newItem[Constants.Talent_Record_Business_Stream] = talent.Stream;
-                newItem[Constants.Talent_Record_Business_Unit] = talent.Unit;
-                newItem[Constants.Talent_Record_Area_Head] = talent.AreaHead;
-                newItem[Constants.Talent_Record_Business_Risk] = talent.BusinessRisk;
-                newItem[Constants.Talent_Record_Development_Notes] = talent.Notes;
-                newItem[Constants.Talent_Record_Employee_Id] = talent.EmployeeId;
-                newItem[Constants.Talent_Record_Flight_Risk] = talent.FlightRisk;
-                newItem[Constants.Talent_Record_Function] = talent.Function;
-                newItem[Constants.Talent_Record_Grade] = talent.Grade;
-                newItem[Constants.Talent_Record_Location] = talent.Location;
-                newItem[Constants.Talent_Record_Movement] = talent.Movement;
-                newItem[Constants.Talent_Record_Performance] = talent.Performance;
-                newItem[Constants.Talent_Record_Potential] = talent.Potential;
+                var item = list.GetItemById(talent.Id);
+                ctx.ExecuteQuery();
 
-                newItem.Update();
+                item = Talent.ToSPListItem(talent, item);
+                item.Update();
                 ctx.ExecuteQuery();
             }
 
-            return Ok(talent);
+            return Ok();
         }
-
-
-
     }
 }

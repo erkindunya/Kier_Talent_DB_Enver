@@ -1,5 +1,6 @@
 import {applySnapshot, flow, getParent, types} from "mobx-state-tree";
 import {DataProviderFactory} from "./Common/DataProviderFactory";
+import axios from 'axios';
 
 
 export const Talent = types.model({
@@ -118,6 +119,35 @@ const TalentsStore = types.model({
       }
 
     })
+
+    const SaveTalentRecord = ()=>{
+axios.post('https://kiertalentportalwebapi20180516031250.azurewebsites.net/api/talents', {
+  Id: 1,
+  EmployeeId: 'MK0000000',
+  Name: 'khalil, Abdalla',
+  Manager: 'Jones,Brian',
+  Function: 'Finance',
+  AreaHead: 'Ahmed, Mohamed',
+  Division: 'DP&BS',
+  //Division: undefined,
+  Unit: 'Enviromental',
+  Stream: 'Environmental Central',
+  Location: 'Environmental Central - Corby Borough Council',
+  BusinessRisk: 'High',
+  FlightRisk: 'Low',
+  Performance: '2',
+  Potential: 'B',
+  Grade: 'L2',
+  Movement: 'Soon',
+  Requirements_01_category: 'Technical Training',
+  Requirements_01_subcategory: 'Option 2',
+  Requirements_02_category: 'Technical Training',
+  Requirements_02_subcategory: 'Option 3',
+  Notes: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sed fermentum ex, sit amet congue eros. Ut cursus mattis feugiat. Aenean tristique ante in urna lobortis, sit amet luctus nulla dapibus. Etiam sodales, odio et faucibus placerat, libero ligula lobortis augue, quis malesuada sem enim in erat. Donec eu lorem sit amet nulla congue porta ut vitae dui. Fusce dignissim ullamcorper lorem eu sagittis. Ut mollis purus vel nibh mollis dignissim.'
+}).then(_=>console.log("New Record Operation is done"))
+  .catch(error=>console.log(JSON.stringify(error,null,4)))
+    }
+
     const GetTalentById = flow(function* GetTalentById(id: number) {
 
       let talent;
@@ -147,7 +177,7 @@ const TalentsStore = types.model({
       }
 
     })
-    return {LoadAllTalents, GetTalentById}
+    return {LoadAllTalents, GetTalentById,SaveTalentRecord}
   }
 ).actions(self => {
   const afterCreate = () => {

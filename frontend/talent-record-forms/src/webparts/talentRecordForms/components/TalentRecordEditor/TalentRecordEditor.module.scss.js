@@ -3,16 +3,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /* tslint:disable */
 require('./TalentRecordEditor.module.css');
 var styles = {
-    talentRecordForms: 'talentRecordForms_fc56073e',
-    container: 'container_fc56073e',
-    row: 'row_fc56073e',
-    column: 'column_fc56073e',
-    'ms-Grid': 'ms-Grid_fc56073e',
-    title: 'title_fc56073e',
-    subTitle: 'subTitle_fc56073e',
-    description: 'description_fc56073e',
-    button: 'button_fc56073e',
-    label: 'label_fc56073e',
+    talentRecordForms: 'talentRecordForms_21305320',
+    container: 'container_21305320',
+    row: 'row_21305320',
+    column: 'column_21305320',
+    'ms-Grid': 'ms-Grid_21305320',
+    title: 'title_21305320',
+    subTitle: 'subTitle_21305320',
+    description: 'description_21305320',
+    button: 'button_21305320',
+    label: 'label_21305320',
 };
 exports.default = styles;
 /* tslint:enable */ 

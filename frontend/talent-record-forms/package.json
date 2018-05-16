@@ -18,11 +18,11 @@
     "@types/react": "15.6.6",
     "@types/react-dom": "15.5.6",
     "@types/webpack-env": ">=1.12.1 <1.14.0",
-    "antd": "^3.4.4",
+    "antd": "^3.5.2",
     "react": "15.6.2",
     "react-dom": "15.6.2",
-    "sp-pnp-js": "^3.0.7",
-    "webpack": "^4.8.1"
+    "sp-pnp-js": "^3.0.8",
+    "webpack": "^4.8.3"
   },
   "devDependencies": {
     "@microsoft/sp-build-web": "~1.4.1",
@@ -31,6 +31,7 @@
     "@types/chai": ">=3.4.34 <3.6.0",
     "@types/mocha": ">=2.2.33 <2.6.0",
     "ajv": "~5.2.2",
+    "axios": "^0.18.0",
     "babel-plugin-import": "^1.7.0",
     "css-loader": "^0.28.11",
     "gulp": "~3.9.1",
@@ -38,9 +39,9 @@
     "less-loader": "^4.1.0",
     "less-vars-to-js": "^1.2.1",
     "lodash": "^4.17.10",
-    "mobx": "^4.2.0",
+    "mobx": "^4.2.1",
     "mobx-react": "^5.1.2",
-    "mobx-state-tree": "^2.0.4",
+    "mobx-state-tree": "^2.0.5",
     "sp-rest-proxy": "^2.5.10",
     "style-loader": "^0.21.0",
     "webpack-cli": "^2.1.3"
