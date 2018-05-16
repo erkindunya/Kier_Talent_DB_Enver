@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="911ba6af-c74c-44e6-94cb-d15df8b37c13" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/launch.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stores/TalentsStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/TalentsStore.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stores/services/mockData/Talents.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/services/mockData/Talents.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/OptionsSelector.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/OptionsSelector.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/Selector.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/Selector.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/SliderSelector.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/SliderSelector.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/Kier.TalentPortal.WebAPI/Kier.TalentPortal.WebAPI/Controllers/TalentsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/Kier.TalentPortal.WebAPI/Kier.TalentPortal.WebAPI/Controllers/TalentsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/Kier.TalentPortal.WebAPI/Kier.TalentPortal.WebAPI/Kier.TalentPortal.WebAPI.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/Kier.TalentPortal.WebAPI/Kier.TalentPortal.WebAPI/Kier.TalentPortal.WebAPI.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/Kier.TalentPortal.WebAPI/Kier.TalentPortal.WebAPI/Web.config" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/Kier.TalentPortal.WebAPI/Kier.TalentPortal.WebAPI/Web.config" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,9 +22,13 @@
     <splitter split-orientation="horizontal" split-proportion="0.42064714">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-          <file leaf-file-name="Talents.ts" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Talents.ts" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/stores/services/mockData/Talents.ts">
-              <provider selected="true" editor-type-id="text-editor" />
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="108">
+                  <caret line="6" column="10" selection-start-line="1" selection-start-column="1" selection-end-line="24" selection-end-column="3" />
+                </state>
+              </provider>
             </entry>
           </file>
           <file leaf-file-name="TalentRecordEditor.tsx" pinned="false" current-in-tab="false">
@@ -65,7 +64,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="SliderSelector.tsx" pinned="false" current-in-tab="true">
+          <file leaf-file-name="SliderSelector.tsx" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/SliderSelector.tsx">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="378">
@@ -84,8 +83,8 @@
           <file leaf-file-name="TalentsStore.ts" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/stores/TalentsStore.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="324">
-                  <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
+                <state relative-caret-position="76">
+                  <caret line="19" column="45" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
                 </state>
               </provider>
             </entry>
@@ -557,7 +556,7 @@
       <workItem from="1525949405318" duration="2213000" />
       <workItem from="1525960476331" duration="10040000" />
       <workItem from="1526024986600" duration="13793000" />
-      <workItem from="1526201142346" duration="21166000" />
+      <workItem from="1526201142346" duration="22231000" />
     </task>
     <task id="LOCAL-00001" summary="- Resolving issues in the TypeScript compiler configurations.&#10;- Added the plumping of Risks and Business Functions lookup data.&#10;- Lookup data plumping code currently reads from mock data.i.e. not connected to SharePoint.">
       <created>1525606067803</created>
@@ -671,12 +670,19 @@
       <option name="project" value="LOCAL" />
       <updated>1526366794750</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Fixing SliderSelector , and deleted unnecessary computed properties in the Talent Model">
+      <created>1526374783968</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1526374783968</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <option name="trackContextForNewChangelist" value="true" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="168579000" />
+    <option name="totallyTimeSpent" value="169644000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -700,7 +706,7 @@
       <window_info anchor="bottom" auto_hide="true" id="Terminal" order="10" weight="0.36663124" />
       <window_info id="Gulp" order="2" sideWeight="0.36875665" side_tool="true" weight="0.29109776" />
       <window_info anchor="bottom" id="TypeScript" order="9" sideWeight="0.49972692" weight="0.36875665" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.63124335" visible="true" weight="0.20098306" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.63124335" visible="true" weight="0.20098306" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.35175344" />
       <window_info id="Structure" order="1" sideWeight="0.46543002" side_tool="true" weight="0.26160568" />
@@ -835,7 +841,8 @@
     <MESSAGE value="Adding the Talen Record Timeline" />
     <MESSAGE value="Refactored the Editor Control. Moved the view model properties to the Talent Model. Two-way data binding is still work in progress" />
     <MESSAGE value="Camel-Casing the properties of the Talent Model" />
-    <option name="LAST_COMMIT_MESSAGE" value="Camel-Casing the properties of the Talent Model" />
+    <MESSAGE value="Fixing SliderSelector , and deleted unnecessary computed properties in the Talent Model" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing SliderSelector , and deleted unnecessary computed properties in the Talent Model" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1133,8 +1140,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/stores/TalentsStore.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
+        <state relative-caret-position="76">
+          <caret line="19" column="45" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
         </state>
       </provider>
     </entry>
@@ -1147,9 +1154,6 @@
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/stores/services/mockData/Talents.ts">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/stores/LookupDataStore.ts">
       <provider selected="true" editor-type-id="text-editor">
@@ -1185,6 +1189,13 @@
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stores/services/mockData/Talents.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="10" selection-start-line="1" selection-start-column="1" selection-end-line="24" selection-end-column="3" />
         </state>
       </provider>
     </entry>
