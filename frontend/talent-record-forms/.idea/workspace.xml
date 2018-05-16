@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="911ba6af-c74c-44e6-94cb-d15df8b37c13" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../../backend/Kier.TalentPortal.WebAPI/Kier.TalentPortal.WebAPI/Controllers/TalentsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/Kier.TalentPortal.WebAPI/Kier.TalentPortal.WebAPI/Controllers/TalentsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../backend/Kier.TalentPortal.WebAPI/Kier.TalentPortal.WebAPI/Kier.TalentPortal.WebAPI.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/Kier.TalentPortal.WebAPI/Kier.TalentPortal.WebAPI/Kier.TalentPortal.WebAPI.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../backend/Kier.TalentPortal.WebAPI/Kier.TalentPortal.WebAPI/Web.config" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/Kier.TalentPortal.WebAPI/Kier.TalentPortal.WebAPI/Web.config" afterDir="false" />
-    </list>
+    <list default="true" id="911ba6af-c74c-44e6-94cb-d15df8b37c13" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -25,8 +21,8 @@
           <file leaf-file-name="Talents.ts" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/stores/services/mockData/Talents.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="108">
-                  <caret line="6" column="10" selection-start-line="1" selection-start-column="1" selection-end-line="24" selection-end-column="3" />
+                <state relative-caret-position="20">
+                  <caret line="6" column="12" selection-start-line="1" selection-start-column="1" selection-end-line="24" selection-end-column="5" />
                 </state>
               </provider>
             </entry>
@@ -190,8 +186,8 @@
         <option value="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.tsx" />
         <option value="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/OptionsSelector.tsx" />
         <option value="$PROJECT_DIR$/src/stores/TalentsStore.ts" />
-        <option value="$PROJECT_DIR$/src/stores/services/mockData/Talents.ts" />
         <option value="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/SliderSelector.tsx" />
+        <option value="$PROJECT_DIR$/src/stores/services/mockData/Talents.ts" />
       </list>
     </option>
   </component>
@@ -556,7 +552,7 @@
       <workItem from="1525949405318" duration="2213000" />
       <workItem from="1525960476331" duration="10040000" />
       <workItem from="1526024986600" duration="13793000" />
-      <workItem from="1526201142346" duration="22231000" />
+      <workItem from="1526201142346" duration="22968000" />
     </task>
     <task id="LOCAL-00001" summary="- Resolving issues in the TypeScript compiler configurations.&#10;- Added the plumping of Risks and Business Functions lookup data.&#10;- Lookup data plumping code currently reads from mock data.i.e. not connected to SharePoint.">
       <created>1525606067803</created>
@@ -682,7 +678,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="169644000" />
+    <option name="totallyTimeSpent" value="170381000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -694,19 +690,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
-    <editor active="true" />
+    <frame x="54" y="-8" width="1320" height="784" extended-state="6" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.7396387" />
       <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.50027305" side_tool="true" weight="0.26918918" />
       <window_info anchor="bottom" id="File Transfer" order="13" weight="0.32731137" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49972692" weight="0.69819343" />
-      <window_info anchor="bottom" auto_hide="true" id="Run" order="2" sideWeight="0.49972692" weight="0.33049947" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="7" sideWeight="0.49972692" visible="true" weight="0.69793326" />
+      <window_info anchor="bottom" auto_hide="true" id="Run" order="2" sideWeight="0.49972692" weight="0.3290938" />
       <window_info id="npm" order="4" sideWeight="0.3607532" side_tool="true" weight="0.19704953" />
       <window_info anchor="bottom" auto_hide="true" id="Terminal" order="10" weight="0.36663124" />
       <window_info id="Gulp" order="2" sideWeight="0.36875665" side_tool="true" weight="0.29109776" />
       <window_info anchor="bottom" id="TypeScript" order="9" sideWeight="0.49972692" weight="0.36875665" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.63124335" visible="true" weight="0.20098306" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.63124335" visible="true" weight="0.2881754" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.35175344" />
       <window_info id="Structure" order="1" sideWeight="0.46543002" side_tool="true" weight="0.26160568" />
@@ -1194,8 +1189,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/stores/services/mockData/Talents.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="10" selection-start-line="1" selection-start-column="1" selection-end-line="24" selection-end-column="3" />
+        <state relative-caret-position="20">
+          <caret line="6" column="12" selection-start-line="1" selection-start-column="1" selection-end-line="24" selection-end-column="5" />
         </state>
       </provider>
     </entry>
