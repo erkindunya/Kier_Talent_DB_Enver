@@ -6,9 +6,14 @@ import {invert} from '@microsoft/sp-lodash-subset'
 @observer
 export default class SliderSelector extends React.Component<any, any> {
 
+  handleChange = (value) => {
+    this.props.changed(this.props.items[value] as string);
+  }
+
+
   BuildSelector = () => {
     return(
-      <Slider marks={this.props.items} tipFormatter={this.props.formatter} step={null}/>
+      <Slider onChange={this.handleChange} marks={this.props.items} tipFormatter={this.props.formatter} step={null}/>
     )
   }
 

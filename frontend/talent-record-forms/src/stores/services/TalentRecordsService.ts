@@ -1,4 +1,7 @@
 import Talents from "./mockData/Talents";
+import {REST_API_URL} from '../Common/Constants';
+
+import axios from 'axios';
 
 interface ITalentService {
   GetAll,
@@ -19,6 +22,22 @@ export class MockTalentService implements ITalentService {
 
   public async GetAll() {
     return await Talents;
+  }
+
+}
+
+
+export class TalentService implements ITalentService {
+
+  public async GetAll() {
+    return await Talents;
+  }
+
+  async GetTalentById(id: number) {
+    const api_url = REST_API_URL + '/' + id.toString();
+    const result = await axios.get(api_url);
+    console.log("Talent Data From Server : " + result);
+    return result;
   }
 
 }

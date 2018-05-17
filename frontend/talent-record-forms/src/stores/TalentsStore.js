@@ -67,7 +67,8 @@ exports.Talent = mobx_state_tree_1.types.model({
     Requirements_01_subcategory: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.string, ""),
     Requirements_02_category: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.string, ""),
     Requirements_02_subcategory: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.string, ""),
-    Notes: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.string, "")
+    Notes: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.string, ""),
+    IsCurrentSubmission: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.boolean, false)
 })
     .named("TalentRecord")
     .actions(function (self) {
@@ -155,7 +156,7 @@ var TalentsStore = mobx_state_tree_1.types.model({
         });
     });
     var SaveTalentRecord = function () {
-        axios_1.default.post('http://kiertalentportalwebapi1505.azurewebsites.net/api/talents', {
+        axios_1.default.post('https://kiertalentportalwebapi20180516031250.azurewebsites.net/api/talents', {
             Id: 1,
             EmployeeId: 'MK0000000',
             Name: 'khalil, Abdalla',
@@ -193,7 +194,7 @@ var TalentsStore = mobx_state_tree_1.types.model({
                     if (response) {
                         //Todo : ugly piece of code that needs to be refactored.
                         console.log("Talents : " + JSON.stringify(response, null, 4));
-                        talent = exports.Talent.create(response);
+                        talent = exports.Talent.create(response.data);
                         mobx_state_tree_1.applySnapshot(mobx_state_tree_1.getParent(self, 1).Talent, talent);
                         //Todo: move this code for the AppStore\ViewStore
                         /* if (getParent(self, 1).Talent)

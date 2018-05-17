@@ -36,6 +36,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var Talents_1 = require("./mockData/Talents");
+var Constants_1 = require("../Common/Constants");
+var axios_1 = require("axios");
 var MockTalentService = /** @class */ (function () {
     function MockTalentService() {
     }
@@ -63,4 +65,36 @@ var MockTalentService = /** @class */ (function () {
     return MockTalentService;
 }());
 exports.MockTalentService = MockTalentService;
+var TalentService = /** @class */ (function () {
+    function TalentService() {
+    }
+    TalentService.prototype.GetAll = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, Talents_1.default];
+                    case 1: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    TalentService.prototype.GetTalentById = function (id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var api_url, result;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        api_url = Constants_1.REST_API_URL + '/' + id.toString();
+                        return [4 /*yield*/, axios_1.default.get(api_url)];
+                    case 1:
+                        result = _a.sent();
+                        console.log("Talent Data From Server : " + result);
+                        return [2 /*return*/, result];
+                }
+            });
+        });
+    };
+    return TalentService;
+}());
+exports.TalentService = TalentService;
 //# sourceMappingURL=TalentRecordsService.js.map

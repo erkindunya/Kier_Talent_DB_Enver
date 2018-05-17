@@ -44,7 +44,7 @@ var UserRemoteSelect = /** @class */ (function (_super) {
             var fetchId = _this.lastFetchId;
             _this.setState({ data: [], fetching: true });
             sp_pnp_js_1.default.sp.profiles.clientPeoplePickerSearchUser(opt).then(function (response) {
-                if (fetchId !== _this.lastFetchId) {
+                if (fetchId !== _this.lastFetchId) { // for fetch callback order
                     return;
                 }
                 var data = response.map(function (user) { return ({
@@ -60,6 +60,7 @@ var UserRemoteSelect = /** @class */ (function (_super) {
                 data: [],
                 fetching: false,
             });
+            _this.props.changed(value);
         };
         _this.lastFetchId = 0;
         _this.fetchUser = lodash_1.debounce(_this.fetchUser, 800);

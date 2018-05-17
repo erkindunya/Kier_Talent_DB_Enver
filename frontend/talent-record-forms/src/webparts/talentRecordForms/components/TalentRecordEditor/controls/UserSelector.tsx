@@ -31,7 +31,7 @@ export default class UserRemoteSelect extends React.Component<any, any> {
       MaximumEntitySuggestions: 10,
       PrincipalSource: 15,
       PrincipalType: 15,
-      QueryString: 'Kha'
+      QueryString: value
     }
 
     console.log('fetching user', value);
@@ -55,6 +55,7 @@ export default class UserRemoteSelect extends React.Component<any, any> {
       data: [],
       fetching: false,
     });
+    (value.length >= 1) ? this.props.changed(value[0].key) : "";
   }
 
   render() {

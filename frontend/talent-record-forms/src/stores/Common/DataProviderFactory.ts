@@ -11,7 +11,7 @@ import {
   DevelopmentRequirementsLookupDataService,
   MockDevelopmentRequirementsLookupDataService
 } from "../services/DevelopmentRequirementsLookupDataService";
-import {MockTalentService} from "../services/TalentRecordsService";
+import {MockTalentService, TalentService} from "../services/TalentRecordsService";
 
 
 //Todo : make the dataProviderFactory smart enough to test environment before providing the dataProvider
@@ -42,6 +42,6 @@ export class DataProviderFactory {
   }
 
   public static GetTalentsDataProvider() {
-    return new MockTalentService();
+    return new TalentService();
   }
 }

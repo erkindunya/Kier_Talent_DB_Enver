@@ -46,6 +46,7 @@ namespace Kier.TalentPortal.WebAPI.Controllers
                 ConfigurationManager.AppSettings["clientSecret"]))
             {
                 var list = ctx.Web.Lists.GetByTitle(ConfigurationManager.AppSettings["listName"]);
+                
                 ListItemCreationInformation itemCreateInfo = new ListItemCreationInformation();
                 ListItem newItem = list.AddItem(itemCreateInfo);
                 newItem = Talent.ToSPListItem(talent, newItem);

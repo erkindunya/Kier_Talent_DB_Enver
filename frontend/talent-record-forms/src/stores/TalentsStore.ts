@@ -1,6 +1,7 @@
 import {applySnapshot, flow, getParent, types} from "mobx-state-tree";
 import {DataProviderFactory} from "./Common/DataProviderFactory";
 import axios from 'axios';
+import {REST_API_URL} from './Common/Constants';
 
 
 export const Talent = types.model({
@@ -24,13 +25,13 @@ export const Talent = types.model({
   Requirements_01_subcategory: types.optional(types.string, ""),
   Requirements_02_category: types.optional(types.string, ""),
   Requirements_02_subcategory: types.optional(types.string, ""),
-  Notes: types.optional(types.string, "")
+  Notes: types.optional(types.string, ""),
+  IsCurrentSubmission: types.optional(types.boolean, false),
+  Position: types.optional(types.string, "")
 })
   .named("TalentRecord")
   .actions(self => {
-    const changeEmployeeId = (id: string) => {
-      self.EmployeeId = id;
-    }
+
 
     const SetValueIfDifferent = (oldValue: string, newValue: string) => {
       if (oldValue != newValue)
@@ -48,30 +49,91 @@ export const Talent = types.model({
       self.Location = location;
     }
 
+    const changeDevelopmentRequirement01 = (requirements: string[]) => {
+      const [category, subcategory] = requirements;
+      self.Requirements_01_category = category;
+      self.Requirements_01_subcategory = subcategory
+    }
+
+
+    const changeDevelopmentRequirement02 = (requirements: string[]) => {
+      const [category, subcategory] = requirements;
+      self.Requirements_02_category = category;
+      self.Requirements_02_subcategory = subcategory
+    }
+
     const changeFunction = (newFunction: string) => {
       self.Function = newFunction;
       //SetValueIfDifferent(self.BusinessFunction, newFunction)
     }
 
+    const changeEmployeeName = (newEmployeeKey: string) => {
+      self.Name = newEmployeeKey;
+    }
+
     const changeGrade = (newGrade: string) => {
-      SetValueIfDifferent(self.Grade, newGrade);
+      self.Grade = newGrade;
     }
 
     const changeBusinessRisk = (newBusinessRisk: string) => {
-      SetValueIfDifferent(self.BusinessRisk, newBusinessRisk);
+      self.BusinessRisk = newBusinessRisk;
     }
 
     const changeFlightRisk = (newFlightRisk: string) => {
-      SetValueIfDifferent(self.FlightRisk, newFlightRisk);
+      self.FlightRisk = newFlightRisk;
     }
 
+
+    const changeEmployeeId = (newEmployeeId: string) => {
+      self.EmployeeId = newEmployeeId;
+    }
+
+    const changePosition = (newPosition: string) => {
+      self.Position = newPosition;
+    }
+
+    const changeMovement = (newMovement: string) => {
+      self.Movement = newMovement;
+    }
+
+    const changePotentialRating = (newRating: string) => {
+      self.Potential = newRating;
+    }
+
+    const changePerformanceRating = (newRating: string) => {
+      self.Performance = newRating;
+    }
+
+    const changeAreaHead = (newHead: string) => {
+      self.AreaHead = newHead;
+    }
+
+    const changeManager = (newManager: string) => {
+      self.Manager = newManager;
+    }
+
+    const changeNotes = (notes: string) => {
+      self.Notes = notes;
+    }
 
     return {
       changeBusinessUnit,
       changeFunction,
       changeGrade,
       changeBusinessRisk,
-      changeFlightRisk
+      changeFlightRisk,
+      changeEmployeeId,
+      changePosition,
+      changeMovement,
+      changePotentialRating,
+      changePerformanceRating,
+      changeDevelopmentRequirement01,
+      changeDevelopmentRequirement02,
+      changeEmployeeName,
+      changeAreaHead,
+      changeManager,
+      changeNotes
+
     }
   })
   .views(self => ({
@@ -121,30 +183,7 @@ const TalentsStore = types.model({
     })
 
     const SaveTalentRecord = ()=>{
-axios.post('https://kiertalentportalwebapi20180516031250.azurewebsites.net/api/talents', {
-  Id: 1,
-  EmployeeId: 'MK0000000',
-  Name: 'khalil, Abdalla',
-  Manager: 'Jones,Brian',
-  Function: 'Finance',
-  AreaHead: 'Ahmed, Mohamed',
-  Division: 'DP&BS',
-  //Division: undefined,
-  Unit: 'Enviromental',
-  Stream: 'Environmental Central',
-  Location: 'Environmental Central - Corby Borough Council',
-  BusinessRisk: 'High',
-  FlightRisk: 'Low',
-  Performance: '2',
-  Potential: 'B',
-  Grade: 'L2',
-  Movement: 'Soon',
-  Requirements_01_category: 'Technical Training',
-  Requirements_01_subcategory: 'Option 2',
-  Requirements_02_category: 'Technical Training',
-  Requirements_02_subcategory: 'Option 3',
-  Notes: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sed fermentum ex, sit amet congue eros. Ut cursus mattis feugiat. Aenean tristique ante in urna lobortis, sit amet luctus nulla dapibus. Etiam sodales, odio et faucibus placerat, libero ligula lobortis augue, quis malesuada sem enim in erat. Donec eu lorem sit amet nulla congue porta ut vitae dui. Fusce dignissim ullamcorper lorem eu sagittis. Ut mollis purus vel nibh mollis dignissim.'
-}).then(_=>console.log("New Record Operation is done"))
+      axios.post(REST_API_URL, JSON.stringify(getParent(self, 1).Talent)).then(_ => console.log("New Record Operation is done"))
   .catch(error=>console.log(JSON.stringify(error,null,4)))
     }
 
@@ -157,7 +196,7 @@ axios.post('https://kiertalentportalwebapi20180516031250.azurewebsites.net/api/t
 
           //Todo : ugly piece of code that needs to be refactored.
           console.log("Talents : " + JSON.stringify(response, null, 4));
-          talent = Talent.create(response);
+          talent = Talent.create(response.data);
           applySnapshot(getParent(self, 1).Talent, talent);
           //Todo: move this code for the AppStore\ViewStore
           /* if (getParent(self, 1).Talent)

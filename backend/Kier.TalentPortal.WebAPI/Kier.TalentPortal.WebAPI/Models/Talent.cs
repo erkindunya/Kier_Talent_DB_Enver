@@ -30,7 +30,7 @@ namespace Kier.TalentPortal.WebAPI.Models
         public string Requirements_02_subcategory { get; set; }
         public string Notes { get; set; }
         public int SubmissionYear { get; set; }
-        public bool IsCurrent { get; set; }
+        public bool IsCurrentSubmission { get; set; }
         public Talent PreviousYear { get; set; }
 
         public static Talent FromSPListItem(ListItem item)
@@ -50,13 +50,14 @@ namespace Kier.TalentPortal.WebAPI.Models
             talent.Movement = item[Constants.Talent_Record_Movement] as string;
             talent.Performance = item[Constants.Talent_Record_Performance] as string;
             talent.Potential = item[Constants.Talent_Record_Potential] as string;
-            talent.IsCurrent = (item[Constants.Talent_Record_Is_Current_Submission] != null)
+            talent.IsCurrentSubmission = (item[Constants.Talent_Record_Is_Current_Submission] != null)
                 ? bool.Parse(item[Constants.Talent_Record_Is_Current_Submission].ToString())
                 : false;
             talent.SubmissionYear = (item[Constants.Talent_Record_Submission_Year] != null)
                 ? int.Parse(item[Constants.Talent_Record_Submission_Year].ToString())
                 : -1;
             talent.Id = (item["ID"]!=null)? int.Parse(item["ID"].ToString()):-1;
+            
             return talent;
         }
 
@@ -77,7 +78,8 @@ namespace Kier.TalentPortal.WebAPI.Models
             listItem[Constants.Talent_Record_Movement] = talent.Movement;
             listItem[Constants.Talent_Record_Performance] = talent.Performance;
             listItem[Constants.Talent_Record_Potential] = talent.Potential;
-            listItem[Constants.Talent_Record_Submission_Year] = talent.SubmissionYear;
+            listItem[Constants.Talent_Record_Submission_Year] = talent.SubmissionYear;            
+            listItem[Constants.Talent_Record_Employee] = SharePointOnlineHelper.RetrieveUserId( "i: 0#.f|membership|khalis@maksharepoint.onmicrosoft.com");
             //listItem["ID"] = talent.Id;
             return listItem;
         }

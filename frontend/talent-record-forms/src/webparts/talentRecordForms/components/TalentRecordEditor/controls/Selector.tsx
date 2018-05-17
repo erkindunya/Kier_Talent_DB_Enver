@@ -9,6 +9,7 @@ export default class Selector extends React.Component<any, any> {
 
   handleChange = (value) => {
     console.log(value)
+    this.props.changed(value);
   }
 
   buildFunctionSelector = () => {

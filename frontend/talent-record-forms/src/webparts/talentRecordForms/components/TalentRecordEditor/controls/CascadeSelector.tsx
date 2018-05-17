@@ -22,7 +22,6 @@ export default class CascadeSelector extends React.Component<any, any> {
   render() {
 
     let initialValue = (this.props.value) ? this.props.value : [];
-    console.log(`${this.props.controlId} value`, initialValue);
 
     const options = (this.props.value) ? {
       initialValue: initialValue,

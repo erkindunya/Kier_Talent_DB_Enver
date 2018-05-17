@@ -100,6 +100,9 @@ var TalentRecordEditor = /** @class */ (function (_super) {
         };
         _this.OnDevelopmentRequirement02Change = function (newRequirement) {
         };
+        _this.OnEmployeeNameChange = function (userId) {
+            console.log("Employee Changed " + userId);
+        };
         _this.onSubmit = function () {
             console.log("Submitting");
             _this.props.store.TalentDataStore.SaveTalentRecord();
@@ -144,7 +147,7 @@ var TalentRecordEditor = /** @class */ (function (_super) {
                                 React.createElement(FormItem, __assign({ label: "Employee" }, formItemLayout), getFieldDecorator('employee', {
                                     initialValue: "Khalil, Mohamed",
                                     rules: [{ required: true, message: 'employee name?' }],
-                                })(React.createElement(UserSelector_1.default, null))))),
+                                })(React.createElement(UserSelector_1.default, { changed: this.OnEmployeeChange }))))),
                         React.createElement(antd_1.Row, { gutter: 20 },
                             React.createElement(antd_1.Col, { span: 8 },
                                 React.createElement(FormItem, __assign({ label: "Employee ID" }, formItemLayout), getFieldDecorator('EmployeeId', {
@@ -202,7 +205,7 @@ var TalentRecordEditor = /** @class */ (function (_super) {
                             React.createElement(antd_1.Col, { span: 24 },
                                 React.createElement(antd_1.Row, null,
                                     React.createElement(antd_1.Col, { span: 24, style: { textAlign: 'right' } },
-                                        React.createElement(antd_1.Button, { type: "primary", htmlType: "submit", disabled: hasErrors(getFieldsError()), onClick: this.onSubmit }, "Submit"),
+                                        React.createElement(antd_1.Button, { type: "primary", htmlType: "button", disabled: hasErrors(getFieldsError()), onClick: this.onSubmit }, "Submit"),
                                         React.createElement(antd_1.Button, { style: { marginLeft: 8 }, htmlType: "reset" }, "Clear"),
                                         React.createElement(antd_1.Button, { style: { marginLeft: 8 }, htmlType: "button" }, "Cancel"))))))))));
     };
@@ -218,5 +221,14 @@ exports.default = wrappedForm;
   labelCol: { span: 4 },
   wrapperCol: { span: 7 },
 } : null;*/
-var formItemLayout = {};
+var formItemLayout = {
+/* labelCol: {
+   xs: {span: 40},
+   sm: {span: 8},
+ },
+ wrapperCol: {
+   xs: {span: 40},
+   sm: {span: 16},
+ },*/
+};
 //# sourceMappingURL=TalentRecordEditor.js.map

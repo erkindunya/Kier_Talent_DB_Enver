@@ -39,7 +39,6 @@ class TalentRecordEditor extends React.Component<any, any> {
   }
 
 
-
   formatPerformanceTip = (value) => {
     //Todo : refactor to make it more intelligent
     if (value == 0)
@@ -68,59 +67,70 @@ class TalentRecordEditor extends React.Component<any, any> {
 
   OnBuinsessUnitChange = (newBusinessUnit: string []) => {
     this.props.store.Talent.changeBusinessUnit(newBusinessUnit);
-    console.log(`Business Unit changed ${newBusinessUnit}`);
   }
 
   OnFunctionChange = (newFunction: string) => {
-
+    this.props.store.Talent.changeFunction(newFunction);
   }
 
-  OnAreaHeadChange = (newHeadArea: string) => {
 
-  }
-  OnEmployeeChange = (newEmployeeName: string) => {
-
-  }
   OnEmployeeIDChange = (newEmployeeId: string) => {
-
+    this.props.store.Talent.changeEmployeeId(newEmployeeId);
   }
 
   OnGradeChange = (newGrade: string) => {
-
+    this.props.store.Talent.changeGrade(newGrade);
   }
 
-  OnPositionChange = (newPosition: string) => {
-
+  OnPositionChange = (newPosition) => {
+    this.props.store.Talent.changePosition(newPosition.target.value);
   }
 
   OnMovementChange = (newMovement: string) => {
-
+    this.props.store.Talent.changeMovement(newMovement);
   }
 
   OnFlightRiskChange = (newFlightRisk: string) => {
-
+    this.props.store.Talent.changeFlightRisk(newFlightRisk);
   }
 
   OnBusinessRiskChange = (newBusinessRisk: string) => {
-
+    this.props.store.Talent.changeBusinessRisk(newBusinessRisk);
   }
   OnPotentialRatingChange = (newPotentialRating: string) => {
-
+    this.props.store.Talent.changePotentialRating(newPotentialRating);
   }
   OnPerformanceRatingChange = (newPerformanceRating: string) => {
-
+    this.props.store.Talent.changePerformanceRating(newPerformanceRating);
   }
   OnDevelopmentRequirement01Change = (newRequirement: string[]) => {
-
+    this.props.store.Talent.changeDevelopmentRequirement01(newRequirement);
   }
   OnDevelopmentRequirement02Change = (newRequirement: string[]) => {
-
+    this.props.store.Talent.changeDevelopmentRequirement02(newRequirement);
   }
 
-  onSubmit=()=>{
+  OnEmployeeNameChange = (userId: string) => {
+    console.log("Employee Changed " + JSON.stringify(userId));
+    this.props.store.Talent.changeEmployeeName(userId);
+  }
+
+  OnAreaHeadChange = (newHeadArea: string) => {
+    this.props.store.Talent.changeAreaHead(newHeadArea);
+  }
+
+  OnManagerChange = (newManager: string) => {
+    this.props.store.Talent.changeManager(newManager);
+  }
+
+  OnNotesChange = (notes: string) => {
+    this.props.store.Talent.changeNotes(notes);
+  }
+
+  onSubmit = () => {
     console.log("Submitting");
     this.props.store.TalentDataStore.SaveTalentRecord();
-}
+  }
 
   render() {
 
@@ -187,14 +197,14 @@ class TalentRecordEditor extends React.Component<any, any> {
                 {getFieldDecorator('AreaHead', {
                   rules: [{required: true, message: 'Head of Area?'}],
                 })(
-                  <UserRemoteSelect/>
+                  <UserRemoteSelect changed={this.OnAreaHeadChange}/>
                 )}
               </FormItem></Col>
               <Col span={8}><FormItem label="Manager's Name" {...formItemLayout}>
                 {getFieldDecorator('managerName', {
                   rules: [{required: true, message: 'manager name?'}],
                 })(
-                  <UserRemoteSelect/>
+                  <UserRemoteSelect changed={this.OnManagerChange}/>
                 )}
               </FormItem></Col>
               <Col span={8}><FormItem label="Employee" {...formItemLayout}>
@@ -202,7 +212,7 @@ class TalentRecordEditor extends React.Component<any, any> {
                   initialValue: "Khalil, Mohamed",
                   rules: [{required: true, message: 'employee name?'}],
                 })(
-                  <UserRemoteSelect/>
+                  <UserRemoteSelect changed={this.OnEmployeeNameChange}/>
                 )}
               </FormItem></Col>
             </Row>
@@ -213,7 +223,8 @@ class TalentRecordEditor extends React.Component<any, any> {
                 {getFieldDecorator('EmployeeId', {
                   rules: [{required: true, message: 'Employee ID?'}],
                 })(
-                  <Input size="small" placeholder="Employee ID"/>
+                  <Input size="small" placeholder="Employee ID"
+                         onChange={(e) => this.OnEmployeeIDChange(e.target.value)}/>
                 )}
               </FormItem></Col>
               <Col span={8}> <FormItem label="Grade" {...formItemLayout}>
@@ -230,10 +241,10 @@ class TalentRecordEditor extends React.Component<any, any> {
               </FormItem></Col>
               <Col span={8}> <FormItem label="Position" {...formItemLayout}>
                 {getFieldDecorator('position', {
-                  initialValue: "IT Developer",
+                  initialValue: this.props.store.Talent.Position,
                   rules: [{required: true, message: 'position?'}],
                 })(
-                  <Input size="small" placeholder="Position"/>
+                  <Input size="small" placeholder="Position" onChange={this.OnPositionChange}/>
                 )}
               </FormItem></Col>
             </Row>
@@ -249,16 +260,16 @@ class TalentRecordEditor extends React.Component<any, any> {
 
               <Col span={10}><FormItem label="Performance Rating" {...formItemLayout}>
 
-              <SliderSelector
-                items={this.props.store.LookupDataStore.PerformanceRatingLookupData}
-                form={this.props.form}
-                value={this.props.store.Talent.Performance}
-                controlId="performance"
-                validationMessage="Please select a rating for the performance"
-                changed={this.OnPerformanceRatingChange}
-                formatter={this.formatPerformanceTip}
-              />
-            </FormItem></Col>
+                <SliderSelector
+                  items={this.props.store.LookupDataStore.PerformanceRatingLookupData}
+                  form={this.props.form}
+                  value={this.props.store.Talent.Performance}
+                  controlId="performance"
+                  validationMessage="Please select a rating for the performance"
+                  changed={this.OnPerformanceRatingChange}
+                  formatter={this.formatPerformanceTip}
+                />
+              </FormItem></Col>
               <Col span={10}> <FormItem label="Potential Rating" {...formItemLayout}>
                 <SliderSelector
                   items={this.props.store.LookupDataStore.PotentialRatingLookupData}
@@ -334,7 +345,7 @@ class TalentRecordEditor extends React.Component<any, any> {
                   placeholder="Please select a development requirement"
                   validationMessage='Please select a developement requirement!'
                   controlId="developmentRequirement_02"
-                  changed={this.OnDevelopmentRequirement01Change}
+                  changed={this.OnDevelopmentRequirement02Change}
                 />
               </FormItem></Col>
 
@@ -346,7 +357,7 @@ class TalentRecordEditor extends React.Component<any, any> {
                   {getFieldDecorator('devNotes', {
                     rules: [{required: true, message: 'Please fill in some comments'}],
                   })(
-                    <Input.TextArea rows={5}/>
+                    <Input.TextArea rows={5} onChange={(e) => this.OnNotesChange(e.target.value)}/>
                   )}
                 </FormItem>
               </Col>
@@ -357,7 +368,8 @@ class TalentRecordEditor extends React.Component<any, any> {
 
                 <Row>
                   <Col span={24} style={{textAlign: 'right'}}>
-                    <Button type="primary" htmlType="button" disabled={hasErrors(getFieldsError())} onClick={this.onSubmit}>Submit</Button>
+                    <Button type="primary" htmlType="button" disabled={hasErrors(getFieldsError())}
+                            onClick={this.onSubmit}>Submit</Button>
                     <Button style={{marginLeft: 8}} htmlType="reset">
                       Clear
                     </Button>
