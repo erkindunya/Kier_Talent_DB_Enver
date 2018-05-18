@@ -132,6 +132,10 @@ class TalentRecordEditor extends React.Component<any, any> {
     this.props.store.TalentDataStore.SaveTalentRecord();
   }
 
+  onUpdate = () => {
+    this.props.store.TalentDataStore.UpdateTalentRecord();
+  }
+
   render() {
 
     const {getFieldDecorator, getFieldsError, getFieldError, isFieldTouched} = this.props.form;
@@ -209,8 +213,7 @@ class TalentRecordEditor extends React.Component<any, any> {
               </FormItem></Col>
               <Col span={8}><FormItem label="Employee" {...formItemLayout}>
                 {getFieldDecorator('employee', {
-                  initialValue: "Khalil, Mohamed",
-                  rules: [{required: true, message: 'employee name?'}],
+                  rules: [{required: true, message: 'employee name?'}]
                 })(
                   <UserRemoteSelect changed={this.OnEmployeeNameChange}/>
                 )}
@@ -221,6 +224,7 @@ class TalentRecordEditor extends React.Component<any, any> {
             <Row gutter={20}>
               <Col span={8}><FormItem label="Employee ID" {...formItemLayout}>
                 {getFieldDecorator('EmployeeId', {
+                  initialValue: this.props.store.Talent.EmployeeId,
                   rules: [{required: true, message: 'Employee ID?'}],
                 })(
                   <Input size="small" placeholder="Employee ID"
@@ -370,6 +374,8 @@ class TalentRecordEditor extends React.Component<any, any> {
                   <Col span={24} style={{textAlign: 'right'}}>
                     <Button type="primary" htmlType="button" disabled={hasErrors(getFieldsError())}
                             onClick={this.onSubmit}>Submit</Button>
+                    <Button type="primary" htmlType="button" disabled={hasErrors(getFieldsError())}
+                            onClick={this.onUpdate}>Update</Button>
                     <Button style={{marginLeft: 8}} htmlType="reset">
                       Clear
                     </Button>

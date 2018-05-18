@@ -3,7 +3,7 @@ import {DataProviderFactory} from "./Common/DataProviderFactory";
 import axios from 'axios';
 import {REST_API_URL} from './Common/Constants';
 
-
+//Todo : need to add extra couple of fields CreatedBy and ModifiedBy
 export const Talent = types.model({
   Id: types.maybe(types.number),
   EmployeeId: types.optional(types.string, ""),
@@ -183,15 +183,21 @@ const TalentsStore = types.model({
     })
 
     const SaveTalentRecord = ()=>{
-      axios.post(REST_API_URL, JSON.stringify(getParent(self, 1).Talent)).then(_ => console.log("New Record Operation is done"))
+
+      axios.post(REST_API_URL, JSON.stringify(getParent(self, 1).Talent), {headers: {'content-type': 'application/json'}}).then(_ => console.log("New Record Operation is done"))
   .catch(error=>console.log(JSON.stringify(error,null,4)))
     }
 
-    const GetTalentById = flow(function* GetTalentById(id: number) {
+    const UpdateTalentRecord = () => {
+
+      axios.put(REST_API_URL, JSON.stringify(getParent(self, 1).Talent), {headers: {'content-type': 'application/json'}}).then(_ => console.log("New Record Operation is done"))
+        .catch(error => console.log(JSON.stringify(error, null, 4)))
+    }
+    const GetTalentById = flow(function* GetTalentById(id: number, employeeId: string) {
 
       let talent;
       try {
-        const response = yield _dataProvider.GetTalentById(id);
+        const response = yield _dataProvider.GetTalentById(id, employeeId);
         if (response) {
 
           //Todo : ugly piece of code that needs to be refactored.
@@ -216,7 +222,7 @@ const TalentsStore = types.model({
       }
 
     })
-    return {LoadAllTalents, GetTalentById,SaveTalentRecord}
+    return {LoadAllTalents, GetTalentById, SaveTalentRecord, UpdateTalentRecord}
   }
 ).actions(self => {
   const afterCreate = () => {

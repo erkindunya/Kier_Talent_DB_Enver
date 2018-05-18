@@ -6,13 +6,13 @@ import axios from 'axios';
 interface ITalentService {
   GetAll,
 
-  GetTalentById(id: number),
+  GetTalentById(id: number, employeeId: string),
 
 }
 
 export class MockTalentService implements ITalentService {
 
-  public async GetTalentById(id: number) {
+  public async GetTalentById(id: number, employeeId: string) {
 
     var results = Talents.filter(i => i.Id === id);
     if (results)
@@ -33,8 +33,8 @@ export class TalentService implements ITalentService {
     return await Talents;
   }
 
-  async GetTalentById(id: number) {
-    const api_url = REST_API_URL + '/' + id.toString();
+  async GetTalentById(id: number, employeeId: string) {
+    const api_url = REST_API_URL + '?id=' + id.toString() + '&employeeId=' + employeeId;
     const result = await axios.get(api_url);
     console.log("Talent Data From Server : " + result);
     return result;

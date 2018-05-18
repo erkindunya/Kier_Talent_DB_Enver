@@ -19,6 +19,7 @@ export default class UserRemoteSelect extends React.Component<any, any> {
     this.fetchUser = debounce(this.fetchUser, 800);
   }
 
+
   state = {
     data: [],
     value: [],
@@ -57,6 +58,7 @@ export default class UserRemoteSelect extends React.Component<any, any> {
     });
     (value.length >= 1) ? this.props.changed(value[0].key) : "";
   }
+
 
   render() {
     const {fetching, data, value} = this.state;

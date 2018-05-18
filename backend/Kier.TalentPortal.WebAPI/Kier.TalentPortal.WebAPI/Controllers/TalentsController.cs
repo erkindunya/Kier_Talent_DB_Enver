@@ -10,7 +10,7 @@ namespace Kier.TalentPortal.WebAPI.Controllers
     public class TalentsController : ApiController
     {
         [HttpGet]
-        public IHttpActionResult GetTalent(int id)
+        public IHttpActionResult GetTalent(int id, string employeeId)
         {
             Talent talent = default(Talent);
             var authMgr = new AuthenticationManager();
@@ -19,15 +19,19 @@ namespace Kier.TalentPortal.WebAPI.Controllers
                 ConfigurationManager.AppSettings["clientId"],
                 ConfigurationManager.AppSettings["clientSecret"]))
             {
+
+          
+
                 var list = ctx.Web.Lists.GetByTitle(ConfigurationManager.AppSettings["listName"]);
                 var query = new CamlQuery();
-                query.ViewXml = Constants.Get_Talent_Record_By_EmployeeId_Query;
+                query.ViewXml = Constants.Get_Talent_Record_By_EmployeeId_Query.Replace("EMP_ID", employeeId);
                 var result = list.GetItems(query);
                 ctx.Load(result);
                 ctx.ExecuteQuery();
+                talent = Talent.FromSPListItem(result[0]);
                 if (result.ToList().Count >= 2)
                 {
-                   talent = Talent.FromSPListItem(result[0]);
+                   
                    talent.PreviousYear = Talent.FromSPListItem(result[1]);
                 }
             }

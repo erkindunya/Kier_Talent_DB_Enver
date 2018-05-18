@@ -22,8 +22,8 @@ export const AppStore = types.model(
       self.Talent = item;
     }
 
-    const LoadTalentRecord = (id: number) => {
-      self.TalentDataStore.GetTalentById(id)
+    const LoadTalentRecord = (id: number, employeeId: string) => {
+      self.TalentDataStore.GetTalentById(id, employeeId)
     }
 
     return {

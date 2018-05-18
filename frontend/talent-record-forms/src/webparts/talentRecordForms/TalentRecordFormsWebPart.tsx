@@ -29,10 +29,11 @@ export default class TalentRecordFormsWebPart extends BaseClientSideWebPart<ITal
       patch => {
         console.log(patch)
       });
+    //Todo : refactor the code that calculates the web part mode
     let url = new URL(window.location.href);
-    if (url.searchParams.has("talentId")) {
+    if (url.searchParams.has("talentId") && url.searchParams.has("employeeId")) {
       console.log("Talent Id " + url.searchParams.get("talentId"));
-      appStore.TalentDataStore.GetTalentById(parseInt(url.searchParams.get("talentId")));
+      appStore.TalentDataStore.GetTalentById(parseInt(url.searchParams.get("talentId")), url.searchParams.get("employeeId"));
     }
     else {
       //appStore.TalentDataStore.Talent = Talent.create({});
