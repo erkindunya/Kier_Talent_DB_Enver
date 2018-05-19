@@ -22,7 +22,10 @@
     "react": "15.6.2",
     "react-dom": "15.6.2",
     "sp-pnp-js": "^3.0.8",
-    "webpack": "^4.8.3"
+    "webpack": "^4.8.3",
+    "@microsoft/decorators": "~1.4.1",
+    "@microsoft/sp-listview-extensibility": "~1.4.1",
+    "@microsoft/sp-dialog": "~1.4.1"
   },
   "devDependencies": {
     "@microsoft/sp-build-web": "~1.4.1",

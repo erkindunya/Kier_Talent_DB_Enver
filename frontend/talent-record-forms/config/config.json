@@ -17,11 +17,20 @@
           "manifest": "./src/webparts/talentRecordTimeLine/TalentRecordTimeLineWebPart.manifest.json"
         }
       ]
+    },
+    "talent-portal-command-set-command-set": {
+      "components": [
+        {
+          "entrypoint": "./lib/extensions/talentPortalCommandSet/TalentPortalCommandSetCommandSet.js",
+          "manifest": "./src/extensions/talentPortalCommandSet/TalentPortalCommandSetCommandSet.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
   "localizedResources": {
     "TalentRecordFormsWebPartStrings": "lib/webparts/talentRecordForms/loc/{locale}.js",
-    "TalentRecordTimeLineWebPartStrings": "lib/webparts/talentRecordTimeLine/loc/{locale}.js"
+    "TalentRecordTimeLineWebPartStrings": "lib/webparts/talentRecordTimeLine/loc/{locale}.js",
+    "TalentPortalCommandSetCommandSetStrings": "lib/extensions/talentPortalCommandSet/loc/{locale}.js"
   }
 }
