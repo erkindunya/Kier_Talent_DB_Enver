@@ -3,7 +3,8 @@ import {Talent} from "./TalentsStore";
 
 
 const ViewStore = types.model({
-  selectedTalent: types.optional(Talent, {})
+  selectedTalent: types.optional(Talent, {}),
+  isEditing: types.optional(types.boolean, false)
 })
   .named("ViewStore")
   .views(self => {
@@ -29,10 +30,20 @@ const ViewStore = types.model({
     const ViewTalentRecord = () => {
 
     }
+    const afterCreate = () => {
+      let url = new URL(window.location.href);
+      if (url.searchParams.has("talentId") && url.searchParams.has("employeeId")) {
+        self.isEditing = true;
+        console.log("Talent Id " + url.searchParams.get("talentId"));
+        self.app.TalentDataStore.GetTalentById(parseInt(url.searchParams.get("talentId")), url.searchParams.get("employeeId"));
+      }
+    }
+
     return {
       EditTalentRecord,
       NewTalentRecord,
-      ViewTalentRecord
+      ViewTalentRecord,
+      afterCreate
     }
   })
 
