@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="911ba6af-c74c-44e6-94cb-d15df8b37c13" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/extensions/talentPortalCommandSet/TalentPortalCommandSetCommandSet.manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/extensions/talentPortalCommandSet/TalentPortalCommandSetCommandSet.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/extensions/talentPortalCommandSet/loc/en-us.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/extensions/talentPortalCommandSet/loc/myStrings.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/talent-record-forms.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/serve.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/serve.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/extensions/talentPortalCommandSet/TalentPortalCommandSetCommandSet.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/extensions/talentPortalCommandSet/TalentPortalCommandSetCommandSet.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -32,8 +23,8 @@
       <file leaf-file-name="TalentPortalCommandSetCommandSet.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/extensions/talentPortalCommandSet/TalentPortalCommandSetCommandSet.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="54" column="23" selection-start-line="54" selection-start-column="23" selection-end-line="54" selection-end-column="23" />
+            <state relative-caret-position="652">
+              <caret line="55" column="35" lean-forward="true" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
               <folding>
                 <element signature="e#0#49#0" expanded="true" />
               </folding>
@@ -44,8 +35,8 @@
       <file leaf-file-name="TalentPortalCommandSetCommandSet.manifest.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/extensions/talentPortalCommandSet/TalentPortalCommandSetCommandSet.manifest.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="19" column="47" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
+            <state relative-caret-position="378">
+              <caret line="21" column="22" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -474,7 +465,7 @@
       <workItem from="1526549836748" duration="1964000" />
       <workItem from="1526561994157" duration="14481000" />
       <workItem from="1526624157246" duration="16512000" />
-      <workItem from="1526719060815" duration="5749000" />
+      <workItem from="1526719060815" duration="5970000" />
     </task>
     <task id="LOCAL-00001" summary="- Resolving issues in the TypeScript compiler configurations.&#10;- Added the plumping of Risks and Business Functions lookup data.&#10;- Lookup data plumping code currently reads from mock data.i.e. not connected to SharePoint.">
       <created>1525606067803</created>
@@ -609,12 +600,19 @@
       <option name="project" value="LOCAL" />
       <updated>1526576964980</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Added the Command Set extensions">
+      <created>1526728616229</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1526728616229</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <option name="trackContextForNewChangelist" value="true" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="213123000" />
+    <option name="totallyTimeSpent" value="213344000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -627,10 +625,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.7396387" />
       <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.50027305" side_tool="true" weight="0.26918918" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="7" sideWeight="0.49972692" visible="true" weight="0.2996812" />
+      <window_info anchor="bottom" id="File Transfer" order="13" weight="0.49415517" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49972692" weight="0.2996812" />
       <window_info anchor="bottom" auto_hide="true" id="Run" order="2" sideWeight="0.49972692" weight="0.31380752" />
       <window_info id="npm" order="4" sideWeight="0.3607532" side_tool="true" weight="0.19704953" />
       <window_info anchor="bottom" auto_hide="true" id="Terminal" order="10" weight="0.36587983" />
@@ -649,7 +649,6 @@
       <window_info anchor="bottom" id="REST Client" order="15" weight="0.71675676" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="File Transfer" order="13" visible="true" weight="0.49425286" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.35171697" />
       <window_info anchor="bottom" id="Messages" order="12" />
     </layout>
@@ -810,7 +809,8 @@
     <MESSAGE value="Camel-Casing the properties of the Talent Model" />
     <MESSAGE value="Fixing SliderSelector , and deleted unnecessary computed properties in the Talent Model" />
     <MESSAGE value="WebApi is WIP. Front end forwards the data correctly yo the backend" />
-    <option name="LAST_COMMIT_MESSAGE" value="WebApi is WIP. Front end forwards the data correctly yo the backend" />
+    <MESSAGE value="Added the Command Set extensions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the Command Set extensions" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1167,15 +1167,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/extensions/talentPortalCommandSet/TalentPortalCommandSetCommandSet.manifest.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" column="47" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
+        <state relative-caret-position="378">
+          <caret line="21" column="22" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/extensions/talentPortalCommandSet/TalentPortalCommandSetCommandSet.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="54" column="23" selection-start-line="54" selection-start-column="23" selection-end-line="54" selection-end-column="23" />
+        <state relative-caret-position="652">
+          <caret line="55" column="35" lean-forward="true" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
           <folding>
             <element signature="e#0#49#0" expanded="true" />
           </folding>

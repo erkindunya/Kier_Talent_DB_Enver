@@ -50,10 +50,10 @@ export default class TalentPortalCommandSetCommandSet extends BaseListViewComman
         var recordId = event.selectedRows[0].getValueByName("ID");
         var url = "/SitePages/Talent-Form.aspx?talentId=" + recordId + "&employeeId=" + employeeId;
         window.location.href = url;
-        Dialog.alert(`${this.properties.sampleTextOne}`);
         break;
-      case 'COMMAND_2':
-        Dialog.alert(`${this.properties.sampleTextTwo}`);
+      case 'NEW_TALENT_RECORD':
+        var url = "/SitePages/Talent-Form.aspx";
+        window.location.href = url;
         break;
       default:
         throw new Error('Unknown command');
