@@ -86,13 +86,43 @@ export const LookupDataStore = types.model(
         const functionsPromise = (window as any).functionsLookupDataPromise = self.BusinessFunctionsDataStore.loadBusinessFunctions();
         const requirementsPromise = (window as any).requirementsLookupDataPromise = self.DevelopmentRequirementsDataStore.loadDevelopmentRequirements();
 
+
         Promise.all([risksPromise, unitsPromise, functionsPromise, requirementsPromise])
           .then(_ => console.log("All Lookup data retrievedd successfully"))
           .catch(_ => console.error("Lookup data retrieval failed."))
       }
 
+      const formatPerformanceTip = (value) => {
+        //Todo : refactor to make it more intelligent
+        if (value == 0)
+          return 1;
+        if (value == 25)
+          return 2;
+        if (value == 50)
+          return 3;
+        if (value == 75)
+          return 4;
+        if (value == 100)
+          return 5;
+        return value;
+      }
+
+      const formatPotentialTip = (value) => {
+        //Todo : refactor to make it more intelligent
+        if (value == 0)
+          return 'A';
+        if (value == 50)
+          return 'B';
+        if (value == 100)
+          return 'C';
+        return value;
+      }
+
       return {
-        afterCreate
+        afterCreate,
+        formatPerformanceTip,
+        formatPotentialTip
+
       }
     }
   )

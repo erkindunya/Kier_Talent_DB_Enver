@@ -15,6 +15,7 @@ import {IDigestCache, DigestCache} from '@microsoft/sp-http';
 ;
 import {inject, observer} from "mobx-react";
 import {Talent} from "../../../../stores/TalentsStore";
+import {PreviousYearRating} from "./controls/PreviousYearRating";
 
 const FormItem = Form.Item;
 const {Header, Content, Footer, Sider} = Layout;
@@ -39,31 +40,7 @@ class TalentRecordEditor extends React.Component<any, any> {
   }
 
 
-  formatPerformanceTip = (value) => {
-    //Todo : refactor to make it more intelligent
-    if (value == 0)
-      return 1;
-    if (value == 25)
-      return 2;
-    if (value == 50)
-      return 3;
-    if (value == 75)
-      return 4;
-    if (value == 100)
-      return 5;
-    return value;
-  }
 
-  formatPotentialTip = (value) => {
-    //Todo : refactor to make it more intelligent
-    if (value == 0)
-      return 'A';
-    if (value == 50)
-      return 'B';
-    if (value == 100)
-      return 'C';
-    return value;
-  }
 
   OnBuinsessUnitChange = (newBusinessUnit: string []) => {
     this.props.store.Talent.changeBusinessUnit(newBusinessUnit);
@@ -136,14 +113,19 @@ class TalentRecordEditor extends React.Component<any, any> {
     this.props.store.TalentDataStore.UpdateTalentRecord();
   }
 
+  previousYearRatingRender = () => {
+    return (this.props.store.Talent.HasPreviousYearRating) ? <PreviousYearRating form={this.props.form}/> : "";
+  }
+
+
   render() {
 
     const {getFieldDecorator, getFieldsError, getFieldError, isFieldTouched} = this.props.form;
-
     const businessUnitsError = isFieldTouched('businessUnits') && getFieldError('businessUnits');
     const passwordError = isFieldTouched('password') && getFieldError('password');
     const {formLayout} = this.state;
     const Option = Select.Option;
+
     return (
       <div>
         {/*{this.props.store.Talent.grade}
@@ -254,14 +236,16 @@ class TalentRecordEditor extends React.Component<any, any> {
             </Row>
 
             <Divider orientation='left'>Performance & Potential Ratings</Divider>
-            <Row gutter={20}><Col span={4}><FormItem label="New To Rate?" {...formItemLayout}>
+            {this.previousYearRatingRender()}
+            <Divider></Divider>
+            <Row gutter={20}>
+              <Col span={4}><FormItem label="New To Rate?" {...formItemLayout}>
               {getFieldDecorator('newToRate', {
                 rules: [{required: true, message: 'Too new to rate ?'}],
               })(
                 <NewHireSwitch/>
               )}
             </FormItem></Col>
-
               <Col span={10}><FormItem label="Performance Rating" {...formItemLayout}>
 
                 <SliderSelector
@@ -271,7 +255,7 @@ class TalentRecordEditor extends React.Component<any, any> {
                   controlId="performance"
                   validationMessage="Please select a rating for the performance"
                   changed={this.OnPerformanceRatingChange}
-                  formatter={this.formatPerformanceTip}
+                  formatter={this.props.store.LookupDataStore.formatPerformanceTip} disabled={false}
                 />
               </FormItem></Col>
               <Col span={10}> <FormItem label="Potential Rating" {...formItemLayout}>
@@ -282,8 +266,9 @@ class TalentRecordEditor extends React.Component<any, any> {
                   controlId="potential"
                   validationMessage="Please select a rating for the potential"
                   changed={this.OnPotentialRatingChange}
-                  formatter={this.formatPotentialTip}/>
-              </FormItem></Col></Row>
+                  formatter={this.props.store.LookupDataStore.formatPotentialTip} disabled={false}/>
+              </FormItem></Col>
+            </Row>
 
 
             <Divider orientation='left'>Movement</Divider>

@@ -3,6 +3,14 @@ import {DataProviderFactory} from "./Common/DataProviderFactory";
 import axios from 'axios';
 import {REST_API_URL} from './Common/Constants';
 
+export const PreviousYearRating = types.model({
+  Performance: types.optional(types.string, ""),
+  Potential: types.optional(types.string, ""),
+  Year: types.optional(types.number, 0),
+  By: types.optional(types.string, ""),
+  At: types.optional(types.string, "")
+});
+
 //Todo : need to add extra couple of fields CreatedBy and ModifiedBy
 export const Talent = types.model({
   Id: types.maybe(types.number),
@@ -27,7 +35,9 @@ export const Talent = types.model({
   Requirements_02_subcategory: types.optional(types.string, ""),
   Notes: types.optional(types.string, ""),
   IsCurrentSubmission: types.optional(types.boolean, false),
-  Position: types.optional(types.string, "")
+  Position: types.optional(types.string, ""),
+  SubmissionYear: types.optional(types.number, 0),
+  PreviousYear: types.maybe(PreviousYearRating)
 })
   .named("TalentRecord")
   .actions(self => {
@@ -153,6 +163,11 @@ export const Talent = types.model({
       const {Requirements_02_category, Requirements_02_subcategory} = self;
       return [Requirements_02_category, Requirements_02_subcategory];
     }
+    ,
+    get HasPreviousYearRating() {
+      return (self.PreviousYear) ? true : false;
+    }
+
   }));
 
 
@@ -182,10 +197,10 @@ const TalentsStore = types.model({
 
     })
 
-    const SaveTalentRecord = ()=>{
+    const SaveTalentRecord = () => {
 
       axios.post(REST_API_URL, JSON.stringify(getParent(self, 1).Talent), {headers: {'content-type': 'application/json'}}).then(_ => console.log("New Record Operation is done"))
-  .catch(error=>console.log(JSON.stringify(error,null,4)))
+        .catch(error => console.log(JSON.stringify(error, null, 4)))
     }
 
     const UpdateTalentRecord = () => {
@@ -203,7 +218,8 @@ const TalentsStore = types.model({
           //Todo : ugly piece of code that needs to be refactored.
           console.log("Talents : " + JSON.stringify(response, null, 4));
           talent = Talent.create(response.data);
-          applySnapshot(getParent(self, 1).Talent, talent);
+          getParent(self, 1).SetTalent(talent);
+          //applySnapshot(getParent(self, 1).Talent, talent);
           //Todo: move this code for the AppStore\ViewStore
           /* if (getParent(self, 1).Talent)
             applySnapshot(getParent(self, 1).Talent, talent);

@@ -32,7 +32,7 @@ namespace Kier.TalentPortal.WebAPI.Models
         public int SubmissionYear { get; set; }
         public bool IsCurrentSubmission { get; set; }
         public string Position { get; set; }
-        public Talent PreviousYear { get; set; }
+        public PreviousYearRating PreviousYear { get; set; }
 
         public static Talent FromSPListItem(ListItem item)
         {

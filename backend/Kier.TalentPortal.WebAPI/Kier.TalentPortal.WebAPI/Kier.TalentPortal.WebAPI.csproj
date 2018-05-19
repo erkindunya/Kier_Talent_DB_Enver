@@ -243,6 +243,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\PreviousYearRating.cs" />
     <Compile Include="Models\SharePointOnlineHelper.cs" />
     <Compile Include="Models\Talent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

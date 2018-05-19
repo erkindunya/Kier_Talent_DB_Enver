@@ -28,6 +28,7 @@ namespace Kier.TalentPortal.WebAPI
         public const string Talent_Record_Submission_Year = "KTPSubmissionYear";
         public const string Talent_Record_Employee = "KTPEmployee";
         public const string Talent_Record_Manager = "KTPManager";
+
         //public const string Talent_Record_Employee = "KTPEmployee";
         public const string Get_Talent_Record_By_EmployeeId_Query = @"<View><Query><Where><Eq><FieldRef Name=""KTPEmployeeID""/><Value Type = ""Text"" >EMP_ID</Value></Eq></Where><OrderBy><FieldRef Name=""KTPSubmissionYear"" Ascending=""False"" /></OrderBy></Query></View>";
 

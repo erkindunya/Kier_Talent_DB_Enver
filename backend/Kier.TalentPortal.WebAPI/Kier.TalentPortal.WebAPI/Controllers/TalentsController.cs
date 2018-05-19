@@ -32,7 +32,7 @@ namespace Kier.TalentPortal.WebAPI.Controllers
                 if (result.ToList().Count >= 2)
                 {
                    
-                   talent.PreviousYear = Talent.FromSPListItem(result[1]);
+                   talent.PreviousYear = PreviousYearRating.FromSPListItem(result[1]);
                 }
             }
 
