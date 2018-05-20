@@ -151,6 +151,8 @@ export const Talent = types.model({
     get BusinessUnits() {
       console.log("BusinessUnits: called");
       const {Division, Unit, Stream, Location} = self;
+      if (!Division)
+        return undefined;
       const result = [Division, Unit, Stream, Location];
       console.log(result)
       return result;

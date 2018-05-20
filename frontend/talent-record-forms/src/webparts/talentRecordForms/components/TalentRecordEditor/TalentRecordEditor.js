@@ -35,6 +35,7 @@ var OptionsSelector_1 = require("./controls/OptionsSelector");
 ;
 var mobx_react_1 = require("mobx-react");
 var PreviousYearRating_1 = require("./controls/PreviousYearRating");
+var LoadingSpinner_1 = require("./controls/LoadingSpinner");
 var FormItem = antd_1.Form.Item;
 var Header = antd_1.Layout.Header, Content = antd_1.Layout.Content, Footer = antd_1.Layout.Footer, Sider = antd_1.Layout.Sider;
 function hasErrors(fieldsError) {
@@ -96,8 +97,14 @@ var TalentRecordEditor = /** @class */ (function (_super) {
         _this.OnNotesChange = function (notes) {
             _this.props.store.Talent.changeNotes(notes);
         };
-        _this.onSubmit = function () {
+        _this.onSubmit = function (e) {
             console.log("Submitting");
+            e.preventDefault();
+            _this.props.form.validateFields(function (err, values) {
+                if (!err) {
+                    console.log('Received values of form: ', values);
+                }
+            });
             _this.props.store.TalentDataStore.SaveTalentRecord();
         };
         _this.onUpdate = function () {
@@ -111,6 +118,9 @@ var TalentRecordEditor = /** @class */ (function (_super) {
         };
         return _this;
     }
+    TalentRecordEditor.prototype.componentDidMount = function () {
+        this.props.form.validateFields();
+    };
     TalentRecordEditor.prototype.render = function () {
         var _this = this;
         var _a = this.props.form, getFieldDecorator = _a.getFieldDecorator, getFieldsError = _a.getFieldsError, getFieldError = _a.getFieldError, isFieldTouched = _a.isFieldTouched;
@@ -118,9 +128,7 @@ var TalentRecordEditor = /** @class */ (function (_super) {
         var passwordError = isFieldTouched('password') && getFieldError('password');
         var formLayout = this.state.formLayout;
         var Option = antd_1.Select.Option;
-        if (this.props.store.IsLoadingTalentData)
-            this.context.statusRenderer.displayLoadingIndicator(this, "Loading Talent Data From ");
-        return (React.createElement("div", null,
+        var talentForm = React.createElement("div", null,
             React.createElement(antd_1.Row, null,
                 React.createElement(antd_1.Col, { span: 24 },
                     React.createElement(antd_1.Form, { layout: "vertical", onSubmit: this.handleSubmit, style: { border: '0px solid black', padding: '0px 5px 5px 5px' } },
@@ -128,7 +136,7 @@ var TalentRecordEditor = /** @class */ (function (_super) {
                         React.createElement(antd_1.Row, { gutter: 20 },
                             React.createElement(antd_1.Col, { span: 16 },
                                 React.createElement(FormItem, __assign({ label: React.createElement("span", null,
-                                        "Business Unit\u00A0",
+                                        "Business Unit",
                                         React.createElement(antd_1.Tooltip, { title: "You have to select the Division->Unit->Stream->Location?" },
                                             React.createElement(antd_1.Icon, { type: "question-circle-o" }))) }, formItemLayout),
                                     React.createElement(CascadeSelector_1.default, { items: this.props.store.LookupDataStore.BusinessUnitsLookupData, value: this.props.store.Talent.BusinessUnits, form: this.props.form, placeholder: "Please select a business unit", validationMessage: 'Please select a business unit!', controlId: "businessUnits", changed: this.OnBuinsessUnitChange }))),
@@ -174,7 +182,7 @@ var TalentRecordEditor = /** @class */ (function (_super) {
                                     rules: [{ required: true, message: 'Too new to rate ?' }],
                                 })(React.createElement(NewHireSwitch_1.default, null)))),
                             React.createElement(antd_1.Col, { span: 10 },
-                                React.createElement(FormItem, __assign({ label: "Performance Rating" }, formItemLayout),
+                                React.createElement(FormItem, __assign({ validateStatus: 'Error', label: "Performance Rating" }, formItemLayout),
                                     React.createElement(SliderSelector_1.default, { items: this.props.store.LookupDataStore.PerformanceRatingLookupData, form: this.props.form, value: this.props.store.Talent.Performance, controlId: "performance", validationMessage: "Please select a rating for the performance", changed: this.OnPerformanceRatingChange, formatter: this.props.store.LookupDataStore.formatPerformanceTip, disabled: false }))),
                             React.createElement(antd_1.Col, { span: 10 },
                                 React.createElement(FormItem, __assign({ label: "Potential Rating" }, formItemLayout),
@@ -208,10 +216,13 @@ var TalentRecordEditor = /** @class */ (function (_super) {
                             React.createElement(antd_1.Col, { span: 24 },
                                 React.createElement(antd_1.Row, null,
                                     React.createElement(antd_1.Col, { span: 24, style: { textAlign: 'right' } },
-                                        React.createElement(antd_1.Button, { type: "primary", htmlType: "button", disabled: hasErrors(getFieldsError()), onClick: this.onSubmit }, "Submit"),
-                                        React.createElement(antd_1.Button, { type: "primary", htmlType: "button", disabled: hasErrors(getFieldsError()), onClick: this.onUpdate }, "Update"),
+                                        React.createElement(antd_1.Button, { style: { marginLeft: 8 }, type: "primary", htmlType: "button", disabled: hasErrors(getFieldsError()), onClick: this.onSubmit }, "Submit"),
+                                        React.createElement(antd_1.Button, { style: { marginLeft: 8 }, type: "primary", htmlType: "button", disabled: hasErrors(getFieldsError()), onClick: this.onUpdate }, "Update"),
                                         React.createElement(antd_1.Button, { style: { marginLeft: 8 }, htmlType: "reset" }, "Clear"),
-                                        React.createElement(antd_1.Button, { style: { marginLeft: 8 }, htmlType: "button" }, "Cancel"))))))))));
+                                        React.createElement(antd_1.Button, { style: { marginLeft: 8 }, htmlType: "button" }, "Cancel")))))))));
+        var loadingSpinner = React.createElement(LoadingSpinner_1.default, null);
+        var content = (this.props.store.IsLoadingTalentData) ? loadingSpinner : talentForm;
+        return (content);
     };
     TalentRecordEditor = __decorate([
         mobx_react_1.inject("store", "context"),

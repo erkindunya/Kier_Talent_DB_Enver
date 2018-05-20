@@ -7,29 +7,39 @@ var ViewStore_1 = require("./ViewStore");
 exports.AppStore = mobx_state_tree_1.types.model({
     LookupDataStore: mobx_state_tree_1.types.optional(LookupDataStore_1.LookupDataStore, {}),
     TalentDataStore: mobx_state_tree_1.types.optional(TalentsStore_1.default, {}),
-    ViewStore: mobx_state_tree_1.types.optional(ViewStore_1.default, {}),
-    Talent: mobx_state_tree_1.types.optional(TalentsStore_1.Talent, {}),
     IsLoadingReferenceData: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.boolean, false),
-    IsLoadingTalentData: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.boolean, false)
+    IsLoadingTalentData: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.boolean, false),
+    ViewStore: mobx_state_tree_1.types.optional(ViewStore_1.default, {}),
+    Talent: mobx_state_tree_1.types.optional(TalentsStore_1.Talent, {})
 }).named("ApplicationDataStore")
     .actions(function (self) {
-    var SetTalent = function (item) {
-        self.Talent = item;
-    };
-    var LoadTalentRecord = function (id, employeeId) {
-        self.TalentDataStore.GetTalentById(id, employeeId);
-    };
     var SetIsLoadingReferenceData = function (loading) {
         self.IsLoadingReferenceData = loading;
     };
     var SetIsLoadingTalentData = function (loading) {
         self.IsLoadingTalentData = loading;
     };
+    var SetTalent = function (item) {
+        self.Talent = item;
+    };
+    var afterCreate = function () {
+        self.ViewStore.LoadData();
+    };
     return {
-        SetTalent: SetTalent,
-        LoadTalentRecord: LoadTalentRecord,
         SetIsLoadingReferenceData: SetIsLoadingReferenceData,
-        SetIsLoadingTalentData: SetIsLoadingTalentData
+        SetIsLoadingTalentData: SetIsLoadingTalentData,
+        SetTalent: SetTalent,
+        afterCreate: afterCreate
+    };
+}).actions(function (self) {
+    var LoadTalentRecord = function (id, employeeId) {
+        self.SetIsLoadingTalentData(true);
+        self.TalentDataStore.GetTalentById(id, employeeId).then(function (_) {
+            return self.SetIsLoadingTalentData(false);
+        });
+    };
+    return {
+        LoadTalentRecord: LoadTalentRecord
     };
 });
 //# sourceMappingURL=AppStore.js.map

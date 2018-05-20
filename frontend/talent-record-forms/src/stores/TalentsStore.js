@@ -192,7 +192,8 @@ var TalentsStore = mobx_state_tree_1.types.model({
     .views(function (self) {
     return {
         get app() {
-            return mobx_state_tree_1.getParent(self);
+            var app = mobx_state_tree_1.getParent(self, 1);
+            return app;
         }
     };
 }).actions(function (self) {
@@ -237,10 +238,10 @@ var TalentsStore = mobx_state_tree_1.types.model({
                 case 0:
                     _a.trys.push([0, 2, 3, 4]);
                     self.isLoading = true;
-                    self.app.SetIsLoadingTalentData(true);
                     return [4 /*yield*/, _dataProvider.GetTalentById(id, employeeId)];
                 case 1:
                     response = _a.sent();
+                    //getParent(self, 1).SetIsLoadingTalentData(true);
                     if (response) {
                         //Todo : ugly piece of code that needs to be refactored.
                         console.log("Talents : " + JSON.stringify(response, null, 4));
@@ -261,7 +262,7 @@ var TalentsStore = mobx_state_tree_1.types.model({
                     throw new Error(error_2.message);
                 case 3:
                     self.isLoading = false;
-                    self.app.SetIsLoadingTalentData(false);
+                    //getParent(self, 1).SetIsLoadingTalentData(false);
                     return [2 /*return*/, talent];
                 case 4: return [2 /*return*/];
             }

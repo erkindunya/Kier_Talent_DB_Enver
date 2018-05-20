@@ -25,19 +25,19 @@ var ViewStore = mobx_state_tree_1.types.model({
     };
     var ViewTalentRecord = function () {
     };
-    var afterCreate = function () {
+    var LoadData = function () {
         var url = new URL(window.location.href);
         if (url.searchParams.has("talentId") && url.searchParams.has("employeeId")) {
             self.isEditing = true;
             console.log("Talent Id " + url.searchParams.get("talentId"));
-            self.app.TalentDataStore.GetTalentById(parseInt(url.searchParams.get("talentId")), url.searchParams.get("employeeId"));
+            self.app.LoadTalentRecord(parseInt(url.searchParams.get("talentId")), url.searchParams.get("employeeId"));
         }
     };
     return {
         EditTalentRecord: EditTalentRecord,
         NewTalentRecord: NewTalentRecord,
         ViewTalentRecord: ViewTalentRecord,
-        afterCreate: afterCreate
+        LoadData: LoadData
     };
 });
 exports.default = ViewStore;
