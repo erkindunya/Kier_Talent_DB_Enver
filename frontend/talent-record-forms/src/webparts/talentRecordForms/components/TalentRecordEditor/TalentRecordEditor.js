@@ -34,6 +34,7 @@ var UserSelector_1 = require("./controls/UserSelector");
 var OptionsSelector_1 = require("./controls/OptionsSelector");
 ;
 var mobx_react_1 = require("mobx-react");
+var PreviousYearRating_1 = require("./controls/PreviousYearRating");
 var FormItem = antd_1.Form.Item;
 var Header = antd_1.Layout.Header, Content = antd_1.Layout.Content, Footer = antd_1.Layout.Footer, Sider = antd_1.Layout.Sider;
 function hasErrors(fieldsError) {
@@ -46,66 +47,64 @@ var TalentRecordEditor = /** @class */ (function (_super) {
         _this.handleSubmit = function (e) {
             console.log("Form Submitted");
         };
-        _this.formatPerformanceTip = function (value) {
-            //Todo : refactor to make it more intelligent
-            if (value == 0)
-                return 1;
-            if (value == 25)
-                return 2;
-            if (value == 50)
-                return 3;
-            if (value == 75)
-                return 4;
-            if (value == 100)
-                return 5;
-            return value;
-        };
-        _this.formatPotentialTip = function (value) {
-            //Todo : refactor to make it more intelligent
-            if (value == 0)
-                return 'A';
-            if (value == 50)
-                return 'B';
-            if (value == 100)
-                return 'C';
-            return value;
-        };
         _this.OnBuinsessUnitChange = function (newBusinessUnit) {
             _this.props.store.Talent.changeBusinessUnit(newBusinessUnit);
-            console.log("Business Unit changed " + newBusinessUnit);
         };
         _this.OnFunctionChange = function (newFunction) {
-        };
-        _this.OnAreaHeadChange = function (newHeadArea) {
-        };
-        _this.OnEmployeeChange = function (newEmployeeName) {
+            _this.props.store.Talent.changeFunction(newFunction);
         };
         _this.OnEmployeeIDChange = function (newEmployeeId) {
+            _this.props.store.Talent.changeEmployeeId(newEmployeeId);
         };
         _this.OnGradeChange = function (newGrade) {
+            _this.props.store.Talent.changeGrade(newGrade);
         };
         _this.OnPositionChange = function (newPosition) {
+            _this.props.store.Talent.changePosition(newPosition.target.value);
         };
         _this.OnMovementChange = function (newMovement) {
+            _this.props.store.Talent.changeMovement(newMovement);
         };
         _this.OnFlightRiskChange = function (newFlightRisk) {
+            _this.props.store.Talent.changeFlightRisk(newFlightRisk);
         };
         _this.OnBusinessRiskChange = function (newBusinessRisk) {
+            _this.props.store.Talent.changeBusinessRisk(newBusinessRisk);
         };
         _this.OnPotentialRatingChange = function (newPotentialRating) {
+            _this.props.store.Talent.changePotentialRating(newPotentialRating);
         };
         _this.OnPerformanceRatingChange = function (newPerformanceRating) {
+            _this.props.store.Talent.changePerformanceRating(newPerformanceRating);
         };
         _this.OnDevelopmentRequirement01Change = function (newRequirement) {
+            _this.props.store.Talent.changeDevelopmentRequirement01(newRequirement);
         };
         _this.OnDevelopmentRequirement02Change = function (newRequirement) {
+            _this.props.store.Talent.changeDevelopmentRequirement02(newRequirement);
         };
         _this.OnEmployeeNameChange = function (userId) {
-            console.log("Employee Changed " + userId);
+            console.log("Employee Changed " + JSON.stringify(userId));
+            _this.props.store.Talent.changeEmployeeName(userId);
+        };
+        _this.OnAreaHeadChange = function (newHeadArea) {
+            _this.props.store.Talent.changeAreaHead(newHeadArea);
+        };
+        _this.OnManagerChange = function (newManager) {
+            _this.props.store.Talent.changeManager(newManager);
+        };
+        _this.OnNotesChange = function (notes) {
+            _this.props.store.Talent.changeNotes(notes);
         };
         _this.onSubmit = function () {
             console.log("Submitting");
             _this.props.store.TalentDataStore.SaveTalentRecord();
+        };
+        _this.onUpdate = function () {
+            _this.props.store.TalentDataStore.UpdateTalentRecord();
+        };
+        _this.previousYearRatingRender = function () {
+            return (_this.props.store.Talent.HasPreviousYearRating) ? React.createElement(PreviousYearRating_1.PreviousYearRating, { form: _this.props.form }) : "";
         };
         _this.state = {
             formLayout: 'vertical',
@@ -113,11 +112,14 @@ var TalentRecordEditor = /** @class */ (function (_super) {
         return _this;
     }
     TalentRecordEditor.prototype.render = function () {
+        var _this = this;
         var _a = this.props.form, getFieldDecorator = _a.getFieldDecorator, getFieldsError = _a.getFieldsError, getFieldError = _a.getFieldError, isFieldTouched = _a.isFieldTouched;
         var businessUnitsError = isFieldTouched('businessUnits') && getFieldError('businessUnits');
         var passwordError = isFieldTouched('password') && getFieldError('password');
         var formLayout = this.state.formLayout;
         var Option = antd_1.Select.Option;
+        if (this.props.store.IsLoadingTalentData)
+            this.context.statusRenderer.displayLoadingIndicator(this, "Loading Talent Data From ");
         return (React.createElement("div", null,
             React.createElement(antd_1.Row, null,
                 React.createElement(antd_1.Col, { span: 24 },
@@ -138,21 +140,21 @@ var TalentRecordEditor = /** @class */ (function (_super) {
                                 " ",
                                 React.createElement(FormItem, __assign({ label: "Head of Area" }, formItemLayout), getFieldDecorator('AreaHead', {
                                     rules: [{ required: true, message: 'Head of Area?' }],
-                                })(React.createElement(UserSelector_1.default, null)))),
+                                })(React.createElement(UserSelector_1.default, { changed: this.OnAreaHeadChange })))),
                             React.createElement(antd_1.Col, { span: 8 },
                                 React.createElement(FormItem, __assign({ label: "Manager's Name" }, formItemLayout), getFieldDecorator('managerName', {
                                     rules: [{ required: true, message: 'manager name?' }],
-                                })(React.createElement(UserSelector_1.default, null)))),
+                                })(React.createElement(UserSelector_1.default, { changed: this.OnManagerChange })))),
                             React.createElement(antd_1.Col, { span: 8 },
                                 React.createElement(FormItem, __assign({ label: "Employee" }, formItemLayout), getFieldDecorator('employee', {
-                                    initialValue: "Khalil, Mohamed",
-                                    rules: [{ required: true, message: 'employee name?' }],
-                                })(React.createElement(UserSelector_1.default, { changed: this.OnEmployeeChange }))))),
+                                    rules: [{ required: true, message: 'employee name?' }]
+                                })(React.createElement(UserSelector_1.default, { changed: this.OnEmployeeNameChange }))))),
                         React.createElement(antd_1.Row, { gutter: 20 },
                             React.createElement(antd_1.Col, { span: 8 },
                                 React.createElement(FormItem, __assign({ label: "Employee ID" }, formItemLayout), getFieldDecorator('EmployeeId', {
+                                    initialValue: this.props.store.Talent.EmployeeId,
                                     rules: [{ required: true, message: 'Employee ID?' }],
-                                })(React.createElement(antd_1.Input, { size: "small", placeholder: "Employee ID" })))),
+                                })(React.createElement(antd_1.Input, { size: "small", placeholder: "Employee ID", onChange: function (e) { return _this.OnEmployeeIDChange(e.target.value); } })))),
                             React.createElement(antd_1.Col, { span: 8 },
                                 " ",
                                 React.createElement(FormItem, __assign({ label: "Grade" }, formItemLayout),
@@ -160,10 +162,12 @@ var TalentRecordEditor = /** @class */ (function (_super) {
                             React.createElement(antd_1.Col, { span: 8 },
                                 " ",
                                 React.createElement(FormItem, __assign({ label: "Position" }, formItemLayout), getFieldDecorator('position', {
-                                    initialValue: "IT Developer",
+                                    initialValue: this.props.store.Talent.Position,
                                     rules: [{ required: true, message: 'position?' }],
-                                })(React.createElement(antd_1.Input, { size: "small", placeholder: "Position" }))))),
+                                })(React.createElement(antd_1.Input, { size: "small", placeholder: "Position", onChange: this.OnPositionChange }))))),
                         React.createElement(antd_1.Divider, { orientation: 'left' }, "Performance & Potential Ratings"),
+                        this.previousYearRatingRender(),
+                        React.createElement(antd_1.Divider, null),
                         React.createElement(antd_1.Row, { gutter: 20 },
                             React.createElement(antd_1.Col, { span: 4 },
                                 React.createElement(FormItem, __assign({ label: "New To Rate?" }, formItemLayout), getFieldDecorator('newToRate', {
@@ -171,11 +175,10 @@ var TalentRecordEditor = /** @class */ (function (_super) {
                                 })(React.createElement(NewHireSwitch_1.default, null)))),
                             React.createElement(antd_1.Col, { span: 10 },
                                 React.createElement(FormItem, __assign({ label: "Performance Rating" }, formItemLayout),
-                                    React.createElement(SliderSelector_1.default, { items: this.props.store.LookupDataStore.PerformanceRatingLookupData, form: this.props.form, value: this.props.store.Talent.Performance, controlId: "performance", validationMessage: "Please select a rating for the performance", changed: this.OnPerformanceRatingChange, formatter: this.formatPerformanceTip }))),
+                                    React.createElement(SliderSelector_1.default, { items: this.props.store.LookupDataStore.PerformanceRatingLookupData, form: this.props.form, value: this.props.store.Talent.Performance, controlId: "performance", validationMessage: "Please select a rating for the performance", changed: this.OnPerformanceRatingChange, formatter: this.props.store.LookupDataStore.formatPerformanceTip, disabled: false }))),
                             React.createElement(antd_1.Col, { span: 10 },
-                                " ",
                                 React.createElement(FormItem, __assign({ label: "Potential Rating" }, formItemLayout),
-                                    React.createElement(SliderSelector_1.default, { items: this.props.store.LookupDataStore.PotentialRatingLookupData, form: this.props.form, value: this.props.store.Talent.Potential, controlId: "potential", validationMessage: "Please select a rating for the potential", changed: this.OnPotentialRatingChange, formatter: this.formatPotentialTip })))),
+                                    React.createElement(SliderSelector_1.default, { items: this.props.store.LookupDataStore.PotentialRatingLookupData, form: this.props.form, value: this.props.store.Talent.Potential, controlId: "potential", validationMessage: "Please select a rating for the potential", changed: this.OnPotentialRatingChange, formatter: this.props.store.LookupDataStore.formatPotentialTip, disabled: false })))),
                         React.createElement(antd_1.Divider, { orientation: 'left' }, "Movement"),
                         React.createElement(FormItem, __assign({ label: "Movement Status" }, formItemLayout),
                             React.createElement(OptionsSelector_1.default, { items: this.props.store.LookupDataStore.MovementLookupData, form: this.props.form, value: this.props.store.Talent.Movement, controlId: "movement", validationMessage: "Please select a movement status", changed: this.OnMovementChange })),
@@ -195,17 +198,18 @@ var TalentRecordEditor = /** @class */ (function (_super) {
                             React.createElement(antd_1.Col, { span: 12 },
                                 " ",
                                 React.createElement(FormItem, __assign({ label: "Development Requirements 2nd" }, formItemLayout),
-                                    React.createElement(CascadeSelector_1.default, { items: this.props.store.LookupDataStore.DevelopmentRequirementsLookupData, form: this.props.form, value: this.props.store.Talent.DevelopmentRequirement02, placeholder: "Please select a development requirement", validationMessage: 'Please select a developement requirement!', controlId: "developmentRequirement_02", changed: this.OnDevelopmentRequirement01Change })))),
+                                    React.createElement(CascadeSelector_1.default, { items: this.props.store.LookupDataStore.DevelopmentRequirementsLookupData, form: this.props.form, value: this.props.store.Talent.DevelopmentRequirement02, placeholder: "Please select a development requirement", validationMessage: 'Please select a developement requirement!', controlId: "developmentRequirement_02", changed: this.OnDevelopmentRequirement02Change })))),
                         React.createElement(antd_1.Row, null,
                             React.createElement(antd_1.Col, { span: 24 },
                                 React.createElement(FormItem, __assign({ label: "Notes" }, formItemLayout), getFieldDecorator('devNotes', {
                                     rules: [{ required: true, message: 'Please fill in some comments' }],
-                                })(React.createElement(antd_1.Input.TextArea, { rows: 5 }))))),
+                                })(React.createElement(antd_1.Input.TextArea, { rows: 5, onChange: function (e) { return _this.OnNotesChange(e.target.value); } }))))),
                         React.createElement(antd_1.Row, null,
                             React.createElement(antd_1.Col, { span: 24 },
                                 React.createElement(antd_1.Row, null,
                                     React.createElement(antd_1.Col, { span: 24, style: { textAlign: 'right' } },
                                         React.createElement(antd_1.Button, { type: "primary", htmlType: "button", disabled: hasErrors(getFieldsError()), onClick: this.onSubmit }, "Submit"),
+                                        React.createElement(antd_1.Button, { type: "primary", htmlType: "button", disabled: hasErrors(getFieldsError()), onClick: this.onUpdate }, "Update"),
                                         React.createElement(antd_1.Button, { style: { marginLeft: 8 }, htmlType: "reset" }, "Clear"),
                                         React.createElement(antd_1.Button, { style: { marginLeft: 8 }, htmlType: "button" }, "Cancel"))))))))));
     };
@@ -221,14 +225,5 @@ exports.default = wrappedForm;
   labelCol: { span: 4 },
   wrapperCol: { span: 7 },
 } : null;*/
-var formItemLayout = {
-/* labelCol: {
-   xs: {span: 40},
-   sm: {span: 8},
- },
- wrapperCol: {
-   xs: {span: 40},
-   sm: {span: 16},
- },*/
-};
+var formItemLayout = {};
 //# sourceMappingURL=TalentRecordEditor.js.map

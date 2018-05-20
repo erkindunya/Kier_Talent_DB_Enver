@@ -72,8 +72,34 @@ exports.LookupDataStore = mobx_state_tree_1.types.model({
             .then(function (_) { return console.log("All Lookup data retrievedd successfully"); })
             .catch(function (_) { return console.error("Lookup data retrieval failed."); });
     };
+    var formatPerformanceTip = function (value) {
+        //Todo : refactor to make it more intelligent
+        if (value == 0)
+            return 1;
+        if (value == 25)
+            return 2;
+        if (value == 50)
+            return 3;
+        if (value == 75)
+            return 4;
+        if (value == 100)
+            return 5;
+        return value;
+    };
+    var formatPotentialTip = function (value) {
+        //Todo : refactor to make it more intelligent
+        if (value == 0)
+            return 'A';
+        if (value == 50)
+            return 'B';
+        if (value == 100)
+            return 'C';
+        return value;
+    };
     return {
-        afterCreate: afterCreate
+        afterCreate: afterCreate,
+        formatPerformanceTip: formatPerformanceTip,
+        formatPotentialTip: formatPotentialTip
     };
 });
 //# sourceMappingURL=LookupDataStore.js.map

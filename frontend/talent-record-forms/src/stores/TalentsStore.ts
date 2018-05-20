@@ -174,7 +174,15 @@ export const Talent = types.model({
 const TalentsStore = types.model({
   items: types.optional(types.array(Talent), []),
   isLoading: types.optional(types.boolean, false)
-}).actions(
+})
+  .views(self => {
+    return {
+      get app() {
+        let app = getParent(self, 1);
+        return app;
+      }
+    }
+  }).actions(
   self => {
 
     const _dataProvider = DataProviderFactory.GetTalentsDataProvider();
@@ -208,11 +216,17 @@ const TalentsStore = types.model({
       axios.put(REST_API_URL, JSON.stringify(getParent(self, 1).Talent), {headers: {'content-type': 'application/json'}}).then(_ => console.log("New Record Operation is done"))
         .catch(error => console.log(JSON.stringify(error, null, 4)))
     }
+
+
     const GetTalentById = flow(function* GetTalentById(id: number, employeeId: string) {
 
       let talent;
       try {
+
+        self.isLoading = true;
+
         const response = yield _dataProvider.GetTalentById(id, employeeId);
+        //getParent(self, 1).SetIsLoadingTalentData(true);
         if (response) {
 
           //Todo : ugly piece of code that needs to be refactored.
@@ -234,6 +248,7 @@ const TalentsStore = types.model({
       }
       finally {
         self.isLoading = false;
+        //getParent(self, 1).SetIsLoadingTalentData(false);
         return talent
       }
 

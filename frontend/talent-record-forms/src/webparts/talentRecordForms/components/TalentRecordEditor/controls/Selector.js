@@ -25,6 +25,7 @@ var Selector = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.handleChange = function (value) {
             console.log(value);
+            _this.props.changed(value);
         };
         _this.buildFunctionSelector = function () {
             var Option = antd_1.Select.Option;

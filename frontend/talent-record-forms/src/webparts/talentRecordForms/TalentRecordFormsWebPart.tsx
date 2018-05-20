@@ -15,7 +15,7 @@ import {Form} from "antd";
 import 'antd/dist/antd.less';
 import {Provider} from "mobx-react";
 import {AppStore} from "../../stores/AppStore";
-import {onPatch, onSnapshot} from "mobx-state-tree";
+import {onAction, onPatch, onSnapshot} from "mobx-state-tree";
 
 export interface ITalentRecordFormsWebPartProps {
   description: string;
@@ -29,8 +29,11 @@ export default class TalentRecordFormsWebPart extends BaseClientSideWebPart<ITal
       patch => {
         console.log(patch)
       });
-    //Todo : refactor the code that calculates the web part mode
 
+    onAction(appStore, (call) => {
+
+    })
+    //Todo : refactor the code that calculates the web part mode
 
     ReactDom.render(<Provider store={appStore} context={this.context}><WrappedForm/></Provider>, this.domElement);
   }

@@ -24,8 +24,11 @@ var SliderSelector = /** @class */ (function (_super) {
     __extends(SliderSelector, _super);
     function SliderSelector() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.handleChange = function (value) {
+            _this.props.changed(_this.props.items[value]);
+        };
         _this.BuildSelector = function () {
-            return (React.createElement(antd_1.Slider, { marks: _this.props.items, tipFormatter: _this.props.formatter, step: null }));
+            return (React.createElement(antd_1.Slider, { disabled: _this.props.disabled, onChange: _this.handleChange, marks: _this.props.items, tipFormatter: _this.props.formatter, step: null }));
         };
         return _this;
     }

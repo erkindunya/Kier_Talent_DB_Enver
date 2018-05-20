@@ -37,14 +37,14 @@ var UserRemoteSelect = /** @class */ (function (_super) {
                 MaximumEntitySuggestions: 10,
                 PrincipalSource: 15,
                 PrincipalType: 15,
-                QueryString: 'Kha'
+                QueryString: value
             };
             console.log('fetching user', value);
             _this.lastFetchId += 1;
             var fetchId = _this.lastFetchId;
             _this.setState({ data: [], fetching: true });
             sp_pnp_js_1.default.sp.profiles.clientPeoplePickerSearchUser(opt).then(function (response) {
-                if (fetchId !== _this.lastFetchId) { // for fetch callback order
+                if (fetchId !== _this.lastFetchId) {
                     return;
                 }
                 var data = response.map(function (user) { return ({
@@ -60,7 +60,7 @@ var UserRemoteSelect = /** @class */ (function (_super) {
                 data: [],
                 fetching: false,
             });
-            _this.props.changed(value);
+            (value.length >= 1) ? _this.props.changed(value[0].key) : "";
         };
         _this.lastFetchId = 0;
         _this.fetchUser = lodash_1.debounce(_this.fetchUser, 800);

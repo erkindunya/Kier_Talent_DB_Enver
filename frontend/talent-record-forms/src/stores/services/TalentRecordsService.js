@@ -41,7 +41,7 @@ var axios_1 = require("axios");
 var MockTalentService = /** @class */ (function () {
     function MockTalentService() {
     }
-    MockTalentService.prototype.GetTalentById = function (id) {
+    MockTalentService.prototype.GetTalentById = function (id, employeeId) {
         return __awaiter(this, void 0, void 0, function () {
             var results;
             return __generator(this, function (_a) {
@@ -78,13 +78,13 @@ var TalentService = /** @class */ (function () {
             });
         });
     };
-    TalentService.prototype.GetTalentById = function (id) {
+    TalentService.prototype.GetTalentById = function (id, employeeId) {
         return __awaiter(this, void 0, void 0, function () {
             var api_url, result;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        api_url = Constants_1.REST_API_URL + '/' + id.toString();
+                        api_url = Constants_1.REST_API_URL + '?id=' + id.toString() + '&employeeId=' + employeeId;
                         return [4 /*yield*/, axios_1.default.get(api_url)];
                     case 1:
                         result = _a.sent();

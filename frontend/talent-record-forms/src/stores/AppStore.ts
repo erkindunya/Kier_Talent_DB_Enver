@@ -12,22 +12,54 @@ export const AppStore = types.model(
   {
     LookupDataStore: types.optional(LookupDataStore, {}),
     TalentDataStore: types.optional(TalentsStore, {}),
+    IsLoadingReferenceData: types.optional(types.boolean, false),
+    IsLoadingTalentData: types.optional(types.boolean, false),
     ViewStore: types.optional(ViewStore, {}),
     Talent: types.optional(Talent, {})
+
   }
 ).named("ApplicationDataStore")
   .actions(self => {
+
+
+    const SetIsLoadingReferenceData = (loading: boolean) => {
+      self.IsLoadingReferenceData = loading
+    }
+
+    const SetIsLoadingTalentData = (loading: boolean) => {
+      self.IsLoadingTalentData = loading
+    }
 
     const SetTalent = (item) => {
       self.Talent = item;
     }
 
+
+    const afterCreate = () => {
+      self.ViewStore.LoadData();
+    }
+    return {
+      SetIsLoadingReferenceData,
+      SetIsLoadingTalentData,
+      SetTalent,
+
+      afterCreate
+    }
+  }).actions(self => {
     const LoadTalentRecord = (id: number, employeeId: string) => {
-      self.TalentDataStore.GetTalentById(id, employeeId)
+      self.SetIsLoadingTalentData(true);
+      self.TalentDataStore.GetTalentById(id, employeeId).then(_ =>
+        self.SetIsLoadingTalentData(false))
     }
 
     return {
-      SetTalent,
       LoadTalentRecord
     }
   });
+
+
+
+
+
+
+

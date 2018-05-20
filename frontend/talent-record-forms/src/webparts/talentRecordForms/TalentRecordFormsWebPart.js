@@ -30,14 +30,9 @@ var TalentRecordFormsWebPart = /** @class */ (function (_super) {
         mobx_state_tree_1.onPatch(appStore.Talent, function (patch) {
             console.log(patch);
         });
-        var url = new URL(window.location.href);
-        if (url.searchParams.has("talentId")) {
-            console.log("Talent Id " + url.searchParams.get("talentId"));
-            appStore.TalentDataStore.GetTalentById(parseInt(url.searchParams.get("talentId")));
-        }
-        else {
-            //appStore.TalentDataStore.Talent = Talent.create({});
-        }
+        mobx_state_tree_1.onAction(appStore, function (call) {
+        });
+        //Todo : refactor the code that calculates the web part mode
         ReactDom.render(React.createElement(mobx_react_1.Provider, { store: appStore, context: this.context },
             React.createElement(TalentRecordEditor_1.default, null)), this.domElement);
     };

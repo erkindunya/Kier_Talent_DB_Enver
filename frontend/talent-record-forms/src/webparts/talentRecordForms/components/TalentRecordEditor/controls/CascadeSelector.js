@@ -33,7 +33,6 @@ var CascadeSelector = /** @class */ (function (_super) {
     }
     CascadeSelector.prototype.render = function () {
         var initialValue = (this.props.value) ? this.props.value : [];
-        console.log(this.props.controlId + " value", initialValue);
         var options = (this.props.value) ? {
             initialValue: initialValue,
             rules: [{ required: true, message: this.props.validationMessage }]

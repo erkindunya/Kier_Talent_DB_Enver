@@ -27,15 +27,16 @@ const ViewStore = types.model({
 
     }
 
+
     const ViewTalentRecord = () => {
 
     }
-    const afterCreate = () => {
+    const LoadData = () => {
       let url = new URL(window.location.href);
       if (url.searchParams.has("talentId") && url.searchParams.has("employeeId")) {
         self.isEditing = true;
         console.log("Talent Id " + url.searchParams.get("talentId"));
-        self.app.TalentDataStore.GetTalentById(parseInt(url.searchParams.get("talentId")), url.searchParams.get("employeeId"));
+        self.app.LoadTalentRecord(parseInt(url.searchParams.get("talentId")), url.searchParams.get("employeeId"));
       }
     }
 
@@ -43,7 +44,7 @@ const ViewStore = types.model({
       EditTalentRecord,
       NewTalentRecord,
       ViewTalentRecord,
-      afterCreate
+      LoadData
     }
   })
 
