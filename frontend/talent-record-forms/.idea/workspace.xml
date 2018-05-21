@@ -3,19 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="911ba6af-c74c-44e6-94cb-d15df8b37c13" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ant-theme-vars.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/ant-theme-vars.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stores/AppStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/AppStore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stores/TalentsStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/TalentsStore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stores/TalentsStore.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/TalentsStore.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stores/TalentsStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/TalentsStore.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stores/ViewStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/ViewStore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stores/ViewStore.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/ViewStore.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/TalentRecordFormsWebPart.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/webparts/talentRecordForms/TalentRecordFormsWebPart.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.module.scss.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.module.scss.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/CascadeSelector.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/CascadeSelector.tsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -35,7 +22,7 @@
       <file leaf-file-name="TalentsStore.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/stores/TalentsStore.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
+            <state relative-caret-position="1206">
               <caret line="70" selection-start-line="70" selection-end-line="70" />
               <folding>
                 <element signature="e#0#70#0" expanded="true" />
@@ -47,8 +34,8 @@
       <file leaf-file-name="TalentRecordEditor.tsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="298" column="17" selection-start-line="298" selection-start-column="17" selection-end-line="298" selection-end-column="17" />
+            <state relative-caret-position="5238">
+              <caret line="306" column="17" selection-start-line="306" selection-start-column="17" selection-end-line="306" selection-end-column="17" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
                 <element signature="e#753#797#0" expanded="true" />
@@ -61,7 +48,7 @@
         <entry file="file://$PROJECT_DIR$/src/ant-theme-vars.less">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="36">
-              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
             </state>
           </provider>
         </entry>
@@ -87,7 +74,7 @@
       <file leaf-file-name="UserSelector.tsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/UserSelector.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="598">
+            <state relative-caret-position="1134">
               <caret line="68" column="20" selection-start-line="68" selection-start-column="20" selection-end-line="68" selection-end-column="20" />
             </state>
           </provider>
@@ -568,7 +555,8 @@
       <workItem from="1526549836748" duration="1964000" />
       <workItem from="1526561994157" duration="14481000" />
       <workItem from="1526624157246" duration="16512000" />
-      <workItem from="1526719060815" duration="41928000" />
+      <workItem from="1526719060815" duration="42414000" />
+      <workItem from="1526902426109" duration="162000" />
     </task>
     <task id="LOCAL-00001" summary="- Resolving issues in the TypeScript compiler configurations.&#10;- Added the plumping of Risks and Business Functions lookup data.&#10;- Lookup data plumping code currently reads from mock data.i.e. not connected to SharePoint.">
       <created>1525606067803</created>
@@ -731,12 +719,19 @@
       <option name="project" value="LOCAL" />
       <updated>1526811038757</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Fixed form validation and two-way binding.">
+      <created>1526819670246</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1526819670246</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <option name="trackContextForNewChangelist" value="true" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="249302000" />
+    <option name="totallyTimeSpent" value="249788000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -748,59 +743,58 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
-    <editor active="true" />
+    <frame x="54" y="-8" width="1320" height="784" extended-state="6" />
     <layout>
+      <window_info id="Gulp" order="2" sideWeight="0.3872549" side_tool="true" visible="true" weight="0.22552858" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6127451" visible="true" weight="0.22552858" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.7396387" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.50027305" side_tool="true" weight="0.26918918" />
-      <window_info anchor="bottom" id="File Transfer" order="13" weight="0.49415517" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49972692" weight="0.2996812" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="7" sideWeight="0.49972692" visible="true" weight="0.6756757" />
       <window_info anchor="bottom" auto_hide="true" id="Run" order="2" sideWeight="0.49972692" weight="0.31380752" />
       <window_info id="npm" order="4" sideWeight="0.3607532" side_tool="true" weight="0.19704953" />
-      <window_info anchor="bottom" auto_hide="true" id="Terminal" order="10" weight="0.36587983" />
-      <window_info id="Gulp" order="2" sideWeight="0.37938362" side_tool="true" visible="true" weight="0.2255598" />
-      <window_info anchor="bottom" id="TypeScript" order="9" sideWeight="0.49972692" weight="0.36769393" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6206164" visible="true" weight="0.2255598" />
-      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info id="Structure" order="1" sideWeight="0.46543002" side_tool="true" weight="0.26160568" />
+      <window_info anchor="bottom" auto_hide="true" id="Terminal" order="10" weight="0.36587983" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.24959217" />
+      <window_info anchor="bottom" id="TypeScript" order="9" sideWeight="0.49972692" weight="0.36769393" />
       <window_info anchor="bottom" id="Thumbnails" order="11" weight="0.32943678" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="File Transfer" order="13" weight="0.49415517" />
       <window_info anchor="bottom" id="REST Client" order="15" weight="0.71675676" />
+      <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.35171697" />
-      <window_info anchor="bottom" id="Messages" order="12" />
     </layout>
     <layout-to-restore>
-      <window_info anchor="bottom" id="Thumbnails" order="11" weight="0.32943678" />
       <window_info id="Gulp" order="2" sideWeight="0.37660944" side_tool="true" weight="0.46333334" />
-      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info id="npm" order="4" sideWeight="0.3607532" side_tool="true" weight="0.19704953" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49972692" weight="0.2996812" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.62339056" visible="true" weight="0.28072092" />
+      <window_info id="npm" order="4" sideWeight="0.3607532" side_tool="true" weight="0.19704953" />
+      <window_info anchor="bottom" auto_hide="true" id="Run" order="2" sideWeight="0.49972692" weight="0.31380752" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Thumbnails" order="11" weight="0.32943678" />
       <window_info id="Structure" order="1" sideWeight="0.46543002" side_tool="true" weight="0.26160568" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="File Transfer" order="13" weight="0.49415517" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.7396387" />
       <window_info anchor="bottom" id="TypeScript" order="9" sideWeight="0.49972692" weight="0.36769393" />
-      <window_info anchor="bottom" auto_hide="true" id="Run" order="2" sideWeight="0.49972692" weight="0.31380752" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.35171697" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="REST Client" order="15" weight="0.71675676" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.35171697" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.24959217" />
       <window_info anchor="bottom" auto_hide="true" id="Terminal" order="10" weight="0.36587983" />
       <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.50027305" side_tool="true" weight="0.26918918" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Messages" order="12" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49972692" weight="0.2996812" />
       <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Messages" order="12" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -955,7 +949,8 @@
     <MESSAGE value="Added the Command Set extensions - updated redirection Url for the command set" />
     <MESSAGE value="Added Previous Year Rating control" />
     <MESSAGE value="Added Loading spinner to the form" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Loading spinner to the form" />
+    <MESSAGE value="Fixed form validation and two-way binding." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed form validation and two-way binding." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1088,13 +1083,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/stores/LookupDataStores/RiskLookupDataStore.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#71#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentEntryEntry.tsx">
       <provider selected="true" editor-type-id="text-editor">
@@ -1121,9 +1110,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
           <caret line="28" column="7" lean-forward="true" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1201,9 +1187,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="454">
           <caret line="44" column="27" selection-start-line="44" selection-start-column="27" selection-end-line="44" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1218,9 +1201,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="12" column="52" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
-          <folding>
-            <element signature="e#0#71#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1228,9 +1208,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1245,9 +1222,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="558">
           <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1269,9 +1243,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="601">
           <caret line="55" column="22" selection-start-line="55" selection-start-column="22" selection-end-line="55" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1279,9 +1250,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1294,7 +1262,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/controls/UserSelector.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
+        <state relative-caret-position="1134">
           <caret line="68" column="20" selection-start-line="68" selection-start-column="20" selection-end-line="68" selection-end-column="20" />
         </state>
       </provider>
@@ -1322,7 +1290,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/stores/TalentsStore.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
+        <state relative-caret-position="1206">
           <caret line="70" selection-start-line="70" selection-end-line="70" />
           <folding>
             <element signature="e#0#70#0" expanded="true" />
@@ -1339,8 +1307,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/webparts/talentRecordForms/components/TalentRecordEditor/TalentRecordEditor.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="298" column="17" selection-start-line="298" selection-start-column="17" selection-end-line="298" selection-end-column="17" />
+        <state relative-caret-position="5238">
+          <caret line="306" column="17" selection-start-line="306" selection-start-column="17" selection-end-line="306" selection-end-column="17" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
             <element signature="e#753#797#0" expanded="true" />
@@ -1351,7 +1319,7 @@
     <entry file="file://$PROJECT_DIR$/src/ant-theme-vars.less">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
