@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "TalentRecordEditor.module.scss.js",
+  "sourceRoot": "",
+  "sources": [
+    "TalentRecordEditor.module.scss.ts"
+  ],
+  "names": [],
+  "mappings": ";;AAAA,oBAAoB;AACpB,OAAO,CAAC,iCAAiC,CAAC,CAAC;AAC3C,IAAM,MAAM,GAAG;IACb,iBAAiB,EAAE,4BAA4B;IAC/C,SAAS,EAAE,oBAAoB;IAC/B,GAAG,EAAE,cAAc;IACnB,MAAM,EAAE,iBAAiB;IACzB,SAAS,EAAE,kBAAkB;IAC7B,KAAK,EAAE,gBAAgB;IACvB,QAAQ,EAAE,mBAAmB;IAC7B,WAAW,EAAE,sBAAsB;IACnC,MAAM,EAAE,iBAAiB;IACzB,KAAK,EAAE,gBAAgB;CACxB,CAAC;AAEF,kBAAe,MAAM,CAAC;AACtB,mBAAmB"
+}

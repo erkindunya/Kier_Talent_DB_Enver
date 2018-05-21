@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "ILookupDataProvider.js",
+  "sourceRoot": "",
+  "sources": [
+    "ILookupDataProvider.ts"
+  ],
+  "names": [],
+  "mappings": ""
+}
