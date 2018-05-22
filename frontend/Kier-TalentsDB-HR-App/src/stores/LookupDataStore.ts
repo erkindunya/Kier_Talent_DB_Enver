@@ -50,12 +50,12 @@ export const LookupDataStore = types.model(
             {value: '4', label: '4'},
             {value: '5', label: '5'}]*/
 
-          return {0: '1', 25: '2', 50: '3', 75: '4', 100: '5'};
+          return {0: '5', 25: '4', 50: '3', 75: '2', 100: '1'};
         }
         ,
 
         get PotentialRatingLookupData() {
-          return {0: 'A', 50: 'B', 100: 'C'};
+          return {0: 'C', 50: 'B', 100: 'A'};
         },
 
         get MovementLookupData() {
@@ -95,26 +95,26 @@ export const LookupDataStore = types.model(
       const formatPerformanceTip = (value) => {
         //Todo : refactor to make it more intelligent
         if (value == 0)
-          return 1;
+          return "Unsatisfactory";
         if (value == 25)
-          return 2;
+          return "Developing";
         if (value == 50)
-          return 3;
+          return "Good";
         if (value == 75)
-          return 4;
+          return "Excellent";
         if (value == 100)
-          return 5;
+          return "Oustanding";
         return value;
       }
 
       const formatPotentialTip = (value) => {
         //Todo : refactor to make it more intelligent
         if (value == 0)
-          return 'A';
+          return 'C';
         if (value == 50)
           return 'B';
         if (value == 100)
-          return 'C';
+          return 'A';
         return value;
       }
 

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Radio} from 'antd';
+import {Popover, Radio} from 'antd';
 
 export default class OptionsSelector extends React.Component<any, any> {
 
@@ -8,9 +8,12 @@ export default class OptionsSelector extends React.Component<any, any> {
     this.props.changed(e.target.value);
   }
 
+
+
   buildSelector = () => {
     const RadioButton = Radio.Button;
     const RadioGroup = Radio.Group;
+    const content = "Welcome Welceom";
     return (
       <RadioGroup size="small" onChange={this.handleChange}>
         {this.props.items.map(i => <RadioButton value={i.value}>{i.label}</RadioButton>)}

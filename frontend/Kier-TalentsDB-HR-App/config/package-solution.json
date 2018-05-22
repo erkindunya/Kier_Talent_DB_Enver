@@ -3,7 +3,7 @@
   "solution": {
     "name": "talent-record-forms-client-side-solution",
     "id": "08417d0c-0483-40e5-8a51-e7949fabbae5",
-    "version": "1.0.0.0",
+    "version": "1.1.0.0",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true
   },
