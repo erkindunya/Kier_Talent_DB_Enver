@@ -30,7 +30,7 @@ export class DataProviderFactory {
 
   public static GetBusinessUnitsLookupDataProvider(): ILookupDataProvider {
     //if (Environment.type == EnvironmentType.Local)
-    return new MockBusinessUnitsLookupDataService();
+    return new BusinessUnitsLookupDataService();
     // return new BusinessUnitsLookupDataService();
   }
 

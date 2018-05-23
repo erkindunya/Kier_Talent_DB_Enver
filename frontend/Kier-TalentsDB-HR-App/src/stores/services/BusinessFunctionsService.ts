@@ -1,10 +1,13 @@
 import functions from './mockData/Functions';
 import {ILookupDataProvider} from "../Common/ILookupDataProvider";
+import axios from 'axios';
+import {BusinessUnitsLookup_API_URL} from '../Common/Constants';
 
 export class BusinessFunctionsService implements ILookupDataProvider {
   public async GetAll() {
-    //Todo : Implement the real data provider
-    return []
+    const result = await axios.get(BusinessUnitsLookup_API_URL);
+
+    return result;
   }
 
 }
