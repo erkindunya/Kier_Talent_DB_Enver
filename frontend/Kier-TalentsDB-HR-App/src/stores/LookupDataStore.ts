@@ -3,6 +3,7 @@ import {DevelopmentRequirementsLookupDataStore} from "./LookupDataStores/Develop
 import {BusinessFunctionsStore} from "./LookupDataStores/BusinessFunctionsStore";
 import {RiskLookupDataStore} from "./LookupDataStores/RiskLookupDataStore";
 import {BusinessUnitsLookupDataStore} from "./LookupDataStores/BusinessUnitsLookupDataStore";
+import {GradesStore} from "./LookupDataStores/GradesDataStore";
 
 
 export const LookupDataStore = types.model(
@@ -10,7 +11,8 @@ export const LookupDataStore = types.model(
     RisksDataStore: types.optional(RiskLookupDataStore, {items: []}),
     BusinessUnitsDataStore: types.optional(BusinessUnitsLookupDataStore, {items: []}),
     DevelopmentRequirementsDataStore: types.optional(DevelopmentRequirementsLookupDataStore, {items: []}),
-    BusinessFunctionsDataStore: types.optional(BusinessFunctionsStore, {items: []})
+    BusinessFunctionsDataStore: types.optional(BusinessFunctionsStore, {items: []}),
+    GradeDataStore: types.optional(GradesStore, {items: []})
   }
 ).named("LookupDataStore")
   .views(
@@ -23,7 +25,6 @@ export const LookupDataStore = types.model(
         get BusinessFunctionsLookupData() {
           return self.BusinessFunctionsDataStore.items;
         }
-
         ,
         get BusinessUnitsLookupData() {
           return self.BusinessUnitsDataStore.items;
@@ -34,13 +35,7 @@ export const LookupDataStore = types.model(
         }
         ,
         get GradeLookupData() {
-          return [{value: "L2", label: "L2"}, {value: "L1", label: "L1"}, {value: "M3", label: "M3"}, {
-            value: "M2",
-            label: "M2"
-          }, {value: "M1", label: "M1"}, {value: "C4", label: "C4"}, {value: "C3", label: "C3"}, {
-            value: "C2",
-            label: "C2"
-          }, {value: "C1", label: "C1"}];
+          return self.GradeDataStore.items;
         }
         ,
         get PerformanceRatingLookupData() {
@@ -85,9 +80,10 @@ export const LookupDataStore = types.model(
         const unitsPromise = (window as any).unitsLookupDataPromise = self.BusinessUnitsDataStore.loadBusinessUnits();
         const functionsPromise = (window as any).functionsLookupDataPromise = self.BusinessFunctionsDataStore.loadBusinessFunctions();
         const requirementsPromise = (window as any).requirementsLookupDataPromise = self.DevelopmentRequirementsDataStore.loadDevelopmentRequirements();
+        const gradesPromise = self.GradeDataStore.loadGrades();
 
 
-        Promise.all([risksPromise, unitsPromise, functionsPromise, requirementsPromise])
+        Promise.all([risksPromise, unitsPromise, functionsPromise, requirementsPromise, gradesPromise])
           .then(_ => console.log("All Lookup data retrievedd successfully"))
           .catch(_ => console.error("Lookup data retrieval failed."))
       }

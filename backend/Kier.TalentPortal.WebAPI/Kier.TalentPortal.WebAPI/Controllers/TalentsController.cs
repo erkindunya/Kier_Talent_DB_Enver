@@ -1,7 +1,9 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
 using System.Linq;
 using System.Web.Http;
-using Kier.TalentPortal.WebAPI.Models;
+using Kier.TalentPortal.SharedKernal;
+using Kier.TalentPortal.SharedKernal.Models;
 using Microsoft.SharePoint.Client;
 using OfficeDevPnP.Core;
 
@@ -24,7 +26,7 @@ namespace Kier.TalentPortal.WebAPI.Controllers
 
                 var list = ctx.Web.Lists.GetByTitle(ConfigurationManager.AppSettings["listName"]);
                 var query = new CamlQuery();
-                query.ViewXml = Constants.Get_Talent_Record_By_EmployeeId_Query.Replace("EMP_ID", employeeId);
+                query.ViewXml = KTPConstants.Get_Talent_Record_By_EmployeeId_Query.Replace("EMP_ID", employeeId);
                 var result = list.GetItems(query);
                 ctx.Load(result);
                 ctx.ExecuteQuery();
@@ -39,23 +41,71 @@ namespace Kier.TalentPortal.WebAPI.Controllers
             return Ok(talent);
         }
 
+
+        private void SetupPermissions(Talent talent)
+        {
+            /*
+             * Check the Grade
+             * if L2,L1
+             * Give permission for two levels only
+             *
+             * if anything else
+             * Give permission for 3 levels
+             */
+            var divisionGroup = talent.GetDivionGroupName();
+            var streamGroup = talent.GetBusinessStreamGroupName();
+            var unitGroup = talent.GetBusinessUnitGroupName();
+            // if (talent.Grade.StartsWith("L"))
+        }
         [HttpPost]
         public IHttpActionResult NewTalentRecord([FromBody] Talent talent)
         {
             var x = talent;
             var authMgr = new AuthenticationManager();
-            using (var ctx = authMgr.GetAppOnlyAuthenticatedContext(
-                ConfigurationManager.AppSettings["siteUrl"],
-                ConfigurationManager.AppSettings["clientId"],
-                ConfigurationManager.AppSettings["clientSecret"]))
+            try
             {
-                var list = ctx.Web.Lists.GetByTitle(ConfigurationManager.AppSettings["listName"]);
-                
-                ListItemCreationInformation itemCreateInfo = new ListItemCreationInformation();
-                ListItem newItem = list.AddItem(itemCreateInfo);
-                newItem = Talent.ToSPListItem(talent, newItem);
-                newItem.Update();
-                ctx.ExecuteQuery();
+                using (var ctx = authMgr.GetAppOnlyAuthenticatedContext(
+                    ConfigurationManager.AppSettings["siteUrl"],
+                    ConfigurationManager.AppSettings["clientId"],
+                    ConfigurationManager.AppSettings["clientSecret"]))
+                {
+
+                    var editPermissionLevel = ctx.Web.RoleDefinitions.GetByType(RoleType.Contributor);
+                    var divisionGroup = ctx.Web.SiteGroups.GetByName(talent.GetDivionGroupName());
+                    var streamGroup = ctx.Web.SiteGroups.GetByName(talent.GetBusinessStreamGroupName());
+                    var unitGroup = ctx.Web.SiteGroups.GetByName(talent.GetBusinessUnitGroupName());
+                    ctx.Load(divisionGroup);
+                    ctx.Load(streamGroup);
+                    ctx.Load(unitGroup);
+                    ctx.ExecuteQuery();
+
+                    var list = ctx.Web.Lists.GetByTitle(ConfigurationManager.AppSettings["listName"]);
+
+                    ListItemCreationInformation itemCreateInfo = new ListItemCreationInformation();
+                    ListItem newItem = list.AddItem(itemCreateInfo);
+                    newItem = Talent.ToSPListItem(talent, newItem);
+                    newItem.Update();
+                    newItem.BreakRoleInheritance(false, true);
+                    RoleDefinitionBindingCollection collRoleDefinitionBinding =
+                        new RoleDefinitionBindingCollection(ctx);
+                    collRoleDefinitionBinding.Add(editPermissionLevel);
+
+                    newItem.RoleAssignments.Add(divisionGroup, collRoleDefinitionBinding);
+                    newItem.RoleAssignments.Add(streamGroup, collRoleDefinitionBinding);
+                    if(!talent.Grade.StartsWith("L"))
+                        newItem.RoleAssignments.Add(unitGroup, collRoleDefinitionBinding);
+
+
+
+
+                    
+                    
+                    ctx.ExecuteQuery();
+                }
+            }
+            catch (Exception e)
+            {
+                return InternalServerError(e);
             }
 
             return Ok(talent);

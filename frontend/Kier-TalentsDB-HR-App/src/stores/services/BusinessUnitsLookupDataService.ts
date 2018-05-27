@@ -6,7 +6,6 @@ import {BusinessUnitsLookup_API_URL} from "../Common/Constants";
 export class BusinessUnitsLookupDataService implements ILookupDataProvider {
   public async GetAll() {
     const result = await axios.get(BusinessUnitsLookup_API_URL);
-
     return result.data;
   }
 

@@ -12,13 +12,14 @@ import {
   MockDevelopmentRequirementsLookupDataService
 } from "../services/DevelopmentRequirementsLookupDataService";
 import {MockTalentService, TalentService} from "../services/TalentRecordsService";
+import {GradesLookupDataService} from "../services/GradesLookupDataService";
 
 
 //Todo : make the dataProviderFactory smart enough to test environment before providing the dataProvider
 export class DataProviderFactory {
   public static GetBusinessFunctionsDataProvider(): ILookupDataProvider {
     //if ( Environment.type ==EnvironmentType.Local)
-    return new MockBusinessFunctionsService();
+    return new BusinessFunctionsService();
     //return new BusinessFunctionsService();
   }
 
@@ -39,6 +40,10 @@ export class DataProviderFactory {
     //if (Environment.type == EnvironmentType.Local)
     return new MockDevelopmentRequirementsLookupDataService();
     // return new DevelopmentRequirementsLookupDataService();
+  }
+
+  public static GetGradesLookupDataProvider(): ILookupDataProvider {
+    return new GradesLookupDataService();
   }
 
   public static GetTalentsDataProvider() {
