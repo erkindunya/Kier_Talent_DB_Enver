@@ -37,8 +37,10 @@ export const Talent = types.model({
   Movement: types.optional(types.string, ""),
   Requirements_01_category: types.optional(types.string, ""),
   Requirements_01_subcategory: types.optional(types.string, ""),
+  Requirements_01_title: types.optional(types.string, ""),
   Requirements_02_category: types.optional(types.string, ""),
   Requirements_02_subcategory: types.optional(types.string, ""),
+  Requirements_02_title: types.optional(types.string, ""),
   Notes: types.optional(types.string, ""),
   IsCurrentSubmission: types.optional(types.boolean, false),
   Position: types.optional(types.string, ""),
@@ -66,16 +68,18 @@ export const Talent = types.model({
     }
 
     const changeDevelopmentRequirement01 = (requirements: string[]) => {
-      const [category, subcategory] = requirements;
+      const [category, subcategory, title] = requirements;
       self.Requirements_01_category = category;
-      self.Requirements_01_subcategory = subcategory
+      self.Requirements_01_subcategory = subcategory;
+      self.Requirements_02_title = title;
     }
 
 
     const changeDevelopmentRequirement02 = (requirements: string[]) => {
-      const [category, subcategory] = requirements;
+      const [category, subcategory, title] = requirements;
       self.Requirements_02_category = category;
-      self.Requirements_02_subcategory = subcategory
+      self.Requirements_02_subcategory = subcategory;
+      self.Requirements_02_title = title;
     }
 
     const changeFunction = (newFunction: string) => {
@@ -159,7 +163,7 @@ export const Talent = types.model({
       const {Division, Unit, Stream, Location} = self;
       if (!Division)
         return undefined;
-      const result = [Division, Unit, Stream, Location];
+      const result = [Division, Stream, Unit, Location];
       console.log(result)
       return result;
     },

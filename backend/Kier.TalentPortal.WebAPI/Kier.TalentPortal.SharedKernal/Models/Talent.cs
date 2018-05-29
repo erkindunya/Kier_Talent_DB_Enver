@@ -1,4 +1,5 @@
 ﻿using Microsoft.SharePoint.Client;
+using List = Microsoft.Graph.List;
 
 namespace Kier.TalentPortal.SharedKernal.Models
 {
@@ -27,8 +28,10 @@ namespace Kier.TalentPortal.SharedKernal.Models
         public string Movement { get; set; }
         public string Requirements_01_category { get; set; }
         public string Requirements_01_subcategory { get; set; }
+        public string Requirements_01_title { get; set; }
         public string Requirements_02_category { get; set; }
         public string Requirements_02_subcategory { get; set; }
+        public string Requirements_02_title { get; set; }
         public string Notes { get; set; }
         public int SubmissionYear { get; set; }
         public bool IsCurrentSubmission { get; set; }
@@ -41,7 +44,7 @@ namespace Kier.TalentPortal.SharedKernal.Models
             talent.Division = (item[KTPConstants.Talent_Record_Division]!=null)? item[KTPConstants.Talent_Record_Division].ToString():"" ;
             talent.Stream = (item[KTPConstants.Talent_Record_Business_Stream]!=null)? item[KTPConstants.Talent_Record_Business_Stream].ToString():"" ;
             talent.Unit = (item[KTPConstants.Talent_Record_Business_Unit] != null) ? item[KTPConstants.Talent_Record_Business_Unit].ToString() : "";
-            talent.AreaHead = (item[KTPConstants.Talent_Record_Area_Head]!=null)? SharePointOnlineHelper.GetUser( item[KTPConstants.Talent_Record_Area_Head].ToString()):new User();
+            talent.AreaHead = (item[KTPConstants.Talent_Record_Area_Head] != null) ? SharePointOnlineHelper.GetUser(((FieldUserValue)item[KTPConstants.Talent_Record_Area_Head]).LookupValue.ToString()) : new User();
             talent.BusinessRisk = item[KTPConstants.Talent_Record_Business_Risk].ToString();
             talent.Notes = (item[KTPConstants.Talent_Record_Development_Notes] != null) ? item[KTPConstants.Talent_Record_Development_Notes].ToString() : "";
             talent.EmployeeId = (item[KTPConstants.Talent_Record_Employee_Id] != null) ? item[KTPConstants.Talent_Record_Employee_Id].ToString() : "";
@@ -61,10 +64,13 @@ namespace Kier.TalentPortal.SharedKernal.Models
             talent.Id = (item["ID"]!=null)? int.Parse(item["ID"].ToString()):-1;
             talent.Name = (item[KTPConstants.Talent_Record_Employee] != null) ? SharePointOnlineHelper.GetUser(((FieldUserValue)item[KTPConstants.Talent_Record_Employee]).LookupValue.ToString()) : new User();
             talent.Manager = (item[KTPConstants.Talent_Record_Manager] != null) ? SharePointOnlineHelper.GetUser(((FieldUserValue)item[KTPConstants.Talent_Record_Manager]).LookupValue.ToString()) : new User();
-            talent.Requirements_01_category = "Data";
-            talent.Requirements_01_subcategory = "Data";
-            talent.Requirements_02_category = "Data";
-            talent.Requirements_02_subcategory = "Data";
+            talent.Requirements_01_category = (item[KTPConstants.Talent_Record_First_Development_Requirement_Category] != null) ? item[KTPConstants.Talent_Record_First_Development_Requirement_Category].ToString() : ""; 
+            talent.Requirements_01_subcategory = (item[KTPConstants.Talent_Record_First_Development_Requirement_SubCategory] != null) ? item[KTPConstants.Talent_Record_First_Development_Requirement_SubCategory].ToString() : "";
+            talent.Requirements_01_title = (item[KTPConstants.Talent_Record_First_Development_Requirement_Title] != null) ? item[KTPConstants.Talent_Record_First_Development_Requirement_Title].ToString() : "";
+
+            talent.Requirements_02_category = (item[KTPConstants.Talent_Record_Second_Development_Requirement_Category] != null) ? item[KTPConstants.Talent_Record_Second_Development_Requirement_Category].ToString() : "";
+            talent.Requirements_02_subcategory = (item[KTPConstants.Talent_Record_Second_Development_Requirement_SubCategory] != null) ? item[KTPConstants.Talent_Record_Second_Development_Requirement_SubCategory].ToString() : "";
+            talent.Requirements_02_title = (item[KTPConstants.Talent_Record_Second_Development_Requirement_Title] != null) ? item[KTPConstants.Talent_Record_Second_Development_Requirement_Title].ToString() : "";
             talent.Position = (item[KTPConstants.Talent_Record_Position]!= null)? item[KTPConstants.Talent_Record_Position].ToString():"";
 
             return talent;
@@ -76,7 +82,7 @@ namespace Kier.TalentPortal.SharedKernal.Models
             listItem[KTPConstants.Talent_Record_Division] = talent.Division;
             listItem[KTPConstants.Talent_Record_Business_Stream] = talent.Stream;
             listItem[KTPConstants.Talent_Record_Business_Unit] = talent.Unit;
-            listItem[KTPConstants.Talent_Record_Area_Head] = talent.AreaHead;
+            listItem[KTPConstants.Talent_Record_Area_Head] = SharePointOnlineHelper.ResolveUser(talent.AreaHead.value);
             listItem[KTPConstants.Talent_Record_Business_Risk] = talent.BusinessRisk;
             listItem[KTPConstants.Talent_Record_Development_Notes] = talent.Notes;
             listItem[KTPConstants.Talent_Record_Employee_Id] = talent.EmployeeId;
@@ -91,7 +97,25 @@ namespace Kier.TalentPortal.SharedKernal.Models
             listItem[KTPConstants.Talent_Record_Position] = talent.Position;
             listItem[KTPConstants.Talent_Record_Employee] = SharePointOnlineHelper.ResolveUser(talent.Name.value);
             listItem[KTPConstants.Talent_Record_Manager] = SharePointOnlineHelper.ResolveUser(talent.Manager.value);
-          
+
+            listItem[KTPConstants.Talent_Record_First_Development_Requirement_Category] =
+                talent.Requirements_01_category;
+            listItem[KTPConstants.Talent_Record_First_Development_Requirement_SubCategory] =
+                talent.Requirements_01_subcategory;
+            listItem[KTPConstants.Talent_Record_First_Development_Requirement_Title] =
+                talent.Requirements_01_title;
+
+            listItem[KTPConstants.Talent_Record_Second_Development_Requirement_Category] =
+                talent.Requirements_02_category;
+            listItem[KTPConstants.Talent_Record_Second_Development_Requirement_SubCategory] =
+                talent.Requirements_02_subcategory;
+            listItem[KTPConstants.Talent_Record_Second_Development_Requirement_Title] =
+                talent.Requirements_02_title;
+
+
+            listItem[KTPConstants.Talent_Record_Position] = talent.Position;
+
+
 
             //listItem["ID"] = talent.Id;
             return listItem;

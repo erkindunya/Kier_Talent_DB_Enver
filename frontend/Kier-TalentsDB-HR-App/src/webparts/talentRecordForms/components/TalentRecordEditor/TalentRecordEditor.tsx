@@ -82,7 +82,6 @@ class TalentRecordEditor extends React.Component<any, any> {
     this.props.store.Talent.changeNotes(notes);
   }
   onSubmit = (e) => {
-    console.log("Submitting");
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
@@ -91,7 +90,13 @@ class TalentRecordEditor extends React.Component<any, any> {
     });
     this.props.store.TalentDataStore.SaveTalentRecord();
   }
-  onUpdate = () => {
+  onUpdate = (e) => {
+    e.preventDefault();
+    this.props.form.validateFields((err, values) => {
+      if (!err) {
+        console.log('Received values of form: ', values);
+      }
+    });
     this.props.store.TalentDataStore.UpdateTalentRecord();
   }
   previousYearRatingRender = () => {
@@ -114,8 +119,16 @@ class TalentRecordEditor extends React.Component<any, any> {
     const {getFieldDecorator, getFieldsError, getFieldError, isFieldTouched} = this.props.form;
     //const businessUnitsError = isFieldTouched('businessUnits') && getFieldError('businessUnits');
     const businessUnitsError = getFieldError('businessUnits');
-    const businessFunctionError = isFieldTouched('businessFunctions') && getFieldError('businessFunctions');
+    const businessFunctionError = getFieldError('businessFunctions');
     const areaHeadError = isFieldTouched('AreaHead') && getFieldError('AreaHead');
+    const actionButton = (this.props.store.ViewStore.isEditing) ?
+      <Button style={{marginLeft: 8}} type="primary" htmlType="button"
+              disabled={hasErrors(getFieldsError())}
+              onClick={this.onUpdate}>Update Talent Record</Button> :
+      <Button style={{marginLeft: 8}} type="primary" htmlType="button"
+              disabled={hasErrors(getFieldsError())}
+              onClick={this.onSubmit}>Add New Talent Record</Button>;
+
     const talentForm = <div>
       {this.props.store.IsLoadingTalentData}
       <Row><Col span={24}>
@@ -134,25 +147,28 @@ class TalentRecordEditor extends React.Component<any, any> {
                 {getFieldDecorator("businessUnits", {
                   initialValue: this.props.store.Talent.BusinessUnits,
                   rules: [{required: true, message: "Good bye"}]
-                })(
-                  <CascadeSelector
+                })(<CascadeSelector
                     items={this.props.store.LookupDataStore.BusinessUnitsLookupData}
-                    value={this.props.store.Talent.BusinessUnits}
+                    item={this.props.store.Talent.BusinessUnits}
                     form={this.props.form}
                     placeholder="Please select a business unit"
                     validationMessage='Please select a business unit!'
                     controlId="businessUnits"
                     changed={this.OnBuinsessUnitChange}
+                    required={true}
                   />
+
                 )}
+
 
               </FormItem>
             </Col>
             <Col span={8}>
-              <FormItem label="Function" {...formItemLayout}>
-                {getFieldDecorator('function', {
+              <FormItem label="Function" {...formItemLayout}
+                        validateStatus={businessFunctionError ? 'error' : 'success'}>
+                {getFieldDecorator('businessFunctions', {
                   initialValue: this.props.store.Talent.Function,
-                  rules: [{required: true, message: "functions is required"}]
+                  rules: [{required: true, message: "Business function cannot be left blank"}]
                 })(
                   <Selector
                     items={this.props.store.LookupDataStore.BusinessFunctionsLookupData}
@@ -160,7 +176,7 @@ class TalentRecordEditor extends React.Component<any, any> {
                     value={this.props.store.Talent.Function}
                     placeholder='Please select a business function'
                     controlId="businessFunctions"
-                    validationMessage='Please select a function!'
+                    validationMessage='Business function cannot be left blank'
                     changed={this.OnFunctionChange}
                   />
                 )}
@@ -169,62 +185,80 @@ class TalentRecordEditor extends React.Component<any, any> {
           </Row>
 
           <Row gutter={20}>
-            <Col span={8}> <FormItem label="Head of Area" {...formItemLayout}>
-              {getFieldDecorator('AreaHead', {
+            <Col span={8}> <FormItem label="Head of Area" {...formItemLayout}
+                                     validateStatus={(getFieldError('AreaHead') ? 'error' : 'success')}>
+              {/*              {getFieldDecorator('AreaHead', {
                 //initialValue: this.props.store.Talent.AreaHead,
                 rules: [{required: true, message: 'Head of Area?'}],
               })(
-                <UserRemoteSelect changed={this.OnAreaHeadChange} item={this.props.store.Talent.AreaHead}/>
-              )}
+
+              )}*/}
+
+              <UserRemoteSelect changed={this.OnAreaHeadChange}
+                                item={this.props.store.Talent.AreaHead}
+                                validationMessage={"Head of Area canno be left blank"}
+                                form={this.props.form}
+                                controlId="AreaHead"/>
             </FormItem></Col>
-            <Col span={8}><FormItem label="Manager's Name" {...formItemLayout}>
+            <Col span={8}><FormItem label="Manager's Name" {...formItemLayout}
+                                    validateStatus={(getFieldError('managerName') ? 'error' : 'success')}>
               {getFieldDecorator('managerName', {
                 //initialValue: this.props.store.Talent.Manager,
                 rules: [{required: true, message: 'manager name?'}],
               })(
-                <UserRemoteSelect changed={this.OnManagerChange} item={this.props.store.Talent.Manager}/>
+                <UserRemoteSelect changed={this.OnManagerChange} item={this.props.store.Talent.Manager}
+                                  validationMessage={"Manager cannot be left blank"}
+                                  form={this.props.form}
+                                  controlId="managerName"/>
               )}
             </FormItem></Col>
-            <Col span={8}><FormItem label="Employee" {...formItemLayout}>
+            <Col span={8}><FormItem label="Employee" {...formItemLayout}
+                                    validateStatus={(getFieldError('employee') ? 'error' : 'success')}>
               {getFieldDecorator('employee', {
                 //initialValue: this.props.store.Talent.Name,
                 rules: [{required: true, message: 'employee name?'}]
               })(
-                <UserRemoteSelect changed={this.OnEmployeeNameChange} item={this.props.store.Talent.Name}/>
+                <UserRemoteSelect changed={this.OnEmployeeNameChange} item={this.props.store.Talent.Name}
+                                  validationMessage={"Employee cannot be left blank"}
+                                  form={this.props.form}
+                                  controlId="employee"/>
               )}
             </FormItem></Col>
           </Row>
 
 
           <Row gutter={20}>
-            <Col span={8}><FormItem label="Employee ID" {...formItemLayout}>
+            <Col span={8}><FormItem label="Employee ID" {...formItemLayout}
+                                    validateStatus={(getFieldError('EmployeeId') ? 'error' : 'success')}>
               {getFieldDecorator('EmployeeId', {
                 initialValue: this.props.store.Talent.EmployeeId,
-                rules: [{required: true, message: 'Employee ID?'}],
+                rules: [{required: true, message: 'Employee ID cannot be left blank'}],
               })(
                 <Input size="small" placeholder="Employee ID"
                        onChange={(e) => this.OnEmployeeIDChange(e.target.value)}/>
               )}
             </FormItem></Col>
-            <Col span={8}> <FormItem label="Grade" {...formItemLayout}>
+            <Col span={8}> <FormItem label="Grade" {...formItemLayout}
+                                     validateStatus={(getFieldError('grade') ? 'error' : 'success')}>
               {getFieldDecorator("grade", {
                 initialValue: this.props.store.Talent.Grade,
-                rules: [{required: true, message: "grade is missing"}]
+                rules: [{required: true, message: "Grade cannot be left blank"}]
               })(<Selector
                 items={this.props.store.LookupDataStore.GradeLookupData}
                 form={this.props.form}
                 value={this.props.store.Talent.Grade}
                 placeholder='Please select a grade'
                 controlId="grade"
-                validationMessage='Please select a grade!'
+                validationMessage='Grade cannot be left blank'
                 changed={this.OnGradeChange}
               />)}
 
             </FormItem></Col>
-            <Col span={8}> <FormItem label="Position" {...formItemLayout}>
+            <Col span={8}> <FormItem label="Position" {...formItemLayout}
+                                     validateStatus={(getFieldError('position') ? 'error' : 'success')}>
               {getFieldDecorator('position', {
                 initialValue: this.props.store.Talent.Position,
-                rules: [{required: true, message: 'position?'}]
+                rules: [{required: true, message: 'Position cannot be left blank'}]
               })(
                 <Input size="small" placeholder="Position" onChange={this.OnPositionChange}/>
               )}
@@ -237,7 +271,7 @@ class TalentRecordEditor extends React.Component<any, any> {
           <Row gutter={20}>
             <Col span={4}><FormItem label="New To Rate?" {...formItemLayout}>
               {getFieldDecorator('newToRate', {
-                rules: [{required: true, message: 'Too new to rate ?'}]
+                rules: [{required: false, message: 'Too new to rate ?'}]
               })(
                 <NewHireSwitch/>
               )}
@@ -271,11 +305,12 @@ class TalentRecordEditor extends React.Component<any, any> {
 
 
           <Divider orientation='left'>Movement</Divider>
-          <FormItem label="Movement Status" {...formItemLayout}>
+          <FormItem label="Movement Status" {...formItemLayout}
+                    validateStatus={(getFieldError('movement') ? 'error' : 'success')}>
             {
               getFieldDecorator('movement', {
-                initialValue: this.props.store.Talent.FlightRisk,
-                rules: [{required: true, message: 'movement?'}]
+                initialValue: this.props.store.Talent.Movement,
+                rules: [{required: true, message: 'A movement status have to selected'}]
               })(
                 <OptionsSelector
                   items={this.props.store.LookupDataStore.MovementLookupData}
@@ -292,7 +327,8 @@ class TalentRecordEditor extends React.Component<any, any> {
 
           <Divider>Risk</Divider>
           <Row gutter={20}>
-            <Col span={12}><FormItem label="Flight Risk" {...formItemLayout}>
+            <Col span={12}><FormItem label="Flight Risk" {...formItemLayout}
+                                     validateStatus={(getFieldError('flightRisk') ? 'error' : 'success')}>
               {
                 getFieldDecorator('flightRisk', {
                   initialValue: this.props.store.Talent.FlightRisk,
@@ -314,7 +350,7 @@ class TalentRecordEditor extends React.Component<any, any> {
 
               {
                 getFieldDecorator('businessRisk', {
-                  initialValue: this.props.store.Talent.FlightRisk,
+                  initialValue: this.props.store.Talent.BusinessRisk,
                   rules: [{required: true, message: 'businessRisk?'}]
                 })(<OptionsSelector
                   items={this.props.store.LookupDataStore.RiskLookupData}
@@ -337,11 +373,12 @@ class TalentRecordEditor extends React.Component<any, any> {
               <CascadeSelector
                 items={this.props.store.LookupDataStore.DevelopmentRequirementsLookupData}
                 form={this.props.form}
-                value={this.props.store.Talent.DevelopmentRequirement01}
+                item={this.props.store.Talent.DevelopmentRequirement01}
                 placeholder="Please select a development requirement"
                 validationMessage='Please select a developement requirement!'
                 controlId="developmentRequirement_01"
                 changed={this.OnDevelopmentRequirement01Change}
+                required={false}
               />
             </FormItem></Col>
 
@@ -349,11 +386,12 @@ class TalentRecordEditor extends React.Component<any, any> {
               <CascadeSelector
                 items={this.props.store.LookupDataStore.DevelopmentRequirementsLookupData}
                 form={this.props.form}
-                value={this.props.store.Talent.DevelopmentRequirement02}
+                item={this.props.store.Talent.DevelopmentRequirement02}
                 placeholder="Please select a development requirement"
                 validationMessage='Please select a developement requirement!'
                 controlId="developmentRequirement_02"
                 changed={this.OnDevelopmentRequirement02Change}
+                required={false}
               />
             </FormItem></Col>
 
@@ -363,7 +401,7 @@ class TalentRecordEditor extends React.Component<any, any> {
             <Col span={24}>
               <FormItem label="Notes" {...formItemLayout}>
                 {getFieldDecorator('devNotes', {
-                  rules: [{required: true, message: 'Please fill in some comments'}],
+                  rules: [{required: false, message: 'Please fill in some comments'}],
                 })(
                   <Input.TextArea rows={5} onChange={(e) => this.OnNotesChange(e.target.value)}/>
                 )}
@@ -376,13 +414,7 @@ class TalentRecordEditor extends React.Component<any, any> {
 
               <Row>
                 <Col span={24} style={{textAlign: 'right'}}>
-
-                  <Button style={{marginLeft: 8}} type="primary" htmlType="button"
-                          disabled={hasErrors(getFieldsError())}
-                          onClick={this.onSubmit}>Submit</Button>
-                  <Button style={{marginLeft: 8}} type="primary" htmlType="button"
-                          disabled={hasErrors(getFieldsError())}
-                          onClick={this.onUpdate}>Update</Button>
+                  {actionButton}
                   <Button style={{marginLeft: 8}} htmlType="reset">
                     Clear
                   </Button>

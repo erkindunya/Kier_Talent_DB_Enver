@@ -32,21 +32,21 @@
                        EnforceUniqueValues="FALSE"
                        Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
                        ID="{3fe41945-ad7e-438d-a54c-b1933107e10a}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
-                       StaticName="KTPFirstDevelopmentRequirementCategory"
-                       Name="KTPFirstDevelopmentRequirementCategory">
+                       StaticName="KTPFirstDevelopmentReqCategory"
+                       Name="KTPFirstDevelopmentReqCategory">
                 </Field>
                 <Field Type="Text" DisplayName="First Development Requirement SubCategory" Required="FALSE"
                        EnforceUniqueValues="FALSE"
                        Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
                        ID="{3fe41945-ad7e-438d-a54c-b1933107e11b}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
-                       StaticName="KTPFirstDevelopmentRequirementSubCategory"
-                       Name="KTPFirstDevelopmentRequirementSubCategory">
+                       StaticName="KTPFirstDevelopmentReqSubCategory"
+                       Name="KTPFirstDevelopmentReqSubCategory">
                 </Field>
                 <Field Type="Text" DisplayName="First Development Requirement Title" Required="FALSE"
                        EnforceUniqueValues="FALSE"
                        Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
                        ID="{3fe41945-ad7e-438d-a54c-b1933108e10a}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
-                       StaticName="KTPFirstDevelopmentRequirementTitle" Name="KTPFirstDevelopmentRequirementTitle">
+                       StaticName="KTPFirstDevelopmentReqTitle" Name="KTPFirstDevelopmentReqTitle">
                 </Field>
 
 
@@ -54,21 +54,21 @@
                        EnforceUniqueValues="FALSE"
                        Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
                        ID="{3fe41945-ad7e-438d-a54c-a1933107e10a}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
-                       StaticName="KTPSecondDevelopmentRequirementCategory"
-                       Name="KTPSecondDevelopmentRequirementCategory">
+                       StaticName="KTPSecondDevelopmentReqCategory"
+                       Name="KTPSecondDevelopmentReqCategory">
                 </Field>
                 <Field Type="Text" DisplayName="Second Development Requirement SubCategory" Required="FALSE"
                        EnforceUniqueValues="FALSE"
                        Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
                        ID="{3fe41945-ad7e-438d-a54c-b1033107e11b}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
-                       StaticName="KTPSecondDevelopmentRequirementSubCategory"
-                       Name="KTPSecondDevelopmentRequirementSubCategory">
+                       StaticName="KTPSecondDevelopmentReqSubCategory"
+                       Name="KTPSecondDevelopmentReqSubCategory">
                 </Field>
                 <Field Type="Text" DisplayName="Second Development Requirement Title" Required="FALSE"
                        EnforceUniqueValues="FALSE"
                        Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
                        ID="{3fe41945-ad7e-438d-a54c-b1943108e10a}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
-                       StaticName="KTPSecondDevelopmentRequirementTitle" Name="KTPSecondDevelopmentRequirementTitle">
+                       StaticName="KTPSecondDevelopmentReqTitle" Name="KTPSecondDevelopmentReqTitle">
                 </Field>
 
 
@@ -129,10 +129,10 @@
                 </Field>-->
 
 
-                <Field Type="User" DisplayName="Manager" List="UserInfo" Required="TRUE" EnforceUniqueValues="FALSE"
+                <Field Type="User" DisplayName="Area Head" List="UserInfo" Required="TRUE" EnforceUniqueValues="FALSE"
                        ShowField="ImnName" UserSelectionMode="PeopleOnly" UserSelectionScope="0"
-                       Group="Talents Review Application" ID="{3a841c79-f987-4191-b64a-84be5bf3fd40}"
-                       SourceID="{d8a9df90-237c-416b-beab-c6122b8a1180}" StaticName="KTPAreaHead" Name="KTPAreaHead"/>
+                       Group="Talents Review Application" ID="{d8a9df90-237c-416b-beab-c6122b8a1180}"
+                       SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}" StaticName="KTPAreaHead" Name="KTPAreaHead"/>
 
 
                 <Field Type="Text" DisplayName="Employee Forename" Required="FALSE" EnforceUniqueValues="FALSE"
@@ -323,18 +323,18 @@
                         <pnp:FieldRef ID="a853a429-ee76-45ab-8139-c5145ac50d66" Name="KTPShowInReport"/>
 
                         <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-b1933107e10a"
-                                      Name="KTPFirstDevelopmentRequirementCategory"/>
+                                      Name="KTPFirstDevelopmentReqCategory"/>
                         <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-b1933107e11b"
-                                      Name="KTPFirstDevelopmentRequirementSubCategory"/>
+                                      Name="KTPFirstDevelopmentReqSubCategory"/>
                         <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-b1933108e10a"
-                                      Name="KTPFirstDevelopmentRequirementTitle"/>
+                                      Name="KTPFirstDevelopmentReqTitle"/>
 
                         <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-a1933107e10a"
-                                      Name="KTPSecondDevelopmentRequirementCategory"/>
+                                      Name="KTPSecondDevelopmentReqCategory"/>
                         <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-b1033107e11b"
-                                      Name="KTPSecondDevelopmentRequirementSubCategory"/>
+                                      Name="KTPSecondDevelopmentReqSubCategory"/>
                         <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-b1943108e10a"
-                                      Name="KTPSecondDevelopmentRequirementTitle"/>
+                                      Name="KTPSecondDevelopmentReqTitle"/>
                     </pnp:FieldRefs>
                 </pnp:ContentType>
 
@@ -516,23 +516,23 @@
                                       DisplayName="Manager"/>
 
                         <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-b1933107e10a"
-                                      Name="KTPFirstDevelopmentRequirementCategory"
+                                      Name="KTPFirstDevelopmentReqCategory"
                                       DisplayName="First Development Requirement Category"/>
                         <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-b1933107e11b"
-                                      Name="KTPFirstDevelopmentRequirementSubCategory"
+                                      Name="KTPFirstDevelopmentReqSubCategory"
                                       DisplayName="First Development Requirement Subcategory"/>
                         <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-b1933108e10a"
-                                      Name="KTPFirstDevelopmentRequirementTitle"
+                                      Name="KTPFirstDevelopmentReqTitle"
                                       DisplayName="First Development Requirement Title"/>
 
                         <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-a1933107e10a"
-                                      Name="KTPSecondDevelopmentRequirementCategory"
+                                      Name="KTPSecondDevelopmentReqCategory"
                                       DisplayName="Second Development Requirement Category"/>
                         <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-b1033107e11b"
-                                      Name="KTPSecondDevelopmentRequirementSubCategory"
+                                      Name="KTPSecondDevelopmentReqSubCategory"
                                       DisplayName="Second Development Requirement Subcategory"/>
                         <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-b1943108e10a"
-                                      Name="KTPSecondDevelopmentRequirementTitle"
+                                      Name="KTPSecondDevelopmentReqTitle"
                                       DisplayName="Second Development Requirement Title"/>
 
                         <pnp:FieldRef ID="59C7438C-1A8F-4854-AFA2-421F4A5C132D" Name="KTPGender"

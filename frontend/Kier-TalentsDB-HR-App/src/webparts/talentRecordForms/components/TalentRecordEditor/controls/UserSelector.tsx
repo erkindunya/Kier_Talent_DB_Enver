@@ -51,36 +51,53 @@ export default class UserRemoteSelect extends React.Component<any, any> {
     (value.length >= 1) ? this.props.changed(value[0].key) : "";
   }
 
-  constructor(props) {
-    super(props);
-    this.lastFetchId = 0;
-    this.fetchUser = debounce(this.fetchUser, 800);
-
-    this.state = {
-      data: [this.props.item],
-      value: [{key: this.props.item.value}],
-      fetching: false
-    }
-  }
-
-  render() {
-    console.log("UserSelector: " + this.props.item);
+  buildPeoplePicker = () => {
     const {fetching, data, value} = this.state;
     return (
       <Select
         size="small"
         mode="multiple"
         labelInValue
-        value={value}
         placeholder="Select user"
         notFoundContent={fetching ? <Spin size="small"/> : null}
         filterOption={false}
         onSearch={this.fetchUser}
         onChange={this.handleChange}
         style={{width: '100%'}}
+
       >
         {data.map(d => <Option key={d.value}>{d.text}</Option>)}
       </Select>
     );
+  }
+
+  constructor(props) {
+    super(props);
+    this.lastFetchId = 0;
+    this.fetchUser = debounce(this.fetchUser, 800);
+    //Todo: write more robust condition test
+    if (this.props.item.value !== "") {
+      this.state = {
+        data: [this.props.item],
+        value: [{key: this.props.item.value}],
+        fetching: false
+      }
+    }
+
+  }
+
+  render() {
+    console.log("UserSelector: " + this.props.item);
+    let initialValue = (this.props.item) ? {key: this.props.item.value} : {};
+
+    const options = (this.props.item) ? {
+      initialValue: initialValue,
+      rules: [{required: true, message: this.props.validationMessage}]
+    } : {
+      rules: [{required: true, message: this.props.validationMessage}]
+    }
+
+    const element = this.props.form.getFieldDecorator(this.props.controlId, options)(this.buildPeoplePicker());
+    return element;
   }
 }
