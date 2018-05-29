@@ -111,17 +111,29 @@
                        Name="KTPCurrentSubmission">
                     <Default>0</Default>
                 </Field>
-                <Field Type="UserMulti" DisplayName="Manager" List="UserInfo" Required="TRUE"
+               <!-- <Field Type="UserMulti" DisplayName="Manager" List="UserInfo" Required="TRUE"
                        EnforceUniqueValues="FALSE" ShowField="ImnName" UserSelectionMode="PeopleOnly"
-                       UserSelectionScope="0" Mult="TRUE" Sortable="FALSE" Group="Talents Review Application"
+                       UserSelectionScope="0" Mult="FALSE" Sortable="FALSE" Group="Talents Review Application"
                        ID="{3a841c79-f987-4191-b64a-84be5bf3fd40}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
-                       StaticName="KTPManager" Name="KTPManager"/>
+                       StaticName="KTPManager" Name="KTPManager"/>-->
 
+                <Field Type="User" DisplayName="Manager" List="UserInfo" Required="TRUE" EnforceUniqueValues="FALSE"
+                       ShowField="ImnName" UserSelectionMode="PeopleOnly" UserSelectionScope="0"
+                       Group="Talents Review Application" ID="{3a841c79-f987-4191-b64a-84be5bf3fd40}"
+                       SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}" StaticName="KTPManager" Name="KTPManager"/>
+<!--
                 <Field Type="Text" DisplayName="Area Head" Required="FALSE" EnforceUniqueValues="FALSE"
                        Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
                        ID="{d8a9df90-237c-416b-beab-c6122b8a1180}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
                        StaticName="KTPAreaHead" Name="KTPAreaHead" CustomFormatter="">
-                </Field>
+                </Field>-->
+
+
+                <Field Type="User" DisplayName="Manager" List="UserInfo" Required="TRUE" EnforceUniqueValues="FALSE"
+                       ShowField="ImnName" UserSelectionMode="PeopleOnly" UserSelectionScope="0"
+                       Group="Talents Review Application" ID="{3a841c79-f987-4191-b64a-84be5bf3fd40}"
+                       SourceID="{d8a9df90-237c-416b-beab-c6122b8a1180}" StaticName="KTPAreaHead" Name="KTPAreaHead"/>
+
 
                 <Field Type="Text" DisplayName="Employee Forename" Required="FALSE" EnforceUniqueValues="FALSE"
                        Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
