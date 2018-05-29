@@ -171,26 +171,26 @@ class TalentRecordEditor extends React.Component<any, any> {
           <Row gutter={20}>
             <Col span={8}> <FormItem label="Head of Area" {...formItemLayout}>
               {getFieldDecorator('AreaHead', {
-                initialValue: this.props.store.Talent.AreaHead,
+                //initialValue: this.props.store.Talent.AreaHead,
                 rules: [{required: true, message: 'Head of Area?'}],
               })(
-                <UserRemoteSelect changed={this.OnAreaHeadChange}/>
+                <UserRemoteSelect changed={this.OnAreaHeadChange} item={this.props.store.Talent.AreaHead}/>
               )}
             </FormItem></Col>
             <Col span={8}><FormItem label="Manager's Name" {...formItemLayout}>
               {getFieldDecorator('managerName', {
-                initialValue: this.props.store.Talent.Manager,
+                //initialValue: this.props.store.Talent.Manager,
                 rules: [{required: true, message: 'manager name?'}],
               })(
-                <UserRemoteSelect changed={this.OnManagerChange}/>
+                <UserRemoteSelect changed={this.OnManagerChange} item={this.props.store.Talent.Manager}/>
               )}
             </FormItem></Col>
             <Col span={8}><FormItem label="Employee" {...formItemLayout}>
               {getFieldDecorator('employee', {
-                initialValue: this.props.store.Talent.Name,
+                //initialValue: this.props.store.Talent.Name,
                 rules: [{required: true, message: 'employee name?'}]
               })(
-                <UserRemoteSelect changed={this.OnEmployeeNameChange}/>
+                <UserRemoteSelect changed={this.OnEmployeeNameChange} item={this.props.store.Talent.Name}/>
               )}
             </FormItem></Col>
           </Row>

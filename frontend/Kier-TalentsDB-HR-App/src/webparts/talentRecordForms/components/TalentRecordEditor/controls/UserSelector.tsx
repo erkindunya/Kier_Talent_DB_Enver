@@ -55,9 +55,16 @@ export default class UserRemoteSelect extends React.Component<any, any> {
     super(props);
     this.lastFetchId = 0;
     this.fetchUser = debounce(this.fetchUser, 800);
+
+    this.state = {
+      data: [this.props.item],
+      value: [{key: this.props.item.value}],
+      fetching: false
+    }
   }
 
   render() {
+    console.log("UserSelector: " + this.props.item);
     const {fetching, data, value} = this.state;
     return (
       <Select

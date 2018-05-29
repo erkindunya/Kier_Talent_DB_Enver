@@ -15,15 +15,8 @@ namespace Kier.TalentPortal.WebAPI.Controllers
         public IHttpActionResult GetTalent(int id, string employeeId)
         {
             Talent talent = default(Talent);
-            var authMgr = new AuthenticationManager();
-            using (var ctx = authMgr.GetAppOnlyAuthenticatedContext(
-                ConfigurationManager.AppSettings["siteUrl"],
-                ConfigurationManager.AppSettings["clientId"],
-                ConfigurationManager.AppSettings["clientSecret"]))
+            using (var ctx = SharePointOnlineHelper.GetElevatedContext())
             {
-
-          
-
                 var list = ctx.Web.Lists.GetByTitle(ConfigurationManager.AppSettings["listName"]);
                 var query = new CamlQuery();
                 query.ViewXml = KTPConstants.Get_Talent_Record_By_EmployeeId_Query.Replace("EMP_ID", employeeId);
@@ -33,7 +26,6 @@ namespace Kier.TalentPortal.WebAPI.Controllers
                 talent = Talent.FromSPListItem(result[0]);
                 if (result.ToList().Count >= 2)
                 {
-                   
                    talent.PreviousYear = PreviousYearRating.FromSPListItem(result[1]);
                 }
             }
@@ -41,65 +33,25 @@ namespace Kier.TalentPortal.WebAPI.Controllers
             return Ok(talent);
         }
 
+        private Group _divisionSecurityGroup;
+        private Group _streamSecurityGroup;
+        private Group _unitSecurityGroup;
+        private RoleDefinition _roleDefinition;
 
-        private void SetupPermissions(Talent talent)
-        {
-            /*
-             * Check the Grade
-             * if L2,L1
-             * Give permission for two levels only
-             *
-             * if anything else
-             * Give permission for 3 levels
-             */
-            var divisionGroup = talent.GetDivionGroupName();
-            var streamGroup = talent.GetBusinessStreamGroupName();
-            var unitGroup = talent.GetBusinessUnitGroupName();
-            // if (talent.Grade.StartsWith("L"))
-        }
         [HttpPost]
         public IHttpActionResult NewTalentRecord([FromBody] Talent talent)
         {
-            var x = talent;
-            var authMgr = new AuthenticationManager();
             try
             {
-                using (var ctx = authMgr.GetAppOnlyAuthenticatedContext(
-                    ConfigurationManager.AppSettings["siteUrl"],
-                    ConfigurationManager.AppSettings["clientId"],
-                    ConfigurationManager.AppSettings["clientSecret"]))
+                using (var ctx = SharePointOnlineHelper.GetElevatedContext())
                 {
-
-                    var editPermissionLevel = ctx.Web.RoleDefinitions.GetByType(RoleType.Contributor);
-                    var divisionGroup = ctx.Web.SiteGroups.GetByName(talent.GetDivionGroupName());
-                    var streamGroup = ctx.Web.SiteGroups.GetByName(talent.GetBusinessStreamGroupName());
-                    var unitGroup = ctx.Web.SiteGroups.GetByName(talent.GetBusinessUnitGroupName());
-                    ctx.Load(divisionGroup);
-                    ctx.Load(streamGroup);
-                    ctx.Load(unitGroup);
-                    ctx.ExecuteQuery();
-
+                    LoadSecurityMatrix(talent, ctx);
                     var list = ctx.Web.Lists.GetByTitle(ConfigurationManager.AppSettings["listName"]);
-
                     ListItemCreationInformation itemCreateInfo = new ListItemCreationInformation();
                     ListItem newItem = list.AddItem(itemCreateInfo);
                     newItem = Talent.ToSPListItem(talent, newItem);
                     newItem.Update();
-                    newItem.BreakRoleInheritance(false, true);
-                    RoleDefinitionBindingCollection collRoleDefinitionBinding =
-                        new RoleDefinitionBindingCollection(ctx);
-                    collRoleDefinitionBinding.Add(editPermissionLevel);
-
-                    newItem.RoleAssignments.Add(divisionGroup, collRoleDefinitionBinding);
-                    newItem.RoleAssignments.Add(streamGroup, collRoleDefinitionBinding);
-                    if(!talent.Grade.StartsWith("L"))
-                        newItem.RoleAssignments.Add(unitGroup, collRoleDefinitionBinding);
-
-
-
-
-                    
-                    
+                    SetPermissions(talent, newItem, ctx, this._roleDefinition);
                     ctx.ExecuteQuery();
                 }
             }
@@ -111,14 +63,36 @@ namespace Kier.TalentPortal.WebAPI.Controllers
             return Ok(talent);
         }
 
+        private void SetPermissions(Talent talent, ListItem newItem, ClientContext ctx, RoleDefinition editPermissionLevel)
+        {
+            newItem.BreakRoleInheritance(false, true);
+            RoleDefinitionBindingCollection collRoleDefinitionBinding =
+                new RoleDefinitionBindingCollection(ctx);
+            collRoleDefinitionBinding.Add(editPermissionLevel);
+
+            newItem.RoleAssignments.Add(this._divisionSecurityGroup, collRoleDefinitionBinding);
+            newItem.RoleAssignments.Add(this._streamSecurityGroup, collRoleDefinitionBinding);
+            if (!talent.Grade.StartsWith("L"))
+                newItem.RoleAssignments.Add(this._unitSecurityGroup, collRoleDefinitionBinding);
+        }
+
+        private void LoadSecurityMatrix(Talent talent, ClientContext ctx)
+        {
+            this._roleDefinition = ctx.Web.RoleDefinitions.GetByType(RoleType.Contributor);
+            this._divisionSecurityGroup = ctx.Web.SiteGroups.GetByName(talent.GetDivionGroupName());
+            this._streamSecurityGroup = ctx.Web.SiteGroups.GetByName(talent.GetBusinessStreamGroupName());
+            this._unitSecurityGroup = ctx.Web.SiteGroups.GetByName(talent.GetBusinessUnitGroupName());
+            ctx.Load(this._divisionSecurityGroup);
+            ctx.Load(this._streamSecurityGroup);
+            ctx.Load(this._unitSecurityGroup);
+            ctx.ExecuteQuery();
+        }
+
         [HttpPut]
         public IHttpActionResult UpdateTalentRecord([FromBody] Talent talent)
         {
-            var authMgr = new AuthenticationManager();
-            using (var ctx = authMgr.GetAppOnlyAuthenticatedContext(
-                ConfigurationManager.AppSettings["siteUrl"],
-                ConfigurationManager.AppSettings["clientId"],
-                ConfigurationManager.AppSettings["clientSecret"]))
+            
+            using (var ctx = SharePointOnlineHelper.GetElevatedContext())
             {
                 var list = ctx.Web.Lists.GetByTitle(ConfigurationManager.AppSettings["listName"]);
                 var item = list.GetItemById(talent.Id);

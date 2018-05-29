@@ -11,13 +11,19 @@ export const PreviousYearRating = types.model({
   At: types.optional(types.string, "")
 });
 
+
+export const User = types.model({
+  value: types.optional(types.string, ""),
+  text: types.optional(types.string, "")
+})
+
 //Todo : need to add extra couple of fields CreatedBy and ModifiedBy
 export const Talent = types.model({
   Id: types.maybe(types.number),
   EmployeeId: types.optional(types.string, ""),
-  Name: types.optional(types.string, ""),
-  Manager: types.optional(types.string, ""),
-  AreaHead: types.optional(types.string, ""),
+  Name: types.optional(User, {}),
+  Manager: types.optional(User, {}),
+  AreaHead: types.optional(User, {}),
   Division: types.optional(types.string, ""),
   Unit: types.optional(types.string, ""),
   Stream: types.optional(types.string, ""),
@@ -78,7 +84,7 @@ export const Talent = types.model({
     }
 
     const changeEmployeeName = (newEmployeeKey: string) => {
-      self.Name = newEmployeeKey;
+      self.Name.value = newEmployeeKey;
     }
 
     const changeGrade = (newGrade: string) => {
@@ -115,11 +121,11 @@ export const Talent = types.model({
     }
 
     const changeAreaHead = (newHead: string) => {
-      self.AreaHead = newHead;
+      self.AreaHead.value = newHead;
     }
 
     const changeManager = (newManager: string) => {
-      self.Manager = newManager;
+      self.Manager.value = newManager;
     }
 
     const changeNotes = (notes: string) => {
@@ -260,7 +266,7 @@ const TalentsStore = types.model({
   ).actions(self => {
     const afterCreate = () => {
       console.log("Loading relevant Talent Records")
-      self.LoadAllTalents().then(_ => console.log("Number of Loaded Talent Records :" + self.items.length));
+      //self.LoadAllTalents().then(_ => console.log("Number of Loaded Talent Records :" + self.items.length));
     }
 
     return {
