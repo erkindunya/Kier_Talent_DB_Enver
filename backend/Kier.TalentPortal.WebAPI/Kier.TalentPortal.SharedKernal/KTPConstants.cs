@@ -20,6 +20,15 @@
         public const string Talent_Record_Position = "KTPPosition";
         public const string Talent_Record_Potential = "KTPPotentialRating";
         public const string Talent_Record_Second_Development_Requirement = "KTPSecondDevelopmentRequirement";
+
+        public const string Talent_Record_First_Development_Requirement_Category = "KTPFirstDevelopmentReqCategory";
+        public const string Talent_Record_First_Development_Requirement_SubCategory = "KTPFirstDevelopmentReqSubCategor";
+        public const string Talent_Record_First_Development_Requirement_Title = "KTPFirstDevelopmentReqTitle";
+
+        public const string Talent_Record_Second_Development_Requirement_Category = "KTPSecondDevelopmentReqCategory";
+        public const string Talent_Record_Second_Development_Requirement_SubCategory = "KTPSecondDevelopmentReqSubCatego";
+        public const string Talent_Record_Second_Development_Requirement_Title = "KTPSecondDevelopmentReqTitle";
+
         public const string Talent_Record_Submission_Year = "KTPSubmissionYear";
         public const string Talent_Record_Employee = "KTPEmployee";
         public const string Talent_Record_Manager = "KTPManager";
@@ -27,6 +36,9 @@
         public const string Business_Unit_Stream = "KTPBusinessUnitStream";
         public const string Business_Unit_Unit = "KTPBusinessUnitUnit";
         public const string Business_Unit_Location = "KTPBusinessUnitLocation";
+
+
+
 
 
         //public const string Talent_Record_Employee = "KTPEmployee";
