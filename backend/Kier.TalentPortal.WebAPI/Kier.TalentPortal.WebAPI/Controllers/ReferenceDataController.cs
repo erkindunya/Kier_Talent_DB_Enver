@@ -28,7 +28,9 @@ namespace Kier.TalentPortal.WebAPI.Controllers
             {
                 var businessUnitsList = ctx.Web.Lists.GetByTitle(ConfigurationManager.AppSettings["businessUnitsList"]);
                 var query = CamlQuery.CreateAllItemsQuery();
-                var items = businessUnitsList.GetItems(query);
+
+
+        var items = businessUnitsList.GetItems(query);
                 ctx.Load(items);
                 ctx.ExecuteQuery();
 

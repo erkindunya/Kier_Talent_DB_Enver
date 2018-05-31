@@ -88,10 +88,10 @@ export default class UserRemoteSelect extends React.Component<any, any> {
 
   render() {
     console.log("UserSelector: " + this.props.item);
-    let initialValue = (this.props.item) ? {key: this.props.item.value} : {};
+    //let initialValue = (this.props.item.value!="") ? {key: this.props.item.value} : {key:""};
 
     const options = (this.props.item) ? {
-      initialValue: initialValue,
+      //   initialValue: initialValue,
       rules: [{required: true, message: this.props.validationMessage}]
     } : {
       rules: [{required: true, message: this.props.validationMessage}]

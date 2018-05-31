@@ -43,7 +43,7 @@ namespace Kier.TalentPortal.SharedKernal
                 new MediaTypeWithQualityHeaderValue("application/json"));
             IList<Lookup> lookups = default(IList<Lookup>);
             HttpResponseMessage response = await client.GetAsync(
-                "api/referenceData/GetBusinessUnitsLookups");
+                "api/Reference/BusinessUnits");
             if (response.IsSuccessStatusCode)
             {
                 lookups = await response.Content.ReadAsAsync<IList<Lookup>>();

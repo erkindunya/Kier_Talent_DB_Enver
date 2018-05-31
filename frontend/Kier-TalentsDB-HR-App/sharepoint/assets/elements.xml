@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+
+  <CustomAction
+    Title="TalentPortalCommandSetCommandSet"
+    RegistrationId="100"
+    RegistrationType="List"
+    Location="ClientSideExtension.ListViewCommandSet.CommandBar"
+    ClientSideComponentId="0f61300d-0e32-456a-bf35-285b8f52fcd0"
+  >
+
+  </CustomAction>
+
+</Elements>

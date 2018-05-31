@@ -2,126 +2,126 @@
     <pnp:Preferences
             Generator="OfficeDevPnP.Core, Version=2.25.1804.1, Culture=neutral, PublicKeyToken=5e633289e95c321a"/>
     <pnp:Templates ID="CONTAINER-TEMPLATE-0DAB93AEA9824789BB66E2B359B58E2D">
-        <pnp:ProvisioningTemplate ID="TEMPLATE-0DAB93AEA9824789BB66E2B359B58E2D" Version="1"
-                                  BaseSiteTemplate="SITEPAGEPUBLISHING#0" Scope="RootSite">
-            <pnp:SiteFields>
+      <pnp:ProvisioningTemplate ID="TEMPLATE-0DAB93AEA9824789BB66E2B359B58E2D" Version="1"
+                                BaseSiteTemplate="SITEPAGEPUBLISHING#0" Scope="RootSite">
+        <pnp:SiteFields>
 
-                <Field Type="Text" DisplayName="Grade" Required="TRUE" EnforceUniqueValues="FALSE" Indexed="FALSE"
-                       MaxLength="255" Group="Talents Review Application" ID="{15f95d03-f769-4fa3-99ac-9a96d3bddaad}"
-                       SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}" StaticName="KTPGrade" Name="KTPGrade">
-                </Field>
+          <Field Type="Text" DisplayName="Grade" Required="TRUE" EnforceUniqueValues="FALSE" Indexed="FALSE"
+                 MaxLength="255" Group="Talents Review Application" ID="{15f95d03-f769-4fa3-99ac-9a96d3bddaad}"
+                 SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}" StaticName="KTPGrade" Name="KTPGrade">
+          </Field>
 
-                <Field Type="Text" DisplayName="Potential Rating" Required="FALSE" EnforceUniqueValues="FALSE"
-                       Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
-                       ID="{4bc6fd23-4e1f-4258-8b8b-e9526198cd4a}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
-                       StaticName="KTPPotentialRating" Name="KTPPotentialRating">
-                </Field>
-
-
-                <Field Type="Boolean" DisplayName="Show In Report?" EnforceUniqueValues="FALSE" Indexed="FALSE"
-                       Group="Talents Review Application" ID="{a853a429-ee76-45ab-8139-c5145ac50d66}"
-                       SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}" StaticName="KTPShowInReport"
-                       Name="KTPShowInReport">
-                    <Default>1</Default>
-                </Field>
+          <Field Type="Text" DisplayName="Potential Rating" Required="FALSE" EnforceUniqueValues="FALSE"
+                 Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
+                 ID="{4bc6fd23-4e1f-4258-8b8b-e9526198cd4a}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
+                 StaticName="KTPPotentialRating" Name="KTPPotentialRating">
+          </Field>
 
 
-                
-
-                <Field Type="Text" DisplayName="First Development Requirement Category" Required="FALSE"
-                       EnforceUniqueValues="FALSE"
-                       Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
-                       ID="{3fe41945-ad7e-438d-a54c-b1933107e10a}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
-                       StaticName="KTPFirstDevelopmentReqCategory"
-                       Name="KTPFirstDevelopmentReqCategory">
-                </Field>
-                <Field Type="Text" DisplayName="First Development Requirement SubCategory" Required="FALSE"
-                       EnforceUniqueValues="FALSE"
-                       Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
-                       ID="{3fe41945-ad7e-438d-a54c-b1933107e11b}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
-                       StaticName="KTPFirstDevelopmentReqSubCategory"
-                       Name="KTPFirstDevelopmentReqSubCategory">
-                </Field>
-                <Field Type="Text" DisplayName="First Development Requirement Title" Required="FALSE"
-                       EnforceUniqueValues="FALSE"
-                       Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
-                       ID="{3fe41945-ad7e-438d-a54c-b1933108e10a}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
-                       StaticName="KTPFirstDevelopmentReqTitle" Name="KTPFirstDevelopmentReqTitle">
-                </Field>
+          <Field Type="Boolean" DisplayName="Show In Report?" EnforceUniqueValues="FALSE" Indexed="FALSE"
+                 Group="Talents Review Application" ID="{a853a429-ee76-45ab-8139-c5145ac50d66}"
+                 SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}" StaticName="KTPShowInReport"
+                 Name="KTPShowInReport">
+            <Default>1</Default>
+          </Field>
 
 
-                <Field Type="Text" DisplayName="Second Development Requirement Category" Required="FALSE"
-                       EnforceUniqueValues="FALSE"
-                       Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
-                       ID="{3fe41945-ad7e-438d-a54c-a1933107e10a}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
-                       StaticName="KTPSecondDevelopmentReqCategory"
-                       Name="KTPSecondDevelopmentReqCategory">
-                </Field>
-                <Field Type="Text" DisplayName="Second Development Requirement SubCategory" Required="FALSE"
-                       EnforceUniqueValues="FALSE"
-                       Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
-                       ID="{3fe41945-ad7e-438d-a54c-b1033107e11b}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
-                       StaticName="KTPSecondDevelopmentReqSubCategory"
-                       Name="KTPSecondDevelopmentReqSubCategory">
-                </Field>
-                <Field Type="Text" DisplayName="Second Development Requirement Title" Required="FALSE"
-                       EnforceUniqueValues="FALSE"
-                       Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
-                       ID="{3fe41945-ad7e-438d-a54c-b1943108e10a}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
-                       StaticName="KTPSecondDevelopmentReqTitle" Name="KTPSecondDevelopmentReqTitle">
-                </Field>
 
 
-                <Field Type="Text" DisplayName="Location" Required="FALSE" EnforceUniqueValues="FALSE"
-                       Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
-                       ID="{3fe41945-ad7e-438d-a54c-b1933107e00f}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
-                       StaticName="KTPLocation" Name="KTPLocation">
-                </Field>
+          <Field Type="Text" DisplayName="First Development Requirement Category" Required="FALSE"
+                 EnforceUniqueValues="FALSE"
+                 Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
+                 ID="{3fe41945-ad7e-438d-a54c-b1933107e10a}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
+                 StaticName="KTPFirstDevelopmentReqCategory"
+                 Name="KTPFirstDevelopmentReqCategory">
+          </Field>
+          <Field Type="Text" DisplayName="First Development Requirement SubCategory" Required="FALSE"
+                 EnforceUniqueValues="FALSE"
+                 Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
+                 ID="{3fe41945-ad7e-438d-a54c-b1933107e11b}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
+                 StaticName="KTPFirstDevelopmentReqSubCategory"
+                 Name="KTPFirstDevelopmentReqSubCategory">
+          </Field>
+          <Field Type="Text" DisplayName="First Development Requirement Title" Required="FALSE"
+                 EnforceUniqueValues="FALSE"
+                 Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
+                 ID="{3fe41945-ad7e-438d-a54c-b1933108e10a}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
+                 StaticName="KTPFirstDevelopmentReqTitle" Name="KTPFirstDevelopmentReqTitle">
+          </Field>
 
-                <Field Type="Text" DisplayName="Business Stream" Required="FALSE" EnforceUniqueValues="FALSE"
-                       Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
-                       ID="{64ce874a-f2cd-49e8-97bf-91d94b74b66f}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
-                       StaticName="KTPBusinessStream" Name="KTPBusinessStream">
-                </Field>
+
+          <Field Type="Text" DisplayName="Second Development Requirement Category" Required="FALSE"
+                 EnforceUniqueValues="FALSE"
+                 Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
+                 ID="{3fe41945-ad7e-438d-a54c-a1933107e10a}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
+                 StaticName="KTPSecondDevelopmentReqCategory"
+                 Name="KTPSecondDevelopmentReqCategory">
+          </Field>
+          <Field Type="Text" DisplayName="Second Development Requirement SubCategory" Required="FALSE"
+                 EnforceUniqueValues="FALSE"
+                 Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
+                 ID="{3fe41945-ad7e-438d-a54c-b1033107e11b}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
+                 StaticName="KTPSecondDevelopmentReqSubCategory"
+                 Name="KTPSecondDevelopmentReqSubCategory">
+          </Field>
+          <Field Type="Text" DisplayName="Second Development Requirement Title" Required="FALSE"
+                 EnforceUniqueValues="FALSE"
+                 Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
+                 ID="{3fe41945-ad7e-438d-a54c-b1943108e10a}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
+                 StaticName="KTPSecondDevelopmentReqTitle" Name="KTPSecondDevelopmentReqTitle">
+          </Field>
 
 
-                <Field Type="Text" DisplayName="Employee ID" Required="TRUE" EnforceUniqueValues="FALSE"
-                       Indexed="TRUE" MaxLength="255" Group="Talents Review Application"
-                       ID="{39b20056-ff01-4847-9ffe-60d05e128033}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
-                       StaticName="KTPEmployeeID" Name="KTPEmployeeID" CustomFormatter="">
-                </Field>
+          <Field Type="Text" DisplayName="Location" Required="FALSE" EnforceUniqueValues="FALSE"
+                 Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
+                 ID="{3fe41945-ad7e-438d-a54c-b1933107e00f}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
+                 StaticName="KTPLocation" Name="KTPLocation">
+          </Field>
 
-                <Field Type="Text" DisplayName="Function" Required="FALSE" EnforceUniqueValues="FALSE"
-                       Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
-                       ID="{124e565d-baa6-46b3-90df-a4baf9fbf995}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
-                       StaticName="KTPFunction" Name="KTPFunction" CustomFormatter="">
-                </Field>
-                <Field Type="Text" DisplayName="Position" Required="TRUE" EnforceUniqueValues="FALSE" Indexed="FALSE"
-                       MaxLength="255" Group="Talents Review Application" ID="{62842560-b950-4bc1-8bc2-bd9337526aed}"
-                       SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}" StaticName="KTPPosition" Name="KTPPosition">
-                </Field>
-                <Field Type="Number" DisplayName="Submission Year" Required="TRUE" EnforceUniqueValues="FALSE"
-                       Indexed="FALSE" Min="2016" Max="2050" Decimals="0" Group="Talents Review Application"
-                       ID="{74aa5e66-b614-4650-9055-a75ab41333dd}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
-                       StaticName="KTPSubmissionYear" Name="KTPSubmissionYear">
-                </Field>
-                <Field Type="Boolean" DisplayName="Is Current Submission" EnforceUniqueValues="FALSE" Indexed="FALSE"
-                       Group="Talents Review Application" ID="{f9412368-18c0-4956-9a0e-2f58ddbc2894}"
-                       SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}" StaticName="KTPCurrentSubmission"
-                       Name="KTPCurrentSubmission">
-                    <Default>0</Default>
-                </Field>
-               <!-- <Field Type="UserMulti" DisplayName="Manager" List="UserInfo" Required="TRUE"
+          <Field Type="Text" DisplayName="Business Stream" Required="FALSE" EnforceUniqueValues="FALSE"
+                 Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
+                 ID="{64ce874a-f2cd-49e8-97bf-91d94b74b66f}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
+                 StaticName="KTPBusinessStream" Name="KTPBusinessStream">
+          </Field>
+
+
+          <Field Type="Text" DisplayName="Employee ID" Required="TRUE" EnforceUniqueValues="FALSE"
+                 Indexed="TRUE" MaxLength="255" Group="Talents Review Application"
+                 ID="{39b20056-ff01-4847-9ffe-60d05e128033}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
+                 StaticName="KTPEmployeeID" Name="KTPEmployeeID" CustomFormatter="">
+          </Field>
+
+          <Field Type="Text" DisplayName="Function" Required="FALSE" EnforceUniqueValues="FALSE"
+                 Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
+                 ID="{124e565d-baa6-46b3-90df-a4baf9fbf995}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
+                 StaticName="KTPFunction" Name="KTPFunction" CustomFormatter="">
+          </Field>
+          <Field Type="Text" DisplayName="Position" Required="TRUE" EnforceUniqueValues="FALSE" Indexed="FALSE"
+                 MaxLength="255" Group="Talents Review Application" ID="{62842560-b950-4bc1-8bc2-bd9337526aed}"
+                 SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}" StaticName="KTPPosition" Name="KTPPosition">
+          </Field>
+          <Field Type="Number" DisplayName="Submission Year" Required="TRUE" EnforceUniqueValues="FALSE"
+                 Indexed="FALSE" Min="2016" Max="2050" Decimals="0" Group="Talents Review Application"
+                 ID="{74aa5e66-b614-4650-9055-a75ab41333dd}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
+                 StaticName="KTPSubmissionYear" Name="KTPSubmissionYear">
+          </Field>
+          <Field Type="Boolean" DisplayName="Is Current Submission" EnforceUniqueValues="FALSE" Indexed="FALSE"
+                 Group="Talents Review Application" ID="{f9412368-18c0-4956-9a0e-2f58ddbc2894}"
+                 SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}" StaticName="KTPCurrentSubmission"
+                 Name="KTPCurrentSubmission">
+            <Default>0</Default>
+          </Field>
+          <!-- <Field Type="UserMulti" DisplayName="Manager" List="UserInfo" Required="TRUE"
                        EnforceUniqueValues="FALSE" ShowField="ImnName" UserSelectionMode="PeopleOnly"
                        UserSelectionScope="0" Mult="FALSE" Sortable="FALSE" Group="Talents Review Application"
                        ID="{3a841c79-f987-4191-b64a-84be5bf3fd40}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
                        StaticName="KTPManager" Name="KTPManager"/>-->
 
-                <Field Type="User" DisplayName="Manager" List="UserInfo" Required="TRUE" EnforceUniqueValues="FALSE"
-                       ShowField="ImnName" UserSelectionMode="PeopleOnly" UserSelectionScope="0"
-                       Group="Talents Review Application" ID="{3a841c79-f987-4191-b64a-84be5bf3fd40}"
-                       SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}" StaticName="KTPManager" Name="KTPManager"/>
-<!--
+          <Field Type="User" DisplayName="Manager" List="UserInfo" Required="TRUE" EnforceUniqueValues="FALSE"
+                 ShowField="ImnName" UserSelectionMode="PeopleOnly" UserSelectionScope="0"
+                 Group="Talents Review Application" ID="{3a841c79-f987-4191-b64a-84be5bf3fd40}"
+                 SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}" StaticName="KTPManager" Name="KTPManager"/>
+          <!--
                 <Field Type="Text" DisplayName="Area Head" Required="FALSE" EnforceUniqueValues="FALSE"
                        Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
                        ID="{d8a9df90-237c-416b-beab-c6122b8a1180}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
@@ -129,445 +129,444 @@
                 </Field>-->
 
 
-                <Field Type="User" DisplayName="Area Head" List="UserInfo" Required="TRUE" EnforceUniqueValues="FALSE"
-                       ShowField="ImnName" UserSelectionMode="PeopleOnly" UserSelectionScope="0"
-                       Group="Talents Review Application" ID="{d8a9df90-237c-416b-beab-c6122b8a1180}"
-                       SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}" StaticName="KTPAreaHead" Name="KTPAreaHead"/>
+          <Field Type="User" DisplayName="Area Head" List="UserInfo" Required="TRUE" EnforceUniqueValues="FALSE"
+                 ShowField="ImnName" UserSelectionMode="PeopleOnly" UserSelectionScope="0"
+                 Group="Talents Review Application" ID="{d8a9df90-237c-416b-beab-c6122b8a1180}"
+                 SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}" StaticName="KTPAreaHead" Name="KTPAreaHead"/>
 
 
-                <Field Type="Text" DisplayName="Employee Forename" Required="FALSE" EnforceUniqueValues="FALSE"
-                       Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
-                       ID="{d8a9df90-237c-416b-beab-c6122b8a1181}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
-                       StaticName="KTPEmployee_Forename" Name="KTPEmployee_Forename" CustomFormatter="">
-                </Field>
+          <Field Type="Text" DisplayName="Employee Forename" Required="FALSE" EnforceUniqueValues="FALSE"
+                 Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
+                 ID="{d8a9df90-237c-416b-beab-c6122b8a1181}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
+                 StaticName="KTPEmployee_Forename" Name="KTPEmployee_Forename" CustomFormatter="">
+          </Field>
 
 
-                <Field Type="Text" DisplayName="Employee Surname" Required="FALSE" EnforceUniqueValues="FALSE"
-                       Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
-                       ID="{d8a9df90-237c-416b-beab-c6122b8b1181}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
-                       StaticName="KTPEmployee_Surname" Name="KTPEmployee_Surname" CustomFormatter="">
-                </Field>
+          <Field Type="Text" DisplayName="Employee Surname" Required="FALSE" EnforceUniqueValues="FALSE"
+                 Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
+                 ID="{d8a9df90-237c-416b-beab-c6122b8b1181}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
+                 StaticName="KTPEmployee_Surname" Name="KTPEmployee_Surname" CustomFormatter="">
+          </Field>
 
-                <Field Type="Text" DisplayName="Employee Manager" Required="FALSE" EnforceUniqueValues="FALSE"
-                       Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
-                       ID="{d8a9df90-237c-416b-beab-c6122b8a1171}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
-                       StaticName="KTPManager_Text" Name="KTPManager_Text" CustomFormatter="">
-                </Field>
+          <Field Type="Text" DisplayName="Employee Manager" Required="FALSE" EnforceUniqueValues="FALSE"
+                 Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
+                 ID="{d8a9df90-237c-416b-beab-c6122b8a1171}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
+                 StaticName="KTPManager_Text" Name="KTPManager_Text" CustomFormatter="">
+          </Field>
 
-                <Field Type="Text" DisplayName="Movement Status" Required="FALSE" EnforceUniqueValues="FALSE"
-                       Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
-                       ID="{a803dc96-aea9-4fe4-8032-49cc60b4b926}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
-                       StaticName="KTPMovementStatus" Name="KTPMovementStatus">
-                </Field>
-
-
-                <Field Type="User" DisplayName="Successor" List="UserInfo" Required="FALSE"
-                       EnforceUniqueValues="FALSE" ShowField="ImnName" UserSelectionMode="PeopleOnly"
-                       UserSelectionScope="0" Group="Talents Review Application"
-                       ID="{2301dda5-ec3e-4517-b43f-365602261dda}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
-                       StaticName="KTPSuccessor" Name="KTPSuccessor"/>
-
-                <Field Type="User" DisplayName="Reviewed By" List="UserInfo" Required="FALSE"
-                       EnforceUniqueValues="FALSE" ShowField="ImnName" UserSelectionMode="PeopleOnly"
-                       UserSelectionScope="0" Group="Talents Review Application"
-                       ID="{2301dda5-ec3e-4522-b43f-365602261dda}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
-                       StaticName="KTPReviewedBy" Name="KTPReviewedBy"/>
+          <Field Type="Text" DisplayName="Movement Status" Required="FALSE" EnforceUniqueValues="FALSE"
+                 Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
+                 ID="{a803dc96-aea9-4fe4-8032-49cc60b4b926}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
+                 StaticName="KTPMovementStatus" Name="KTPMovementStatus">
+          </Field>
 
 
-                <Field Type="DateTime" DisplayName="Reviewed At" Required="FALSE" Hidden="FALSE" Indexed="TRUE"
-                       EnforceUniqueValues="FALSE" Group="Talents Review Application"
-                       ID="{2301dda5-ec3e-4522-b43f-365602261ddc}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
-                       StaticName="KTPReviewedAt" Name="KTPReviewedAt"/>
+          <Field Type="User" DisplayName="Successor" List="UserInfo" Required="FALSE"
+                 EnforceUniqueValues="FALSE" ShowField="ImnName" UserSelectionMode="PeopleOnly"
+                 UserSelectionScope="0" Group="Talents Review Application"
+                 ID="{2301dda5-ec3e-4517-b43f-365602261dda}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
+                 StaticName="KTPSuccessor" Name="KTPSuccessor"/>
 
-                <Field Type="Text" DisplayName="Business Risk" Required="FALSE" EnforceUniqueValues="FALSE"
-                       Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
-                       ID="{37c4b4af-ac7a-457b-a0ef-c24575171079}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
-                       StaticName="KTPBusinessRisk" Name="KTPBusinessRisk">
-                </Field>
-                <Field Type="Text" DisplayName="Flight Risk" Required="FALSE" EnforceUniqueValues="FALSE"
-                       Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
-                       ID="{424f2fb3-4b25-4a15-90ef-7d80ad72979f}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
-                       StaticName="KTPFlightRisk" Name="KTPFlightRisk">
-                </Field>
-
-                <Field Type="User" DisplayName="Employee" List="UserInfo" Required="TRUE" EnforceUniqueValues="FALSE"
-                       ShowField="ImnName" UserSelectionMode="PeopleOnly" UserSelectionScope="0"
-                       Group="Talents Review Application" ID="{64b773c5-28f6-4551-b47a-6ed330730e58}"
-                       SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}" StaticName="KTPEmployee" Name="KTPEmployee"/>
-
-                <Field Type="Text" DisplayName="Division" Required="FALSE" EnforceUniqueValues="FALSE"
-                       Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
-                       ID="{0196cfcc-e28c-4784-8d86-f53ccef5fea7}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
-                       StaticName="KTPDivision" Name="KTPDivision">
-                </Field>
-
-                <Field Type="Text" DisplayName="Performance Rating" Required="FALSE" EnforceUniqueValues="FALSE"
-                       Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
-                       ID="{cab67bd3-c1a8-4630-9f5c-183ae29425e1}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
-                       StaticName="KTPPerformanceRating" Name="KTPPerformanceRating">
-                </Field>
-                <Field Type="Note" DisplayName="Development Notes" Required="FALSE" EnforceUniqueValues="FALSE"
-                       Indexed="FALSE" NumLines="6" RichText="FALSE" AppendOnly="TRUE" Sortable="FALSE"
-                       Group="Talents Review Application" ID="{7c3819e2-82d6-455c-a47b-ba1e4646605f}"
-                       SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}" StaticName="KTPDevelopmentNotes"
-                       Name="KTPDevelopmentNotes">
-                </Field>
-                <Field Type="Text" DisplayName="Business Unit" Required="FALSE" EnforceUniqueValues="FALSE"
-                       Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
-                       ID="{6ee08dfe-08d1-4f7c-bec8-2cc869bf9cd9}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
-                       StaticName="KTPBusinessUnit" Name="KTPBusinessUnit">
-                </Field>
+          <Field Type="User" DisplayName="Reviewed By" List="UserInfo" Required="FALSE"
+                 EnforceUniqueValues="FALSE" ShowField="ImnName" UserSelectionMode="PeopleOnly"
+                 UserSelectionScope="0" Group="Talents Review Application"
+                 ID="{2301dda5-ec3e-4522-b43f-365602261dda}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
+                 StaticName="KTPReviewedBy" Name="KTPReviewedBy"/>
 
 
-                <Field Type="Text" DisplayName="Divison" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE"
-                       MaxLength="255" Group="Talents Review Application" ID="{d3691a4d-0bdd-48de-9148-5cf268fb27a0}"
-                       StaticName="KTPBusinessUnitDivision" Name="KTPBusinessUnitDivision"
-                       SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}">
-                </Field>
+          <Field Type="DateTime" DisplayName="Reviewed At" Required="FALSE" Hidden="FALSE" Indexed="TRUE"
+                 EnforceUniqueValues="FALSE" Group="Talents Review Application"
+                 ID="{2301dda5-ec3e-4522-b43f-365602261ddc}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
+                 StaticName="KTPReviewedAt" Name="KTPReviewedAt"/>
 
-                <Field Type="Text" DisplayName="Business Stream" Required="FALSE" EnforceUniqueValues="FALSE"
-                       Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
-                       ID="{4c0d35b4-2ae5-4e6a-9417-dd0a6345a93f}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
-                       StaticName="KTPBusinessUnitStream"
-                       Name="KTPBusinessUnitStream">
-                </Field>
+          <Field Type="Text" DisplayName="Business Risk" Required="FALSE" EnforceUniqueValues="FALSE"
+                 Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
+                 ID="{37c4b4af-ac7a-457b-a0ef-c24575171079}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
+                 StaticName="KTPBusinessRisk" Name="KTPBusinessRisk">
+          </Field>
+          <Field Type="Text" DisplayName="Flight Risk" Required="FALSE" EnforceUniqueValues="FALSE"
+                 Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
+                 ID="{424f2fb3-4b25-4a15-90ef-7d80ad72979f}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
+                 StaticName="KTPFlightRisk" Name="KTPFlightRisk">
+          </Field>
 
-                <Field Type="Text" DisplayName="Business Unit" Required="FALSE" EnforceUniqueValues="FALSE"
-                       Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
-                       ID="{af187e5b-342c-4c74-af4d-a73b9786a92b}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
-                       StaticName="KTPBusinessUnitUnit"
-                       Name="KTPBusinessUnitUnit">
-                </Field>
+          <Field Type="User" DisplayName="Employee" List="UserInfo" Required="TRUE" EnforceUniqueValues="FALSE"
+                 ShowField="ImnName" UserSelectionMode="PeopleOnly" UserSelectionScope="0"
+                 Group="Talents Review Application" ID="{64b773c5-28f6-4551-b47a-6ed330730e58}"
+                 SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}" StaticName="KTPEmployee" Name="KTPEmployee"/>
 
-                <Field Type="Text" DisplayName="Location" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE"
-                       MaxLength="255" Group="Talents Review Application"
-                       SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}" ID="{7c34a7fe-0b10-4756-ace5-38a04a0ba92f}"
-                       StaticName="KTPBusinessUnitLocation" Name="KTPBusinessUnitLocation">
-                </Field>
+          <Field Type="Text" DisplayName="Division" Required="FALSE" EnforceUniqueValues="FALSE"
+                 Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
+                 ID="{0196cfcc-e28c-4784-8d86-f53ccef5fea7}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
+                 StaticName="KTPDivision" Name="KTPDivision">
+          </Field>
 
-                <Field Type="Text" DisplayName="Gender" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE"
-                       MaxLength="255" Group="Talents Review Application"
-                       SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}" ID="{59C7438C-1A8F-4854-AFA2-421F4A5C132D}"
-                       StaticName="KTPGender" Name="KTPGender">
-                </Field>
-
-
-            </pnp:SiteFields>
-            <pnp:ContentTypes>
-
-                <pnp:ContentType ID="0x010063B005FD5E1FE34E8F3297A8F1F98C8F" Name="KTP Business Function" Description=""
-                                 Group="Talent Review Application" NewFormUrl="" EditFormUrl="" DisplayFormUrl="">
-                    <pnp:FieldRefs>
-                        <pnp:FieldRef ID="c042a256-787d-4a6f-8a8a-cf6ab767f12d" Name="ContentType"/>
-                        <pnp:FieldRef ID="fa564e0f-0c70-4ab9-b863-0177e6ddd247" Name="Title" Required="true"/>
-                    </pnp:FieldRefs>
-                </pnp:ContentType>
-
-                <pnp:ContentType ID="0x010063B005FD5E1FE34E8F5297A8F1F98C8F" Name="KTP Grades" Description=""
-                                 Group="Talent Review Application" NewFormUrl="" EditFormUrl="" DisplayFormUrl="">
-                    <pnp:FieldRefs>
-                        <pnp:FieldRef ID="c042a256-787d-4a6f-8a8a-cf6ab767f12d" Name="ContentType"/>
-                        <pnp:FieldRef ID="fa564e0f-0c70-4ab9-b863-0177e6ddd247" Name="Title" Required="true"/>
-
-                    </pnp:FieldRefs>
-                </pnp:ContentType>
+          <Field Type="Text" DisplayName="Performance Rating" Required="FALSE" EnforceUniqueValues="FALSE"
+                 Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
+                 ID="{cab67bd3-c1a8-4630-9f5c-183ae29425e1}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
+                 StaticName="KTPPerformanceRating" Name="KTPPerformanceRating">
+          </Field>
+          <Field Type="Note" DisplayName="Development Notes" Required="FALSE" EnforceUniqueValues="FALSE"
+                 Indexed="FALSE" NumLines="6" RichText="FALSE" AppendOnly="TRUE" Sortable="FALSE"
+                 Group="Talents Review Application" ID="{7c3819e2-82d6-455c-a47b-ba1e4646605f}"
+                 SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}" StaticName="KTPDevelopmentNotes"
+                 Name="KTPDevelopmentNotes">
+          </Field>
+          <Field Type="Text" DisplayName="Business Unit" Required="FALSE" EnforceUniqueValues="FALSE"
+                 Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
+                 ID="{6ee08dfe-08d1-4f7c-bec8-2cc869bf9cd9}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
+                 StaticName="KTPBusinessUnit" Name="KTPBusinessUnit">
+          </Field>
 
 
-                <pnp:ContentType ID="0x010063B005FD5E1FE34E8F3297A8F1F98C8E" Name="KTP Employee Record" Description=""
-                                 Group="Talent Review Application" NewFormUrl="" EditFormUrl="" DisplayFormUrl="">
-                    <pnp:FieldRefs>
-                        <pnp:FieldRef ID="c042a256-787d-4a6f-8a8a-cf6ab767f12d" Name="ContentType"/>
-                        <pnp:FieldRef ID="fa564e0f-0c70-4ab9-b863-0177e6ddd247" Name="Title" Required="true"/>
-                        <pnp:FieldRef ID="64b773c5-28f6-4551-b47a-6ed330730e58" Name="KTPEmployee" Required="true"/>
-                        <pnp:FieldRef ID="2301dda5-ec3e-4517-b43f-365602261dda" Name="KTPSuccessor"/>
-                        <pnp:FieldRef ID="a853a429-ee76-45ab-8139-c5145ac50d66" Name="KTPShowInReport"/>
-                    </pnp:FieldRefs>
-                </pnp:ContentType>
+          <Field Type="Text" DisplayName="Divison" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE"
+                 MaxLength="255" Group="Talents Review Application" ID="{d3691a4d-0bdd-48de-9148-5cf268fb27a0}"
+                 StaticName="KTPBusinessUnitDivision" Name="KTPBusinessUnitDivision"
+                 SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}">
+          </Field>
 
-                <pnp:ContentType ID="0x0100E687EE96A87F69478A69EEBC2F01EE8D" Name="KTP Talent Record"
-                                 Description="Represents a talent record entry that is related for a specific employee at certain year"
-                                 Group="Talent Review Application" NewFormUrl="" EditFormUrl="" DisplayFormUrl="">
-                    <pnp:FieldRefs>
-                        <pnp:FieldRef ID="c042a256-787d-4a6f-8a8a-cf6ab767f12d" Name="ContentType"/>
-                        <pnp:FieldRef ID="fa564e0f-0c70-4ab9-b863-0177e6ddd247" Name="Title" Required="true"/>
-                        <pnp:FieldRef ID="37c4b4af-ac7a-457b-a0ef-c24575171079" Name="KTPBusinessRisk"/>
-                        <pnp:FieldRef ID="7c3819e2-82d6-455c-a47b-ba1e4646605f" Name="KTPDevelopmentNotes"/>
-                        <pnp:FieldRef ID="39b20056-ff01-4847-9ffe-60d05e128033" Name="KTPEmployeeID" Required="true"/>
-                        <pnp:FieldRef ID="424f2fb3-4b25-4a15-90ef-7d80ad72979f" Name="KTPFlightRisk"/>
+          <Field Type="Text" DisplayName="Business Stream" Required="FALSE" EnforceUniqueValues="FALSE"
+                 Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
+                 ID="{4c0d35b4-2ae5-4e6a-9417-dd0a6345a93f}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
+                 StaticName="KTPBusinessUnitStream"
+                 Name="KTPBusinessUnitStream">
+          </Field>
 
-                        <pnp:FieldRef ID="a803dc96-aea9-4fe4-8032-49cc60b4b926" Name="KTPMovementStatus"/>
-                        <pnp:FieldRef ID="cab67bd3-c1a8-4630-9f5c-183ae29425e1" Name="KTPPerformanceRating"/>
-                        <pnp:FieldRef ID="4bc6fd23-4e1f-4258-8b8b-e9526198cd4a" Name="KTPPotentialRating"/>
+          <Field Type="Text" DisplayName="Business Unit" Required="FALSE" EnforceUniqueValues="FALSE"
+                 Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
+                 ID="{af187e5b-342c-4c74-af4d-a73b9786a92b}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
+                 StaticName="KTPBusinessUnitUnit"
+                 Name="KTPBusinessUnitUnit">
+          </Field>
 
-                        <pnp:FieldRef ID="74aa5e66-b614-4650-9055-a75ab41333dd" Name="KTPSubmissionYear"
-                                      Required="true"/>
-                        <pnp:FieldRef ID="2301dda5-ec3e-4517-b43f-365602261dda" Name="KTPSuccessor"/>
-                        <pnp:FieldRef ID="f9412368-18c0-4956-9a0e-2f58ddbc2894" Name="KTPCurrentSubmission"/>
-                        <pnp:FieldRef ID="d8a9df90-237c-416b-beab-c6122b8a1180" Name="KTPAreaHead"/>
-                        <pnp:FieldRef ID="64ce874a-f2cd-49e8-97bf-91d94b74b66f" Name="KTPBusinessStream"/>
-                        <pnp:FieldRef ID="6ee08dfe-08d1-4f7c-bec8-2cc869bf9cd9" Name="KTPBusinessUnit"/>
-                        <pnp:FieldRef ID="0196cfcc-e28c-4784-8d86-f53ccef5fea7" Name="KTPDivision"/>
-                        <pnp:FieldRef ID="124e565d-baa6-46b3-90df-a4baf9fbf995" Name="KTPFunction"/>
-                        <pnp:FieldRef ID="59C7438C-1A8F-4854-AFA2-421F4A5C132D" Name="KTPGender"/>
+          <Field Type="Text" DisplayName="Location" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE"
+                 MaxLength="255" Group="Talents Review Application"
+                 SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}" ID="{7c34a7fe-0b10-4756-ace5-38a04a0ba92f}"
+                 StaticName="KTPBusinessUnitLocation" Name="KTPBusinessUnitLocation">
+          </Field>
+
+          <Field Type="Text" DisplayName="Gender" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE"
+                 MaxLength="255" Group="Talents Review Application"
+                 SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}" ID="{59C7438C-1A8F-4854-AFA2-421F4A5C132D}"
+                 StaticName="KTPGender" Name="KTPGender">
+          </Field>
 
 
-                      <pnp:FieldRef ID="d8a9df90-237c-416b-beab-c6122b8a1181" Name="KTPEmployee_Forename"/>
-                        <pnp:FieldRef ID="d8a9df90-237c-416b-beab-c6122b8a1171" Name="KTPManager_Text"/>
-                        <pnp:FieldRef ID="d8a9df90-237c-416b-beab-c6122b8b1181" Name="KTPEmployee_Surname"/>
+        </pnp:SiteFields>
+        <pnp:ContentTypes>
 
-                        <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-b1933107e00f" Name="KTPLocation"/>
-                        <pnp:FieldRef ID="3a841c79-f987-4191-b64a-84be5bf3fd40" Name="KTPManager" Required="true"/>
-                        <pnp:FieldRef ID="62842560-b950-4bc1-8bc2-bd9337526aed" Name="KTPPosition" Required="true"/>
-                        <pnp:FieldRef ID="15f95d03-f769-4fa3-99ac-9a96d3bddaad" Name="KTPGrade" Required="true"/>
-                        <pnp:FieldRef ID="64b773c5-28f6-4551-b47a-6ed330730e58" Name="KTPEmployee" Required="true"/>
-                        <pnp:FieldRef ID="a853a429-ee76-45ab-8139-c5145ac50d66" Name="KTPShowInReport"/>
+          <pnp:ContentType ID="0x010063B005FD5E1FE34E8F3297A8F1F98C8F" Name="KTP Business Function" Description=""
+                           Group="Talent Review Application" NewFormUrl="" EditFormUrl="" DisplayFormUrl="">
+            <pnp:FieldRefs>
+              <pnp:FieldRef ID="c042a256-787d-4a6f-8a8a-cf6ab767f12d" Name="ContentType"/>
+              <pnp:FieldRef ID="fa564e0f-0c70-4ab9-b863-0177e6ddd247" Name="Title" Required="true"/>
+            </pnp:FieldRefs>
+          </pnp:ContentType>
 
-                        <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-b1933107e10a"
-                                      Name="KTPFirstDevelopmentReqCategory"/>
-                        <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-b1933107e11b"
-                                      Name="KTPFirstDevelopmentReqSubCategory"/>
-                        <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-b1933108e10a"
-                                      Name="KTPFirstDevelopmentReqTitle"/>
+          <pnp:ContentType ID="0x010063B005FD5E1FE34E8F5297A8F1F98C8F" Name="KTP Grades" Description=""
+                           Group="Talent Review Application" NewFormUrl="" EditFormUrl="" DisplayFormUrl="">
+            <pnp:FieldRefs>
+              <pnp:FieldRef ID="c042a256-787d-4a6f-8a8a-cf6ab767f12d" Name="ContentType"/>
+              <pnp:FieldRef ID="fa564e0f-0c70-4ab9-b863-0177e6ddd247" Name="Title" Required="true"/>
 
-                        <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-a1933107e10a"
-                                      Name="KTPSecondDevelopmentReqCategory"/>
-                        <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-b1033107e11b"
-                                      Name="KTPSecondDevelopmentReqSubCategory"/>
-                        <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-b1943108e10a"
-                                      Name="KTPSecondDevelopmentReqTitle"/>
-                    </pnp:FieldRefs>
-                </pnp:ContentType>
-
-                <pnp:ContentType ID="0x01004E07C82FBE469C45939B8554546F2A10" Name="KTP Business Unit"
-                                 Description="Create a new list item." Group="Talent Review Application" NewFormUrl=""
-                                 EditFormUrl=""
-                                 DisplayFormUrl="">
-                    <pnp:FieldRefs>
-                        <pnp:FieldRef ID="c042a256-787d-4a6f-8a8a-cf6ab767f12d" Name="ContentType"/>
-                        <pnp:FieldRef ID="fa564e0f-0c70-4ab9-b863-0177e6ddd247" Name="Title" Hidden="true"/>
-                        <pnp:FieldRef ID="d3691a4d-0bdd-48de-9148-5cf268fb27a0" Name="KTPBusinessUnitDivision"
-                                      Required="true"/>
-                        <pnp:FieldRef ID="4c0d35b4-2ae5-4e6a-9417-dd0a6345a93f" Name="KTPBusinessUnitStream"
-                                      Required="true"/>
-                        <pnp:FieldRef ID="af187e5b-342c-4c74-af4d-a73b9786a92b" Name="KTPBusinessUnitUnit"
-                                      Required="true"/>
-                        <pnp:FieldRef ID="7c34a7fe-0b10-4756-ace5-38a04a0ba92f" Name="KTPBusinessUnitLocation"/>
-                    </pnp:FieldRefs>
-                </pnp:ContentType>
-            </pnp:ContentTypes>
-            <pnp:Lists>
+            </pnp:FieldRefs>
+          </pnp:ContentType>
 
 
-                <pnp:ListInstance Title="Grades" Description="" DocumentTemplate="" OnQuickLaunch="true"
-                                  TemplateType="100" Url="Lists/GradesData" MinorVersionLimit="0"
-                                  MaxVersionLimit="0" DraftVersionVisibility="0"
-                                  TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" ContentTypesEnabled="true"
-                                  EnableFolderCreation="false"
-                                  DefaultDisplayFormUrl="{site}/Lists/GradesData/DispForm.aspx"
-                                  DefaultEditFormUrl="{site}/Lists/GradesData/EditForm.aspx"
-                                  DefaultNewFormUrl="{site}/Lists/GradesData/NewForm.aspx"
-                                  ImageUrl="{site}/_layouts/15/images/itgen.png?rev=44" IsApplicationList="false"
-                                  ValidationFormula="" ValidationMessage="">
-                    <pnp:ContentTypeBindings>
-                        <pnp:ContentTypeBinding ContentTypeID="0x010063B005FD5E1FE34E8F5297A8F1F98C8F" Default="true"/>
-                    </pnp:ContentTypeBindings>
-                    <pnp:DataRows>
-                        <pnp:DataRow>
-                            <pnp:DataValue FieldName="Title">L2</pnp:DataValue>
-                        </pnp:DataRow>
-                        <pnp:DataRow>
-                            <pnp:DataValue FieldName="Title">L1</pnp:DataValue>
-                        </pnp:DataRow>
-                        <pnp:DataRow>
-                            <pnp:DataValue FieldName="Title">M3</pnp:DataValue>
-                        </pnp:DataRow>
-                        <pnp:DataRow>
-                            <pnp:DataValue FieldName="Title">M2</pnp:DataValue>
-                        </pnp:DataRow>
-                        <pnp:DataRow>
-                            <pnp:DataValue FieldName="Title">M1</pnp:DataValue>
-                        </pnp:DataRow>
-                        <pnp:DataRow>
-                            <pnp:DataValue FieldName="Title">C4</pnp:DataValue>
-                        </pnp:DataRow>
-                        <pnp:DataRow>
-                            <pnp:DataValue FieldName="Title">C3</pnp:DataValue>
-                        </pnp:DataRow>
-                        <pnp:DataRow>
-                            <pnp:DataValue FieldName="Title">C2</pnp:DataValue>
-                        </pnp:DataRow>
-                        <pnp:DataRow>
-                            <pnp:DataValue FieldName="Title">C1</pnp:DataValue>
-                        </pnp:DataRow>
-                    </pnp:DataRows>
+          <pnp:ContentType ID="0x010063B005FD5E1FE34E8F3297A8F1F98C8E" Name="KTP Employee Record" Description=""
+                           Group="Talent Review Application" NewFormUrl="" EditFormUrl="" DisplayFormUrl="">
+            <pnp:FieldRefs>
+              <pnp:FieldRef ID="c042a256-787d-4a6f-8a8a-cf6ab767f12d" Name="ContentType"/>
+              <pnp:FieldRef ID="fa564e0f-0c70-4ab9-b863-0177e6ddd247" Name="Title" Required="true"/>
+              <pnp:FieldRef ID="64b773c5-28f6-4551-b47a-6ed330730e58" Name="KTPEmployee" Required="true"/>
+              <pnp:FieldRef ID="2301dda5-ec3e-4517-b43f-365602261dda" Name="KTPSuccessor"/>
+              <pnp:FieldRef ID="a853a429-ee76-45ab-8139-c5145ac50d66" Name="KTPShowInReport"/>
+            </pnp:FieldRefs>
+          </pnp:ContentType>
 
-                </pnp:ListInstance>
+          <pnp:ContentType ID="0x0100E687EE96A87F69478A69EEBC2F01EE8D" Name="KTP Talent Record"
+                           Description="Represents a talent record entry that is related for a specific employee at certain year"
+                           Group="Talent Review Application" NewFormUrl="" EditFormUrl="" DisplayFormUrl="">
+            <pnp:FieldRefs>
+              <pnp:FieldRef ID="c042a256-787d-4a6f-8a8a-cf6ab767f12d" Name="ContentType"/>
+              <pnp:FieldRef ID="fa564e0f-0c70-4ab9-b863-0177e6ddd247" Name="Title" Required="true"/>
+              <pnp:FieldRef ID="37c4b4af-ac7a-457b-a0ef-c24575171079" Name="KTPBusinessRisk"/>
+              <pnp:FieldRef ID="7c3819e2-82d6-455c-a47b-ba1e4646605f" Name="KTPDevelopmentNotes"/>
+              <pnp:FieldRef ID="39b20056-ff01-4847-9ffe-60d05e128033" Name="KTPEmployeeID" Required="true"/>
+              <pnp:FieldRef ID="424f2fb3-4b25-4a15-90ef-7d80ad72979f" Name="KTPFlightRisk"/>
+
+              <pnp:FieldRef ID="a803dc96-aea9-4fe4-8032-49cc60b4b926" Name="KTPMovementStatus"/>
+              <pnp:FieldRef ID="cab67bd3-c1a8-4630-9f5c-183ae29425e1" Name="KTPPerformanceRating"/>
+              <pnp:FieldRef ID="4bc6fd23-4e1f-4258-8b8b-e9526198cd4a" Name="KTPPotentialRating"/>
+
+              <pnp:FieldRef ID="74aa5e66-b614-4650-9055-a75ab41333dd" Name="KTPSubmissionYear"
+                            Required="true"/>
+              <pnp:FieldRef ID="2301dda5-ec3e-4517-b43f-365602261dda" Name="KTPSuccessor"/>
+              <pnp:FieldRef ID="f9412368-18c0-4956-9a0e-2f58ddbc2894" Name="KTPCurrentSubmission"/>
+              <pnp:FieldRef ID="d8a9df90-237c-416b-beab-c6122b8a1180" Name="KTPAreaHead"/>
+              <pnp:FieldRef ID="64ce874a-f2cd-49e8-97bf-91d94b74b66f" Name="KTPBusinessStream"/>
+              <pnp:FieldRef ID="6ee08dfe-08d1-4f7c-bec8-2cc869bf9cd9" Name="KTPBusinessUnit"/>
+              <pnp:FieldRef ID="0196cfcc-e28c-4784-8d86-f53ccef5fea7" Name="KTPDivision"/>
+              <pnp:FieldRef ID="124e565d-baa6-46b3-90df-a4baf9fbf995" Name="KTPFunction"/>
+              <pnp:FieldRef ID="59C7438C-1A8F-4854-AFA2-421F4A5C132D" Name="KTPGender"/>
 
 
-                <pnp:ListInstance Title="Business Functions" Description="" DocumentTemplate="" OnQuickLaunch="true"
-                                  TemplateType="100" Url="Lists/FunctionsData" MinorVersionLimit="0"
-                                  MaxVersionLimit="0" DraftVersionVisibility="0"
-                                  TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" ContentTypesEnabled="true"
-                                  EnableFolderCreation="false"
-                                  DefaultDisplayFormUrl="{site}/Lists/FunctionsData/DispForm.aspx"
-                                  DefaultEditFormUrl="{site}/Lists/FunctionsData/EditForm.aspx"
-                                  DefaultNewFormUrl="{site}/Lists/FunctionsData/NewForm.aspx"
-                                  ImageUrl="{site}/_layouts/15/images/itgen.png?rev=44" IsApplicationList="false"
-                                  ValidationFormula="" ValidationMessage="">
-                    <pnp:ContentTypeBindings>
-                        <pnp:ContentTypeBinding ContentTypeID="0x010063B005FD5E1FE34E8F3297A8F1F98C8F" Default="true"/>
-                    </pnp:ContentTypeBindings>
+              <pnp:FieldRef ID="d8a9df90-237c-416b-beab-c6122b8a1181" Name="KTPEmployee_Forename"/>
+              <pnp:FieldRef ID="d8a9df90-237c-416b-beab-c6122b8a1171" Name="KTPManager_Text"/>
+              <pnp:FieldRef ID="d8a9df90-237c-416b-beab-c6122b8b1181" Name="KTPEmployee_Surname"/>
 
-                    <pnp:DataRows>
-                        <pnp:DataRow>
-                            <pnp:DataValue FieldName="Title">Finance</pnp:DataValue>
-                        </pnp:DataRow>
-                        <pnp:DataRow>
-                            <pnp:DataValue FieldName="Title">Procurement</pnp:DataValue>
-                        </pnp:DataRow>
-                        <pnp:DataRow>
-                            <pnp:DataValue FieldName="Title">Legal &amp; Compliance</pnp:DataValue>
-                        </pnp:DataRow>
-                        <pnp:DataRow>
-                            <pnp:DataValue FieldName="Title">IT</pnp:DataValue>
-                        </pnp:DataRow>
-                        <pnp:DataRow>
-                            <pnp:DataValue FieldName="Title">MarComms</pnp:DataValue>
-                        </pnp:DataRow>
-                    </pnp:DataRows>
+              <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-b1933107e00f" Name="KTPLocation"/>
+              <pnp:FieldRef ID="3a841c79-f987-4191-b64a-84be5bf3fd40" Name="KTPManager" Required="true"/>
+              <pnp:FieldRef ID="62842560-b950-4bc1-8bc2-bd9337526aed" Name="KTPPosition" Required="true"/>
+              <pnp:FieldRef ID="15f95d03-f769-4fa3-99ac-9a96d3bddaad" Name="KTPGrade" Required="true"/>
+              <pnp:FieldRef ID="64b773c5-28f6-4551-b47a-6ed330730e58" Name="KTPEmployee" Required="true"/>
+              <pnp:FieldRef ID="a853a429-ee76-45ab-8139-c5145ac50d66" Name="KTPShowInReport"/>
 
-                </pnp:ListInstance>
+              <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-b1933107e10a"
+                            Name="KTPFirstDevelopmentReqCategory"/>
+              <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-b1933107e11b"
+                            Name="KTPFirstDevelopmentReqSubCategory"/>
+              <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-b1933108e10a"
+                            Name="KTPFirstDevelopmentReqTitle"/>
 
-                <pnp:ListInstance Title="Talent Review Records" Description="" DocumentTemplate="" OnQuickLaunch="true"
-                                  TemplateType="100" Url="Lists/TalentData" MinorVersionLimit="0"
-                                  MaxVersionLimit="0" DraftVersionVisibility="0"
-                                  TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" ContentTypesEnabled="true"
-                                  EnableFolderCreation="false"
-                                  DefaultDisplayFormUrl="{site}/Lists/TalentData/DispForm.aspx"
-                                  DefaultEditFormUrl="{site}/Lists/TalentData/EditForm.aspx"
-                                  DefaultNewFormUrl="{site}/Lists/TalentData/NewForm.aspx"
-                                  ImageUrl="{site}/_layouts/15/images/itgen.png?rev=44" IsApplicationList="false"
-                                  ValidationFormula="" ValidationMessage="">
-                    <pnp:ContentTypeBindings>
-                        <pnp:ContentTypeBinding ContentTypeID="0x0100E687EE96A87F69478A69EEBC2F01EE8D" Default="true"/>
-                        <pnp:ContentTypeBinding ContentTypeID="0x0120"/>
-                    </pnp:ContentTypeBindings>
-                    <pnp:FieldRefs>
-                        <pnp:FieldRef ID="64ce874a-f2cd-49e8-97bf-91d94b74b66f" Name="KTPBusinessStream"
-                                      DisplayName="Business Stream"/>
-                        <pnp:FieldRef ID="6ee08dfe-08d1-4f7c-bec8-2cc869bf9cd9" Name="KTPBusinessUnit"
-                                      DisplayName="Business Unit"/>
-                        <pnp:FieldRef ID="0196cfcc-e28c-4784-8d86-f53ccef5fea7" Name="KTPDivision"
-                                      DisplayName="Division"/>
-                        <pnp:FieldRef ID="124e565d-baa6-46b3-90df-a4baf9fbf995" Name="KTPFunction"
-                                      DisplayName="Function"/>
-                        <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-b1933107e00f" Name="KTPLocation"
-                                      DisplayName="Location"/>
-                        <pnp:FieldRef ID="3a841c79-f987-4191-b64a-84be5bf3fd40" Name="KTPManager"
-                                      DisplayName="Manager"/>
-                        <pnp:FieldRef ID="62842560-b950-4bc1-8bc2-bd9337526aed" Name="KTPPosition"
-                                      DisplayName="Position"/>
-                        <pnp:FieldRef ID="d8a9df90-237c-416b-beab-c6122b8a1180" Name="KTPAreaHead"
-                                      DisplayName="Area Head"/>
-                        <pnp:FieldRef ID="15f95d03-f769-4fa3-99ac-9a96d3bddaad" Name="KTPGrade" DisplayName="Grade"/>
-                        <pnp:FieldRef ID="39b20056-ff01-4847-9ffe-60d05e128033" Name="KTPEmployeeID" Required="true"
-                                      DisplayName="Employee ID"/>
-                        <pnp:FieldRef ID="64b773c5-28f6-4551-b47a-6ed330730e58" Name="KTPEmployee" Required="true"
-                                      DisplayName="Employee"/>
-                        <pnp:FieldRef ID="2301dda5-ec3e-4517-b43f-365602261dda" Name="KTPSuccessor"
-                                      DisplayName="Successor"/>
+              <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-a1933107e10a"
+                            Name="KTPSecondDevelopmentReqCategory"/>
+              <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-b1033107e11b"
+                            Name="KTPSecondDevelopmentReqSubCategory"/>
+              <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-b1943108e10a"
+                            Name="KTPSecondDevelopmentReqTitle"/>
+            </pnp:FieldRefs>
+          </pnp:ContentType>
 
-                        <pnp:FieldRef ID="37c4b4af-ac7a-457b-a0ef-c24575171079" Name="KTPBusinessRisk"
-                                      DisplayName="Business Risk"/>
-                        <pnp:FieldRef ID="424f2fb3-4b25-4a15-90ef-7d80ad72979f" Name="KTPFlightRisk"
-                                      DisplayName="Flight Risk"/>
-
-                        <pnp:FieldRef ID="2301dda5-ec3e-4522-b43f-365602261dda" Name="KTPReviewedBy"
-                                      DisplayName="Reviewed By"/>
-                        <pnp:FieldRef ID="2301dda5-ec3e-4522-b43f-365602261ddc" Name="KTPReviewedAt"
-                                      DisplayName="Reviewed At"/>
+          <pnp:ContentType ID="0x01004E07C82FBE469C45939B8554546F2A10" Name="KTP Business Unit"
+                           Description="Create a new list item." Group="Talent Review Application" NewFormUrl=""
+                           EditFormUrl=""
+                           DisplayFormUrl="">
+            <pnp:FieldRefs>
+              <pnp:FieldRef ID="c042a256-787d-4a6f-8a8a-cf6ab767f12d" Name="ContentType"/>
+              <pnp:FieldRef ID="fa564e0f-0c70-4ab9-b863-0177e6ddd247" Name="Title" Hidden="true"/>
+              <pnp:FieldRef ID="d3691a4d-0bdd-48de-9148-5cf268fb27a0" Name="KTPBusinessUnitDivision"
+                            Required="true"/>
+              <pnp:FieldRef ID="4c0d35b4-2ae5-4e6a-9417-dd0a6345a93f" Name="KTPBusinessUnitStream"
+                            Required="true"/>
+              <pnp:FieldRef ID="af187e5b-342c-4c74-af4d-a73b9786a92b" Name="KTPBusinessUnitUnit"
+                            Required="true"/>
+              <pnp:FieldRef ID="7c34a7fe-0b10-4756-ace5-38a04a0ba92f" Name="KTPBusinessUnitLocation"/>
+            </pnp:FieldRefs>
+          </pnp:ContentType>
+        </pnp:ContentTypes>
+        <pnp:Lists>
 
 
-                        <pnp:FieldRef ID="cab67bd3-c1a8-4630-9f5c-183ae29425e1" Name="KTPPerformanceRating"
-                                      DisplayName="Performance Rating"/>
-                        <pnp:FieldRef ID="4bc6fd23-4e1f-4258-8b8b-e9526198cd4a" Name="KTPPotentialRating"
-                                      DisplayName="Potential Rating"/>
-                        <pnp:FieldRef ID="a803dc96-aea9-4fe4-8032-49cc60b4b926" Name="KTPMovementStatus"
-                                      DisplayName="Movement Status"/>
+          <pnp:ListInstance Title="Grades" Description="" DocumentTemplate="" OnQuickLaunch="true"
+                            TemplateType="100" Url="Lists/GradesData" MinorVersionLimit="0"
+                            MaxVersionLimit="0" DraftVersionVisibility="0"
+                            TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" ContentTypesEnabled="true"
+                            EnableFolderCreation="false"
+                            DefaultDisplayFormUrl="{site}/Lists/GradesData/DispForm.aspx"
+                            DefaultEditFormUrl="{site}/Lists/GradesData/EditForm.aspx"
+                            DefaultNewFormUrl="{site}/Lists/GradesData/NewForm.aspx"
+                            ImageUrl="{site}/_layouts/15/images/itgen.png?rev=44" IsApplicationList="false"
+                            ValidationFormula="" ValidationMessage="">
+            <pnp:ContentTypeBindings>
+              <pnp:ContentTypeBinding ContentTypeID="0x010063B005FD5E1FE34E8F5297A8F1F98C8F" Default="true"/>
+            </pnp:ContentTypeBindings>
+            <pnp:DataRows>
+              <pnp:DataRow>
+                <pnp:DataValue FieldName="Title">L2</pnp:DataValue>
+              </pnp:DataRow>
+              <pnp:DataRow>
+                <pnp:DataValue FieldName="Title">L1</pnp:DataValue>
+              </pnp:DataRow>
+              <pnp:DataRow>
+                <pnp:DataValue FieldName="Title">M3</pnp:DataValue>
+              </pnp:DataRow>
+              <pnp:DataRow>
+                <pnp:DataValue FieldName="Title">M2</pnp:DataValue>
+              </pnp:DataRow>
+              <pnp:DataRow>
+                <pnp:DataValue FieldName="Title">M1</pnp:DataValue>
+              </pnp:DataRow>
+              <pnp:DataRow>
+                <pnp:DataValue FieldName="Title">C4</pnp:DataValue>
+              </pnp:DataRow>
+              <pnp:DataRow>
+                <pnp:DataValue FieldName="Title">C3</pnp:DataValue>
+              </pnp:DataRow>
+              <pnp:DataRow>
+                <pnp:DataValue FieldName="Title">C2</pnp:DataValue>
+              </pnp:DataRow>
+              <pnp:DataRow>
+                <pnp:DataValue FieldName="Title">C1</pnp:DataValue>
+              </pnp:DataRow>
+            </pnp:DataRows>
+
+          </pnp:ListInstance>
 
 
-                      
-                        <pnp:FieldRef ID="7c3819e2-82d6-455c-a47b-ba1e4646605f" Name="KTPDevelopmentNotes"
-                                      DisplayName="Development Notes"/>
+          <pnp:ListInstance Title="Business Functions" Description="" DocumentTemplate="" OnQuickLaunch="true"
+                            TemplateType="100" Url="Lists/FunctionsData" MinorVersionLimit="0"
+                            MaxVersionLimit="0" DraftVersionVisibility="0"
+                            TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" ContentTypesEnabled="true"
+                            EnableFolderCreation="false"
+                            DefaultDisplayFormUrl="{site}/Lists/FunctionsData/DispForm.aspx"
+                            DefaultEditFormUrl="{site}/Lists/FunctionsData/EditForm.aspx"
+                            DefaultNewFormUrl="{site}/Lists/FunctionsData/NewForm.aspx"
+                            ImageUrl="{site}/_layouts/15/images/itgen.png?rev=44" IsApplicationList="false"
+                            ValidationFormula="" ValidationMessage="">
+            <pnp:ContentTypeBindings>
+              <pnp:ContentTypeBinding ContentTypeID="0x010063B005FD5E1FE34E8F3297A8F1F98C8F" Default="true"/>
+            </pnp:ContentTypeBindings>
 
-                        <pnp:FieldRef ID="74aa5e66-b614-4650-9055-a75ab41333dd" Name="KTPSubmissionYear"
-                                      DisplayName="Submission Year"/>
-                        <pnp:FieldRef ID="f9412368-18c0-4956-9a0e-2f58ddbc2894" Name="KTPCurrentSubmission"
-                                      DisplayName="Current Submission"/>
-                        <pnp:FieldRef ID="a853a429-ee76-45ab-8139-c5145ac50d66" Name="KTPShowInReport"
-                                      DisplayName="Show In Report?"/>
+            <pnp:DataRows>
+              <pnp:DataRow>
+                <pnp:DataValue FieldName="Title">Finance</pnp:DataValue>
+              </pnp:DataRow>
+              <pnp:DataRow>
+                <pnp:DataValue FieldName="Title">Procurement</pnp:DataValue>
+              </pnp:DataRow>
+              <pnp:DataRow>
+                <pnp:DataValue FieldName="Title">Legal &amp; Compliance</pnp:DataValue>
+              </pnp:DataRow>
+              <pnp:DataRow>
+                <pnp:DataValue FieldName="Title">IT</pnp:DataValue>
+              </pnp:DataRow>
+              <pnp:DataRow>
+                <pnp:DataValue FieldName="Title">MarComms</pnp:DataValue>
+              </pnp:DataRow>
+            </pnp:DataRows>
+
+          </pnp:ListInstance>
+
+          <pnp:ListInstance Title="Talent Records" Description="" DocumentTemplate="" OnQuickLaunch="true"
+                            TemplateType="100" Url="Lists/Talents" MinorVersionLimit="0"
+                            MaxVersionLimit="0" DraftVersionVisibility="0"
+                            TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" ContentTypesEnabled="true"
+                            EnableFolderCreation="false"
+                            DefaultDisplayFormUrl="{site}/Lists/Talents/DispForm.aspx"
+                            DefaultEditFormUrl="{site}/Lists/Talents/EditForm.aspx"
+                            DefaultNewFormUrl="{site}/Lists/Talents/NewForm.aspx"
+                            ImageUrl="{site}/_layouts/15/images/itgen.png?rev=44" IsApplicationList="false"
+                            ValidationFormula="" ValidationMessage="">
+            <pnp:ContentTypeBindings>
+              <pnp:ContentTypeBinding ContentTypeID="0x0100E687EE96A87F69478A69EEBC2F01EE8D" Default="true"/>
+            </pnp:ContentTypeBindings>
+            <pnp:FieldRefs>
+              <pnp:FieldRef ID="64ce874a-f2cd-49e8-97bf-91d94b74b66f" Name="KTPBusinessStream"
+                            DisplayName="Business Stream"/>
+              <pnp:FieldRef ID="6ee08dfe-08d1-4f7c-bec8-2cc869bf9cd9" Name="KTPBusinessUnit"
+                            DisplayName="Business Unit"/>
+              <pnp:FieldRef ID="0196cfcc-e28c-4784-8d86-f53ccef5fea7" Name="KTPDivision"
+                            DisplayName="Division"/>
+              <pnp:FieldRef ID="124e565d-baa6-46b3-90df-a4baf9fbf995" Name="KTPFunction"
+                            DisplayName="Function"/>
+              <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-b1933107e00f" Name="KTPLocation"
+                            DisplayName="Location"/>
+              <pnp:FieldRef ID="3a841c79-f987-4191-b64a-84be5bf3fd40" Name="KTPManager"
+                            DisplayName="Manager"/>
+              <pnp:FieldRef ID="62842560-b950-4bc1-8bc2-bd9337526aed" Name="KTPPosition"
+                            DisplayName="Position"/>
+              <pnp:FieldRef ID="d8a9df90-237c-416b-beab-c6122b8a1180" Name="KTPAreaHead"
+                            DisplayName="Area Head"/>
+              <pnp:FieldRef ID="15f95d03-f769-4fa3-99ac-9a96d3bddaad" Name="KTPGrade" DisplayName="Grade"/>
+              <pnp:FieldRef ID="39b20056-ff01-4847-9ffe-60d05e128033" Name="KTPEmployeeID" Required="true"
+                            DisplayName="Employee ID"/>
+              <pnp:FieldRef ID="64b773c5-28f6-4551-b47a-6ed330730e58" Name="KTPEmployee" Required="true"
+                            DisplayName="Employee"/>
+              <pnp:FieldRef ID="2301dda5-ec3e-4517-b43f-365602261dda" Name="KTPSuccessor"
+                            DisplayName="Successor"/>
+
+              <pnp:FieldRef ID="37c4b4af-ac7a-457b-a0ef-c24575171079" Name="KTPBusinessRisk"
+                            DisplayName="Business Risk"/>
+              <pnp:FieldRef ID="424f2fb3-4b25-4a15-90ef-7d80ad72979f" Name="KTPFlightRisk"
+                            DisplayName="Flight Risk"/>
+
+              <pnp:FieldRef ID="2301dda5-ec3e-4522-b43f-365602261dda" Name="KTPReviewedBy"
+                            DisplayName="Reviewed By"/>
+              <pnp:FieldRef ID="2301dda5-ec3e-4522-b43f-365602261ddc" Name="KTPReviewedAt"
+                            DisplayName="Reviewed At"/>
 
 
-                        <pnp:FieldRef ID="d8a9df90-237c-416b-beab-c6122b8a1181" Name="KTPEmployee_Forename"
-                                      DisplayName="First Name"/>
-                        <pnp:FieldRef ID="d8a9df90-237c-416b-beab-c6122b8b1181" Name="KTPEmployee_Surname"
-                                      DisplayName="Surename"/>
-                        <pnp:FieldRef ID="d8a9df90-237c-416b-beab-c6122b8a1171" Name="KTPManager_Text"
-                                      DisplayName="Manager"/>
-
-                        <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-b1933107e10a"
-                                      Name="KTPFirstDevelopmentReqCategory"
-                                      DisplayName="First Development Requirement Category"/>
-                        <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-b1933107e11b"
-                                      Name="KTPFirstDevelopmentReqSubCategory"
-                                      DisplayName="First Development Requirement Subcategory"/>
-                        <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-b1933108e10a"
-                                      Name="KTPFirstDevelopmentReqTitle"
-                                      DisplayName="First Development Requirement Title"/>
-
-                        <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-a1933107e10a"
-                                      Name="KTPSecondDevelopmentReqCategory"
-                                      DisplayName="Second Development Requirement Category"/>
-                        <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-b1033107e11b"
-                                      Name="KTPSecondDevelopmentReqSubCategory"
-                                      DisplayName="Second Development Requirement Subcategory"/>
-                        <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-b1943108e10a"
-                                      Name="KTPSecondDevelopmentReqTitle"
-                                      DisplayName="Second Development Requirement Title"/>
-
-                        <pnp:FieldRef ID="59C7438C-1A8F-4854-AFA2-421F4A5C132D" Name="KTPGender"
-                                      DisplayName="Gender"/>
-
-                    </pnp:FieldRefs>
-                </pnp:ListInstance>
+              <pnp:FieldRef ID="cab67bd3-c1a8-4630-9f5c-183ae29425e1" Name="KTPPerformanceRating"
+                            DisplayName="Performance Rating"/>
+              <pnp:FieldRef ID="4bc6fd23-4e1f-4258-8b8b-e9526198cd4a" Name="KTPPotentialRating"
+                            DisplayName="Potential Rating"/>
+              <pnp:FieldRef ID="a803dc96-aea9-4fe4-8032-49cc60b4b926" Name="KTPMovementStatus"
+                            DisplayName="Movement Status"/>
 
 
-                <pnp:ListInstance Title="Business Units" Description="" DocumentTemplate="" OnQuickLaunch="true"
-                                  TemplateType="100" Url="Lists/KTPBusinessUnits" MinorVersionLimit="0"
-                                  MaxVersionLimit="0" DraftVersionVisibility="0"
-                                  TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" ContentTypesEnabled="true"
-                                  EnableFolderCreation="false"
-                                  DefaultDisplayFormUrl="{site}/Lists/KTPBusinessUnits/DispForm.aspx"
-                                  DefaultEditFormUrl="{site}/Lists/KTPBusinessUnits/EditForm.aspx"
-                                  DefaultNewFormUrl="{site}/Lists/KTPBusinessUnits/NewForm.aspx"
-                                  ImageUrl="{site}/_layouts/15/images/itgen.png?rev=44" IsApplicationList="false"
-                                  ValidationFormula="" ValidationMessage="">
-                    <pnp:ContentTypeBindings>
-                        <pnp:ContentTypeBinding ContentTypeID="0x01004E07C82FBE469C45939B8554546F2A10" Default="true"/>
-                        <pnp:ContentTypeBinding ContentTypeID="0x0120"/>
-                    </pnp:ContentTypeBindings>
 
-                    <pnp:FieldRefs>
-                        <pnp:FieldRef ID="d3691a4d-0bdd-48de-9148-5cf268fb27a0" Name="KTPBusinessUnitDivision"
-                                      DisplayName="Division"/>
-                        <pnp:FieldRef ID="4c0d35b4-2ae5-4e6a-9417-dd0a6345a93f" Name="KTPBusinessUnitStream"
-                                      DisplayName="Business Stream"/>
-                        <pnp:FieldRef ID="af187e5b-342c-4c74-af4d-a73b9786a92b" Name="KTPBusinessUnitUnit"
-                                      DisplayName="Business Unit"/>
-                        <pnp:FieldRef ID="7c34a7fe-0b10-4756-ace5-38a04a0ba92f" Name="KTPBusinessUnitLocation"
-                                      DisplayName="Location / Contract"/>
-                    </pnp:FieldRefs>
-                    <pnp:DataRows UpdateBehavior="Overwrite">
+              <pnp:FieldRef ID="7c3819e2-82d6-455c-a47b-ba1e4646605f" Name="KTPDevelopmentNotes"
+                            DisplayName="Development Notes"/>
+
+              <pnp:FieldRef ID="74aa5e66-b614-4650-9055-a75ab41333dd" Name="KTPSubmissionYear"
+                            DisplayName="Submission Year"/>
+              <pnp:FieldRef ID="f9412368-18c0-4956-9a0e-2f58ddbc2894" Name="KTPCurrentSubmission"
+                            DisplayName="Current Submission"/>
+              <pnp:FieldRef ID="a853a429-ee76-45ab-8139-c5145ac50d66" Name="KTPShowInReport"
+                            DisplayName="Show In Report?"/>
+
+
+              <pnp:FieldRef ID="d8a9df90-237c-416b-beab-c6122b8a1181" Name="KTPEmployee_Forename"
+                            DisplayName="First Name"/>
+              <pnp:FieldRef ID="d8a9df90-237c-416b-beab-c6122b8b1181" Name="KTPEmployee_Surname"
+                            DisplayName="Surename"/>
+              <pnp:FieldRef ID="d8a9df90-237c-416b-beab-c6122b8a1171" Name="KTPManager_Text"
+                            DisplayName="Manager"/>
+
+              <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-b1933107e10a"
+                            Name="KTPFirstDevelopmentReqCategory"
+                            DisplayName="First Development Requirement Category"/>
+              <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-b1933107e11b"
+                            Name="KTPFirstDevelopmentReqSubCategory"
+                            DisplayName="First Development Requirement Subcategory"/>
+              <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-b1933108e10a"
+                            Name="KTPFirstDevelopmentReqTitle"
+                            DisplayName="First Development Requirement Title"/>
+
+              <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-a1933107e10a"
+                            Name="KTPSecondDevelopmentReqCategory"
+                            DisplayName="Second Development Requirement Category"/>
+              <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-b1033107e11b"
+                            Name="KTPSecondDevelopmentReqSubCategory"
+                            DisplayName="Second Development Requirement Subcategory"/>
+              <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-b1943108e10a"
+                            Name="KTPSecondDevelopmentReqTitle"
+                            DisplayName="Second Development Requirement Title"/>
+
+              <pnp:FieldRef ID="59C7438C-1A8F-4854-AFA2-421F4A5C132D" Name="KTPGender"
+                            DisplayName="Gender"/>
+
+            </pnp:FieldRefs>
+          </pnp:ListInstance>
+
+
+          <pnp:ListInstance Title="Business Units" Description="" DocumentTemplate="" OnQuickLaunch="true"
+                            TemplateType="100" Url="Lists/KTPBusinessUnits" MinorVersionLimit="0"
+                            MaxVersionLimit="0" DraftVersionVisibility="0"
+                            TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" ContentTypesEnabled="true"
+                            EnableFolderCreation="false"
+                            DefaultDisplayFormUrl="{site}/Lists/KTPBusinessUnits/DispForm.aspx"
+                            DefaultEditFormUrl="{site}/Lists/KTPBusinessUnits/EditForm.aspx"
+                            DefaultNewFormUrl="{site}/Lists/KTPBusinessUnits/NewForm.aspx"
+                            ImageUrl="{site}/_layouts/15/images/itgen.png?rev=44" IsApplicationList="false"
+                            ValidationFormula="" ValidationMessage="">
+            <pnp:ContentTypeBindings>
+              <pnp:ContentTypeBinding ContentTypeID="0x01004E07C82FBE469C45939B8554546F2A10" Default="true"/>
+              <pnp:ContentTypeBinding ContentTypeID="0x0120"/>
+            </pnp:ContentTypeBindings>
+
+            <pnp:FieldRefs>
+              <pnp:FieldRef ID="d3691a4d-0bdd-48de-9148-5cf268fb27a0" Name="KTPBusinessUnitDivision"
+                            DisplayName="Division"/>
+              <pnp:FieldRef ID="4c0d35b4-2ae5-4e6a-9417-dd0a6345a93f" Name="KTPBusinessUnitStream"
+                            DisplayName="Business Stream"/>
+              <pnp:FieldRef ID="af187e5b-342c-4c74-af4d-a73b9786a92b" Name="KTPBusinessUnitUnit"
+                            DisplayName="Business Unit"/>
+              <pnp:FieldRef ID="7c34a7fe-0b10-4756-ace5-38a04a0ba92f" Name="KTPBusinessUnitLocation"
+                            DisplayName="Location / Contract"/>
+            </pnp:FieldRefs>
+            <!--<pnp:DataRows UpdateBehavior="Overwrite">
 
 
                         <pnp:DataRow>
@@ -3702,9 +3701,9 @@
                             <pnp:DataValue FieldName="KTPBusinessUnitLocation">BUK W&amp;W Regional</pnp:DataValue>
                         </pnp:DataRow>
 
-                    </pnp:DataRows>
-                </pnp:ListInstance>
-            </pnp:Lists>
-        </pnp:ProvisioningTemplate>
+                    </pnp:DataRows>-->
+          </pnp:ListInstance>
+        </pnp:Lists>
+      </pnp:ProvisioningTemplate>
     </pnp:Templates>
 </pnp:Provisioning>
