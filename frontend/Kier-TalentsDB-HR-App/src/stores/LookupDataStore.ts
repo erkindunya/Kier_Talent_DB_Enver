@@ -45,12 +45,12 @@ export const LookupDataStore = types.model(
             {value: '4', label: '4'},
             {value: '5', label: '5'}]*/
 
-          return {0: '5', 25: '4', 50: '3', 75: '2', 100: '1'};
+          return {0:'New To Rate',20: '5', 40: '4', 60: '3', 80: '2', 100: '1'};
         }
         ,
 
         get PotentialRatingLookupData() {
-          return {0: 'C', 50: 'B', 100: 'A'};
+          return {0:'New To Rate', 33: 'C', 66: 'B', 100: 'A'};
         },
 
         get MovementLookupData() {
@@ -91,12 +91,14 @@ export const LookupDataStore = types.model(
       const formatPerformanceTip = (value) => {
         //Todo : refactor to make it more intelligent
         if (value == 0)
+          return "Too New To Rate";
+        if (value == 20)
           return "Unsatisfactory";
-        if (value == 25)
+        if (value == 40)
           return "Developing";
-        if (value == 50)
+        if (value == 60)
           return "Good";
-        if (value == 75)
+        if (value == 80)
           return "Excellent";
         if (value == 100)
           return "Oustanding";
@@ -105,6 +107,8 @@ export const LookupDataStore = types.model(
 
       const formatPotentialTip = (value) => {
         //Todo : refactor to make it more intelligent
+        if (value == 0)
+          return 'Too New To Rate';
         if (value == 0)
           return 'C';
         if (value == 50)

@@ -1,4 +1,4 @@
 {
   "$schema": "https://dev.office.com/json-schemas/spfx-build/write-manifests.schema.json",
-  "cdnBasePath": "https://ItqanDev.SharePoint.com/cdn/tenant"
+  "cdnBasePath": "https://Kier.SharePoint.com/Sites/Talent/cdn/talents"
 }

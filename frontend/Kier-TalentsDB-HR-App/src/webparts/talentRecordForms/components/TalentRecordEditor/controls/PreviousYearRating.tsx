@@ -11,7 +11,7 @@ export class PreviousYearRating extends React.Component<any, any> {
 
   render() {
     return (<Row gutter={20}>
-      <Col span={4}>Previous Year</Col>
+      <Col span={4}><b>2017 Performance Rating</b></Col>
       <Col span={10}><FormItem label="Performance"><SliderSelector
         items={this.props.store.LookupDataStore.PerformanceRatingLookupData}
         form={this.props.form}

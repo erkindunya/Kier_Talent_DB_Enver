@@ -100,6 +100,7 @@ class TalentRecordEditor extends React.Component<any, any> {
     this.props.store.TalentDataStore.UpdateTalentRecord();
   }
   previousYearRatingRender = () => {
+    console.log("HasPreviousRating : " + this.props.store.Talent.HasPreviousYearRating);
     return (this.props.store.Talent.HasPreviousYearRating) ? <PreviousYearRating form={this.props.form}/> : "";
   }
 
@@ -269,13 +270,8 @@ class TalentRecordEditor extends React.Component<any, any> {
           {this.previousYearRatingRender()}
           <Divider></Divider>
           <Row gutter={20}>
-            <Col span={4}><FormItem label="New To Rate?" {...formItemLayout}>
-              {getFieldDecorator('newToRate', {
-                rules: [{required: false, message: 'Too new to rate ?'}]
-              })(
-                <NewHireSwitch/>
-              )}
-            </FormItem></Col>
+            <Col span={4}><b>This Year's Rating</b></Col>
+
             <Col span={10}><FormItem label={<span>
               Performance Rating
                 <Tooltip title="Refere to Kier Performance Rating for more information">

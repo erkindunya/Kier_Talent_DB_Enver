@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import {Version} from '@microsoft/sp-core-library';
+import pnp from "sp-pnp-js";
 
 import {
   BaseClientSideWebPart,
@@ -25,6 +26,14 @@ export default class TalentRecordFormsWebPart extends BaseClientSideWebPart<ITal
 
   protected get dataVersion(): Version {
     return Version.parse('1.0');
+  }
+
+  public onInit(): Promise<void> {
+    return super.onInit().then(_ => {
+      pnp.setup({
+        spfxContext: this.context
+      });
+    });
   }
 
   public render(): void {

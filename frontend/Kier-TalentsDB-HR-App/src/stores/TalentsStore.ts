@@ -1,7 +1,7 @@
 import {applySnapshot, flow, getParent, types} from "mobx-state-tree";
 import {DataProviderFactory} from "./Common/DataProviderFactory";
 import axios from 'axios';
-import {REST_API_URL} from './Common/Constants';
+import {REST_API_URL, Talent_List_Url} from './Common/Constants';
 
 export const PreviousYearRating = types.model({
   Performance: types.optional(types.string, ""),
@@ -87,8 +87,9 @@ export const Talent = types.model({
       //SetValueIfDifferent(self.BusinessFunction, newFunction)
     }
 
-    const changeEmployeeName = (newEmployeeKey: string) => {
-      self.Name.value = newEmployeeKey;
+    const changeEmployeeName = (newEmployeeKey: any) => {
+      self.Name.value = newEmployeeKey.key;
+      self.Name.text = newEmployeeKey.label;
     }
 
     const changeGrade = (newGrade: string) => {
@@ -124,12 +125,14 @@ export const Talent = types.model({
       self.Performance = newRating;
     }
 
-    const changeAreaHead = (newHead: string) => {
-      self.AreaHead.value = newHead;
+    const changeAreaHead = (newHead: any) => {
+      self.AreaHead.value = newHead.key;
+      self.AreaHead.text = newHead.label;
     }
 
-    const changeManager = (newManager: string) => {
-      self.Manager.value = newManager;
+    const changeManager = (newManager: any) => {
+      self.Manager.value = newManager.key;
+      self.Manager.text = newManager.label;
     }
 
     const changeNotes = (notes: string) => {
@@ -219,13 +222,14 @@ const TalentsStore = types.model({
 
       const SaveTalentRecord = () => {
 
-        axios.post(REST_API_URL, JSON.stringify(getParent(self, 1).Talent), {headers: {'content-type': 'application/json'}}).then(_ => console.log("New Record Operation is done"))
+        axios.post(REST_API_URL, JSON.stringify(getParent(self, 1).Talent), {headers: {'content-type': 'application/json'}}).then(_ => {console.log("New Record Operation is done");
+          window.location.href = Talent_List_Url;})
           .catch(error => console.log(JSON.stringify(error, null, 4)))
       }
 
       const UpdateTalentRecord = () => {
 
-        axios.put(REST_API_URL, JSON.stringify(getParent(self, 1).Talent), {headers: {'content-type': 'application/json'}}).then(_ => console.log("New Record Operation is done"))
+        axios.put(REST_API_URL, JSON.stringify(getParent(self, 1).Talent), {headers: {'content-type': 'application/json'}}).then(_ => {console.log("New Record Operation is done");window.location.href = Talent_List_Url;})
           .catch(error => console.log(JSON.stringify(error, null, 4)))
       }
 
@@ -251,6 +255,7 @@ const TalentsStore = types.model({
               applySnapshot(getParent(self, 1).Talent, talent);
             else
               getParent(self, 1).SetTalent(talent);*/
+            console.log("previous year " + talent.PreviousYear);
             console.log("Talent Record : " + JSON.stringify(talent, null, 4));
           }
         }

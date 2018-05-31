@@ -20,14 +20,23 @@
         public const string Talent_Record_Position = "KTPPosition";
         public const string Talent_Record_Potential = "KTPPotentialRating";
         public const string Talent_Record_Second_Development_Requirement = "KTPSecondDevelopmentRequirement";
+        public const string Talent_Record_Title = "Title";
 
-        public const string Talent_Record_First_Development_Requirement_Category = "KTPFirstDevelopmentReqCategory";
-        public const string Talent_Record_First_Development_Requirement_SubCategory = "KTPFirstDevelopmentReqSubCategor";
-        public const string Talent_Record_First_Development_Requirement_Title = "KTPFirstDevelopmentReqTitle";
+        public const string Talent_Record_First_Development_Requirement_Category = "KTPFirstDeveReqCategory";
+        public const string Talent_Record_First_Development_Requirement_SubCategory = "KTPFirstDevReqSubCategory";
+        public const string Talent_Record_First_Development_Requirement_Title = "KTPFirstDevReqTitle";
 
-        public const string Talent_Record_Second_Development_Requirement_Category = "KTPSecondDevelopmentReqCategory";
-        public const string Talent_Record_Second_Development_Requirement_SubCategory = "KTPSecondDevelopmentReqSubCatego";
-        public const string Talent_Record_Second_Development_Requirement_Title = "KTPSecondDevelopmentReqTitle";
+        public const string Talent_Record_Second_Development_Requirement_Category = "KTPSecondDevReqCategory";
+        public const string Talent_Record_Second_Development_Requirement_SubCategory = "KTPSecondDeveReqSubCategory";
+        public const string Talent_Record_Second_Development_Requirement_Title = "KTPSecondDevReqTitle";
+
+
+        public const string Talent_Record_First_Name = "KTPEmployee_Forename";
+        public const string Talent_Record_Last_Name = "KTPEmployee_Surname";
+        public const string Talent_Record_Manager_Name = "KTPManager_Text";
+        
+            
+            
 
         public const string Talent_Record_Submission_Year = "KTPSubmissionYear";
         public const string Talent_Record_Employee = "KTPEmployee";

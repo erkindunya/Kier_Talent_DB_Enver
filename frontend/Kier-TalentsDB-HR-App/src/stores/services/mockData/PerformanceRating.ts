@@ -1,5 +1,9 @@
 const performanceRatings = [
   {
+    value: "New To Rate",
+    label: "New To Rate"
+  },
+  {
     value: "1",
     label: "1"
   },

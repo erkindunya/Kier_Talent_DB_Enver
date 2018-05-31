@@ -31,6 +31,11 @@ export default class UserRemoteSelect extends React.Component<any, any> {
     this.lastFetchId += 1;
     const fetchId = this.lastFetchId;
     this.setState({data: [], fetching: true});
+    (window as any).context = this.props.context;
+    console.log("Conetxt "+ this.props.context);
+    pnp.setup({
+      spfxContext: this.props.context
+    });
     pnp.sp.profiles.clientPeoplePickerSearchUser(opt).then(response => {
       if (fetchId !== this.lastFetchId) { // for fetch callback order
         return;
@@ -48,7 +53,7 @@ export default class UserRemoteSelect extends React.Component<any, any> {
       data: [],
       fetching: false,
     });
-    (value.length >= 1) ? this.props.changed(value[0].key) : "";
+    (value.length >= 1) ? this.props.changed(value[0]) : "";
   }
 
   buildPeoplePicker = () => {
@@ -76,6 +81,9 @@ export default class UserRemoteSelect extends React.Component<any, any> {
     this.lastFetchId = 0;
     this.fetchUser = debounce(this.fetchUser, 800);
     //Todo: write more robust condition test
+
+
+    console.log("USer Details" +JSON.stringify(this.props.item));
     if (this.props.item.value !== "") {
       this.state = {
         data: [this.props.item],
@@ -88,10 +96,10 @@ export default class UserRemoteSelect extends React.Component<any, any> {
 
   render() {
     console.log("UserSelector: " + this.props.item);
-    //let initialValue = (this.props.item.value!="") ? {key: this.props.item.value} : {key:""};
+    let initialValue = (this.props.item.value!="") ? {key: this.props.item.value} : {};
 
-    const options = (this.props.item) ? {
-      //   initialValue: initialValue,
+    const options = (this.props.item.value!="") ? {
+      initialValue: initialValue,
       rules: [{required: true, message: this.props.validationMessage}]
     } : {
       rules: [{required: true, message: this.props.validationMessage}]
