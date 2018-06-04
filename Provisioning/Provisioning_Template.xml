@@ -3,7 +3,7 @@
             Generator="OfficeDevPnP.Core, Version=2.25.1804.1, Culture=neutral, PublicKeyToken=5e633289e95c321a"/>
     <pnp:Templates ID="CONTAINER-TEMPLATE-0DAB93AEA9824789BB66E2B359B58E2D">
       <pnp:ProvisioningTemplate ID="TEMPLATE-0DAB93AEA9824789BB66E2B359B58E2D" Version="1"
-                                BaseSiteTemplate="SITEPAGEPUBLISHING#0" Scope="RootSite">
+                                BaseSiteTemplate="STS#0" Scope="RootSite">
         <pnp:SiteFields>
 
           <Field Type="Text" DisplayName="Grade" Required="TRUE" EnforceUniqueValues="FALSE" Indexed="FALSE"
@@ -25,6 +25,13 @@
             <Default>1</Default>
           </Field>
 
+
+           <Field Type="Boolean" DisplayName="Is Leaver?" EnforceUniqueValues="FALSE" Indexed="FALSE"
+                 Group="Talents Review Application" ID="{DAEAC4E0-0C5D-4CC0-A608-456D91A3C14E}"
+                 SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}" StaticName="KTPIsLeaver"
+                 Name="KTPIsLeaver">
+            <Default>1</Default>
+          </Field>
 
 
 
@@ -288,6 +295,7 @@
                            Description="Represents a talent record entry that is related for a specific employee at certain year"
                            Group="Talent Review Application" NewFormUrl="" EditFormUrl="" DisplayFormUrl="">
             <pnp:FieldRefs>
+            <pnp:FieldRef ID="DAEAC4E0-0C5D-4CC0-A608-456D91A3C14E" Name="KTPIsLeaver">
               <pnp:FieldRef ID="c042a256-787d-4a6f-8a8a-cf6ab767f12d" Name="ContentType"/>
               <pnp:FieldRef ID="fa564e0f-0c70-4ab9-b863-0177e6ddd247" Name="Title" Required="true"/>
               <pnp:FieldRef ID="37c4b4af-ac7a-457b-a0ef-c24575171079" Name="KTPBusinessRisk"/>
@@ -452,6 +460,8 @@
               <pnp:ContentTypeBinding ContentTypeID="0x0100E687EE96A87F69478A69EEBC2F01EE8D" Default="true"/>
             </pnp:ContentTypeBindings>
             <pnp:FieldRefs>
+
+            
               <pnp:FieldRef ID="64ce874a-f2cd-49e8-97bf-91d94b74b66f" Name="KTPBusinessStream"
                             DisplayName="Business Stream"/>
               <pnp:FieldRef ID="6ee08dfe-08d1-4f7c-bec8-2cc869bf9cd9" Name="KTPBusinessUnit"
@@ -536,6 +546,8 @@
 
               <pnp:FieldRef ID="59C7438C-1A8F-4854-AFA2-421F4A5C132D" Name="KTPGender"
                             DisplayName="Gender"/>
+
+                            <pnp:FieldRef ID="DAEAC4E0-0C5D-4CC0-A608-456D91A3C14E" Name="KTPIsLeaver" DisplayName="Is Leaver?">
 
             </pnp:FieldRefs>
           </pnp:ListInstance>
