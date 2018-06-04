@@ -298,6 +298,16 @@ class TalentRecordEditor extends React.Component<any, any> {
                 formatter={this.props.store.LookupDataStore.formatPotentialTip} disabled={false}/>
             </FormItem></Col>
           </Row>
+          <Divider></Divider>
+          <Row>
+            <Col span={4}><b>Related documents</b></Col>
+            <Col span={10}>
+              <a href="https://kier.sharepoint.com/:p:/s/talent/EVIGam9BYrVEhTD1lmOA2pUB0_20JtGEPzhnvRTh1Gf9Aw?e=ccZcLn"><Icon type="file-ppt" style={{ fontSize: 16, color: '#08c' }} />Talent Review 2018</a>
+            </Col>
+            <Col span={10}>
+              <a href="https://kier.sharepoint.com/:p:/s/talent/EUUmpLGVHThNsmtkq7jD7RABIIm8gkWdUbxNW9-zoPcBBw?e=H9Vpjz"><Icon type="file-ppt" style={{ fontSize: 16, color: '#08c' }} />Potential Definitions</a>
+            </Col>
+          </Row>
 
 
           <Divider orientation='left'>Movement</Divider>

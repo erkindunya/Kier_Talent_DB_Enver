@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Web.Http;
@@ -30,7 +31,7 @@ namespace Kier.TalentPortal.WebAPI.Controllers
                 var query = CamlQuery.CreateAllItemsQuery();
 
 
-        var items = businessUnitsList.GetItems(query);
+                var items = businessUnitsList.GetItems(query);
                 ctx.Load(items);
                 ctx.ExecuteQuery();
 
@@ -71,17 +72,33 @@ namespace Kier.TalentPortal.WebAPI.Controllers
 
                             var filteredByUnit = filteredByStream.ToList().Where(i =>
                                 i[KTPConstants.Business_Unit_Unit].ToString() == unit.ToString());
-                            var currentUnitLocations = filteredByUnit.ToList()
-                                .Select(i => i[KTPConstants.Business_Unit_Location]).Distinct();
+                            var currentReportingUnits = filteredByUnit.ToList()
+                                .Select(i => i[KTPConstants.Business_Unit_Reporting_Unit]).Distinct();
 
-                            foreach (var location in currentUnitLocations)
+                            foreach (var reportingUnit in currentReportingUnits)
                             {
-                                var locationLookup = new Lookup()
+                                var reportingUnitLookup = new Lookup()
                                 {
-                                    label = location.ToString().PrepString(),
-                                    value = location.ToString().PrepString()
+                                    label = reportingUnit.ToString().PrepString(),
+                                    value = reportingUnit.ToString().PrepString()
                                 };
-                                unitLookup.children.Add(locationLookup);
+
+                                var filteredByReportingUnit = filteredByUnit.ToList().Where(i => i[KTPConstants.Business_Unit_Reporting_Unit].ToString() == reportingUnit.ToString());
+                                var currentLocations = filteredByReportingUnit.ToList().Select(i => i[KTPConstants.Business_Unit_Location]).Distinct();
+
+                                foreach (var location in currentLocations)
+                                {
+                                    if (location != null)
+                                    {
+                                        Lookup locationLookup = new Lookup()
+                                        {
+                                            label = location.ToString().PrepString(),
+                                            value = location.ToString().PrepString()
+                                        };
+                                        reportingUnitLookup.children.Add(locationLookup);
+                                    }
+                                }
+                                unitLookup.children.Add(reportingUnitLookup);
                             }
 
                             streamLookup.children.Add(unitLookup);
@@ -102,7 +119,7 @@ namespace Kier.TalentPortal.WebAPI.Controllers
         }
 
         [HttpGet]
-       // [Route("BusinessFunctions")]
+        // [Route("BusinessFunctions")]
         [Route("api/Reference/Functions")]
         public IList<Lookup> GetBusinessFunctionsLookups()
         {
@@ -114,19 +131,26 @@ namespace Kier.TalentPortal.WebAPI.Controllers
                 ConfigurationManager.AppSettings["clientId"],
                 ConfigurationManager.AppSettings["clientSecret"]))
             {
-                var businessFunctionsList =
-                    ctx.Web.Lists.GetByTitle(ConfigurationManager.AppSettings["businessFunctionsList"]);
-                var query = CamlQuery.CreateAllItemsQuery();
-                var items = businessFunctionsList.GetItems(query);
-                ctx.Load(items);
-                ctx.ExecuteQuery();
-
-                items.ToList().ForEach(item =>
+                try
                 {
-                    var lookupValue = item["Title"].ToString();
-                    var lookup = new Lookup() {label = lookupValue, value = lookupValue};
-                    result.Add(lookup);
-                });
+                    var businessFunctionsList =
+                        ctx.Web.Lists.GetByTitle(ConfigurationManager.AppSettings["businessFunctionsList"]);
+                    var query = CamlQuery.CreateAllItemsQuery();
+                    var items = businessFunctionsList.GetItems(query);
+                    ctx.Load(items);
+                    ctx.ExecuteQuery();
+
+                    items.ToList().ForEach(item =>
+                    {
+                        var lookupValue = item["Title"].ToString();
+                        var lookup = new Lookup() { label = lookupValue, value = lookupValue };
+                        result.Add(lookup);
+                    });
+                }
+                catch (Exception e)
+                {
+                    Console.Write(e.Message);
+                }
             }
 
             return result;

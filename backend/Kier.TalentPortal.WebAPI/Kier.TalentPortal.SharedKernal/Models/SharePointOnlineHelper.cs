@@ -38,7 +38,7 @@ namespace Kier.TalentPortal.SharedKernal.Models
             {
                 var user = ctx.Web.EnsureUser(key);
                 ctx.Load(user);
-                ctx.ExecuteQuery();
+                ctx.ExecuteQuery();                
                 return new User() {value = user.LoginName, text = user.Title};
             }
         }

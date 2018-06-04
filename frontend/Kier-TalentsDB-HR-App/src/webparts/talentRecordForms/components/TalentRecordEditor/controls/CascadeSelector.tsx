@@ -11,7 +11,8 @@ export default class CascadeSelector extends React.Component<any, any> {
       <Cascader options={this.props.items}
                 placeholder={this.props.placeholder}
                 onChange={this.OnChange}
-                size="small"
+                size="large"
+                changeOnSelect
       />
     )
   }

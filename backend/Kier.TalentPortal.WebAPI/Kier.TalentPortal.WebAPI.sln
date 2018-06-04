@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kier.TalentPortal.SecurityM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kier.TalentPortal.SharedKernal", "Kier.TalentPortal.SharedKernal\Kier.TalentPortal.SharedKernal.csproj", "{3A9449B1-4D29-4764-8C0C-F8EAE48B9A3D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kier.TalentPortal.DummyDataGenerator", "Kier.TalentPortal.DummyDataGenerator\Kier.TalentPortal.DummyDataGenerator.csproj", "{A2C7558E-F8DC-472C-BBFE-F2DF55571644}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{3A9449B1-4D29-4764-8C0C-F8EAE48B9A3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A9449B1-4D29-4764-8C0C-F8EAE48B9A3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A9449B1-4D29-4764-8C0C-F8EAE48B9A3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2C7558E-F8DC-472C-BBFE-F2DF55571644}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2C7558E-F8DC-472C-BBFE-F2DF55571644}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2C7558E-F8DC-472C-BBFE-F2DF55571644}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2C7558E-F8DC-472C-BBFE-F2DF55571644}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
