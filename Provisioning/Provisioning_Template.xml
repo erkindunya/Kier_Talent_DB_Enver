@@ -547,7 +547,7 @@
               <pnp:FieldRef ID="59C7438C-1A8F-4854-AFA2-421F4A5C132D" Name="KTPGender"
                             DisplayName="Gender"/>
 
-                            <pnp:FieldRef ID="DAEAC4E0-0C5D-4CC0-A608-456D91A3C14E" Name="KTPIsLeaver" DisplayName="Is Leaver?">
+                            <pnp:FieldRef ID="DAEAC4E0-0C5D-4CC0-A608-456D91A3C14E" Name="KTPIsLeaver" DisplayName="Is Leaver?"/>
 
             </pnp:FieldRefs>
           </pnp:ListInstance>
