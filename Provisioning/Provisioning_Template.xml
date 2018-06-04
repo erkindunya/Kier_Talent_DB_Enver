@@ -85,6 +85,12 @@
                  StaticName="KTPLocation" Name="KTPLocation">
           </Field>
 
+           <Field Type="Text" DisplayName="Reportnig Unit" Required="FALSE" EnforceUniqueValues="FALSE"
+                 Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
+                 ID="{062946F2-6B7A-4DA6-9E74-B724329A5CCE}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
+                 StaticName="KTPReportingUnit" Name="KTPReportingUnit">
+          </Field>
+
           <Field Type="Text" DisplayName="Business Stream" Required="FALSE" EnforceUniqueValues="FALSE"
                  Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
                  ID="{64ce874a-f2cd-49e8-97bf-91d94b74b66f}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
@@ -107,6 +113,13 @@
                  MaxLength="255" Group="Talents Review Application" ID="{62842560-b950-4bc1-8bc2-bd9337526aed}"
                  SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}" StaticName="KTPPosition" Name="KTPPosition">
           </Field>
+
+          <Field Type="Text" DisplayName="9 Boxes Grid Rating" Required="TRUE" EnforceUniqueValues="FALSE" Indexed="FALSE"
+                 MaxLength="255" Group="Talents Review Application" ID="{71B59733-681F-4BD0-AEE3-BA682802B41C}"
+                 SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}" StaticName="KTP9BoxesGridRating" Name="KTP9BoxesGridRating">
+          </Field>
+
+
           <Field Type="Number" DisplayName="Submission Year" Required="TRUE" EnforceUniqueValues="FALSE"
                  Indexed="FALSE" Min="2016" Max="2050" Decimals="0" Group="Talents Review Application"
                  ID="{74aa5e66-b614-4650-9055-a75ab41333dd}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
@@ -118,22 +131,13 @@
                  Name="KTPCurrentSubmission">
             <Default>0</Default>
           </Field>
-          <!-- <Field Type="UserMulti" DisplayName="Manager" List="UserInfo" Required="TRUE"
-                       EnforceUniqueValues="FALSE" ShowField="ImnName" UserSelectionMode="PeopleOnly"
-                       UserSelectionScope="0" Mult="FALSE" Sortable="FALSE" Group="Talents Review Application"
-                       ID="{3a841c79-f987-4191-b64a-84be5bf3fd40}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
-                       StaticName="KTPManager" Name="KTPManager"/>-->
+         
 
           <Field Type="User" DisplayName="Manager" List="UserInfo" Required="TRUE" EnforceUniqueValues="FALSE"
                  ShowField="ImnName" UserSelectionMode="PeopleOnly" UserSelectionScope="0"
                  Group="Talents Review Application" ID="{3a841c79-f987-4191-b64a-84be5bf3fd40}"
                  SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}" StaticName="KTPManager" Name="KTPManager"/>
-          <!--
-                <Field Type="Text" DisplayName="Area Head" Required="FALSE" EnforceUniqueValues="FALSE"
-                       Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
-                       ID="{d8a9df90-237c-416b-beab-c6122b8a1180}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
-                       StaticName="KTPAreaHead" Name="KTPAreaHead" CustomFormatter="">
-                </Field>-->
+        
 
 
           <Field Type="User" DisplayName="Area Head" List="UserInfo" Required="TRUE" EnforceUniqueValues="FALSE"
@@ -246,6 +250,13 @@
                  Name="KTPBusinessUnitUnit">
           </Field>
 
+           <Field Type="Text" DisplayName="Reporting Unit" Required="FALSE" EnforceUniqueValues="FALSE"
+                 Indexed="FALSE" MaxLength="255" Group="Talents Review Application"
+                 ID="{10A45978-B282-424A-B70D-DA9D881FB68C}" SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}"
+                 StaticName="KTPBusinessReportingUnit"
+                 Name="KTPBusinessReportingUnit">
+          </Field>
+
           <Field Type="Text" DisplayName="Location" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE"
                  MaxLength="255" Group="Talents Review Application"
                  SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}" ID="{7c34a7fe-0b10-4756-ace5-38a04a0ba92f}"
@@ -315,10 +326,11 @@
               <pnp:FieldRef ID="64ce874a-f2cd-49e8-97bf-91d94b74b66f" Name="KTPBusinessStream"/>
               <pnp:FieldRef ID="6ee08dfe-08d1-4f7c-bec8-2cc869bf9cd9" Name="KTPBusinessUnit"/>
               <pnp:FieldRef ID="0196cfcc-e28c-4784-8d86-f53ccef5fea7" Name="KTPDivision"/>
+              <pnp:FieldRef ID="062946F2-6B7A-4DA6-9E74-B724329A5CCE" Name="KTPReportingUnit"/>
               <pnp:FieldRef ID="124e565d-baa6-46b3-90df-a4baf9fbf995" Name="KTPFunction"/>
               <pnp:FieldRef ID="59C7438C-1A8F-4854-AFA2-421F4A5C132D" Name="KTPGender"/>
 
-
+<pnp:FieldRef ID="71B59733-681F-4BD0-AEE3-BA682802B41C" Name="KTP9BoxesGridRating"/>
               <pnp:FieldRef ID="d8a9df90-237c-416b-beab-c6122b8a1181" Name="KTPEmployee_Forename"/>
               <pnp:FieldRef ID="d8a9df90-237c-416b-beab-c6122b8a1171" Name="KTPManager_Text"/>
               <pnp:FieldRef ID="d8a9df90-237c-416b-beab-c6122b8b1181" Name="KTPEmployee_Surname"/>
@@ -360,6 +372,8 @@
               <pnp:FieldRef ID="af187e5b-342c-4c74-af4d-a73b9786a92b" Name="KTPBusinessUnitUnit"
                             Required="true"/>
               <pnp:FieldRef ID="7c34a7fe-0b10-4756-ace5-38a04a0ba92f" Name="KTPBusinessUnitLocation"/>
+
+              <pnp:FieldRef ID="10A45978-B282-424A-B70D-DA9D881FB68C" Name="KTPBusinessReportingUnit"/> 
             </pnp:FieldRefs>
           </pnp:ContentType>
         </pnp:ContentTypes>
@@ -379,7 +393,7 @@
             <pnp:ContentTypeBindings>
               <pnp:ContentTypeBinding ContentTypeID="0x010063B005FD5E1FE34E8F5297A8F1F98C8F" Default="true"/>
             </pnp:ContentTypeBindings>
-            <pnp:DataRows>
+            <pnp:DataRows UpdateBehavior="Overwrite" KeyColumn="Title">
               <pnp:DataRow>
                 <pnp:DataValue FieldName="Title">L2</pnp:DataValue>
               </pnp:DataRow>
@@ -426,7 +440,7 @@
               <pnp:ContentTypeBinding ContentTypeID="0x010063B005FD5E1FE34E8F3297A8F1F98C8F" Default="true"/>
             </pnp:ContentTypeBindings>
 
-            <pnp:DataRows>
+            <pnp:DataRows UpdateBehavior="Overwrite" KeyColumn="Title">
               <pnp:DataRow>
                 <pnp:DataValue FieldName="Title">Finance</pnp:DataValue>
               </pnp:DataRow>
@@ -468,6 +482,7 @@
                             DisplayName="Business Unit"/>
               <pnp:FieldRef ID="0196cfcc-e28c-4784-8d86-f53ccef5fea7" Name="KTPDivision"
                             DisplayName="Division"/>
+                            <pnp:FieldRef ID="062946F2-6B7A-4DA6-9E74-B724329A5CCE" Name="KTPReportingUnit" DisplayName="Reporting Unit"/>
               <pnp:FieldRef ID="124e565d-baa6-46b3-90df-a4baf9fbf995" Name="KTPFunction"
                             DisplayName="Function"/>
               <pnp:FieldRef ID="3fe41945-ad7e-438d-a54c-b1933107e00f" Name="KTPLocation"
@@ -495,7 +510,7 @@
                             DisplayName="Reviewed By"/>
               <pnp:FieldRef ID="2301dda5-ec3e-4522-b43f-365602261ddc" Name="KTPReviewedAt"
                             DisplayName="Reviewed At"/>
-
+<pnp:FieldRef ID="71B59733-681F-4BD0-AEE3-BA682802B41C" Name="KTP9BoxesGridRating" DisplayName="9 Boxes Grid Rating"/>
 
               <pnp:FieldRef ID="cab67bd3-c1a8-4630-9f5c-183ae29425e1" Name="KTPPerformanceRating"
                             DisplayName="Performance Rating"/>
@@ -577,9 +592,10 @@
                             DisplayName="Business Unit"/>
               <pnp:FieldRef ID="7c34a7fe-0b10-4756-ace5-38a04a0ba92f" Name="KTPBusinessUnitLocation"
                             DisplayName="Location / Contract"/>
+                            <pnp:FieldRef ID="10A45978-B282-424A-B70D-DA9D881FB68C" Name="KTPBusinessReportingUnit" DisplayName="Reporting Unit"/> 
             </pnp:FieldRefs>
 
-             <pnp:DataRows UpdateBehavior="Overwrite">
+           <!--  <pnp:DataRows UpdateBehavior="Overwrite">
             <pnp:DataRow>
               <pnp:DataValue FieldName="Title">Data</pnp:DataValue>
               <pnp:DataValue FieldName="KTPBusinessUnitDivision">Construction and Infrastructure</pnp:DataValue>
@@ -1330,8 +1346,8 @@
               <pnp:DataValue FieldName="FileLeafRef">1017_.000</pnp:DataValue>
               <pnp:DataValue FieldName="MetaInfo" />
             </pnp:DataRow>
-          </pnp:DataRows>
-            
+          </pnp:DataRows>-->
+
           </pnp:ListInstance>
         </pnp:Lists>
       </pnp:ProvisioningTemplate>
