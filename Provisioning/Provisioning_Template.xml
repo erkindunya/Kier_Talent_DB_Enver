@@ -295,7 +295,7 @@
                            Description="Represents a talent record entry that is related for a specific employee at certain year"
                            Group="Talent Review Application" NewFormUrl="" EditFormUrl="" DisplayFormUrl="">
             <pnp:FieldRefs>
-            <pnp:FieldRef ID="DAEAC4E0-0C5D-4CC0-A608-456D91A3C14E" Name="KTPIsLeaver">
+            <pnp:FieldRef ID="DAEAC4E0-0C5D-4CC0-A608-456D91A3C14E" Name="KTPIsLeaver"/>
               <pnp:FieldRef ID="c042a256-787d-4a6f-8a8a-cf6ab767f12d" Name="ContentType"/>
               <pnp:FieldRef ID="fa564e0f-0c70-4ab9-b863-0177e6ddd247" Name="Title" Required="true"/>
               <pnp:FieldRef ID="37c4b4af-ac7a-457b-a0ef-c24575171079" Name="KTPBusinessRisk"/>
