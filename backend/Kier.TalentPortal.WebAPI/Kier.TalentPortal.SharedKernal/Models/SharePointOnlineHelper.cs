@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
 using Microsoft.SharePoint.Client;
 using OfficeDevPnP.Core;
 
@@ -45,9 +46,16 @@ namespace Kier.TalentPortal.SharedKernal.Models
 
         public static FieldUserValue ResolveUser(string key)
         {
-            var fieldValue = new FieldUserValue();
-            var userId = RetrieveUserId(key);
-            fieldValue.LookupId = userId;
+            var fieldValue = default(FieldUserValue);
+            try
+            {
+                var userId = RetrieveUserId(key);
+                fieldValue = new FieldUserValue();    
+                fieldValue.LookupId = userId;
+            }
+            catch (Exception e)
+            {
+            }
             return fieldValue;
         }
     }

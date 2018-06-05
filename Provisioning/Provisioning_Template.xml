@@ -25,6 +25,13 @@
             <Default>1</Default>
           </Field>
 
+<!-- 
+ <Field Type="Text" DisplayName="Reporting Unit" Required="TRUE" EnforceUniqueValues="FALSE" Indexed="FALSE"
+                 MaxLength="255" Group="Talents Review Application" ID="{7893DC62-EDD3-4C3D-95AF-61EB9CDD1F63}"
+                 SourceID="{f9bfcdd7-5dc9-42ca-b3cb-48876ca951af}" StaticName="KTPReportingUnit" Name="KTPReportingUnit">
+          </Field> -->
+
+
 
            <Field Type="Boolean" DisplayName="Is Leaver?" EnforceUniqueValues="FALSE" Indexed="FALSE"
                  Group="Talents Review Application" ID="{DAEAC4E0-0C5D-4CC0-A608-456D91A3C14E}"
@@ -320,6 +327,8 @@
 
               <pnp:FieldRef ID="74aa5e66-b614-4650-9055-a75ab41333dd" Name="KTPSubmissionYear"
                             Required="true"/>
+
+                            <!-- <pnp:FieldRef ID="7893DC62-EDD3-4C3D-95AF-61EB9CDD1F63" Name="KTPReportingUnit"/> -->
               <pnp:FieldRef ID="2301dda5-ec3e-4517-b43f-365602261dda" Name="KTPSuccessor"/>
               <pnp:FieldRef ID="f9412368-18c0-4956-9a0e-2f58ddbc2894" Name="KTPCurrentSubmission"/>
               <pnp:FieldRef ID="d8a9df90-237c-416b-beab-c6122b8a1180" Name="KTPAreaHead"/>
@@ -475,7 +484,7 @@
             </pnp:ContentTypeBindings>
             <pnp:FieldRefs>
 
-            
+            <!-- <pnp:FieldRef ID="7893DC62-EDD3-4C3D-95AF-61EB9CDD1F63" Name="KTPReportingUnit" DisplayName="Reporting Unit"/> -->
               <pnp:FieldRef ID="64ce874a-f2cd-49e8-97bf-91d94b74b66f" Name="KTPBusinessStream"
                             DisplayName="Business Stream"/>
               <pnp:FieldRef ID="6ee08dfe-08d1-4f7c-bec8-2cc869bf9cd9" Name="KTPBusinessUnit"
