@@ -10,8 +10,7 @@ const LoadingSpinner = (props) => {
     vAlign: 'middle',
     height: '900'
   }
-  return <div style={style}><Spin size="large" tip={"Loading Talent" +
-  " Data"}/></div>
+  return <div style={style}><Spin size="large" tip={"Loading Talent Form..."}/></div>
 }
 
 export default LoadingSpinner;

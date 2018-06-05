@@ -1,9 +1,10 @@
-import {types} from "mobx-state-tree";
+import {getParent, types} from "mobx-state-tree";
 import {DevelopmentRequirementsLookupDataStore} from "./LookupDataStores/DevelopmentRequirementsDataStore";
 import {BusinessFunctionsStore} from "./LookupDataStores/BusinessFunctionsStore";
 import {RiskLookupDataStore} from "./LookupDataStores/RiskLookupDataStore";
 import {BusinessUnitsLookupDataStore} from "./LookupDataStores/BusinessUnitsLookupDataStore";
 import {GradesStore} from "./LookupDataStores/GradesDataStore";
+import {AppStore} from "./AppStore";
 
 
 export const LookupDataStore = types.model(
@@ -12,7 +13,7 @@ export const LookupDataStore = types.model(
     BusinessUnitsDataStore: types.optional(BusinessUnitsLookupDataStore, {items: []}),
     DevelopmentRequirementsDataStore: types.optional(DevelopmentRequirementsLookupDataStore, {items: []}),
     BusinessFunctionsDataStore: types.optional(BusinessFunctionsStore, {items: []}),
-    GradeDataStore: types.optional(GradesStore, {items: []})
+    GradeDataStore: types.optional(GradesStore, {items: []}),
   }
 ).named("LookupDataStore")
   .views(
@@ -45,12 +46,12 @@ export const LookupDataStore = types.model(
             {value: '4', label: '4'},
             {value: '5', label: '5'}]*/
 
-          return {0:'Recent Hire',20: '5', 40: '4', 60: '3', 80: '2', 100: '1'};
+          return {0: 'Recent Hire', 20: '5', 40: '4', 60: '3', 80: '2', 100: '1'};
         }
         ,
 
         get PotentialRatingLookupData() {
-          return {0:'Recent Hire', 33: 'C', 66: 'B', 100: 'A'};
+          return {0: 'Recent Hire', 33: 'C', 66: 'B', 100: 'A'};
         },
 
         get MovementLookupData() {
@@ -83,9 +84,19 @@ export const LookupDataStore = types.model(
         const gradesPromise = self.GradeDataStore.loadGrades();
 
 
+        //Todo : Run this code in SetTimeOut..Known bug in Mobx-State-Tree. It should have been resolved in Nov 2017, but it still there
+        setTimeout(() => {
+        getParent(self).SetIsLoadingReferenceData(true);},0);
         Promise.all([risksPromise, unitsPromise, functionsPromise, requirementsPromise, gradesPromise])
-          .then(_ => console.log("All Lookup data retrievedd successfully"))
+          .then(_ => {
+            console.log("All Lookup data retrievedd successfully");
+
+            setTimeout(() => {
+            getParent(self, 1).SetIsLoadingReferenceData(false);},0)
+          })
           .catch(_ => console.error("Lookup data retrieval failed."))
+
+        //Todo : Add code to display error message.
       }
 
       const formatPerformanceTip = (value) => {

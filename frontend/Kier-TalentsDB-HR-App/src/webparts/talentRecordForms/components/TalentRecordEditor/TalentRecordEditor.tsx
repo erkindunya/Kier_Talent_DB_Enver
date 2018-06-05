@@ -437,7 +437,7 @@ class TalentRecordEditor extends React.Component<any, any> {
     </div>
     const loadingSpinner = <LoadingSpinner/>
     const {formLayout} = this.state;
-    const content =  (this.props.store.IsLoadingTalentData) ? loadingSpinner : talentForm;
+    const content =  (this.props.store.IsLoadingTalentData || this.props.store.IsLoadingReferenceData) ? loadingSpinner : talentForm;
     const Option = Select.Option;
     return ( content );
   }

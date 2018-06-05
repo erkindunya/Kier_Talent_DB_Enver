@@ -10,7 +10,7 @@ import ViewStore from "./ViewStore";
 
 export const AppStore = types.model(
   {
-    LookupDataStore: types.optional(LookupDataStore, {}),
+    LookupDataStore: types.optional(LookupDataStore,{}),
     TalentDataStore: types.optional(TalentsStore, {}),
     IsLoadingReferenceData: types.optional(types.boolean, false),
     IsLoadingTalentData: types.optional(types.boolean, false),
