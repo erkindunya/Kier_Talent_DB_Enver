@@ -13,6 +13,7 @@ export default class CascadeSelector extends React.Component<any, any> {
                 onChange={this.OnChange}
                 size="small"
                 changeOnSelect
+                disabled={this.props.disabled}
       />
     )
   }

@@ -1,1 +1,0 @@
-{"version":3,"sources":["stores/Common/Constants.ts"],"names":[],"mappings":";;AAAa,QAAA,YAAY,GAAW,4EAA4E,CAAC","file":"stores/Common/Constants.js","sourcesContent":["export const REST_API_URL: string = 'https://kiertalentportalwebapi20180517103444.azurewebsites.net/api/talents';\n"],"sourceRoot":"..\\..\\..\\src"}

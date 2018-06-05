@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {inject, observer} from "mobx-react";
-import {Row, Col} from "antd";
+import {Row, Col, Divider} from "antd";
 import FormItem from "antd/es/form/FormItem";
 import SliderSelector from "./SliderSelector";
 
@@ -32,6 +32,7 @@ export class PreviousYearRating extends React.Component<any, any> {
         }}
         formatter={this.props.store.LookupDataStore.formatPotentialTip}
         disabled={true}/></FormItem></Col>
+      <Divider></Divider>
     </Row>)
   }
 }

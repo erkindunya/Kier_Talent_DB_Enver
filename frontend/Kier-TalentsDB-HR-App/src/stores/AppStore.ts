@@ -14,6 +14,7 @@ export const AppStore = types.model(
     TalentDataStore: types.optional(TalentsStore, {}),
     IsLoadingReferenceData: types.optional(types.boolean, false),
     IsLoadingTalentData: types.optional(types.boolean, false),
+    IsSubmittingData: types.optional(types.boolean, false),
     ViewStore: types.optional(ViewStore, {}),
     Talent: types.optional(Talent, {})
 
@@ -23,11 +24,15 @@ export const AppStore = types.model(
 
 
     const SetIsLoadingReferenceData = (loading: boolean) => {
-      self.IsLoadingReferenceData = loading
+      self.IsLoadingReferenceData = loading;
     }
 
-    const SetIsLoadingTalentData = (loading: boolean) => {
-      self.IsLoadingTalentData = loading
+    const SetIsLoadingTalentData = (submitting: boolean) => {
+      self.IsLoadingTalentData = submitting;
+    }
+
+    const SetIsSubmittingData = (loading: boolean) => {
+      self.IsSubmittingData = loading;
     }
 
     const SetTalent = (item) => {
@@ -42,7 +47,7 @@ export const AppStore = types.model(
       SetIsLoadingReferenceData,
       SetIsLoadingTalentData,
       SetTalent,
-
+      SetIsSubmittingData,
       afterCreate
     }
   }).actions(self => {

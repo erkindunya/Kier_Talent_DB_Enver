@@ -19,6 +19,7 @@ namespace Kier.TalentPortal.SharedKernal.Models
         public User AreaHead { get; set; }
         public string Function { get; set; }
         public string Division { get; set; }
+        public string ReportingUnit { get; set; }
         public string Unit { get; set; }
         public string Stream { get; set; }
         public string Location { get; set; }
@@ -41,6 +42,7 @@ namespace Kier.TalentPortal.SharedKernal.Models
         public string GridRating { get; set; }
         public PreviousYearRating PreviousYear { get; set; }
         private Dictionary<string,string> _ratingsDictionary = default(Dictionary<string, string>);
+        public string Gender { get; set; }
 
 
         public Talent()
@@ -101,6 +103,7 @@ namespace Kier.TalentPortal.SharedKernal.Models
             talent.Requirements_02_title = (item[KTPConstants.Talent_Record_Second_Development_Requirement_Title] != null) ? item[KTPConstants.Talent_Record_Second_Development_Requirement_Title].ToString() : "";
             talent.Position = (item[KTPConstants.Talent_Record_Position]!= null)? item[KTPConstants.Talent_Record_Position].ToString():"";
             talent.GridRating = (item[KTPConstants.Talent_Record_Grid_Rating] != null) ? item[KTPConstants.Talent_Record_Grid_Rating].ToString() : "";
+            talent.ReportingUnit = (item[KTPConstants.Talent_Record_ReportingUnit] != null) ? item[KTPConstants.Talent_Record_ReportingUnit].ToString() : "";
 
             return talent;
         }
@@ -130,7 +133,7 @@ namespace Kier.TalentPortal.SharedKernal.Models
             listItem[KTPConstants.Talent_Record_Position] = talent.Position;            
             listItem[KTPConstants.Talent_Record_Title] = talent.EmployeeId;
 
-            listItem[KTPConstants.Talent_Record_Area_Head] = SharePointOnlineHelper.ResolveUser(talent.AreaHead.value);
+            listItem[KTPConstants.Talent_Record_Area_Head] = (talent.AreaHead!=null)?SharePointOnlineHelper.ResolveUser(talent.AreaHead.value):null;
             listItem[KTPConstants.Talent_Record_Employee] = SharePointOnlineHelper.ResolveUser(talent.Name.value);
             listItem[KTPConstants.Talent_Record_Manager] = SharePointOnlineHelper.ResolveUser(talent.Manager.value);
 

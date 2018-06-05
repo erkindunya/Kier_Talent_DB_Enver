@@ -30,6 +30,7 @@
         public const string Talent_Record_Second_Development_Requirement_Category = "KTPSecondDevReqCategory";
         public const string Talent_Record_Second_Development_Requirement_SubCategory = "KTPSecondDeveReqSubCategory";
         public const string Talent_Record_Second_Development_Requirement_Title = "KTPSecondDevReqTitle";
+        public const string Talent_Record_ReportingUnit = "KTPReportingUnit";
 
 
         public const string Talent_Record_First_Name = "KTPEmployee_Forename";

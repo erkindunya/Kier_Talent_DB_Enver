@@ -27,6 +27,7 @@ export const Talent = types.model({
   Division: types.optional(types.string, ""),
   Unit: types.optional(types.string, ""),
   Stream: types.optional(types.string, ""),
+  ReportingUnit: types.optional(types.string, ""),
   Function: types.optional(types.string, ""),
   Location: types.optional(types.string, ""),
   Grade: types.optional(types.string, ""),
@@ -58,12 +59,13 @@ export const Talent = types.model({
 
     //Todo : think about the Person data . Do we need to include userId, Email and displayName
     const changeBusinessUnit = (businessUnit: string[]) => {
-      const [division, stream, unit, location] = businessUnit;
+      const [division, stream, unit, reportingUnit, location] = businessUnit;
 
 
       self.Division = division;
       self.Stream = stream;
       self.Unit = unit;
+      self.ReportingUnit = reportingUnit;
       self.Location = location;
     }
 
@@ -134,6 +136,8 @@ export const Talent = types.model({
       self.Manager.value = newManager.key;
       self.Manager.text = newManager.label;
     }
+
+
 
     const changeNotes = (notes: string) => {
       self.Notes = notes;
@@ -222,14 +226,20 @@ const TalentsStore = types.model({
 
       const SaveTalentRecord = () => {
 
+        getParent(self).SetIsSubmittingData(true);
         axios.post(REST_API_URL, JSON.stringify(getParent(self, 1).Talent), {headers: {'content-type': 'application/json'}}).then(_ => {console.log("New Record Operation is done");
+          getParent(self).SetIsSubmittingData(false);
           window.location.href = Talent_List_Url;})
           .catch(error => console.log(JSON.stringify(error, null, 4)))
       }
 
       const UpdateTalentRecord = () => {
 
-        axios.put(REST_API_URL, JSON.stringify(getParent(self, 1).Talent), {headers: {'content-type': 'application/json'}}).then(_ => {console.log("New Record Operation is done");window.location.href = Talent_List_Url;})
+        getParent(self).SetIsSubmittingData(true);
+        axios.put(REST_API_URL, JSON.stringify(getParent(self, 1).Talent), {headers: {'content-type': 'application/json'}}).then(_ => {console.log("Update Record Operation is done");
+          getParent(self).SetIsSubmittingData(false);
+        window.location.href = Talent_List_Url;
+        })
           .catch(error => console.log(JSON.stringify(error, null, 4)))
       }
 
