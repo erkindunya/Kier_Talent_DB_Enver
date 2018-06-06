@@ -26,16 +26,19 @@ namespace Kier.TalentPortal.WebAPI.Controllers
                 talent = Talent.FromSPListItem(result[0]);
                 if (result.ToList().Count >= 2)
                 {
-                   talent.PreviousYear = PreviousYearRating.FromSPListItem(result[1]);
+                    talent.PreviousYear = PreviousYearRating.FromSPListItem(result[1]);
                 }
             }
 
             return Ok(talent);
         }
 
-        private Group _divisionSecurityGroup;
-        private Group _streamSecurityGroup;
-        private Group _unitSecurityGroup;
+        private Group _divisionAllRecordsSecurityGroup;
+        private Group _streamAllRecordsSecurityGroup;
+        private Group _upToL1SecurityGroup;
+        private Group _upToL2SecurityGroup;
+        private Group _upToM3SecurityGroup;
+        private Group _talentAdmins;
         private RoleDefinition _roleDefinition;
 
         [HttpPost]
@@ -70,28 +73,52 @@ namespace Kier.TalentPortal.WebAPI.Controllers
                 new RoleDefinitionBindingCollection(ctx);
             collRoleDefinitionBinding.Add(editPermissionLevel);
 
-            newItem.RoleAssignments.Add(this._divisionSecurityGroup, collRoleDefinitionBinding);
-            newItem.RoleAssignments.Add(this._streamSecurityGroup, collRoleDefinitionBinding);
-            if (!talent.Grade.StartsWith("L"))
-                newItem.RoleAssignments.Add(this._unitSecurityGroup, collRoleDefinitionBinding);
+
+            //Add access to Talent Admins and Division group
+            newItem.RoleAssignments.Add(this._talentAdmins, collRoleDefinitionBinding);
+            newItem.RoleAssignments.Add(this._divisionAllRecordsSecurityGroup, collRoleDefinitionBinding);
+            newItem.RoleAssignments.Add(this._streamAllRecordsSecurityGroup, collRoleDefinitionBinding);
+
+            if (talent.IsL2Employee())
+                newItem.RoleAssignments.Add(this._upToL2SecurityGroup, collRoleDefinitionBinding);
+
+            if (talent.IsL1Employee())
+            {
+                newItem.RoleAssignments.Add(this._upToL2SecurityGroup, collRoleDefinitionBinding);
+                newItem.RoleAssignments.Add(this._upToL1SecurityGroup, collRoleDefinitionBinding);
+            }
+
+            if (talent.IsCorMEmployee())
+            {
+                newItem.RoleAssignments.Add(this._upToL2SecurityGroup, collRoleDefinitionBinding);
+                newItem.RoleAssignments.Add(this._upToL1SecurityGroup, collRoleDefinitionBinding);
+                newItem.RoleAssignments.Add(this._upToM3SecurityGroup, collRoleDefinitionBinding);
+            }
         }
 
         private void LoadSecurityMatrix(Talent talent, ClientContext ctx)
         {
             this._roleDefinition = ctx.Web.RoleDefinitions.GetByType(RoleType.Contributor);
-            this._divisionSecurityGroup = ctx.Web.SiteGroups.GetByName(talent.GetDivionGroupName());
-            this._streamSecurityGroup = ctx.Web.SiteGroups.GetByName(talent.GetBusinessStreamGroupName());
-            this._unitSecurityGroup = ctx.Web.SiteGroups.GetByName(talent.GetBusinessUnitGroupName());
-            ctx.Load(this._divisionSecurityGroup);
-            ctx.Load(this._streamSecurityGroup);
-            ctx.Load(this._unitSecurityGroup);
+            this._divisionAllRecordsSecurityGroup = ctx.Web.SiteGroups.GetByName(talent.GetAllDivisionRecordsGroupName());
+            this._streamAllRecordsSecurityGroup = ctx.Web.SiteGroups.GetByName(talent.GetAllStreamRecordsGroupName()); 
+            this._upToL1SecurityGroup = ctx.Web.SiteGroups.GetByName(talent.GetUptoL1GroupName());
+            this._upToL2SecurityGroup = ctx.Web.SiteGroups.GetByName(talent.GetUptoL2GroupName());
+            this._upToM3SecurityGroup = ctx.Web.SiteGroups.GetByName(talent.GetUpToM3GroupName());
+            this._talentAdmins = ctx.Web.SiteGroups.GetByName(talent.GetTalentAdminsGroupName());
+
+            ctx.Load(this._divisionAllRecordsSecurityGroup);
+            ctx.Load(this._upToL1SecurityGroup);
+            ctx.Load(this._upToL2SecurityGroup);
+            ctx.Load(this._upToM3SecurityGroup);
+            ctx.Load(this._talentAdmins);
+
             ctx.ExecuteQuery();
         }
 
         [HttpPut]
         public IHttpActionResult UpdateTalentRecord([FromBody] Talent talent)
         {
-            
+
             using (var ctx = SharePointOnlineHelper.GetElevatedContext())
             {
                 var list = ctx.Web.Lists.GetByTitle(ConfigurationManager.AppSettings["listName"]);

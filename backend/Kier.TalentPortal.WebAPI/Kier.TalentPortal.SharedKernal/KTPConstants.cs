@@ -56,6 +56,19 @@
 
 
 
+        public const string Group_All_Records = "All-Talent-Records";
+        public const string Group_Up_To_M3_Token = "-M3 and below";
+        public const string Group_Up_To_L1_Token = "-L1";
+        public const string Group_Up_To_L2_Token = "-L2";
+        public const string Group_All_Token = "-All";
+        public const string Group_Prefix_Token = "KTPG-";
+
+        public const string Kier_Levels_L2 = "L2";
+        public const string Kier_Levels_L1 = "L1";
+        public const string Kier_Levels_M = "M";
+        public const string Kier_Levels_C = "C";
+
+
         //public const string Talent_Record_Employee = "KTPEmployee";
         public const string Get_Talent_Record_By_EmployeeId_Query = @"<View><Query><Where><Eq><FieldRef Name=""KTPEmployeeID""/><Value Type = ""Text"" >EMP_ID</Value></Eq></Where><OrderBy><FieldRef Name=""KTPSubmissionYear"" Ascending=""False"" /></OrderBy></Query></View>";
 

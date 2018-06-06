@@ -67,7 +67,7 @@ namespace Kier.TalentPortal.SharedKernal
                         try
                         {
                             var groupInfo = new GroupCreationInformation();
-                            groupInfo.Title = @group;
+                            groupInfo.Title = group;
                             context.Web.SiteGroups.Add(groupInfo);
                             context.ExecuteQuery();
                         }
@@ -87,17 +87,30 @@ namespace Kier.TalentPortal.SharedKernal
         public static IList<string> BuildSecurityGroupNamesFromBusinessUnits(IList<Lookup> businessUnits)
         {
             var result = new List<string>();
+            result.Add(string.Concat(KTPConstants.Group_Prefix_Token, KTPConstants.Group_All_Records) );
             foreach (var division in businessUnits)
             {
-                result.Add(division.label.PrepString());
+                // Access to all recrods in specific Division
+                result.Add(SecurityMatrixHelper.BuildDivisionLevelGroup(division.label.PrepString()));
                 foreach (var stream in division.children)
                 {
-                    result.Add(string.Concat(division.label.PrepString(), (string) DELIMITER,stream.label.PrepString()));
+                    // Access to all recrods in specific Division > Stream
+                    result.Add(SecurityMatrixHelper.BuildStreamLevelGroup(division.label.PrepString(), stream.label.PrepString()));
+            
 
                     foreach (var unit in stream.children)
                     {
-                        result.Add(string.Concat(division.label.PrepString(), DELIMITER, stream.label.PrepString(), DELIMITER, unit.label.PrepString()));
-                       
+
+                        // Access to all recrods in specific Division > Stream > Unit M & C
+                        result.Add(SecurityMatrixHelper.BuildUnitMnCLevelGroup(division.label.PrepString(), stream.label.PrepString(), unit.label.PrepString()));
+
+                        // Access to all recrods in specific Division > Stream > Unit L1
+                        result.Add(SecurityMatrixHelper.BuildUnitL1LevelGroup(division.label.PrepString(), stream.label.PrepString(), unit.label.PrepString()));
+
+
+                        // Access to all recrods in specific Division > Stream > Unit L2
+                        result.Add(SecurityMatrixHelper.BuildUnitL2LevelGroup(division.label.PrepString(), stream.label.PrepString(), unit.label.PrepString()));
+                    
                     }
                 }
             }
@@ -118,6 +131,39 @@ namespace Kier.TalentPortal.SharedKernal
             }
             return results;
 
+        }
+
+        public static string BuildDivisionLevelGroup(string divisionName)
+        {
+            return string.Concat(KTPConstants.Group_Prefix_Token, divisionName.PrepString(), KTPConstants.Group_All_Token);
+        }
+
+        public static string BuildStreamLevelGroup(string divisionName, string streamName)
+        {
+
+            return string.Concat(KTPConstants.Group_Prefix_Token, divisionName.PrepString(), DELIMITER,
+                streamName.PrepString(), KTPConstants.Group_All_Token);
+        }
+
+        public static string BuildUnitMnCLevelGroup(string divisionName, string streamName, string unitName)
+        {
+
+            return string.Concat(KTPConstants.Group_Prefix_Token, divisionName.PrepString(), DELIMITER,
+                streamName.PrepString(), DELIMITER, unitName.PrepString(), KTPConstants.Group_Up_To_M3_Token);
+        }
+
+        public static string BuildUnitL1LevelGroup(string divisionName, string streamName, string unitName)
+        {
+
+            return string.Concat(KTPConstants.Group_Prefix_Token, divisionName.PrepString(), DELIMITER,
+                streamName.PrepString(), DELIMITER, unitName.PrepString(), KTPConstants.Group_Up_To_L1_Token);
+        }
+
+        public static string BuildUnitL2LevelGroup(string divisionName, string streamName, string unitName)
+        {
+
+            return string.Concat(KTPConstants.Group_Prefix_Token, divisionName.PrepString(), DELIMITER,
+                streamName.PrepString(), DELIMITER, unitName.PrepString(), KTPConstants.Group_Up_To_L2_Token);
         }
     }
 }

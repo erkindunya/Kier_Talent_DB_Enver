@@ -15,19 +15,60 @@ namespace Kier.TalentPortal.SharedKernal
             return result;
         }
 
-        public static string GetDivionGroupName(this Talent talent)
+
+        public static string GetTalentAdminsGroupName(this Talent talent)
         {
-            return talent.Division.PrepString();
+            return KTPConstants.Group_All_Records;
         }
 
-        public static string GetBusinessStreamGroupName(this Talent talent)
+        public static bool IsL2Employee(this Talent talent)
         {
-            return string.Concat(talent.Division.PrepString(),DELIMITER, talent.Stream.PrepString());
+            return talent.Grade.Equals(KTPConstants.Kier_Levels_L2);
         }
 
-        public static string GetBusinessUnitGroupName(this Talent talent)
+        public static bool IsL1Employee(this Talent talent)
         {
-            return string.Concat(talent.Division.PrepString(), DELIMITER, talent.Stream.PrepString(), DELIMITER, talent.Unit.PrepString());
+            return talent.Grade.Equals(KTPConstants.Kier_Levels_L1);
+        }
+
+        public static bool IsCorMEmployee(this Talent talent)
+        {
+            return (talent.Grade.Equals(KTPConstants.Kier_Levels_M) || talent.Grade.Equals(KTPConstants.Kier_Levels_C));
+        }
+
+      
+
+        public static string GetAllDivisionRecordsGroupName(this Talent talent)
+        {
+            return SecurityMatrixHelper.BuildDivisionLevelGroup(talent.Division);
+        }
+
+        public static string GetAllStreamRecordsGroupName(this Talent talent)
+        {
+            return SecurityMatrixHelper.BuildStreamLevelGroup(talent.Division.PrepString(), talent.Stream.PrepString());
+        }
+
+        public static string GetUptoL1GroupName(this Talent talent)
+        {
+
+            return SecurityMatrixHelper.BuildUnitL1LevelGroup(talent.Division.PrepString(), talent.Stream.PrepString(), talent.Unit);
+
+
+        }
+
+        public static string GetUptoL2GroupName(this Talent talent)
+        {
+
+
+            return SecurityMatrixHelper.BuildUnitL2LevelGroup(talent.Division.PrepString(), talent.Stream.PrepString(), talent.Unit);
+           
+        }
+
+        public static string GetUpToM3GroupName(this Talent talent)
+        {
+
+            return SecurityMatrixHelper.BuildUnitMnCLevelGroup(talent.Division.PrepString(), talent.Stream.PrepString(), talent.Unit);
+            
         }
 
 
@@ -36,4 +77,5 @@ namespace Kier.TalentPortal.SharedKernal
 
 
     }
+
 }
