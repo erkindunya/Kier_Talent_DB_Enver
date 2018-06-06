@@ -43,6 +43,7 @@ namespace Kier.TalentPortal.SharedKernal.Models
         public PreviousYearRating PreviousYear { get; set; }
         private Dictionary<string,string> _ratingsDictionary = default(Dictionary<string, string>);
         public string Gender { get; set; }
+        public bool IsLeaver { get; set; }
 
 
         public Talent()
@@ -104,6 +105,11 @@ namespace Kier.TalentPortal.SharedKernal.Models
             talent.Position = (item[KTPConstants.Talent_Record_Position]!= null)? item[KTPConstants.Talent_Record_Position].ToString():"";
             talent.GridRating = (item[KTPConstants.Talent_Record_Grid_Rating] != null) ? item[KTPConstants.Talent_Record_Grid_Rating].ToString() : "";
             talent.ReportingUnit = (item[KTPConstants.Talent_Record_ReportingUnit] != null) ? item[KTPConstants.Talent_Record_ReportingUnit].ToString() : "";
+            talent.Gender = (item[KTPConstants.Talent_Record_Gender] != null) ? item[KTPConstants.Talent_Record_Gender].ToString() : "";
+
+            talent.IsLeaver = (item[KTPConstants.Talent_Record_IsLeaver] != null)
+               ? bool.Parse(item[KTPConstants.Talent_Record_IsLeaver].ToString())
+               : false;
 
             return talent;
         }
@@ -132,6 +138,8 @@ namespace Kier.TalentPortal.SharedKernal.Models
             listItem[KTPConstants.Talent_Record_Submission_Year] = talent.SubmissionYear;
             listItem[KTPConstants.Talent_Record_Position] = talent.Position;            
             listItem[KTPConstants.Talent_Record_Title] = talent.EmployeeId;
+            listItem[KTPConstants.Talent_Record_Gender] = talent.Gender;
+            listItem[KTPConstants.Talent_Record_ReportingUnit] = talent.ReportingUnit;
 
             listItem[KTPConstants.Talent_Record_Area_Head] = (talent.AreaHead!=null)?SharePointOnlineHelper.ResolveUser(talent.AreaHead.value):null;
             listItem[KTPConstants.Talent_Record_Employee] = SharePointOnlineHelper.ResolveUser(talent.Name.value);

@@ -22,6 +22,9 @@
         public const string Talent_Record_Potential = "KTPPotentialRating";
         public const string Talent_Record_Second_Development_Requirement = "KTPSecondDevelopmentRequirement";
         public const string Talent_Record_Title = "Title";
+        public const string Talent_Record_Gender = "KTPGender";
+        public const string Talent_Record_IsLeaver = "KTPIsLeaver";
+
 
         public const string Talent_Record_First_Development_Requirement_Category = "KTPFirstDeveReqCategory";
         public const string Talent_Record_First_Development_Requirement_SubCategory = "KTPFirstDevReqSubCategory";

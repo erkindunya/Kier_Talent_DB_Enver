@@ -60,12 +60,11 @@ namespace Kier.TalentPortal.DummyDataGenerator
                             Movement = movement,
                             Performance = performance,
                             Potential = potential,
-                            SubmissionYear = 2018,
-                            IsCurrentSubmission = true,
+                            SubmissionYear = 2017,
+                            IsCurrentSubmission = false,
                             Position = position,
-                            Gender = gender
-
-
+                            Gender = gender,
+                            IsLeaver = false
                         };
                         //LoadSecurityMatrix(talent, ctx);
                         var list = ctx.Web.Lists.GetByTitle(ConfigurationManager.AppSettings["listName"]);
