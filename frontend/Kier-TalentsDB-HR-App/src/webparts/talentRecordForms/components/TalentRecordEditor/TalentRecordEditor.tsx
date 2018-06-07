@@ -1,7 +1,22 @@
 import * as React from 'react';
 import {ITalentRecordEditorProps} from './ITalentRecordEditorProps';
 import {escape} from '@microsoft/sp-lodash-subset';
-import {Form, Icon, Input, Button, Layout, Divider, Select, Row, Col, Cascader, Tooltip, Spin, Tabs} from 'antd';
+import {
+  Form,
+  Icon,
+  Input,
+  Button,
+  Layout,
+  Divider,
+  Select,
+  Row,
+  Col,
+  Cascader,
+  Tooltip,
+  Spin,
+  Tabs,
+  Checkbox
+} from 'antd';
 import {FormProps} from "antd/lib/form/Form";
 import {FormComponentProps} from 'antd/lib/form/Form';
 import CascadeSelector from './controls/CascadeSelector';
@@ -45,6 +60,10 @@ class TalentRecordEditor extends React.Component<any, any> {
   OnGradeChange = (newGrade: string) => {
     this.props.store.Talent.changeGrade(newGrade);
   }
+
+  OnGenderChange = (newGender: string) => {
+    this.props.store.Talent.changeGender(newGender);
+  }
   OnPositionChange = (newPosition) => {
     this.props.store.Talent.changePosition(newPosition.target.value);
   }
@@ -81,6 +100,11 @@ class TalentRecordEditor extends React.Component<any, any> {
   }
   OnNotesChange = (notes: string) => {
     this.props.store.Talent.changeNotes(notes);
+  }
+
+  OnIsLeaverChange = (e: any) => {
+    this.props.store.Talent.changeIsLeaverFlag(e.target.checked);
+    console.log("Is Leaver: " + e.target.checked);
   }
   onSubmit = (e) => {
     e.preventDefault();
@@ -131,17 +155,20 @@ class TalentRecordEditor extends React.Component<any, any> {
               onClick={this.onUpdate}  >Update Talent Record</Button> :
       <Button style={{marginLeft: 8}} type="primary" htmlType="button"
               onClick={this.onSubmit} loading={this.props.store.IsSubmittingData}>Add New Talent Record</Button>;
-
+    const isLeaverCheckBox = (this.props.store.ViewStore.isEditing) ?
+      <Row><Col span={24}><FormItem {...formItemLayout}><Checkbox onChange={this.OnIsLeaverChange}>This employee has
+        left Kier</Checkbox></FormItem></Col></Row> : "";
     const talentForm = <div>
       {this.props.store.IsLoadingTalentData}
+
 
       <Row><Col span={24}>
 
         <Form layout="vertical" onSubmit={this.handleSubmit}
-              style={{border: '0px solid black', padding: '0px 5px 5px 5px'}}>
-
+              style={{border: '0px solid black', padding: '0px 5px 10px 5px', marginBottom: '10px'}}>
           <Tabs>
             <TabPane tab={<span><Icon type="user" />Employee Information</span>} key="1">
+              {isLeaverCheckBox}
               <Row gutter={20}>
                 <Col span={16}>
                   <FormItem validateStatus={businessUnitsError ? 'error' : 'success'} label={<span>
@@ -265,42 +292,43 @@ class TalentRecordEditor extends React.Component<any, any> {
                   )}
                 </FormItem></Col>
               </Row>
-            </TabPane>
-            <TabPane tab={<span><Icon type="bar-chart" />Performance & Potential Ratings</span>} key="2">
-              {this.previousYearRatingRender()}
-
               <Row gutter={20}>
-                <Col span={4}><b>This Year's Rating</b></Col>
-
-                <Col span={10}><FormItem label={<span>
-              Performance Rating
-                <Tooltip title="Refere to Kier Performance Rating for more information">
-                  <Icon type="question-circle-o"></Icon></Tooltip></span>} {...formItemLayout}>
-
-                  <SliderSelector
-                    items={this.props.store.LookupDataStore.PerformanceRatingLookupData}
+                <Col span={8}><FormItem label="Gender" {...formItemLayout}>
+                  {getFieldDecorator("gender", {
+                    initialValue: this.props.store.Talent.Gender,
+                    rules: [{required: true, message: "Gender cannot be left blank"}]
+                  })(<Selector
+                    items={[{value: "Male", label: "Male"}, {value: "Female", label: "Female"}]}
                     form={this.props.form}
-                    value={this.props.store.Talent.Performance}
-                    controlId="performance"
-                    validationMessage="Please select a rating for the performance"
-                    changed={this.OnPerformanceRatingChange}
-                    formatter={this.props.store.LookupDataStore.formatPerformanceTip} disabled={false}
-                  />
+                    value={this.props.store.Talent.Gender}
+                    placeholder='Please specify a gender'
+                    controlId="gender"
+                    validationMessage='Gender cannot be left blank'
+                    changed={this.OnGenderChange}
+                  />)}
                 </FormItem></Col>
-                <Col span={10}><FormItem label="Potential Rating" {...formItemLayout}>
-                  <SliderSelector
-                    items={this.props.store.LookupDataStore.PotentialRatingLookupData}
-                    form={this.props.form}
-                    value={this.props.store.Talent.Potential}
-                    controlId="potential"
-                    validationMessage="Please select a rating for the potential"
-                    changed={this.OnPotentialRatingChange}
-                    formatter={this.props.store.LookupDataStore.formatPotentialTip} disabled={false}/>
-                </FormItem></Col>
+                <Col span={8}>
+
+                </Col>
+                <Col span={8}></Col>
               </Row>
-              <Divider></Divider>
+            </TabPane>
+
+
+            <TabPane tab={<span><Icon type="bar-chart" />Performance & Potential Ratings</span>} key="2">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et ultricies eros. Proin ipsum elit,
+              mattis pharetra dui nec, accumsan elementum sem. In at lorem non turpis tincidunt tristique. Vivamus sed
+              varius dui. Donec ullamcorper lacus massa, eget malesuada leo lacinia a. Nulla et lorem purus. Praesent
+              non tempus est, vitae consectetur leo. Etiam viverra tellus vitae risus ornare, sed ullamcorper neque
+              consequat. Suspendisse tempus ultrices purus ut finibus. Vivamus neque tellus, rhoncus quis viverra id,
+              imperdiet a ipsum. Nulla molestie mollis tortor, eu ultricies massa posuere nec. Suspendisse eu massa ex.
+              Vivamus egestas nisl commodo risus lacinia molestie. Donec pulvinar est eros, in condimentum tortor congue
+              nec.
+
+
+              <Divider orientation="left">Useful Documents</Divider>
               <Row>
-                <Col span={4}><b>Related documents</b></Col>
+
                 <Col span={10}>
                   <a
                     href="https://kier.sharepoint.com/:p:/s/talent/EVIGam9BYrVEhTD1lmOA2pUB0_20JtGEPzhnvRTh1Gf9Aw?e=ccZcLn"><Icon
@@ -312,6 +340,43 @@ class TalentRecordEditor extends React.Component<any, any> {
                     type="file-ppt" style={{fontSize: 16, color: '#08c'}}/>Potential Definitions</a>
                 </Col>
               </Row>
+              {this.previousYearRatingRender()}
+              <Divider orientation='left'>2018 Rating</Divider>
+              <Row gutter={20}>
+                <Col span={2}></Col>
+                <Col span={15}><FormItem label={<span>
+              Performance Rating
+                <Tooltip title="Refere to Kier Performance Rating for more information">
+                  <Icon type="question-circle-o"></Icon></Tooltip></span>}
+                                         extra="For more information about the performance ratings, select rating on the slider and a tooltip will be displayed" {...formItemLayout}>
+
+                  <SliderSelector
+                    items={this.props.store.LookupDataStore.PerformanceRatingLookupData}
+                    form={this.props.form}
+                    value={this.props.store.Talent.Performance}
+                    controlId="performance"
+                    validationMessage="Please select a rating for the performance"
+                    changed={this.OnPerformanceRatingChange}
+                    formatter={this.props.store.LookupDataStore.formatPerformanceTip} disabled={false}
+                  />
+                </FormItem></Col>
+
+              </Row>
+              <Row>
+                <Col span={2}></Col>
+                <Col span={15}><FormItem label="Potential Rating" {...formItemLayout}
+                                         extra="For more information about the potential ratings, select rating on the slider and a tooltip will be displayed">
+                  <SliderSelector
+                    items={this.props.store.LookupDataStore.PotentialRatingLookupData}
+                    form={this.props.form}
+                    value={this.props.store.Talent.Potential}
+                    controlId="potential"
+                    validationMessage="Please select a rating for the potential"
+                    changed={this.OnPotentialRatingChange}
+                    formatter={this.props.store.LookupDataStore.formatPotentialTip} disabled={false}/>
+                </FormItem></Col>
+              </Row>
+
               <Divider orientation='left'>Movement</Divider>
               <FormItem label="Movement Status" {...formItemLayout}
                         validateStatus={(getFieldError('movement') ? 'error' : 'success')}>
@@ -333,7 +398,7 @@ class TalentRecordEditor extends React.Component<any, any> {
 
               </FormItem>
 
-              <Divider>Risk</Divider>
+              <Divider orientation='left'>Risk</Divider>
               <Row gutter={20}>
                 <Col span={12}><FormItem label="Flight Risk" {...formItemLayout}
                                          validateStatus={(getFieldError('flightRisk') ? 'error' : 'success')}>
@@ -417,26 +482,25 @@ class TalentRecordEditor extends React.Component<any, any> {
             </TabPane>
 
           </Tabs>
-          <Row>
-            <Col span={24}>
-
-
-              <Row>
-                <Col span={24} style={{textAlign: 'right'}}>
-                  {actionButton}
-                  <Button style={{marginLeft: 8}} htmlType="reset">
-                    Clear
-                  </Button>
-                  <Button style={{marginLeft: 8}} htmlType="button">
-                    Cancel
-                  </Button>
-                </Col>
-              </Row>
-            </Col>
-          </Row>
-
         </Form>
       </Col></Row>
+
+      <Row>
+        <Col span={24}>
+          <Row>
+            <Col span={24} style={{textAlign: 'right'}}>
+              {actionButton}
+              <Button style={{marginLeft: 8}} htmlType="reset">
+                Clear
+              </Button>
+              <Button style={{marginLeft: 8}} htmlType="button">
+                Cancel
+              </Button>
+            </Col>
+          </Row>
+        </Col>
+      </Row>
+
     </div>
     const loadingSpinner = <LoadingSpinner/>
     const {formLayout} = this.state;
