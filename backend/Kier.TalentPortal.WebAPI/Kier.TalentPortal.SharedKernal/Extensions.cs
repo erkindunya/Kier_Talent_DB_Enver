@@ -18,7 +18,7 @@ namespace Kier.TalentPortal.SharedKernal
 
         public static string GetTalentAdminsGroupName(this Talent talent)
         {
-            return KTPConstants.Group_All_Records;
+            return SecurityMatrixHelper.BuildTalentAdminsGroup();
         }
 
         public static bool IsL2Employee(this Talent talent)
@@ -33,7 +33,7 @@ namespace Kier.TalentPortal.SharedKernal
 
         public static bool IsCorMEmployee(this Talent talent)
         {
-            return (talent.Grade.Equals(KTPConstants.Kier_Levels_M) || talent.Grade.Equals(KTPConstants.Kier_Levels_C));
+            return (talent.Grade.StartsWith(KTPConstants.Kier_Levels_M) || talent.Grade.StartsWith(KTPConstants.Kier_Levels_C));
         }
 
       

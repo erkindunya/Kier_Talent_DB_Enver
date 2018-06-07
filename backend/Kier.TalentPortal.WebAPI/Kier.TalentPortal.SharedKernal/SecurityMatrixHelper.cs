@@ -133,6 +133,12 @@ namespace Kier.TalentPortal.SharedKernal
 
         }
 
+        public static string BuildTalentAdminsGroup()
+        {
+            return string.Concat(KTPConstants.Group_Prefix_Token, KTPConstants.Group_All_Records);
+        }
+
+
         public static string BuildDivisionLevelGroup(string divisionName)
         {
             return string.Concat(KTPConstants.Group_Prefix_Token, divisionName.PrepString(), KTPConstants.Group_All_Token);

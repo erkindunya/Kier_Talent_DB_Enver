@@ -16,8 +16,10 @@ namespace Kier.TalentPortal.DummyDataGenerator
     {
         static void Main(string[] args)
         {
-            StreamReader sr = new StreamReader(@"C:\Dev\talent-portal-refresh\Kier_Talent_DB\Provisioning\Data_Load_Test_30Records.csv");
-            var csv = new CsvReader(sr);        
+            StreamReader sr = new StreamReader(@"C:\Dev\talent-portal-refresh\Kier_Talent_DB\Provisioning\UAT_0806_Data_0606_1455.csv");
+            var csv = new CsvReader(sr);
+            csv.Read(); //Skip Header
+            Console.WriteLine(DateTime.Now.ToLongTimeString());
             while (csv.Read())
             {
                 var employeeId = csv.GetField<string>(0);
@@ -53,16 +55,16 @@ namespace Kier.TalentPortal.DummyDataGenerator
                             Stream = stream,
                             Unit = unit,
                             ReportingUnit = reportingUnit,
-                            BusinessRisk = businessRisk,
-                            FlightRisk = flightRisk,
+                            
+                            
                             Function = function,
                             Grade = grade,
                             Location = location,
-                            Movement = movement,
-                            Performance = performance,
-                            Potential = potential,
-                            SubmissionYear = 2017,
-                            IsCurrentSubmission = false,
+                            
+                            
+                            
+                            SubmissionYear = 2018,
+                            IsCurrentSubmission = true,
                             Position = position,
                             Gender = gender,
                             IsLeaver = false
@@ -133,6 +135,7 @@ namespace Kier.TalentPortal.DummyDataGenerator
             //csv.Configuration.HeaderValidated = null;
             //csv.Configuration.MissingFieldFound = null;
             //var records = csv.GetRecords<Talent>().ToList();
+            Console.WriteLine(DateTime.Now.ToLongTimeString());
             Console.Read();
 
         }

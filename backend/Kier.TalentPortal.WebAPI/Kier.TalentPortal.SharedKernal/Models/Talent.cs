@@ -41,7 +41,7 @@ namespace Kier.TalentPortal.SharedKernal.Models
         public string Position { get; set; }
         public string GridRating { get; set; }
         public PreviousYearRating PreviousYear { get; set; }
-        private Dictionary<string,string> _ratingsDictionary = default(Dictionary<string, string>);
+        private Dictionary<string, string> _ratingsDictionary = default(Dictionary<string, string>);
         public string Gender { get; set; }
         public bool IsLeaver { get; set; }
 
@@ -66,17 +66,17 @@ namespace Kier.TalentPortal.SharedKernal.Models
             _ratingsDictionary.Add("C5", "C1");
             _ratingsDictionary.Add("New", "New");
         }
-       
+
 
         public static Talent FromSPListItem(ListItem item)
         {
-            
+
             var talent = new Talent();
-            talent.Division = (item[KTPConstants.Talent_Record_Division]!=null)? item[KTPConstants.Talent_Record_Division].ToString():"" ;
-            talent.Stream = (item[KTPConstants.Talent_Record_Business_Stream]!=null)? item[KTPConstants.Talent_Record_Business_Stream].ToString():"" ;
+            talent.Division = (item[KTPConstants.Talent_Record_Division] != null) ? item[KTPConstants.Talent_Record_Division].ToString() : "";
+            talent.Stream = (item[KTPConstants.Talent_Record_Business_Stream] != null) ? item[KTPConstants.Talent_Record_Business_Stream].ToString() : "";
             talent.Unit = (item[KTPConstants.Talent_Record_Business_Unit] != null) ? item[KTPConstants.Talent_Record_Business_Unit].ToString() : "";
             talent.AreaHead = (item[KTPConstants.Talent_Record_Area_Head] != null) ? SharePointOnlineHelper.GetUser(((FieldUserValue)item[KTPConstants.Talent_Record_Area_Head]).LookupValue.ToString()) : new User();
-            talent.BusinessRisk =  (item[KTPConstants.Talent_Record_Business_Risk]!= null) ? item[KTPConstants.Talent_Record_Business_Risk].ToString() : "";
+            talent.BusinessRisk = (item[KTPConstants.Talent_Record_Business_Risk] != null) ? item[KTPConstants.Talent_Record_Business_Risk].ToString() : "";
             talent.Notes = (item[KTPConstants.Talent_Record_Development_Notes] != null) ? item[KTPConstants.Talent_Record_Development_Notes].ToString() : "";
             talent.EmployeeId = (item[KTPConstants.Talent_Record_Employee_Id] != null) ? item[KTPConstants.Talent_Record_Employee_Id].ToString() : "";
             talent.FlightRisk = (item[KTPConstants.Talent_Record_Flight_Risk] != null) ? item[KTPConstants.Talent_Record_Flight_Risk].ToString() : "";
@@ -92,17 +92,17 @@ namespace Kier.TalentPortal.SharedKernal.Models
             talent.SubmissionYear = (item[KTPConstants.Talent_Record_Submission_Year] != null)
                 ? int.Parse(item[KTPConstants.Talent_Record_Submission_Year].ToString())
                 : -1;
-            talent.Id = (item["ID"]!=null)? int.Parse(item["ID"].ToString()):-1;
+            talent.Id = (item["ID"] != null) ? int.Parse(item["ID"].ToString()) : -1;
             talent.Name = (item[KTPConstants.Talent_Record_Employee] != null) ? SharePointOnlineHelper.GetUser(((FieldUserValue)item[KTPConstants.Talent_Record_Employee]).LookupValue.ToString()) : new User();
             talent.Manager = (item[KTPConstants.Talent_Record_Manager] != null) ? SharePointOnlineHelper.GetUser(((FieldUserValue)item[KTPConstants.Talent_Record_Manager]).LookupValue.ToString()) : new User();
-            talent.Requirements_01_category = (item[KTPConstants.Talent_Record_First_Development_Requirement_Category] != null) ? item[KTPConstants.Talent_Record_First_Development_Requirement_Category].ToString() : ""; 
+            talent.Requirements_01_category = (item[KTPConstants.Talent_Record_First_Development_Requirement_Category] != null) ? item[KTPConstants.Talent_Record_First_Development_Requirement_Category].ToString() : "";
             talent.Requirements_01_subcategory = (item[KTPConstants.Talent_Record_First_Development_Requirement_SubCategory] != null) ? item[KTPConstants.Talent_Record_First_Development_Requirement_SubCategory].ToString() : "";
             talent.Requirements_01_title = (item[KTPConstants.Talent_Record_First_Development_Requirement_Title] != null) ? item[KTPConstants.Talent_Record_First_Development_Requirement_Title].ToString() : "";
 
             talent.Requirements_02_category = (item[KTPConstants.Talent_Record_Second_Development_Requirement_Category] != null) ? item[KTPConstants.Talent_Record_Second_Development_Requirement_Category].ToString() : "";
             talent.Requirements_02_subcategory = (item[KTPConstants.Talent_Record_Second_Development_Requirement_SubCategory] != null) ? item[KTPConstants.Talent_Record_Second_Development_Requirement_SubCategory].ToString() : "";
             talent.Requirements_02_title = (item[KTPConstants.Talent_Record_Second_Development_Requirement_Title] != null) ? item[KTPConstants.Talent_Record_Second_Development_Requirement_Title].ToString() : "";
-            talent.Position = (item[KTPConstants.Talent_Record_Position]!= null)? item[KTPConstants.Talent_Record_Position].ToString():"";
+            talent.Position = (item[KTPConstants.Talent_Record_Position] != null) ? item[KTPConstants.Talent_Record_Position].ToString() : "";
             talent.GridRating = (item[KTPConstants.Talent_Record_Grid_Rating] != null) ? item[KTPConstants.Talent_Record_Grid_Rating].ToString() : "";
             talent.ReportingUnit = (item[KTPConstants.Talent_Record_ReportingUnit] != null) ? item[KTPConstants.Talent_Record_ReportingUnit].ToString() : "";
             talent.Gender = (item[KTPConstants.Talent_Record_Gender] != null) ? item[KTPConstants.Talent_Record_Gender].ToString() : "";
@@ -124,7 +124,7 @@ namespace Kier.TalentPortal.SharedKernal.Models
             listItem[KTPConstants.Talent_Record_Division] = talent.Division;
             listItem[KTPConstants.Talent_Record_Business_Stream] = talent.Stream;
             listItem[KTPConstants.Talent_Record_Business_Unit] = talent.Unit;
-           
+
             listItem[KTPConstants.Talent_Record_Business_Risk] = talent.BusinessRisk;
             listItem[KTPConstants.Talent_Record_Development_Notes] = talent.Notes;
             listItem[KTPConstants.Talent_Record_Employee_Id] = talent.EmployeeId;
@@ -136,12 +136,14 @@ namespace Kier.TalentPortal.SharedKernal.Models
             listItem[KTPConstants.Talent_Record_Performance] = talent.Performance;
             listItem[KTPConstants.Talent_Record_Potential] = talent.Potential;
             listItem[KTPConstants.Talent_Record_Submission_Year] = talent.SubmissionYear;
-            listItem[KTPConstants.Talent_Record_Position] = talent.Position;            
+            listItem[KTPConstants.Talent_Record_Position] = talent.Position;
             listItem[KTPConstants.Talent_Record_Title] = talent.EmployeeId;
             listItem[KTPConstants.Talent_Record_Gender] = talent.Gender;
             listItem[KTPConstants.Talent_Record_ReportingUnit] = talent.ReportingUnit;
+            listItem[KTPConstants.Talent_Record_IsLeaver] = talent.IsLeaver;
+            listItem[KTPConstants.Talent_Record_Is_Current_Submission] = talent.IsCurrentSubmission;
 
-            listItem[KTPConstants.Talent_Record_Area_Head] = (talent.AreaHead!=null)?SharePointOnlineHelper.ResolveUser(talent.AreaHead.value):null;
+            listItem[KTPConstants.Talent_Record_Area_Head] = (talent.AreaHead != null) ? SharePointOnlineHelper.ResolveUser(talent.AreaHead.value) : null;
             listItem[KTPConstants.Talent_Record_Employee] = SharePointOnlineHelper.ResolveUser(talent.Name.value);
             listItem[KTPConstants.Talent_Record_Manager] = SharePointOnlineHelper.ResolveUser(talent.Manager.value);
 
@@ -184,7 +186,10 @@ namespace Kier.TalentPortal.SharedKernal.Models
             if (IsBothPotentialAndPerformanceRatingAvailable())
             {
                 var combined = string.Concat(Potential, Performance);
-                result = this._ratingsDictionary[combined];
+                if (Potential.Contains("New") || Performance.Contains("New"))
+                    result = "New";
+                else
+                    result = this._ratingsDictionary[combined];
             }
             return result;
         }
