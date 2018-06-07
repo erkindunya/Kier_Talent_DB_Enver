@@ -16,7 +16,7 @@ export default class OptionsSelector extends React.Component<any, any> {
     const content = "Welcome Welceom";
     return (
       <RadioGroup size="small" onChange={this.handleChange}>
-        {this.props.items.map(i => <RadioButton value={i.value}>{i.label}</RadioButton>)}
+        {this.props.items.map(i => <Radio value={i.value}>{i.label}</Radio>)}
       </RadioGroup>
     )
   }
