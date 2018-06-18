@@ -33,6 +33,7 @@ export const Talent = types.model({
   Grade: types.optional(types.string, ""),
   BusinessRisk: types.optional(types.string, ""),
   FlightRisk: types.optional(types.string, ""),
+  Gender: types.optional(types.string, ""),
   Performance: types.optional(types.string, ""),
   Potential: types.optional(types.string, ""),
   Movement: types.optional(types.string, ""),
@@ -44,6 +45,7 @@ export const Talent = types.model({
   Requirements_02_title: types.optional(types.string, ""),
   Notes: types.optional(types.string, ""),
   IsCurrentSubmission: types.optional(types.boolean, false),
+  IsLeaver: types.optional(types.boolean, false),
   Position: types.optional(types.string, ""),
   SubmissionYear: types.optional(types.number, 0),
   PreviousYear: types.maybe(PreviousYearRating)
@@ -127,6 +129,10 @@ export const Talent = types.model({
       self.Performance = newRating;
     }
 
+    const changeIsLeaverFlag = (isLeaver: boolean) => {
+      self.IsLeaver = isLeaver;
+    }
+
     const changeAreaHead = (newHead: any) => {
       self.AreaHead.value = newHead.key;
       self.AreaHead.text = newHead.label;
@@ -141,6 +147,10 @@ export const Talent = types.model({
 
     const changeNotes = (notes: string) => {
       self.Notes = notes;
+    }
+
+    const changeGender = (gender: string) => {
+      self.Gender = gender;
     }
 
     return {
@@ -159,7 +169,9 @@ export const Talent = types.model({
       changeEmployeeName,
       changeAreaHead,
       changeManager,
-      changeNotes
+      changeNotes,
+      changeIsLeaverFlag,
+      changeGender
 
     }
   })

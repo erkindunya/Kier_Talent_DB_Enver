@@ -7,6 +7,11 @@ namespace Kier.TalentPortal.SharedKernal.Models
 {
     public class User
     {
+        public User()
+        {
+            this.value = string.Empty;
+            this.text = string.Empty;
+        }
         public string value { get; set; }
         public string text { get; set; }
     }
