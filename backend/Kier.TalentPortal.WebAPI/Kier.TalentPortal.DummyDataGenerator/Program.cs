@@ -16,16 +16,17 @@ namespace Kier.TalentPortal.DummyDataGenerator
     {
         static void Main(string[] args)
         {
-            StreamReader sr = new StreamReader(@"C:\Dev\talent-portal-refresh\Kier_Talent_DB\Provisioning\UAT_0806_Data_0606_1455.csv");
+            StreamReader sr = new StreamReader(@"C:\Dev\talent-portal-refresh\Kier_Talent_DB\Provisioning\Demo_Dummy_Data.csv");
             var csv = new CsvReader(sr);
-            csv.Read(); //Skip Header
+            //csv.Read(); //Skip Header
             Console.WriteLine(DateTime.Now.ToLongTimeString());
             while (csv.Read())
             {
                 var employeeId = csv.GetField<string>(0);
                 var firstName = csv.GetField<string>(1);
                 var lastName = csv.GetField<string>(2);
-                var fullName = csv.GetField<string>(3);
+                var fullName = string.Concat(lastName + ", " + firstName);
+                var employeeEmail = csv.GetField<string>(20);
                 var gender = csv.GetField<string>(4);
                 var divison = csv.GetField<string>(5);
                 var stream = csv.GetField<string>(6);
@@ -34,6 +35,7 @@ namespace Kier.TalentPortal.DummyDataGenerator
                 var position = csv.GetField<string>(9);
                 var grade = csv.GetField<string>(10);
                 var managerName = csv.GetField<string>(11);
+                var managerEmail = csv.GetField<string>(21);
                 var location = csv.GetField<string>(13);
                 var performance = csv.GetField<string>(14);
                 var potential = csv.GetField<string>(15);
@@ -49,8 +51,8 @@ namespace Kier.TalentPortal.DummyDataGenerator
                     {
                         var talent = new Talent() {
                             EmployeeId = employeeId,
-                            Name = new SharedKernal.Models.User() { value = fullName, text = fullName },
-                            Manager = new SharedKernal.Models.User() { value = managerName, text = managerName },
+                            Name = new SharedKernal.Models.User() { value = employeeEmail, text = fullName },
+                            Manager = new SharedKernal.Models.User() { value = managerEmail, text = managerName },
                             Division = divison,
                             Stream = stream,
                             Unit = unit,
@@ -60,17 +62,21 @@ namespace Kier.TalentPortal.DummyDataGenerator
                             Function = function,
                             Grade = grade,
                             Location = location,
-                            
-                            
-                            
-                            SubmissionYear = 2018,
-                            IsCurrentSubmission = true,
+
+                            Performance = performance,
+                            Potential = potential,
+                            BusinessRisk = businessRisk,
+                            FlightRisk = flightRisk,
+
+
+                            SubmissionYear = 2017,
+                            IsCurrentSubmission = false,
                             Position = position,
                             Gender = gender,
                             IsLeaver = false
                         };
 
-                        var _roleDefinition = ctx.Web.RoleDefinitions.GetByType(RoleType.Contributor);
+                        var _roleDefinition = ctx.Web.RoleDefinitions.GetByType(RoleType.Reader);
                         var _divisionAllRecordsSecurityGroup = ctx.Web.SiteGroups.GetByName(talent.GetAllDivisionRecordsGroupName());
                         var _streamAllRecordsSecurityGroup = ctx.Web.SiteGroups.GetByName(talent.GetAllStreamRecordsGroupName());
                         var _upToL1SecurityGroup = ctx.Web.SiteGroups.GetByName(talent.GetUptoL1GroupName());

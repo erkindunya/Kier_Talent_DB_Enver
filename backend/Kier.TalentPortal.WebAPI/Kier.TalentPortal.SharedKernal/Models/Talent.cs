@@ -117,9 +117,14 @@ namespace Kier.TalentPortal.SharedKernal.Models
         public static ListItem ToSPListItem(Talent talent, ListItem listItem)
         {
 
+            //var Names = talent.Name.text.Split(ConfigurationManager.AppSettings["name_delimiter"][0]);
+            //var firstNamePosition = int.Parse(ConfigurationManager.AppSettings["first_name_position"].ToString());
+            //var lastNamePosition = int.Parse(ConfigurationManager.AppSettings["last_name_position"].ToString());
+
             var Names = talent.Name.text.Split(ConfigurationManager.AppSettings["name_delimiter"][0]);
             var firstNamePosition = int.Parse(ConfigurationManager.AppSettings["first_name_position"].ToString());
             var lastNamePosition = int.Parse(ConfigurationManager.AppSettings["last_name_position"].ToString());
+
 
             listItem[KTPConstants.Talent_Record_Division] = talent.Division;
             listItem[KTPConstants.Talent_Record_Business_Stream] = talent.Stream;
