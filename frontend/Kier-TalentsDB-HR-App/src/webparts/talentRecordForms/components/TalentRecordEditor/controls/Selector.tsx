@@ -16,7 +16,7 @@ export default class Selector extends React.Component<any, any> {
     const Option = Select.Option;
     return (
 
-      <Select size="small" onChange={this.handleChange} placeholder={this.props.placeholder}>
+      <Select disabled={this.props.disabled} size="small" onChange={this.handleChange} placeholder={this.props.placeholder}>
         {
           this.props.items.map(f => <Option value={f.value}>{f.label}</Option>)
         }

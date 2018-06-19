@@ -166,8 +166,8 @@ class TalentRecordEditor extends React.Component<any, any> {
 
         <Form layout="vertical" onSubmit={this.handleSubmit}
               style={{border: '0px solid black', padding: '0px 5px 10px 5px', marginBottom: '10px'}}>
-          <Tabs>
-            <TabPane tab={<span><Icon type="user" />Employee Information</span>} key="1">
+
+              <Divider orientation="left">EMPLOYEE INFORMATION</Divider>
               {isLeaverCheckBox}
               <Row gutter={20}>
                 <Col span={16}>
@@ -209,6 +209,7 @@ class TalentRecordEditor extends React.Component<any, any> {
                         controlId="businessFunctions"
                         validationMessage='Business function cannot be left blank'
                         changed={this.OnFunctionChange}
+disabled = {this.props.store.IsSubmittingData}
                       />
                     )}
                   </FormItem>
@@ -228,7 +229,8 @@ class TalentRecordEditor extends React.Component<any, any> {
                                     item={this.props.store.Talent.AreaHead}
                                     validationMessage={"Head of Area canno be left blank"}
                                     form={this.props.form}
-                                    controlId="AreaHead"/>
+                                    controlId="AreaHead"
+                  disabled = {this.props.store.IsSubmittingData}/>
                 </FormItem></Col>
                 <Col span={8}><FormItem label="Manager's Name" {...formItemLayout}
                                         validateStatus={(getFieldError('managerName') ? 'error' : 'success')}>
@@ -239,7 +241,8 @@ class TalentRecordEditor extends React.Component<any, any> {
                     <UserRemoteSelect changed={this.OnManagerChange} item={this.props.store.Talent.Manager}
                                       validationMessage={"Manager cannot be left blank"}
                                       form={this.props.form}
-                                      controlId="managerName"/>
+                                      controlId="managerName"
+                                      disabled = {this.props.store.IsSubmittingData}/>
                   )}
                 </FormItem></Col>
                 <Col span={8}><FormItem label="Employee" {...formItemLayout}
@@ -251,7 +254,8 @@ class TalentRecordEditor extends React.Component<any, any> {
                     <UserRemoteSelect changed={this.OnEmployeeNameChange} item={this.props.store.Talent.Name}
                                       validationMessage={"Employee cannot be left blank"}
                                       form={this.props.form}
-                                      controlId="employee"/>
+                                      controlId="employee"
+                                      disabled = {this.props.store.IsSubmittingData}/>
                   )}
                 </FormItem></Col>
               </Row>
@@ -263,7 +267,7 @@ class TalentRecordEditor extends React.Component<any, any> {
                     rules: [{required: true, message: 'Employee ID cannot be left blank'}],
                   })(
                     <Input size="small" placeholder="Employee ID"
-                           onChange={(e) => this.OnEmployeeIDChange(e.target.value)}/>
+                           onChange={(e) => this.OnEmployeeIDChange(e.target.value)} disabled={this.props.store.ViewStore.isEditing || this.props.store.IsSubmittingData}/>
                   )}
                 </FormItem></Col>
                 <Col span={8}> <FormItem label="Grade" {...formItemLayout}
@@ -279,6 +283,7 @@ class TalentRecordEditor extends React.Component<any, any> {
                     controlId="grade"
                     validationMessage='Grade cannot be left blank'
                     changed={this.OnGradeChange}
+                    disabled = {this.props.store.IsSubmittingData}
                   />)}
 
                 </FormItem></Col>
@@ -288,7 +293,7 @@ class TalentRecordEditor extends React.Component<any, any> {
                     initialValue: this.props.store.Talent.Position,
                     rules: [{required: true, message: 'Position cannot be left blank'}]
                   })(
-                    <Input size="small" placeholder="Position" onChange={this.OnPositionChange}/>
+                    <Input size="small" placeholder="Position" onChange={this.OnPositionChange} disabled = {this.props.store.IsSubmittingData}/>
                   )}
                 </FormItem></Col>
               </Row>
@@ -305,6 +310,7 @@ class TalentRecordEditor extends React.Component<any, any> {
                     controlId="gender"
                     validationMessage='Gender cannot be left blank'
                     changed={this.OnGenderChange}
+                    disabled = {this.props.store.IsSubmittingData}
                   />)}
                 </FormItem></Col>
                 <Col span={8}>
@@ -312,18 +318,10 @@ class TalentRecordEditor extends React.Component<any, any> {
                 </Col>
                 <Col span={8}></Col>
               </Row>
-            </TabPane>
 
 
-            <TabPane tab={<span><Icon type="bar-chart" />Performance & Potential Ratings</span>} key="2">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et ultricies eros. Proin ipsum elit,
-              mattis pharetra dui nec, accumsan elementum sem. In at lorem non turpis tincidunt tristique. Vivamus sed
-              varius dui. Donec ullamcorper lacus massa, eget malesuada leo lacinia a. Nulla et lorem purus. Praesent
-              non tempus est, vitae consectetur leo. Etiam viverra tellus vitae risus ornare, sed ullamcorper neque
-              consequat. Suspendisse tempus ultrices purus ut finibus. Vivamus neque tellus, rhoncus quis viverra id,
-              imperdiet a ipsum. Nulla molestie mollis tortor, eu ultricies massa posuere nec. Suspendisse eu massa ex.
-              Vivamus egestas nisl commodo risus lacinia molestie. Donec pulvinar est eros, in condimentum tortor congue
-              nec.
+
+
 
 
               <Divider orientation="left">Useful Documents</Divider>
@@ -339,6 +337,7 @@ class TalentRecordEditor extends React.Component<any, any> {
                     href="https://kier.sharepoint.com/:p:/s/talent/EUUmpLGVHThNsmtkq7jD7RABIIm8gkWdUbxNW9-zoPcBBw?e=H9Vpjz"><Icon
                     type="file-ppt" style={{fontSize: 16, color: '#08c'}}/>Potential Definitions</a>
                 </Col>
+
               </Row>
               {this.previousYearRatingRender()}
               <Divider orientation='left'>2018 Rating</Divider>
@@ -357,7 +356,8 @@ class TalentRecordEditor extends React.Component<any, any> {
                     controlId="performance"
                     validationMessage="Please select a rating for the performance"
                     changed={this.OnPerformanceRatingChange}
-                    formatter={this.props.store.LookupDataStore.formatPerformanceTip} disabled={false}
+                    formatter={this.props.store.LookupDataStore.formatPerformanceTip} disabled = {this.props.store.IsSubmittingData}
+                    required={true}
                   />
                 </FormItem></Col>
 
@@ -373,7 +373,8 @@ class TalentRecordEditor extends React.Component<any, any> {
                     controlId="potential"
                     validationMessage="Please select a rating for the potential"
                     changed={this.OnPotentialRatingChange}
-                    formatter={this.props.store.LookupDataStore.formatPotentialTip} disabled={false}/>
+                    formatter={this.props.store.LookupDataStore.formatPotentialTip} disabled = {this.props.store.IsSubmittingData}
+                    required={true}/>
                 </FormItem></Col>
               </Row>
 
@@ -389,9 +390,10 @@ class TalentRecordEditor extends React.Component<any, any> {
                       items={this.props.store.LookupDataStore.MovementLookupData}
                       form={this.props.form}
                       value={this.props.store.Talent.Movement}
-                      controlId="c"
+                      controlId="movement"
                       validationMessage="Please select a movement status"
                       changed={this.OnMovementChange}
+                      disabled = {this.props.store.IsSubmittingData}
                     />
                   )
                 }
@@ -413,6 +415,7 @@ class TalentRecordEditor extends React.Component<any, any> {
                       controlId="flightRisk"
                       validationMessage="Please select flight risk!"
                       changed={this.OnFlightRiskChange}
+                      disabled = {this.props.store.IsSubmittingData}
                     />)
                   }
 
@@ -431,13 +434,21 @@ class TalentRecordEditor extends React.Component<any, any> {
                       controlId="businessRisk"
                       validationMessage="Please select business risk!"
                       changed={this.OnBusinessRiskChange}
+                      disabled = {this.props.store.IsSubmittingData}
                     />)
                   }
 
                 </FormItem>}</Col>
               </Row>
-            </TabPane>
-            <TabPane tab={<span><Icon type="rocket" />Development Requirements</span>} key="3">
+
+          <Divider orientation="left">Development Requirements</Divider>
+          <Row gutter={20}>
+            <Col span={24}>
+              <a
+                href="https://mykier/teams/hr/learninganddevelopment/"><Icon
+                type="info-circle-o" style={{fontSize: 16, color: '#08c'}}/>  Click here for more information about Kier Learning and Development</a>
+            </Col>
+          </Row>
               <Row gutter={20}>
                 <Col span={12}> <FormItem label="Development Requirements 1st" {...formItemLayout}>
 
@@ -450,6 +461,7 @@ class TalentRecordEditor extends React.Component<any, any> {
                     controlId="developmentRequirement_01"
                     changed={this.OnDevelopmentRequirement01Change}
                     required={false}
+                    disabled = {this.props.store.IsSubmittingData}
                   />
                 </FormItem></Col>
 
@@ -463,6 +475,7 @@ class TalentRecordEditor extends React.Component<any, any> {
                     controlId="developmentRequirement_02"
                     changed={this.OnDevelopmentRequirement02Change}
                     required={false}
+                    disabled = {this.props.store.IsSubmittingData}
                   />
                 </FormItem></Col>
 
@@ -474,14 +487,11 @@ class TalentRecordEditor extends React.Component<any, any> {
                     {getFieldDecorator('devNotes', {
                       rules: [{required: false, message: 'Please fill in some comments'}],
                     })(
-                      <Input.TextArea rows={5} onChange={(e) => this.OnNotesChange(e.target.value)}/>
+                      <Input.TextArea rows={5} onChange={(e) => this.OnNotesChange(e.target.value)} disabled = {this.props.store.IsSubmittingData}/>
                     )}
                   </FormItem>
                 </Col>
               </Row>
-            </TabPane>
-
-          </Tabs>
         </Form>
       </Col></Row>
 

@@ -46,12 +46,13 @@ export const LookupDataStore = types.model(
             {value: '4', label: '4'},
             {value: '5', label: '5'}]*/
 
-          return {0: 'Recent Hire', 20: '5', 40: '4', 60: '3', 80: '2', 100: '1'};
+          return {0: 'Too New to Rate', 20: '5', 40: '4', 60: '3', 80: '2', 100: '1'};
         }
         ,
 
+
         get PotentialRatingLookupData() {
-          return {0: 'Recent Hire', 33: 'C', 66: 'B', 100: 'A'};
+          return {0: 'Too New to Rate', 33: 'C', 66: 'B', 100: 'A'};
         },
 
         get MovementLookupData() {

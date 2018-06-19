@@ -157,7 +157,7 @@ namespace Kier.TalentPortal.SharedKernal.Models
             listItem[KTPConstants.Talent_Record_Employee] = SharePointOnlineHelper.ResolveUser(talent.Name.value);
             listItem[KTPConstants.Talent_Record_Manager] = SharePointOnlineHelper.ResolveUser(talent.Manager.value);
 
-            listItem[KTPConstants.Talent_Record_First_Name] = Names[firstNamePosition];
+            listItem[KTPConstants.Talent_Record_First_Name] = (Names[firstNamePosition]!=null)? Names[firstNamePosition].Trim():"";
             listItem[KTPConstants.Talent_Record_Last_Name] = Names[lastNamePosition];
             listItem[KTPConstants.Talent_Record_Manager_Name] = talent.Manager.text;
             listItem[KTPConstants.Talent_Record_Grid_Rating] = talent.CalculateGridRating();

@@ -16,9 +16,9 @@ namespace Kier.TalentPortal.DummyDataGenerator
     {
         static void Main(string[] args)
         {
-            StreamReader sr = new StreamReader(@"C:\Dev\talent-portal-refresh\Kier_Talent_DB\Provisioning\Demo_Dummy_Data.csv");
+            StreamReader sr = new StreamReader(@"C:\Dev\talent-portal-refresh\Kier_Talent_DB\Provisioning\Employee_Data_Without_Rating.csv");
             var csv = new CsvReader(sr);
-            //csv.Read(); //Skip Header
+            csv.Read(); //Skip Header
             Console.WriteLine(DateTime.Now.ToLongTimeString());
             while (csv.Read())
             {
@@ -26,7 +26,7 @@ namespace Kier.TalentPortal.DummyDataGenerator
                 var firstName = csv.GetField<string>(1);
                 var lastName = csv.GetField<string>(2);
                 var fullName = string.Concat(lastName + ", " + firstName);
-                var employeeEmail = csv.GetField<string>(20);
+                var employeeEmail = csv.GetField<string>(3);
                 var gender = csv.GetField<string>(4);
                 var divison = csv.GetField<string>(5);
                 var stream = csv.GetField<string>(6);
@@ -34,15 +34,15 @@ namespace Kier.TalentPortal.DummyDataGenerator
                 var reportingUnit = csv.GetField<string>(8);
                 var position = csv.GetField<string>(9);
                 var grade = csv.GetField<string>(10);
-                var managerName = csv.GetField<string>(11);
-                var managerEmail = csv.GetField<string>(21);
-                var location = csv.GetField<string>(13);
-                var performance = csv.GetField<string>(14);
-                var potential = csv.GetField<string>(15);
-                var flightRisk = csv.GetField<string>(16);
-                var businessRisk = csv.GetField<string>(17);
-                var movement = csv.GetField<string>(18);
-                var function = csv.GetField<string>(19);
+                var performance = csv.GetField<string>(11);
+                var potential = csv.GetField<string>(12);
+                var managerName = csv.GetField<string>(13);
+                var managerEmail = csv.GetField<string>(14);
+                var location = csv.GetField<string>(16);
+                var movement = csv.GetField<string>(17);
+                var flightRisk = csv.GetField<string>(18);
+                var businessRisk = csv.GetField<string>(19);                
+                var function = csv.GetField<string>(20);
 
 
                 try
@@ -67,7 +67,7 @@ namespace Kier.TalentPortal.DummyDataGenerator
                             Potential = potential,
                             BusinessRisk = businessRisk,
                             FlightRisk = flightRisk,
-
+                            Movement = movement,
 
                             SubmissionYear = 2017,
                             IsCurrentSubmission = false,

@@ -24,7 +24,8 @@ export class PreviousYearRating extends React.Component<any, any> {
         changed={() => {
         }}
         formatter={this.props.store.LookupDataStore.formatPerformanceTip}
-        disabled={true}/></FormItem></Col>
+        disabled={true}
+        required={false}/></FormItem></Col>
 
         </Row>
         <Row gutter={20}>
@@ -38,7 +39,8 @@ export class PreviousYearRating extends React.Component<any, any> {
             changed={() => {
             }}
             formatter={this.props.store.LookupDataStore.formatPotentialTip}
-            disabled={true}/></FormItem></Col>
+            disabled={true}
+          required={false}/></FormItem></Col>
         </Row>
       </div>)
   }

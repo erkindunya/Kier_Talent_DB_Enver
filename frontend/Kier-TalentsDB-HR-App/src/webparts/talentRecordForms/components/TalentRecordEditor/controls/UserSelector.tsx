@@ -69,7 +69,7 @@ export default class UserRemoteSelect extends React.Component<any, any> {
         onSearch={this.fetchUser}
         onChange={this.handleChange}
         style={{width: '100%'}}
-
+        disabled={this.props.disabled}
       >
         {data.map(d => <Option key={d.value}>{d.text}</Option>)}
       </Select>
