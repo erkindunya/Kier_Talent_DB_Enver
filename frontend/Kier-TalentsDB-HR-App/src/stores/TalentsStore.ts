@@ -14,7 +14,9 @@ export const PreviousYearRating = types.model({
 
 export const User = types.model({
   value: types.optional(types.string, ""),
-  text: types.optional(types.string, "")
+  text: types.optional(types.string, ""),
+  Surname: types.optional(types.string, ""),
+  ForeName: types.optional(types.string, "")
 })
 
 //Todo : need to add extra couple of fields CreatedBy and ModifiedBy
@@ -197,6 +199,9 @@ export const Talent = types.model({
     ,
     get HasPreviousYearRating() {
       return (self.PreviousYear) ? true : false;
+    },
+    get FullName() {
+      return self.Name.Surname + ", " + self.Name.ForeName;
     }
 
   }));

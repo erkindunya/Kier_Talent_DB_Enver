@@ -11,9 +11,13 @@ namespace Kier.TalentPortal.SharedKernal.Models
         {
             this.value = string.Empty;
             this.text = string.Empty;
+            this.ForeName = string.Empty;
+            this.Surname = string.Empty;
         }
         public string value { get; set; }
         public string text { get; set; }
+        public string ForeName { get; set; }
+        public string Surname { get; set; }
     }
     public class Talent
     {
@@ -99,6 +103,17 @@ namespace Kier.TalentPortal.SharedKernal.Models
                 : -1;
             talent.Id = (item["ID"] != null) ? int.Parse(item["ID"].ToString()) : -1;
             talent.Name = (item[KTPConstants.Talent_Record_Employee] != null) ? SharePointOnlineHelper.GetUser(((FieldUserValue)item[KTPConstants.Talent_Record_Employee]).LookupValue.ToString()) : new User();
+
+            if (talent.Name != null)
+            {
+                talent.Name.ForeName = (item[KTPConstants.Talent_Record_First_Name] != null)
+                    ? item[KTPConstants.Talent_Record_First_Name].ToString()
+                    : string.Empty;
+                talent.Name.Surname = (item[KTPConstants.Talent_Record_Last_Name] != null)
+                    ? item[KTPConstants.Talent_Record_Last_Name].ToString()
+                    : string.Empty;
+            }
+
             talent.Manager = (item[KTPConstants.Talent_Record_Manager] != null) ? SharePointOnlineHelper.GetUser(((FieldUserValue)item[KTPConstants.Talent_Record_Manager]).LookupValue.ToString()) : new User();
             talent.Requirements_01_category = (item[KTPConstants.Talent_Record_First_Development_Requirement_Category] != null) ? item[KTPConstants.Talent_Record_First_Development_Requirement_Category].ToString() : "";
             talent.Requirements_01_subcategory = (item[KTPConstants.Talent_Record_First_Development_Requirement_SubCategory] != null) ? item[KTPConstants.Talent_Record_First_Development_Requirement_SubCategory].ToString() : "";
@@ -134,7 +149,6 @@ namespace Kier.TalentPortal.SharedKernal.Models
             listItem[KTPConstants.Talent_Record_Division] = talent.Division;
             listItem[KTPConstants.Talent_Record_Business_Stream] = talent.Stream;
             listItem[KTPConstants.Talent_Record_Business_Unit] = talent.Unit;
-
             listItem[KTPConstants.Talent_Record_Business_Risk] = talent.BusinessRisk;
             listItem[KTPConstants.Talent_Record_Development_Notes] = talent.Notes;
             listItem[KTPConstants.Talent_Record_Employee_Id] = talent.EmployeeId;
@@ -152,11 +166,9 @@ namespace Kier.TalentPortal.SharedKernal.Models
             listItem[KTPConstants.Talent_Record_ReportingUnit] = talent.ReportingUnit;
             listItem[KTPConstants.Talent_Record_IsLeaver] = talent.IsLeaver;
             listItem[KTPConstants.Talent_Record_Is_Current_Submission] = talent.IsCurrentSubmission;
-
             listItem[KTPConstants.Talent_Record_Area_Head] = (talent.AreaHead != null) ? SharePointOnlineHelper.ResolveUser(talent.AreaHead.value) : null;
             listItem[KTPConstants.Talent_Record_Employee] = SharePointOnlineHelper.ResolveUser(talent.Name.value);
             listItem[KTPConstants.Talent_Record_Manager] = SharePointOnlineHelper.ResolveUser(talent.Manager.value);
-
             listItem[KTPConstants.Talent_Record_First_Name] = (Names[firstNamePosition]!=null)? Names[firstNamePosition].Trim():"";
             listItem[KTPConstants.Talent_Record_Last_Name] = Names[lastNamePosition];
             listItem[KTPConstants.Talent_Record_Manager_Name] = talent.Manager.text;
