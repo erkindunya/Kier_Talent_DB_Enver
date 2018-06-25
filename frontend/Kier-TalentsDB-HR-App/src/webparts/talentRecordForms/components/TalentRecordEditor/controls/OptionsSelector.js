@@ -23,7 +23,8 @@ var OptionsSelector = /** @class */ (function (_super) {
         _this.buildSelector = function () {
             var RadioButton = antd_1.Radio.Button;
             var RadioGroup = antd_1.Radio.Group;
-            return (React.createElement(RadioGroup, { size: "small", onChange: _this.handleChange }, _this.props.items.map(function (i) { return React.createElement(RadioButton, { value: i.value }, i.label); })));
+            var content = "Welcome Welceom";
+            return (React.createElement(RadioGroup, { size: "small", onChange: _this.handleChange, disabled: _this.props.disbaled }, _this.props.items.map(function (i) { return React.createElement(antd_1.Radio, { value: i.value }, i.label); })));
         };
         return _this;
     }

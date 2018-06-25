@@ -11,8 +11,7 @@ var LoadingSpinner = function (props) {
         height: '900'
     };
     return React.createElement("div", { style: style },
-        React.createElement(antd_1.Spin, { size: "large", tip: "Loading Talent" +
-                " Data" }));
+        React.createElement(antd_1.Spin, { size: "large", tip: "Loading Talent Form..." }));
 };
 exports.default = LoadingSpinner;
 //# sourceMappingURL=LoadingSpinner.js.map

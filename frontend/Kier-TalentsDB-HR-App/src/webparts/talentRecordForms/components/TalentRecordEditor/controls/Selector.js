@@ -29,7 +29,7 @@ var Selector = /** @class */ (function (_super) {
         };
         _this.buildFunctionSelector = function () {
             var Option = antd_1.Select.Option;
-            return (React.createElement(antd_1.Select, { size: "small", onChange: _this.handleChange, placeholder: _this.props.placeholder }, _this.props.items.map(function (f) { return React.createElement(Option, { value: f.value }, f.label); })));
+            return (React.createElement(antd_1.Select, { disabled: _this.props.disabled, size: "small", onChange: _this.handleChange, placeholder: _this.props.placeholder }, _this.props.items.map(function (f) { return React.createElement(Option, { value: f.value }, f.label); })));
         };
         return _this;
     }

@@ -43,6 +43,11 @@ var UserRemoteSelect = /** @class */ (function (_super) {
             _this.lastFetchId += 1;
             var fetchId = _this.lastFetchId;
             _this.setState({ data: [], fetching: true });
+            window.context = _this.props.context;
+            console.log("Conetxt " + _this.props.context);
+            sp_pnp_js_1.default.setup({
+                spfxContext: _this.props.context
+            });
             sp_pnp_js_1.default.sp.profiles.clientPeoplePickerSearchUser(opt).then(function (response) {
                 if (fetchId !== _this.lastFetchId) {
                     return;
@@ -60,15 +65,36 @@ var UserRemoteSelect = /** @class */ (function (_super) {
                 data: [],
                 fetching: false,
             });
-            (value.length >= 1) ? _this.props.changed(value[0].key) : "";
+            (value.length >= 1) ? _this.props.changed(value[0]) : "";
+        };
+        _this.buildPeoplePicker = function () {
+            var _a = _this.state, fetching = _a.fetching, data = _a.data, value = _a.value;
+            return (React.createElement(antd_1.Select, { size: "small", mode: "multiple", labelInValue: true, placeholder: "Select user", notFoundContent: fetching ? React.createElement(antd_1.Spin, { size: "small" }) : null, filterOption: false, onSearch: _this.fetchUser, onChange: _this.handleChange, style: { width: '100%' }, disabled: _this.props.disabled }, data.map(function (d) { return React.createElement(Option, { key: d.value }, d.text); })));
         };
         _this.lastFetchId = 0;
         _this.fetchUser = lodash_1.debounce(_this.fetchUser, 800);
+        //Todo: write more robust condition test
+        console.log("USer Details" + JSON.stringify(_this.props.item));
+        if (_this.props.item.value !== "") {
+            _this.state = {
+                data: [_this.props.item],
+                value: [{ key: _this.props.item.value }],
+                fetching: false
+            };
+        }
         return _this;
     }
     UserRemoteSelect.prototype.render = function () {
-        var _a = this.state, fetching = _a.fetching, data = _a.data, value = _a.value;
-        return (React.createElement(antd_1.Select, { size: "small", mode: "multiple", labelInValue: true, value: value, placeholder: "Select user", notFoundContent: fetching ? React.createElement(antd_1.Spin, { size: "small" }) : null, filterOption: false, onSearch: this.fetchUser, onChange: this.handleChange, style: { width: '100%' } }, data.map(function (d) { return React.createElement(Option, { key: d.value }, d.text); })));
+        console.log("UserSelector: " + this.props.item);
+        var initialValue = (this.props.item.value != "") ? { key: this.props.item.value } : {};
+        var options = (this.props.item.value != "") ? {
+            initialValue: initialValue,
+            rules: [{ required: true, message: this.props.validationMessage }]
+        } : {
+            rules: [{ required: true, message: this.props.validationMessage }]
+        };
+        var element = this.props.form.getFieldDecorator(this.props.controlId, options)(this.buildPeoplePicker());
+        return element;
     };
     UserRemoteSelect = __decorate([
         mobx_react_1.inject("store", "context"),

@@ -13,6 +13,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var ReactDom = require("react-dom");
 var sp_core_library_1 = require("@microsoft/sp-core-library");
+var sp_pnp_js_1 = require("sp-pnp-js");
 var sp_webpart_base_1 = require("@microsoft/sp-webpart-base");
 var strings = require("TalentRecordFormsWebPartStrings");
 var TalentRecordEditor_1 = require("./components/TalentRecordEditor/TalentRecordEditor");
@@ -25,6 +26,21 @@ var TalentRecordFormsWebPart = /** @class */ (function (_super) {
     function TalentRecordFormsWebPart() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
+    Object.defineProperty(TalentRecordFormsWebPart.prototype, "dataVersion", {
+        get: function () {
+            return sp_core_library_1.Version.parse('1.0');
+        },
+        enumerable: true,
+        configurable: true
+    });
+    TalentRecordFormsWebPart.prototype.onInit = function () {
+        var _this = this;
+        return _super.prototype.onInit.call(this).then(function (_) {
+            sp_pnp_js_1.default.setup({
+                spfxContext: _this.context
+            });
+        });
+    };
     TalentRecordFormsWebPart.prototype.render = function () {
         var appStore = AppStore_1.AppStore.create({});
         mobx_state_tree_1.onPatch(appStore.Talent, function (patch) {
@@ -36,13 +52,6 @@ var TalentRecordFormsWebPart = /** @class */ (function (_super) {
         ReactDom.render(React.createElement(mobx_react_1.Provider, { store: appStore, context: this.context },
             React.createElement(TalentRecordEditor_1.default, null)), this.domElement);
     };
-    Object.defineProperty(TalentRecordFormsWebPart.prototype, "dataVersion", {
-        get: function () {
-            return sp_core_library_1.Version.parse('1.0');
-        },
-        enumerable: true,
-        configurable: true
-    });
     TalentRecordFormsWebPart.prototype.getPropertyPaneConfiguration = function () {
         return {
             pages: [

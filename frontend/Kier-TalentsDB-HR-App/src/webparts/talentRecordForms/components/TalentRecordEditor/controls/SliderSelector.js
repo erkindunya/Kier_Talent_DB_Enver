@@ -36,9 +36,9 @@ var SliderSelector = /** @class */ (function (_super) {
         var initialValue = (this.props.value) ? sp_lodash_subset_1.invert(this.props.items)[this.props.value] : 0;
         var options = (this.props.value) ? {
             initialValue: initialValue,
-            rules: [{ required: true, message: this.props.validationMessage }]
+            rules: [{ required: this.props.required, message: this.props.validationMessage }]
         } : {
-            rules: [{ required: true, message: this.props.validationMessage }]
+            rules: [{ required: this.props.required, message: this.props.validationMessage }]
         };
         var element = this.props.form.getFieldDecorator(this.props.controlId, options)(this.BuildSelector());
         return element;

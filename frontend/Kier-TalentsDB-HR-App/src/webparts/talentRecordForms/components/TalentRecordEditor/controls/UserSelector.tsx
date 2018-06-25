@@ -23,7 +23,7 @@ export default class UserRemoteSelect extends React.Component<any, any> {
       AllowEmailAddresses: true,
       MaximumEntitySuggestions: 10,
       PrincipalSource: 15,
-      PrincipalType: 15,
+      PrincipalType: 1,
       QueryString: value
     }
 
@@ -42,6 +42,7 @@ export default class UserRemoteSelect extends React.Component<any, any> {
       }
       const data = response.map((user) => ({
         text: user.DisplayText,
+        title: user.EntityData.Title,
         value: user.Key
       }));
       this.setState({data, fetching: false})
@@ -53,10 +54,15 @@ export default class UserRemoteSelect extends React.Component<any, any> {
       data: [],
       fetching: false,
     });
-    (value.length >= 1) ? this.props.changed(value[0]) : "";
+    (value.length >= 1) ? this.props.changed(value[0]) : this.props.changed({});
   }
 
   buildPeoplePicker = () => {
+    var divStyle = {
+      color: '#777',
+      fontSize: ".7em",
+
+    };
     const {fetching, data, value} = this.state;
     return (
       <Select
@@ -71,7 +77,11 @@ export default class UserRemoteSelect extends React.Component<any, any> {
         style={{width: '100%'}}
         disabled={this.props.disabled}
       >
-        {data.map(d => <Option key={d.value}>{d.text}</Option>)}
+        {data.map(d => <Option key={d.value}>{d.text}<br/>
+          <div style={divStyle}>{d.title}</div>
+        </Option>)}
+
+        {/*{data.map(d => <Option key={d.value}>{d.text}</Option>)}*/}
       </Select>
     );
   }
@@ -100,12 +110,13 @@ export default class UserRemoteSelect extends React.Component<any, any> {
 
     const options = (this.props.item.value!="") ? {
       initialValue: initialValue,
-      rules: [{required: true, message: this.props.validationMessage}]
+      rules: [{required: this.props.required, message: this.props.validationMessage}]
     } : {
-      rules: [{required: true, message: this.props.validationMessage}]
+      rules: [{required: this.props.required, message: this.props.validationMessage}]
     }
 
     const element = this.props.form.getFieldDecorator(this.props.controlId, options)(this.buildPeoplePicker());
+    //const element = this.buildPeoplePicker();
     return element;
   }
 }

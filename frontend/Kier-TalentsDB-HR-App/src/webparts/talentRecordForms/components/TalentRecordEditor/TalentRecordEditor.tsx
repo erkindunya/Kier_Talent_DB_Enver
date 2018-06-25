@@ -26,12 +26,13 @@ import SliderSelector from "./controls/SliderSelector";
 import UserRemoteSelect from "./controls/UserSelector";
 import OptionsSelector from "./controls/OptionsSelector";
 import {IDigestCache, DigestCache} from '@microsoft/sp-http';
-
-;
 import {inject, observer} from "mobx-react";
 import {Talent} from "../../../../stores/TalentsStore";
 import {PreviousYearRating} from "./controls/PreviousYearRating";
 import LoadingSpinner from "./controls/LoadingSpinner";
+import EmployeeName from "./controls/EmployeeName";
+import ManagerName from "./controls/ManagerName";
+import AreaHeadName from "./controls/AreaHeadName";
 
 const FormItem = Form.Item;
 const TabPane = Tabs.TabPane;
@@ -88,14 +89,14 @@ class TalentRecordEditor extends React.Component<any, any> {
   OnDevelopmentRequirement02Change = (newRequirement: string[]) => {
     this.props.store.Talent.changeDevelopmentRequirement02(newRequirement);
   }
-  OnEmployeeNameChange = (userId: string) => {
-    console.log("Employee Changed " + JSON.stringify(userId));
+  OnEmployeeNameChange = (userId: any) => {
+    //console.log("Employee Changed " + JSON.stringify(userId));
     this.props.store.Talent.changeEmployeeName(userId);
   }
-  OnAreaHeadChange = (newHeadArea: string) => {
+  OnAreaHeadChange = (newHeadArea: any) => {
     this.props.store.Talent.changeAreaHead(newHeadArea);
   }
-  OnManagerChange = (newManager: string) => {
+  OnManagerChange = (newManager: any) => {
     this.props.store.Talent.changeManager(newManager);
   }
   OnNotesChange = (notes: string) => {
@@ -108,7 +109,7 @@ class TalentRecordEditor extends React.Component<any, any> {
   }
   onSubmit = (e) => {
     e.preventDefault();
-    this.props.form.validateFields((err, values) => {
+    this.props.form.validateFieldsAndScroll({force: true}, (err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
       }
@@ -119,7 +120,7 @@ class TalentRecordEditor extends React.Component<any, any> {
   }
   onUpdate = (e) => {
     e.preventDefault();
-    this.props.form.validateFields((err, values) => {
+    this.props.form.validateFieldsAndScroll({force: true}, (err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
       }
@@ -150,13 +151,35 @@ class TalentRecordEditor extends React.Component<any, any> {
     const businessUnitsError = getFieldError('businessUnits');
     const businessFunctionError = getFieldError('businessFunctions');
     const areaHeadError = isFieldTouched('AreaHead') && getFieldError('AreaHead');
+    /* const x =getFieldDecorator('employee3', {
+       //initialValue: this.props.store.Talent.Manager,
+       rules: [{required: true, message: 'manager name?'}],
+     })(
+       <UserRemoteSelect changed={this.OnEmployeeNameChange} item={this.props.store.Talent.Name}
+                         validationMessage={"Employee name cannot be left blank"}
+                         form={this.props.form}
+                         controlId="employee3"
+                         disabled = {this.props.store.IsSubmittingData}/>
+     );
+
+     const employeeName = (this.props.store.ViewStoreس.isEditing)?y:x;
+     const y = getFieldDecorator('employee', {
+       initialValue: this.props.store.Talent.FullName,
+       rules: [{required: true, message: 'manager name?'}],
+     })(
+       <Input id="employee" size="small"  placeholder="Employee Name" disabled={true}/>
+     );*/
+
+
     const actionButton = (this.props.store.ViewStore.isEditing) ?
       <Button style={{marginLeft: 8}} type="primary" loading={this.props.store.IsSubmittingData} htmlType="button"
               onClick={this.onUpdate}  >Update Talent Record</Button> :
       <Button style={{marginLeft: 8}} type="primary" htmlType="button"
               onClick={this.onSubmit} loading={this.props.store.IsSubmittingData}>Add New Talent Record</Button>;
     const isLeaverCheckBox = (this.props.store.ViewStore.isEditing) ?
-      <Row><Col span={24}><FormItem {...formItemLayout}><Checkbox onChange={this.OnIsLeaverChange}>This employee has
+      <Row><Col span={24}><FormItem {...formItemLayout}><Checkbox onChange={this.OnIsLeaverChange}
+                                                                  checked={this.props.store.Talent.IsLeaver}>This
+        employee has
         left Kier</Checkbox></FormItem></Col></Row> : "";
     const talentForm = <div>
       {this.props.store.IsLoadingTalentData}
@@ -178,17 +201,33 @@ class TalentRecordEditor extends React.Component<any, any> {
                 />
               </Tooltip>
             </span>} {...formItemLayout}>
-                    <CascadeSelector
-                      items={this.props.store.LookupDataStore.BusinessUnitsLookupData}
-                      item={this.props.store.Talent.BusinessUnits}
-                      form={this.props.form}
-                      placeholder="Please select a business unit"
-                      validationMessage='Please select a business unit!'
-                      controlId="businessUnits"
-                      changed={this.OnBuinsessUnitChange}
-                      required={true}
-                      disabled =  {this.props.store.IsSubmittingData}
-                    />
+
+
+                    {getFieldDecorator('businessUnits', {
+                      initialValue: this.props.store.Talent.BusinessUnits,
+                      rules: [{
+                        required: true, message: "Business Units" +
+                        " cannot" +
+                        " be" +
+                        " left" +
+                        " blank"
+                      }]
+                    })(
+                      <CascadeSelector
+                        items={this.props.store.LookupDataStore.BusinessUnitsLookupData}
+                        item={this.props.store.Talent.BusinessUnits}
+                        form={this.props.form}
+                        placeholder="Please select a business unit"
+                        validationMessage='Please select a business unit!'
+                        controlId="businessUnits"
+                        changed={this.OnBuinsessUnitChange}
+                        required={true}
+                        disabled={this.props.store.IsSubmittingData}
+                      />
+                    )}
+
+
+
 
 
 
@@ -199,7 +238,14 @@ class TalentRecordEditor extends React.Component<any, any> {
                             validateStatus={businessFunctionError ? 'error' : 'success'}>
                     {getFieldDecorator('businessFunctions', {
                       initialValue: this.props.store.Talent.Function,
-                      rules: [{required: true, message: "Business function cannot be left blank"}]
+                      rules: [{
+                        required: (!this.props.store.ViewStore.isEditing || (!this.props.store.Talent.IsLeaver && this.props.store.ViewStore.isEditing)),
+                        message: "Business function" +
+                        " cannot" +
+                        " be" +
+                        " left" +
+                        " blank"
+                      }]
                     })(
                       <Selector
                         items={this.props.store.LookupDataStore.BusinessFunctionsLookupData}
@@ -230,33 +276,59 @@ disabled = {this.props.store.IsSubmittingData}
                                     validationMessage={"Head of Area canno be left blank"}
                                     form={this.props.form}
                                     controlId="AreaHead"
-                  disabled = {this.props.store.IsSubmittingData}/>
+                                    disabled={this.props.store.IsSubmittingData}/>
                 </FormItem></Col>
                 <Col span={8}><FormItem label="Manager's Name" {...formItemLayout}
                                         validateStatus={(getFieldError('managerName') ? 'error' : 'success')}>
+
+
                   {getFieldDecorator('managerName', {
                     //initialValue: this.props.store.Talent.Manager,
-                    rules: [{required: true, message: 'manager name?'}],
+                    rules: [{
+                      required: (!this.props.store.ViewStore.isEditing || (!this.props.store.Talent.IsLeaver && this.props.store.ViewStore.isEditing)),
+                      message: 'manager name?'
+                    }],
                   })(
                     <UserRemoteSelect changed={this.OnManagerChange} item={this.props.store.Talent.Manager}
                                       validationMessage={"Manager cannot be left blank"}
                                       form={this.props.form}
                                       controlId="managerName"
-                                      disabled = {this.props.store.IsSubmittingData}/>
+                                      disabled={this.props.store.IsSubmittingData}
+                                      required={(!this.props.store.ViewStore.isEditing || (!this.props.store.Talent.IsLeaver && this.props.store.ViewStore.isEditing))}/>
                   )}
+
+
+                  {/*<UserRemoteSelect
+                    changed={this.OnManagerChange}
+                    item={this.props.store.Talent.Manager}
+                    validationMessage={"Manager cannot be left blank"}
+                    form={this.props.form}
+                    controlId="managerName"
+                    disabled = {this.props.store.IsSubmittingData}
+                    required={(!this.props.store.ViewStore.isEditing || (!this.props.store.Talent.IsLeaver && this.props.store.ViewStore.isEditing))}/>
+*/}
+
+
+
+
+
                 </FormItem></Col>
                 <Col span={8}><FormItem label="Employee" {...formItemLayout}
-                                        validateStatus={(getFieldError('employee') ? 'error' : 'success')}>
-                  {getFieldDecorator('employee', {
-                    //initialValue: this.props.store.Talent.Name,
-                    rules: [{required: true, message: 'employee name?'}]
-                  })(
-                    <UserRemoteSelect changed={this.OnEmployeeNameChange} item={this.props.store.Talent.Name}
-                                      validationMessage={"Employee cannot be left blank"}
-                                      form={this.props.form}
-                                      controlId="employee"
-                                      disabled = {this.props.store.IsSubmittingData}/>
-                  )}
+                                        validateStatus={(getFieldError('employeeName') ? 'error' : 'success')}>
+
+
+                  {getFieldDecorator('employeeName', {
+                    //initialValue: this.props.store.Talent.Manager,
+                    rules: [{required: true, message: 'manager name?'}],
+                  })
+                  (
+                    <EmployeeName controlId={"employeeName"} item={this.props.store.Talent.Name}
+                                  validationMessage={"Employee name cannot be left blank"} form={this.props.form}
+                                  changed={this.OnEmployeeNameChange}
+                                  disabled={this.props.store.IsSubmittingData || this.props.store.ViewStore.isEditing}/>)}
+
+
+
                 </FormItem></Col>
               </Row>
               <Row gutter={20}>
@@ -274,7 +346,10 @@ disabled = {this.props.store.IsSubmittingData}
                                          validateStatus={(getFieldError('grade') ? 'error' : 'success')}>
                   {getFieldDecorator("grade", {
                     initialValue: this.props.store.Talent.Grade,
-                    rules: [{required: true, message: "Grade cannot be left blank"}]
+                    rules: [{
+                      required: (!this.props.store.ViewStore.isEditing || (!this.props.store.Talent.IsLeaver && this.props.store.ViewStore.isEditing)),
+                      message: "Grade cannot be left blank"
+                    }]
                   })(<Selector
                     items={this.props.store.LookupDataStore.GradeLookupData}
                     form={this.props.form}
@@ -291,7 +366,10 @@ disabled = {this.props.store.IsSubmittingData}
                                          validateStatus={(getFieldError('position') ? 'error' : 'success')}>
                   {getFieldDecorator('position', {
                     initialValue: this.props.store.Talent.Position,
-                    rules: [{required: true, message: 'Position cannot be left blank'}]
+                    rules: [{
+                      required: (!this.props.store.ViewStore.isEditing || (!this.props.store.Talent.IsLeaver && this.props.store.ViewStore.isEditing)),
+                      message: 'Position cannot be left blank'
+                    }]
                   })(
                     <Input size="small" placeholder="Position" onChange={this.OnPositionChange} disabled = {this.props.store.IsSubmittingData}/>
                   )}
@@ -301,7 +379,10 @@ disabled = {this.props.store.IsSubmittingData}
                 <Col span={8}><FormItem label="Gender" {...formItemLayout}>
                   {getFieldDecorator("gender", {
                     initialValue: this.props.store.Talent.Gender,
-                    rules: [{required: true, message: "Gender cannot be left blank"}]
+                    rules: [{
+                      required: (!this.props.store.ViewStore.isEditing || (!this.props.store.Talent.IsLeaver && this.props.store.ViewStore.isEditing)),
+                      message: "Gender cannot be left blank"
+                    }]
                   })(<Selector
                     items={[{value: "Male", label: "Male"}, {value: "Female", label: "Female"}]}
                     form={this.props.form}
@@ -349,7 +430,14 @@ disabled = {this.props.store.IsSubmittingData}
                   <Icon type="question-circle-o"></Icon></Tooltip></span>}
                                          extra="For more information about the performance ratings, select rating on the slider and a tooltip will be displayed" {...formItemLayout}>
 
-                  <SliderSelector
+
+                  {getFieldDecorator("performance", {
+                    initialValue: this.props.store.Talent.Performance,
+                    rules: [{
+                      required: (!this.props.store.ViewStore.isEditing || (!this.props.store.Talent.IsLeaver && this.props.store.ViewStore.isEditing)),
+                      message: "Performance rating cannot be left blank"
+                    }]
+                  })(<SliderSelector
                     items={this.props.store.LookupDataStore.PerformanceRatingLookupData}
                     form={this.props.form}
                     value={this.props.store.Talent.Performance}
@@ -357,8 +445,10 @@ disabled = {this.props.store.IsSubmittingData}
                     validationMessage="Please select a rating for the performance"
                     changed={this.OnPerformanceRatingChange}
                     formatter={this.props.store.LookupDataStore.formatPerformanceTip} disabled = {this.props.store.IsSubmittingData}
-                    required={true}
-                  />
+                    required={(!this.props.store.ViewStore.isEditing || (!this.props.store.Talent.IsLeaver && this.props.store.ViewStore.isEditing))}
+                  />)}
+
+
                 </FormItem></Col>
 
               </Row>
@@ -366,7 +456,14 @@ disabled = {this.props.store.IsSubmittingData}
                 <Col span={2}></Col>
                 <Col span={15}><FormItem label="Potential Rating" {...formItemLayout}
                                          extra="For more information about the potential ratings, select rating on the slider and a tooltip will be displayed">
-                  <SliderSelector
+
+                  {getFieldDecorator("potential", {
+                    initialValue: this.props.store.Talent.Potential,
+                    rules: [{
+                      required: (!this.props.store.ViewStore.isEditing || (!this.props.store.Talent.IsLeaver && this.props.store.ViewStore.isEditing)),
+                      message: "Potential rating cannot be left blank"
+                    }]
+                  })(<SliderSelector
                     items={this.props.store.LookupDataStore.PotentialRatingLookupData}
                     form={this.props.form}
                     value={this.props.store.Talent.Potential}
@@ -374,7 +471,9 @@ disabled = {this.props.store.IsSubmittingData}
                     validationMessage="Please select a rating for the potential"
                     changed={this.OnPotentialRatingChange}
                     formatter={this.props.store.LookupDataStore.formatPotentialTip} disabled = {this.props.store.IsSubmittingData}
-                    required={true}/>
+                    required={(!this.props.store.ViewStore.isEditing || (!this.props.store.Talent.IsLeaver && this.props.store.ViewStore.isEditing))}/>)}
+
+
                 </FormItem></Col>
               </Row>
 
@@ -384,7 +483,7 @@ disabled = {this.props.store.IsSubmittingData}
                 {
                   getFieldDecorator('movement', {
                     initialValue: this.props.store.Talent.Movement,
-                    rules: [{required: true, message: 'A movement status have to selected'}]
+                    rules: [{required: false, message: 'A movement status have to selected'}]
                   })(
                     <OptionsSelector
                       items={this.props.store.LookupDataStore.MovementLookupData}
@@ -393,6 +492,7 @@ disabled = {this.props.store.IsSubmittingData}
                       controlId="movement"
                       validationMessage="Please select a movement status"
                       changed={this.OnMovementChange}
+                      required={false}
                       disabled = {this.props.store.IsSubmittingData}
                     />
                   )
@@ -407,7 +507,7 @@ disabled = {this.props.store.IsSubmittingData}
                   {
                     getFieldDecorator('flightRisk', {
                       initialValue: this.props.store.Talent.FlightRisk,
-                      rules: [{required: true, message: 'flightRisk?'}]
+                      rules: [{required: false, message: 'flightRisk?'}]
                     })(<OptionsSelector
                       items={this.props.store.LookupDataStore.RiskLookupData}
                       form={this.props.form}
@@ -416,6 +516,7 @@ disabled = {this.props.store.IsSubmittingData}
                       validationMessage="Please select flight risk!"
                       changed={this.OnFlightRiskChange}
                       disabled = {this.props.store.IsSubmittingData}
+                      required={false}
                     />)
                   }
 
@@ -426,7 +527,7 @@ disabled = {this.props.store.IsSubmittingData}
                   {
                     getFieldDecorator('businessRisk', {
                       initialValue: this.props.store.Talent.BusinessRisk,
-                      rules: [{required: true, message: 'businessRisk?'}]
+                      rules: [{required: false, message: 'businessRisk?'}]
                     })(<OptionsSelector
                       items={this.props.store.LookupDataStore.RiskLookupData}
                       form={this.props.form}
@@ -435,6 +536,7 @@ disabled = {this.props.store.IsSubmittingData}
                       validationMessage="Please select business risk!"
                       changed={this.OnBusinessRiskChange}
                       disabled = {this.props.store.IsSubmittingData}
+                      required={false}
                     />)
                   }
 

@@ -26,6 +26,8 @@ export const Talent = types.model({
   Name: types.optional(User, {}),
   Manager: types.optional(User, {}),
   AreaHead: types.optional(User, {}),
+  AreaHeadName: types.optional(types.string, ""),
+  ManagerName: types.optional(types.string, ""),
   Division: types.optional(types.string, ""),
   Unit: types.optional(types.string, ""),
   Stream: types.optional(types.string, ""),
@@ -95,7 +97,10 @@ export const Talent = types.model({
 
     const changeEmployeeName = (newEmployeeKey: any) => {
       self.Name.value = newEmployeeKey.key;
-      self.Name.text = newEmployeeKey.label;
+      //self.Name.text = newEmployeeKey.label[0];
+      self.Name.text = (newEmployeeKey.label) ? newEmployeeKey.label[0] : "";
+
+      //self.Name = newEmployeeKey;
     }
 
     const changeGrade = (newGrade: string) => {
@@ -136,13 +141,15 @@ export const Talent = types.model({
     }
 
     const changeAreaHead = (newHead: any) => {
+      //self.AreaHeadName = newHead;
       self.AreaHead.value = newHead.key;
-      self.AreaHead.text = newHead.label;
+      self.AreaHead.text = (newHead.label) ? newHead.label[0] : "";
     }
 
     const changeManager = (newManager: any) => {
+      //self.ManagerName= newManager
       self.Manager.value = newManager.key;
-      self.Manager.text = newManager.label;
+      self.Manager.text = (newManager.label) ? newManager.label[0] : "";
     }
 
 
@@ -181,10 +188,10 @@ export const Talent = types.model({
 
     get BusinessUnits() {
       console.log("BusinessUnits: called");
-      const {Division, Unit, Stream, Location} = self;
+      const {Division, Unit, Stream, ReportingUnit, Location} = self;
       if (!Division)
         return undefined;
-      const result = [Division, Stream, Unit, Location];
+      const result = [Division, Stream, Unit, ReportingUnit, Location];
       console.log(result)
       return result;
     },

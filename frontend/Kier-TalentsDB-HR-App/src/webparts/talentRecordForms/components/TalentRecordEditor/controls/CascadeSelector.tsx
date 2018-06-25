@@ -34,6 +34,7 @@ export default class CascadeSelector extends React.Component<any, any> {
     }
 
     const element = this.props.form.getFieldDecorator(this.props.controlId, options)(this.BuildCascader());
+
     return element;
 
   }

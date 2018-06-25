@@ -44,11 +44,11 @@ var TalentPortalCommandSetCommandSet = /** @class */ (function (_super) {
                 //redirect to Talent Record Editor
                 var employeeId = event.selectedRows[0].getValueByName("KTPEmployeeID");
                 var recordId = event.selectedRows[0].getValueByName("ID");
-                var url = "/SitePages/Talent-Form.aspx?talentId=" + recordId + "&employeeId=" + employeeId;
+                var url = "/sites/talent/SitePages/TalentEditor.aspx?talentId=" + recordId + "&employeeId=" + employeeId;
                 window.location.href = url;
                 break;
             case 'NEW_TALENT_RECORD':
-                var url = "/SitePages/Talent-Form.aspx";
+                var url = "/sites/talent/SitePages/TalentEditor.aspx";
                 window.location.href = url;
                 break;
             default:

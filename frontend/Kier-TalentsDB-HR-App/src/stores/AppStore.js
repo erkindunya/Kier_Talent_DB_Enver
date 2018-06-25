@@ -9,6 +9,7 @@ exports.AppStore = mobx_state_tree_1.types.model({
     TalentDataStore: mobx_state_tree_1.types.optional(TalentsStore_1.default, {}),
     IsLoadingReferenceData: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.boolean, false),
     IsLoadingTalentData: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.boolean, false),
+    IsSubmittingData: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.boolean, false),
     ViewStore: mobx_state_tree_1.types.optional(ViewStore_1.default, {}),
     Talent: mobx_state_tree_1.types.optional(TalentsStore_1.Talent, {})
 }).named("ApplicationDataStore")
@@ -16,8 +17,11 @@ exports.AppStore = mobx_state_tree_1.types.model({
     var SetIsLoadingReferenceData = function (loading) {
         self.IsLoadingReferenceData = loading;
     };
-    var SetIsLoadingTalentData = function (loading) {
-        self.IsLoadingTalentData = loading;
+    var SetIsLoadingTalentData = function (submitting) {
+        self.IsLoadingTalentData = submitting;
+    };
+    var SetIsSubmittingData = function (loading) {
+        self.IsSubmittingData = loading;
     };
     var SetTalent = function (item) {
         self.Talent = item;
@@ -29,6 +33,7 @@ exports.AppStore = mobx_state_tree_1.types.model({
         SetIsLoadingReferenceData: SetIsLoadingReferenceData,
         SetIsLoadingTalentData: SetIsLoadingTalentData,
         SetTalent: SetTalent,
+        SetIsSubmittingData: SetIsSubmittingData,
         afterCreate: afterCreate
     };
 }).actions(function (self) {

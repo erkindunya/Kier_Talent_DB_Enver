@@ -2,92 +2,145 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var Requirements = [
     {
-        value: "Leadership Development",
-        label: "Leadership Development",
+        value: "Insight",
+        label: "Insight",
         children: [
             {
-                value: 'Option 1',
-                label: 'Option 1'
+                value: 'Deloitte 360 feedback survey',
+                label: 'Deloitte 360 feedback survey'
             },
             {
-                value: 'Option 2',
-                label: 'Option 2'
+                value: 'Hogan',
+                label: 'Hogan'
             },
             {
-                value: 'Option 3',
-                label: 'Option 3'
+                value: 'Insights',
+                label: 'Insights'
+            },
+            {
+                value: 'Unconscious bias e-learning',
+                label: 'Unconscious bias e-learning'
+            },
+            {
+                value: 'Deloitte Leadership profile',
+                label: 'Deloitte Leadership profile'
             }
         ]
     },
     {
-        value: "Line Management Development",
-        label: "Line Management Development",
+        value: "Plan",
+        label: "Plan",
         children: [
             {
-                value: 'Option 1',
-                label: 'Option 1'
+                value: 'Career Conversation',
+                label: 'Career Conversation'
             },
             {
-                value: 'Option 2',
-                label: 'Option 2'
+                value: 'Personal Development Plan',
+                label: 'Personal Development Plan'
             },
             {
-                value: 'Option 3',
-                label: 'Option 3'
+                value: 'Mentor',
+                label: 'Mentor'
+            },
+            {
+                value: 'Coach',
+                label: 'Coach'
+            },
+            {
+                value: 'External Coaching',
+                label: 'External Coaching'
             }
         ]
     },
     {
-        value: "Technical Training",
-        label: "Technical Training",
+        value: "Corporate Development offer ",
+        label: "Corporate Development offer ",
         children: [
             {
-                value: 'Option 1',
-                label: 'Option 1'
+                value: 'Skills Workshops',
+                label: 'Skills Workshops',
+                children: [
+                    {
+                        value: 'Impact and Influence',
+                        label: 'Impact and Influence'
+                    },
+                    {
+                        value: 'An introduction to workplace coaching',
+                        label: 'An introduction to workplace coaching'
+                    },
+                    {
+                        value: 'Resilience in the workplace',
+                        label: 'Resilience in the workplace'
+                    },
+                    {
+                        value: 'Leading others',
+                        label: 'Leading others'
+                    },
+                    {
+                        value: 'Managing Others',
+                        label: 'Managing Others'
+                    }
+                ]
             },
             {
-                value: 'Option 2',
-                label: 'Option 2'
+                value: 'Deloitte Modules',
+                label: 'Deloitte Modules',
+                children: [
+                    {
+                        value: 'Influence',
+                        label: 'Influence'
+                    },
+                    {
+                        value: 'Inspirational Leadership',
+                        label: 'Inspirational Leadership'
+                    }
+                ]
             },
             {
-                value: 'Option 3',
-                label: 'Option 3'
+                value: 'Equally yours',
+                label: 'Equally yours'
+            },
+            {
+                value: 'WISE development programme',
+                label: 'WISE development programme'
+            },
+            {
+                value: 'Managing People the Kier Way',
+                label: 'Managing People the Kier Way'
+            }, {
+                value: 'First Line Managers programme (FLM)',
+                label: 'First Line Managers programme (FLM)'
+            }, {
+                value: 'Management Development Programme (MDP)',
+                label: 'Management Development Programme (MDP)'
+            }, {
+                value: 'Cranfield Leadership Programme',
+                label: 'Cranfield Leadership Programme'
+            }, {
+                value: 'Deloitte & Bespoke Learning',
+                label: 'Deloitte & Bespoke Learning'
+            }, {
+                value: 'Accelerate',
+                label: 'Accelerate'
             }
         ]
     },
     {
-        value: "Professional Training",
-        label: "Professional Training",
+        value: "Local Development Offer",
+        label: "Local Development Offer",
         children: [
             {
-                value: 'Option 1',
-                label: 'Option 1'
+                value: 'Compliance & SHEA',
+                label: 'Compliance & SHEA'
             },
             {
-                value: 'Option 1',
-                label: 'Option 1'
+                value: 'Trades and Technical ',
+                label: 'Trades and Technical '
             },
             {
-                value: 'Option 1',
-                label: 'Option 1'
-            }
-        ]
-    },
-    {
-        value: "SHEA Training",
-        label: "SHEA Training",
-        children: [
-            {
-                value: 'Option 1',
-                label: 'Option 1'
-            },
-            {
-                value: 'Option 1',
-                label: 'Option 1'
-            },
-            {
-                value: 'Option 1',
-                label: 'Option 1'
+                value: 'Professional Training  e.g. RICS, CIOB etc',
+                label: 'Professional Training  e.g. RICS, CIOB etc'
             }
         ]
     }

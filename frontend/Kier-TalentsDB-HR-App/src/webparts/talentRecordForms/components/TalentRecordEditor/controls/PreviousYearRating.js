@@ -27,16 +27,20 @@ var PreviousYearRating = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     PreviousYearRating.prototype.render = function () {
-        return (React.createElement(antd_1.Row, { gutter: 20 },
-            React.createElement(antd_1.Col, { span: 4 }, "Previous Year"),
-            React.createElement(antd_1.Col, { span: 10 },
-                React.createElement(FormItem_1.default, { label: "Performance" },
-                    React.createElement(SliderSelector_1.default, { items: this.props.store.LookupDataStore.PerformanceRatingLookupData, form: this.props.form, value: this.props.store.Talent.PreviousYear.Performance, controlId: "prevPerformance", validationMessage: "Please select a rating for the performance", changed: function () {
-                        }, formatter: this.props.store.LookupDataStore.formatPerformanceTip, disabled: true }))),
-            React.createElement(antd_1.Col, { span: 10 },
-                React.createElement(FormItem_1.default, { label: "Performance" },
-                    React.createElement(SliderSelector_1.default, { items: this.props.store.LookupDataStore.PotentialRatingLookupData, form: this.props.form, value: this.props.store.Talent.PreviousYear.Potential, controlId: "prevPerformance", validationMessage: "Please select a rating for the performance", changed: function () {
-                        }, formatter: this.props.store.LookupDataStore.formatPotentialTip, disabled: true })))));
+        return (React.createElement("div", null,
+            React.createElement(antd_1.Divider, { orientation: "left" }, "2017 Performance Rating"),
+            React.createElement(antd_1.Row, { gutter: 20 },
+                React.createElement(antd_1.Col, { span: 2 }),
+                React.createElement(antd_1.Col, { span: 15 },
+                    React.createElement(FormItem_1.default, { label: "Performance" },
+                        React.createElement(SliderSelector_1.default, { items: this.props.store.LookupDataStore.PerformanceRatingLookupData, form: this.props.form, value: this.props.store.Talent.PreviousYear.Performance, controlId: "prevPerformance", validationMessage: "Please select a rating for the performance", changed: function () {
+                            }, formatter: this.props.store.LookupDataStore.formatPerformanceTip, disabled: true, required: false })))),
+            React.createElement(antd_1.Row, { gutter: 20 },
+                React.createElement(antd_1.Col, { span: 2 }),
+                React.createElement(antd_1.Col, { span: 10 },
+                    React.createElement(FormItem_1.default, { label: "Performance" },
+                        React.createElement(SliderSelector_1.default, { items: this.props.store.LookupDataStore.PotentialRatingLookupData, form: this.props.form, value: this.props.store.Talent.PreviousYear.Potential, controlId: "prevPerformance", validationMessage: "Please select a rating for the performance", changed: function () {
+                            }, formatter: this.props.store.LookupDataStore.formatPotentialTip, disabled: true, required: false }))))));
     };
     PreviousYearRating = __decorate([
         mobx_react_1.observer,

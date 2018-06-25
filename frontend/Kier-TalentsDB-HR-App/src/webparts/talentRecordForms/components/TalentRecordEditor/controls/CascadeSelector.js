@@ -24,7 +24,7 @@ var CascadeSelector = /** @class */ (function (_super) {
     function CascadeSelector() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.BuildCascader = function () {
-            return (React.createElement(antd_1.Cascader, { options: _this.props.items, placeholder: _this.props.placeholder, onChange: _this.OnChange, size: "small" }));
+            return (React.createElement(antd_1.Cascader, { options: _this.props.items, placeholder: _this.props.placeholder, onChange: _this.OnChange, size: "small", changeOnSelect: true, disabled: _this.props.disabled }));
         };
         _this.OnChange = function (value) {
             _this.props.changed(value);
@@ -32,12 +32,12 @@ var CascadeSelector = /** @class */ (function (_super) {
         return _this;
     }
     CascadeSelector.prototype.render = function () {
-        var initialValue = (this.props.value) ? this.props.value : [];
-        var options = (this.props.value) ? {
+        var initialValue = (this.props.item) ? this.props.item : [];
+        var options = (this.props.item) ? {
             initialValue: initialValue,
-            rules: [{ required: true, message: this.props.validationMessage }]
+            rules: [{ required: this.props.required, message: this.props.validationMessage }]
         } : {
-            rules: [{ required: true, message: this.props.validationMessage }]
+            rules: [{ required: this.props.required, message: this.props.validationMessage }]
         };
         var element = this.props.form.getFieldDecorator(this.props.controlId, options)(this.BuildCascader());
         return element;

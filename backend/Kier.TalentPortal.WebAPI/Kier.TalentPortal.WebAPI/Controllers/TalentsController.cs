@@ -48,13 +48,13 @@ namespace Kier.TalentPortal.WebAPI.Controllers
             {
                 using (var ctx = SharePointOnlineHelper.GetElevatedContext())
                 {
-                    //LoadSecurityMatrix(talent, ctx);
+                    LoadSecurityMatrix(talent, ctx);
                     var list = ctx.Web.Lists.GetByTitle(ConfigurationManager.AppSettings["listName"]);
                     ListItemCreationInformation itemCreateInfo = new ListItemCreationInformation();
                     ListItem newItem = list.AddItem(itemCreateInfo);
                     newItem = Talent.ToSPListItem(talent, newItem);
                     newItem.Update();
-                    //SetPermissions(talent, newItem, ctx, this._roleDefinition);
+                    SetPermissions(talent, newItem, ctx, this._roleDefinition);
                     ctx.ExecuteQuery();
                 }
             }
@@ -121,12 +121,15 @@ namespace Kier.TalentPortal.WebAPI.Controllers
 
             using (var ctx = SharePointOnlineHelper.GetElevatedContext())
             {
+                LoadSecurityMatrix(talent, ctx);
                 var list = ctx.Web.Lists.GetByTitle(ConfigurationManager.AppSettings["listName"]);
                 var item = list.GetItemById(talent.Id);
                 ctx.ExecuteQuery();
 
                 item = Talent.ToSPListItem(talent, item);
                 item.Update();
+                item.ResetRoleInheritance();
+                SetPermissions(talent, item, ctx, this._roleDefinition);
                 ctx.ExecuteQuery();
             }
 

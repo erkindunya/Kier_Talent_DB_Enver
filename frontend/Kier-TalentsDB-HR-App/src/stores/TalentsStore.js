@@ -54,30 +54,41 @@ exports.PreviousYearRating = mobx_state_tree_1.types.model({
     By: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.string, ""),
     At: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.string, "")
 });
+exports.User = mobx_state_tree_1.types.model({
+    value: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.string, ""),
+    text: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.string, ""),
+    Surname: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.string, ""),
+    ForeName: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.string, "")
+});
 //Todo : need to add extra couple of fields CreatedBy and ModifiedBy
 exports.Talent = mobx_state_tree_1.types.model({
     Id: mobx_state_tree_1.types.maybe(mobx_state_tree_1.types.number),
     EmployeeId: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.string, ""),
-    Name: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.string, ""),
-    Manager: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.string, ""),
-    AreaHead: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.string, ""),
+    Name: mobx_state_tree_1.types.optional(exports.User, {}),
+    Manager: mobx_state_tree_1.types.optional(exports.User, {}),
+    AreaHead: mobx_state_tree_1.types.optional(exports.User, {}),
     Division: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.string, ""),
     Unit: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.string, ""),
     Stream: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.string, ""),
+    ReportingUnit: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.string, ""),
     Function: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.string, ""),
     Location: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.string, ""),
     Grade: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.string, ""),
     BusinessRisk: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.string, ""),
     FlightRisk: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.string, ""),
+    Gender: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.string, ""),
     Performance: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.string, ""),
     Potential: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.string, ""),
     Movement: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.string, ""),
     Requirements_01_category: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.string, ""),
     Requirements_01_subcategory: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.string, ""),
+    Requirements_01_title: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.string, ""),
     Requirements_02_category: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.string, ""),
     Requirements_02_subcategory: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.string, ""),
+    Requirements_02_title: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.string, ""),
     Notes: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.string, ""),
     IsCurrentSubmission: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.boolean, false),
+    IsLeaver: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.boolean, false),
     Position: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.string, ""),
     SubmissionYear: mobx_state_tree_1.types.optional(mobx_state_tree_1.types.number, 0),
     PreviousYear: mobx_state_tree_1.types.maybe(exports.PreviousYearRating)
@@ -90,28 +101,32 @@ exports.Talent = mobx_state_tree_1.types.model({
     };
     //Todo : think about the Person data . Do we need to include userId, Email and displayName
     var changeBusinessUnit = function (businessUnit) {
-        var _a = __read(businessUnit, 4), division = _a[0], stream = _a[1], unit = _a[2], location = _a[3];
+        var _a = __read(businessUnit, 5), division = _a[0], stream = _a[1], unit = _a[2], reportingUnit = _a[3], location = _a[4];
         self.Division = division;
         self.Stream = stream;
         self.Unit = unit;
+        self.ReportingUnit = reportingUnit;
         self.Location = location;
     };
     var changeDevelopmentRequirement01 = function (requirements) {
-        var _a = __read(requirements, 2), category = _a[0], subcategory = _a[1];
+        var _a = __read(requirements, 3), category = _a[0], subcategory = _a[1], title = _a[2];
         self.Requirements_01_category = category;
         self.Requirements_01_subcategory = subcategory;
+        self.Requirements_02_title = title;
     };
     var changeDevelopmentRequirement02 = function (requirements) {
-        var _a = __read(requirements, 2), category = _a[0], subcategory = _a[1];
+        var _a = __read(requirements, 3), category = _a[0], subcategory = _a[1], title = _a[2];
         self.Requirements_02_category = category;
         self.Requirements_02_subcategory = subcategory;
+        self.Requirements_02_title = title;
     };
     var changeFunction = function (newFunction) {
         self.Function = newFunction;
         //SetValueIfDifferent(self.BusinessFunction, newFunction)
     };
     var changeEmployeeName = function (newEmployeeKey) {
-        self.Name = newEmployeeKey;
+        self.Name.value = newEmployeeKey.key;
+        self.Name.text = newEmployeeKey.label;
     };
     var changeGrade = function (newGrade) {
         self.Grade = newGrade;
@@ -137,14 +152,22 @@ exports.Talent = mobx_state_tree_1.types.model({
     var changePerformanceRating = function (newRating) {
         self.Performance = newRating;
     };
+    var changeIsLeaverFlag = function (isLeaver) {
+        self.IsLeaver = isLeaver;
+    };
     var changeAreaHead = function (newHead) {
-        self.AreaHead = newHead;
+        self.AreaHead.value = newHead.key;
+        self.AreaHead.text = newHead.label;
     };
     var changeManager = function (newManager) {
-        self.Manager = newManager;
+        self.Manager.value = newManager.key;
+        self.Manager.text = newManager.label;
     };
     var changeNotes = function (notes) {
         self.Notes = notes;
+    };
+    var changeGender = function (gender) {
+        self.Gender = gender;
     };
     return {
         changeBusinessUnit: changeBusinessUnit,
@@ -162,14 +185,18 @@ exports.Talent = mobx_state_tree_1.types.model({
         changeEmployeeName: changeEmployeeName,
         changeAreaHead: changeAreaHead,
         changeManager: changeManager,
-        changeNotes: changeNotes
+        changeNotes: changeNotes,
+        changeIsLeaverFlag: changeIsLeaverFlag,
+        changeGender: changeGender
     };
 })
     .views(function (self) { return ({
     get BusinessUnits() {
         console.log("BusinessUnits: called");
-        var Division = self.Division, Unit = self.Unit, Stream = self.Stream, Location = self.Location;
-        var result = [Division, Unit, Stream, Location];
+        var Division = self.Division, Unit = self.Unit, Stream = self.Stream, ReportingUnit = self.ReportingUnit, Location = self.Location;
+        if (!Division)
+            return undefined;
+        var result = [Division, Stream, Unit, ReportingUnit, Location];
         console.log(result);
         return result;
     },
@@ -183,6 +210,9 @@ exports.Talent = mobx_state_tree_1.types.model({
     },
     get HasPreviousYearRating() {
         return (self.PreviousYear) ? true : false;
+    },
+    get FullName() {
+        return self.Name.Surname + ", " + self.Name.ForeName;
     }
 }); });
 var TalentsStore = mobx_state_tree_1.types.model({
@@ -224,11 +254,21 @@ var TalentsStore = mobx_state_tree_1.types.model({
         });
     });
     var SaveTalentRecord = function () {
-        axios_1.default.post(Constants_1.REST_API_URL, JSON.stringify(mobx_state_tree_1.getParent(self, 1).Talent), { headers: { 'content-type': 'application/json' } }).then(function (_) { return console.log("New Record Operation is done"); })
+        mobx_state_tree_1.getParent(self).SetIsSubmittingData(true);
+        axios_1.default.post(Constants_1.REST_API_URL, JSON.stringify(mobx_state_tree_1.getParent(self, 1).Talent), { headers: { 'content-type': 'application/json' } }).then(function (_) {
+            console.log("New Record Operation is done");
+            mobx_state_tree_1.getParent(self).SetIsSubmittingData(false);
+            window.location.href = Constants_1.Talent_List_Url;
+        })
             .catch(function (error) { return console.log(JSON.stringify(error, null, 4)); });
     };
     var UpdateTalentRecord = function () {
-        axios_1.default.put(Constants_1.REST_API_URL, JSON.stringify(mobx_state_tree_1.getParent(self, 1).Talent), { headers: { 'content-type': 'application/json' } }).then(function (_) { return console.log("New Record Operation is done"); })
+        mobx_state_tree_1.getParent(self).SetIsSubmittingData(true);
+        axios_1.default.put(Constants_1.REST_API_URL, JSON.stringify(mobx_state_tree_1.getParent(self, 1).Talent), { headers: { 'content-type': 'application/json' } }).then(function (_) {
+            console.log("Update Record Operation is done");
+            mobx_state_tree_1.getParent(self).SetIsSubmittingData(false);
+            window.location.href = Constants_1.Talent_List_Url;
+        })
             .catch(function (error) { return console.log(JSON.stringify(error, null, 4)); });
     };
     var GetTalentById = mobx_state_tree_1.flow(function GetTalentById(id, employeeId) {
@@ -253,6 +293,7 @@ var TalentsStore = mobx_state_tree_1.types.model({
                           applySnapshot(getParent(self, 1).Talent, talent);
                         else
                           getParent(self, 1).SetTalent(talent);*/
+                        console.log("previous year " + talent.PreviousYear);
                         console.log("Talent Record : " + JSON.stringify(talent, null, 4));
                     }
                     return [3 /*break*/, 4];
@@ -272,7 +313,7 @@ var TalentsStore = mobx_state_tree_1.types.model({
 }).actions(function (self) {
     var afterCreate = function () {
         console.log("Loading relevant Talent Records");
-        self.LoadAllTalents().then(function (_) { return console.log("Number of Loaded Talent Records :" + self.items.length); });
+        //self.LoadAllTalents().then(_ => console.log("Number of Loaded Talent Records :" + self.items.length));
     };
     return {
         afterCreate: afterCreate

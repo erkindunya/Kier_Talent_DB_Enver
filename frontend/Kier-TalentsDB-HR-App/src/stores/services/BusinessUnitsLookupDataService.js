@@ -36,14 +36,21 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var BusinessUnits_1 = require("./mockData/BusinessUnits");
+var axios_1 = require("axios");
+var Constants_1 = require("../Common/Constants");
 var BusinessUnitsLookupDataService = /** @class */ (function () {
     function BusinessUnitsLookupDataService() {
     }
     BusinessUnitsLookupDataService.prototype.GetAll = function () {
         return __awaiter(this, void 0, void 0, function () {
+            var result;
             return __generator(this, function (_a) {
-                //Todo : Implement the real data provider
-                return [2 /*return*/, []];
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, axios_1.default.get(Constants_1.BusinessUnitsLookup_API_URL)];
+                    case 1:
+                        result = _a.sent();
+                        return [2 /*return*/, result.data];
+                }
             });
         });
     };

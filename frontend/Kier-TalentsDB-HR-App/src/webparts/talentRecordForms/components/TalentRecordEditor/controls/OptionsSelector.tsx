@@ -26,9 +26,9 @@ export default class OptionsSelector extends React.Component<any, any> {
     const initialValue = (this.props.value) ? this.props.value : []
     const options = (this.props.value) ? {
       initialValue: initialValue,
-      rules: [{required: true, message: this.props.validationMessage}]
+      rules: [{required: this.props.required, message: this.props.validationMessage}]
     } : {
-      rules: [{required: true, message: this.props.validationMessage}]
+      rules: [{required: this.props.required, message: this.props.validationMessage}]
     }
 
     const element = this.props.form.getFieldDecorator(this.props.controlId, options)(this.buildSelector())
