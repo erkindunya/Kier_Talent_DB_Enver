@@ -187,7 +187,7 @@ namespace Kier.TalentPortal.SharedKernal.Models
             listItem[KTPConstants.Talent_Record_IsLeaver] = talent.IsLeaver;
             listItem[KTPConstants.Talent_Record_Is_Current_Submission] = talent.IsCurrentSubmission;
             //listItem[KTPConstants.Talent_Record_AreaHeadName] = talent.AreaHeadName;
-            //listItem[KTPConstants.Talent_Record_Manager_Name] = talent.ManagerName;
+            listItem[KTPConstants.Talent_Record_Manager_Name] = talent.ManagerName;
 
             listItem[KTPConstants.Talent_Record_Area_Head] = (talent.AreaHead != null) ? SharePointOnlineHelper.ResolveUser(talent.AreaHead.value) : null;
             if (talent.AreaHead != null)

@@ -59,7 +59,6 @@ export const LookupDataStore = types.model(
           return [
             {value: 'Now', label: 'Now'},
             {value: 'Soon', label: 'Soon'},
-            {value: 'Low', label: 'Low'},
             {value: 'Lateral', label: 'Lateral'}
           ];
         }

@@ -16,15 +16,15 @@ namespace Kier.TalentPortal.DummyDataGenerator
     {
         static void Main(string[] args)
         {
-            StreamReader sr = new StreamReader(@"C:\Dev\talent-portal-refresh\Kier_Talent_DB\Provisioning\Employee_Data_Without_Rating.csv");
+            StreamReader sr = new StreamReader(@"C:\Dev\talent-portal-refresh\Kier_Talent_DB\Provisioning\Test_Dummy_Data_2706.csv");
             var csv = new CsvReader(sr);
             csv.Read(); //Skip Header
             Console.WriteLine(DateTime.Now.ToLongTimeString());
             while (csv.Read())
             {
                 var employeeId = csv.GetField<string>(0);
-                var firstName = csv.GetField<string>(1);
-                var lastName = csv.GetField<string>(2);
+                var firstName = csv.GetField<string>(2);
+                var lastName = csv.GetField<string>(1);
                 var fullName = string.Concat(lastName + ", " + firstName);
                 var employeeEmail = csv.GetField<string>(3);
                 var gender = csv.GetField<string>(4);
@@ -34,31 +34,36 @@ namespace Kier.TalentPortal.DummyDataGenerator
                 var reportingUnit = csv.GetField<string>(8);
                 var position = csv.GetField<string>(9);
                 var grade = csv.GetField<string>(10);
-                var performance = csv.GetField<string>(11);
-                var potential = csv.GetField<string>(12);
-                var managerName = csv.GetField<string>(13);
-                var managerEmail = csv.GetField<string>(14);
-                var location = csv.GetField<string>(16);
-                var movement = csv.GetField<string>(17);
-                var flightRisk = csv.GetField<string>(18);
-                var businessRisk = csv.GetField<string>(19);                
-                var function = csv.GetField<string>(20);
+                var managerNametext = csv.GetField<string>(11);
+                var location = csv.GetField<string>(13);
+                var performance = csv.GetField<string>(14);
+                var potential = csv.GetField<string>(15);
+                var flightRisk = csv.GetField<string>(16);
+                var businessRisk = csv.GetField<string>(17);
+                var movement = csv.GetField<string>(18);
+                var function = csv.GetField<string>(19);
+                var managerEmail = csv.GetField<string>(20);
+                
+                
+                
+                
 
 
                 try
                 {
                     using (var ctx = SharePointOnlineHelper.GetElevatedContext())
                     {
-                        var talent = new Talent() {
+                        var talent = new Talent()
+                        {
                             EmployeeId = employeeId,
                             Name = new SharedKernal.Models.User() { value = employeeEmail, text = fullName },
-                            Manager = new SharedKernal.Models.User() { value = managerEmail, text = managerName },
+                            Manager = new SharedKernal.Models.User() { value = managerEmail, text = managerNametext },
                             Division = divison,
                             Stream = stream,
                             Unit = unit,
                             ReportingUnit = reportingUnit,
-                            
-                            
+                            ManagerName = managerNametext,
+
                             Function = function,
                             Grade = grade,
                             Location = location,
@@ -146,4 +151,32 @@ namespace Kier.TalentPortal.DummyDataGenerator
 
         }
     }
+    class DeletTestData
+    {
+        static void Main(string[] args)
+        {
+            using (var ctx = SharePointOnlineHelper.GetElevatedContext())
+            {
+                CamlQuery camlQuery = new CamlQuery();
+
+                camlQuery.ViewXml = "<View><Query><Where><Contains><FieldRef Name = 'KTPDivision'/><Value Type = 'Text'>Test Data</Value></Contains></Where></Query></View>";
+                var list = ctx.Web.Lists.GetByTitle("Talent Records");
+                var itemColl = list.GetItems(camlQuery);
+                ctx.Load(itemColl);
+                ctx.ExecuteQuery();
+                var count = itemColl.Count;
+                for (int i=0; i<itemColl.Count; i++)
+                {
+                    Console.WriteLine(itemColl[i]["KTPDivision"]);
+                    itemColl[i].DeleteObject();
+                    ctx.ExecuteQuery();
+                }
+                
+              
+
+            }
+        }
+
+    }
 }
+

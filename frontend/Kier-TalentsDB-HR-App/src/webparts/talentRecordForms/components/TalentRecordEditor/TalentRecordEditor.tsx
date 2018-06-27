@@ -206,11 +206,7 @@ class TalentRecordEditor extends React.Component<any, any> {
                     {getFieldDecorator('businessUnits', {
                       initialValue: this.props.store.Talent.BusinessUnits,
                       rules: [{
-                        required: true, message: "Business Units" +
-                        " cannot" +
-                        " be" +
-                        " left" +
-                        " blank"
+                        required: true, message: "Business unit cannot be left blank"
                       }]
                     })(
                       <CascadeSelector
@@ -218,7 +214,7 @@ class TalentRecordEditor extends React.Component<any, any> {
                         item={this.props.store.Talent.BusinessUnits}
                         form={this.props.form}
                         placeholder="Please select a business unit"
-                        validationMessage='Please select a business unit!'
+                        validationMessage='Business unit cannot be left blank.'
                         controlId="businessUnits"
                         changed={this.OnBuinsessUnitChange}
                         required={true}
